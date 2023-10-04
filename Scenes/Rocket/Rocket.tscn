@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://s52e4i1g7uky"]
+
+[ext_resource type="Script" path="res://Scenes/Rocket/Rocket.gd" id="1_8eebb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xmf7i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rei5t"]
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_8eebb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_xmf7i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_rei5t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
