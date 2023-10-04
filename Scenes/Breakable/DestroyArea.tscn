@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bra1ivnn006kp"]
+
+[ext_resource type="Script" path="res://Scenes/Breakable/DestroyArea.gd" id="1_qqd8k"]
+[ext_resource type="Script" path="res://addons/destruction/destruction.gd" id="2_6wx5u"]
+[ext_resource type="PackedScene" uid="uid://2nck07a67jm3" path="res://Scenes/Cube/FracturedCube.obj" id="3_yhqgu"]
+
+[node name="DestroyArea" type="Area3D"]
+script = ExtResource("1_qqd8k")
+
+[node name="Destruction" type="Node" parent="." node_paths=PackedStringArray("shard_container")]
+script = ExtResource("2_6wx5u")
+fragmented = ExtResource("3_yhqgu")
+shard_container = NodePath("")
+animation_length = 1.0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr18vgc3yj535"]
+
+[ext_resource type="ArrayMesh" uid="uid://c317hikqi4c1d" path="res://Scenes/Cube/Cube.obj" id="1_ks2ns"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iawi6"]
+albedo_color = Color(0.733333, 0.733333, 0.733333, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = ExtResource("1_ks2ns")
+surface_material_override/0 = SubResource("StandardMaterial3D_iawi6")
