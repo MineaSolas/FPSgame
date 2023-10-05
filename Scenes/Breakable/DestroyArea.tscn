@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://2nck07a67jm3" path="res://Scenes/Cube/FracturedCube.obj" id="3_yhqgu"]
 
 [node name="DestroyArea" type="Area3D"]
+collision_layer = 3
 script = ExtResource("1_qqd8k")
 
 [node name="Destruction" type="Node" parent="." node_paths=PackedStringArray("shard_container")]

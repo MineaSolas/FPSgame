@@ -24,6 +24,7 @@ size = Vector3(0.85, 0.25, 0.85)
 script = ExtResource("1_3m3nb")
 
 [node name="case" type="StaticBody3D" parent="."]
+collision_layer = 3
 
 [node name="caseMesh" type="CSGCombiner3D" parent="case"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
@@ -47,6 +48,7 @@ shape = SubResource("BoxShape3D_p3a66")
 
 [node name="plate" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, 0)
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="plate"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0)

@@ -16,6 +16,11 @@ func _physics_process(delta):
 	
 
 func _on_body_entered(_body):
+	if running: 
+		objectHit.emit(position)
 	running = false
-	objectHit.emit(position)
 	queue_free()
+
+func _on_area_entered(area):
+	if area.has_method("hit"):
+		area.hit()
