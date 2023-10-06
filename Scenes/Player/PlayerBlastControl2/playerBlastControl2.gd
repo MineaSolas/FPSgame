@@ -11,12 +11,13 @@ extends CharacterBody3D
 @export var reload_time = 0.5
 
 @export_group("Movement")
-@export var acceleration_ground = 20.0
+@export var acceleration_ground = 50.0
 @export var friction_ground = 20.0
-@export var acceleration_air = 5.0
-@export var friction_air = 5.0
+@export var acceleration_air = 7.0
+@export var friction_air = 2.0
 @export var max_speed = 5.0
-@export var jump_power = 5.0
+@export var jump_power = 6.0
+@export var sprint_speed = 1.4
 
 var mouseSensibility = 1200
 var mouse_relative_x = 0
@@ -26,9 +27,10 @@ var character_velocity = Vector3(0,0,0)
 var environment_velocity = Vector3(0,0,0)
 
 var can_shoot = true
+var sprint = 1.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.3
 
 func _ready():
 	#Captures mouse and stops rgun from hitting yourself
@@ -50,6 +52,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		acc = acceleration_air
 		friction = friction_air
+	elif Input.is_action_pressed("Sprint"):
+		sprint = sprint_speed
+	else:
+		sprint = 1.0
 		
 	if direction.x == 0: 
 		character_velocity.x = move_toward(character_velocity.x, 0, acc * delta)
@@ -63,7 +69,7 @@ func _physics_process(delta):
 	environment_velocity.x = move_toward(environment_velocity.x, 0, friction * delta)
 	environment_velocity.z = move_toward(environment_velocity.z, 0, friction * delta)
 	
-	var xz_character_velocity = Vector2(character_velocity.x, character_velocity.z).limit_length(max_speed)
+	var xz_character_velocity = Vector2(character_velocity.x, character_velocity.z).limit_length(max_speed) * sprint
 	character_velocity = Vector3(xz_character_velocity.x, character_velocity.y, xz_character_velocity.y)
 	
 	#print(character_velocity, environment_velocity)

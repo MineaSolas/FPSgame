@@ -1,0 +1,88 @@
+[gd_scene load_steps=15 format=3 uid="uid://5kdxohcdtq1y"]
+
+[ext_resource type="Script" path="res://Scenes/Turret/Turret.gd" id="1_qnfrw"]
+[ext_resource type="PackedScene" uid="uid://bjd1kxoxw30vq" path="res://Scenes/Turret/bullet.tscn" id="2_txy1k"]
+[ext_resource type="ArrayMesh" uid="uid://cdka0m13a2qh8" path="res://Scenes/Turret/TurretTop.obj" id="3_ps8i0"]
+[ext_resource type="ArrayMesh" uid="uid://ciqgyywkx7bq1" path="res://Scenes/Turret/TurretBottom.obj" id="4_5wlv8"]
+[ext_resource type="AudioStream" uid="uid://uyk04ro2ekc1" path="res://Scenes/Turret/beam-8-43831.mp3" id="5_v48wl"]
+[ext_resource type="AudioStream" uid="uid://c00xgj3f2pdsa" path="res://Scenes/Turret/mixkit-robotic-glitch-1035.wav" id="6_yncwp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbc2f"]
+albedo_color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kyol"]
+albedo_color = Color(0.329412, 0.329412, 0.329412, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1th7k"]
+albedo_color = Color(0.215686, 0, 1, 1)
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgtfp"]
+albedo_color = Color(0.137255, 0.137255, 0.137255, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3d50d"]
+albedo_color = Color(0.329412, 0.329412, 0.329412, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rpd6"]
+albedo_color = Color(0.329412, 0.329412, 0.329412, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rnv85"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_20v5n"]
+radius = 3.813
+
+[node name="Turret" type="Node3D"]
+script = ExtResource("1_qnfrw")
+bullet = ExtResource("2_txy1k")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="TurretBottom" type="MeshInstance3D" parent="CSGCombiner3D"]
+mesh = ExtResource("4_5wlv8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xbc2f")
+surface_material_override/1 = SubResource("StandardMaterial3D_7kyol")
+
+[node name="LookAt" type="Node3D" parent="CSGCombiner3D"]
+
+[node name="OuterRotateNode" type="Node3D" parent="CSGCombiner3D"]
+
+[node name="InnerRotateNode" type="Node3D" parent="CSGCombiner3D/OuterRotateNode"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Gun" type="MeshInstance3D" parent="CSGCombiner3D/OuterRotateNode/InnerRotateNode"]
+mesh = ExtResource("3_ps8i0")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1th7k")
+surface_material_override/1 = SubResource("StandardMaterial3D_kgtfp")
+surface_material_override/2 = SubResource("StandardMaterial3D_3d50d")
+surface_material_override/3 = SubResource("StandardMaterial3D_3rpd6")
+
+[node name="Muzzle" type="Marker3D" parent="CSGCombiner3D/OuterRotateNode/InnerRotateNode/Gun"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.30305, 1.86537, -0.00232416)
+
+[node name="ShootingSound" type="AudioStreamPlayer3D" parent="CSGCombiner3D/OuterRotateNode/InnerRotateNode/Gun/Muzzle"]
+stream = ExtResource("5_v48wl")
+
+[node name="TargetAcquiredSound" type="AudioStreamPlayer3D" parent="CSGCombiner3D/OuterRotateNode/InnerRotateNode/Gun/Muzzle"]
+stream = ExtResource("6_yncwp")
+
+[node name="Range" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Range"]
+shape = SubResource("SphereShape3D_rnv85")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_20v5n")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
