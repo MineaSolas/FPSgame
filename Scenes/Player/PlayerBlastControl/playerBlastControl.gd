@@ -45,6 +45,9 @@ func _physics_process(delta):
 		direction *= Vector3(velocity.x, 0, velocity.z).length()
 		velocity.x = direction.x
 		velocity.z = direction.z
+
+	# At the end of the level, use 'all_targets_hit' to check if all targets have been hit
+	print("All targets hit", all_targets_hit())
 	
 	move_and_slide()
 
@@ -76,3 +79,24 @@ func shoot():
 	# Callback when rocket hits object
 	var callable = Callable(self, "blast")
 	rocket_inst.connect("objectHit", callable, 0)
+
+	# Check if we hit a target
+	var collider = gunRay.get_collider() as Node3D
+	print("Collided with ", collider.name)
+	if collider.has_method("hit"):
+		print("Hit target!")
+		collider.hit()
+
+# Check if all targets in the node tree of the scene have been hit
+func all_targets_hit():
+	var scene = get_tree().current_scene
+	return _all_targets_hit(scene.get_children())
+
+# Recursively check if all targets in the node tree have been hit
+func _all_targets_hit(nodes: Array[Node]):
+	for node in nodes:
+		if node.has_method("has_been_hit") && node.has_been_hit() == false:
+				return false
+		if !_all_targets_hit(node.get_children()):
+			return false
+	return true

@@ -62,6 +62,7 @@ func _physics_process(delta):
 	check_kill_block_hits()
 	
 	# At the end of the level, use 'all_targets_hit' to check if all targets have been hit
+	print("All targets hit", all_targets_hit())
 
 	move_and_slide()
 	
@@ -89,7 +90,10 @@ func shoot():
 	print(gunRay.get_collision_point())
 	print(gunRay.get_collision_point()+gunRay.get_collision_normal())
 	# Check if we hit a target
-	check_target_hits()
+	var collider = gunRay.get_collider() as Node3D
+	print("Collided with", collider.name)
+	if collider.has_method("hit"):
+		collider.hit()
 
 # Check if the player hit a kill block and kill the player / reset the level
 func check_kill_block_hits():
@@ -99,14 +103,6 @@ func check_kill_block_hits():
 		if is_kill_block:
 			print("Player should be killed")
 
-# Check if the gun hit a target and mark the target as hit
-# Possible update of color/texture of node can be done to indicate the target has been hit
-func check_target_hits():
-	var collider = gunRay.get_collider() as Node3D
-	var is_target = collider.has_meta("target")
-	if is_target:
-		collider.set_meta("target_hit", true)
-
 # Check if all targets in the node tree of the scene have been hit
 func all_targets_hit():
 	var scene = get_tree().current_scene
@@ -115,9 +111,7 @@ func all_targets_hit():
 # Recursively check if all targets in the node tree have been hit
 func _all_targets_hit(nodes: Array[Node]):
 	for node in nodes:
-		var is_target = node.has_meta("target")
-		var is_hit = (node.get_meta("hit", false) == true) as bool
-		if is_target && !is_hit:
+		if node.has_method("has_been_hit") && node.has_been_hit() == false:
 				return false
 		if !_all_targets_hit(node.get_children()):
 			return false

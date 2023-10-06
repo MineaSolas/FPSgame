@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctahsvj88g1om"]
+[gd_scene load_steps=13 format=3 uid="uid://ctahsvj88g1om"]
 
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_ujgwk"]
 [ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="3_m1rsk"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="4_0y87f"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_i5d5b"]
+[ext_resource type="PackedScene" uid="uid://bij6pdlyqx8b7" path="res://Scenes/Target/Target.tscn" id="5_a15ef"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -32,6 +33,7 @@ albedo_color = Color(0.564706, 0.992157, 0.6, 1)
 albedo_color = Color(0.0901961, 1, 1, 1)
 
 [node name="Node3d" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11305, -0.230306, 5.07263)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_l5pxq")
@@ -54,7 +56,7 @@ block_color_group = 3
 block_style = 2
 
 [node name="BasicBlock" parent="." instance=ExtResource("1_ujgwk")]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 2.58247, 0, 0)
 
 [node name="BasicBlock2" parent="." instance=ExtResource("1_ujgwk")]
 transform = Transform3D(6.981, 0, 0, 0, 1, 0, 0, 0, 4.093, 5.58332, 0.908197, -22.4728)
@@ -95,3 +97,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -81.8)
 player_path = NodePath("../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_i5d5b")]
+
+[node name="target" parent="." instance=ExtResource("5_a15ef")]

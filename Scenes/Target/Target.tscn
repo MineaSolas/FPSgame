@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bij6pdlyqx8b7"]
+
+[ext_resource type="ArrayMesh" uid="uid://dxrtse6u1l074" path="res://assets/target.obj" id="1_frll0"]
+
+[sub_resource type="GDScript" id="GDScript_aqgqo"]
+script/source = "extends RigidBody3D
+
+signal hit_signal
+
+var _has_been_hit = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func hit():
+	if not _has_been_hit:
+		_has_been_hit = true
+		hit_signal.emit()
+
+func has_been_hit():
+	return _has_been_hit
+"
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vju28"]
+points = PackedVector3Array(-0.1, 0.282243, -0.875022, 0.1, 0.175091, 0.934552, 0.1, 0.291819, 0.905279, 0.1, -0.292002, -0.905279, -0.1, -0.875022, 0.282243, -0.1, 0.903318, 0.169239, 0.1, 0.876005, -0.379639, 0.1, -0.905598, 0.292105, -0.1, -0.169239, 0.903318, -0.1, -0.705606, -0.59278, 0.15, 0.218579, -0.410093, 0.1, -0.876314, -0.379773, 0.1, 0.876005, 0.379639, -0.1, 0.59278, 0.705606, 0.1, -0.613493, 0.730262, 0.15, -0.218579, 0.410093, 0.1, 0.379456, -0.876005, -0.1, 0.705606, -0.59278, 0.15, -0.410093, -0.21875, 0.15, 0.409921, 0.21875, -0.1, -0.169239, -0.903318, -0.1, -0.903318, -0.169239, -0.1, -0.705606, 0.59278, 0.0727857, -0.397068, 0.916222, 0.0726971, 0.762041, 0.640191, 0.0728079, 0.947298, -0.305555, 0.0726971, 0.640191, -0.762041, 0.1, -0.613493, -0.730262, 0.0728079, 0.305555, -0.947298, 0.0728079, 0.305555, 0.947298, -0.1, 0.282243, 0.875022, -0.1, 0.875022, -0.282243)
+
+[node name="target" type="Node2D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+script = SubResource("GDScript_aqgqo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = ExtResource("1_frll0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("ConvexPolygonShape3D_vju28")
