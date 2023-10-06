@@ -58,6 +58,11 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * AIR_INERTIA)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * AIR_INERTIA)
 	
+	# Check if we hit a kill block
+	check_kill_block_hits()
+	
+	# At the end of the level, use 'all_targets_hit' to check if all targets have been hit
+
 	move_and_slide()
 	
 	for i in get_slide_collision_count():
@@ -83,3 +88,37 @@ func shoot():
 	bulletInst.look_at((gunRay.get_collision_point()+gunRay.get_collision_normal()),Vector3.BACK)
 	print(gunRay.get_collision_point())
 	print(gunRay.get_collision_point()+gunRay.get_collision_normal())
+	# Check if we hit a target
+	check_target_hits()
+
+# Check if the player hit a kill block and kill the player / reset the level
+func check_kill_block_hits():
+	for index in range(get_slide_collision_count()):
+		var collision = get_slide_collision(index)
+		var is_kill_block = collision.get_collider().has_meta("kill_block")
+		if is_kill_block:
+			print("Player should be killed")
+
+# Check if the gun hit a target and mark the target as hit
+# Possible update of color/texture of node can be done to indicate the target has been hit
+func check_target_hits():
+	var collider = gunRay.get_collider() as Node3D
+	var is_target = collider.has_meta("target")
+	if is_target:
+		collider.set_meta("target_hit", true)
+
+# Check if all targets in the node tree of the scene have been hit
+func all_targets_hit():
+	var scene = get_tree().current_scene
+	return _all_targets_hit(scene.get_children())
+
+# Recursively check if all targets in the node tree have been hit
+func _all_targets_hit(nodes: Array[Node]):
+	for node in nodes:
+		var is_target = node.has_meta("target")
+		var is_hit = (node.get_meta("hit", false) == true) as bool
+		if is_target && !is_hit:
+				return false
+		if !_all_targets_hit(node.get_children()):
+			return false
+	return true
