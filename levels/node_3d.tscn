@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_ujgwk"]
 [ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="3_m1rsk"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="4_0y87f"]
-[ext_resource type="PackedScene" uid="uid://m8cu1c0oqvve" path="res://Scenes/Player/PlayerSimple/player.tscn" id="4_7pvwf"]
+[ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_i5d5b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -94,4 +94,4 @@ size = Vector3(17.6, 8.49, 7.32)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -81.8)
 player_path = NodePath("../../../Player")
 
-[node name="Player" parent="." instance=ExtResource("4_7pvwf")]
+[node name="Player" parent="." instance=ExtResource("4_i5d5b")]
