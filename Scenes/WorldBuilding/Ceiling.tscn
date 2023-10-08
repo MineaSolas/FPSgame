@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvskyf2hxcnot"]
+
+[ext_resource type="PackedScene" uid="uid://dok0hwp0ngopm" path="res://addons/corridors/CrossRoad/cieling_4_way.tscn" id="1_05tob"]
+[ext_resource type="PackedScene" uid="uid://boi14up1domu7" path="res://addons/corridors/CrossRoad/floor_open.tscn" id="2_v8ak1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06ukq"]
+size = Vector3(4, 0.4, 4)
+
+[node name="Ceiling" type="StaticBody3D"]
+
+[node name="Cieling_4way" parent="." instance=ExtResource("1_05tob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.001, 0)
+
+[node name="floor_open" parent="." instance=ExtResource("2_v8ak1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_06ukq")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.05, 0)
+light_energy = 0.5
+spot_range = 50.0
+spot_angle = 80.0

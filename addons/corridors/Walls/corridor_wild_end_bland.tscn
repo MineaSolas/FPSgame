@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsr1c0uuprxo"]
+
+[ext_resource type="Texture2D" uid="uid://cpdl4ndqllavn" path="res://addons/corridors/CorridorModel_Lighting Gradient.png" id="1_8m2hq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bcqb"]
+resource_name = "Ship Interiors"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_8m2hq")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2faih"]
+_surfaces = [{
+"aabb": AABB(-2, 0, -2.1, 4, 3, 0.0918937),
+"format": 4097,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 3, 0, 2, 0, 0, 0, 1, 0, 3, 0, 2, 0, 4, 0, 0, 0, 2, 0, 5, 0, 4, 0),
+"name": "Ship Interiors",
+"primitive": 3,
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 0, 192, 0, 0, 0, 0, 102, 102, 6, 192, 0, 0, 0, 192, 0, 0, 64, 64, 102, 102, 6, 192, 0, 0, 0, 64, 0, 0, 0, 0, 102, 102, 6, 192, 0, 0, 0, 64, 0, 0, 64, 64, 102, 102, 6, 192, 0, 0, 0, 192, 0, 0, 0, 0, 208, 132, 0, 192, 0, 0, 0, 64, 0, 0, 0, 0, 208, 132, 0, 192)
+}]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eple2"]
+resource_name = "CorridorModel_Cube"
+_surfaces = [{
+"aabb": AABB(-2, 0, -2.1, 4, 3, 0.0918937),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 62, 23, 87, 14, 63, 108, 68, 9, 63, 0, 0, 128, 62, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 0, 0, 23, 87, 14, 63, 48, 164, 52, 63, 0, 0, 128, 62, 0, 0, 0, 0, 0, 88, 13, 63, 108, 68, 9, 63, 4, 88, 13, 63, 48, 164, 52, 63),
+"format": 4119,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 5, 0, 3, 0, 0, 0, 2, 0, 5, 0, 4, 0, 6, 0, 1, 0, 4, 0, 7, 0, 6, 0),
+"material": SubResource("StandardMaterial3D_2bcqb"),
+"name": "Ship Interiors",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 192, 0, 0, 0, 0, 102, 102, 6, 192, 255, 127, 255, 127, 255, 127, 0, 0, 0, 0, 0, 192, 0, 0, 0, 0, 102, 102, 6, 192, 255, 127, 255, 255, 255, 255, 255, 255, 0, 0, 0, 192, 0, 0, 64, 64, 102, 102, 6, 192, 255, 127, 255, 127, 255, 127, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 102, 102, 6, 192, 255, 127, 255, 127, 255, 127, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 102, 102, 6, 192, 255, 127, 255, 255, 255, 255, 255, 255, 0, 0, 0, 64, 0, 0, 64, 64, 102, 102, 6, 192, 255, 127, 255, 127, 255, 127, 0, 0, 0, 0, 0, 192, 0, 0, 0, 0, 208, 132, 0, 192, 255, 127, 255, 255, 255, 255, 255, 255, 0, 0, 0, 64, 0, 0, 0, 0, 208, 132, 0, 192, 255, 127, 255, 255, 255, 255, 255, 255)
+}]
+shadow_mesh = SubResource("ArrayMesh_2faih")
+
+[node name="Corridor_WildEndBland" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = SubResource("ArrayMesh_eple2")
+skeleton = NodePath("")

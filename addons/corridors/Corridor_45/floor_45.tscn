@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://hlden3j1kgqb"]
+
+[ext_resource type="Material" uid="uid://cv3opj8v4jic8" path="res://addons/corridors/floors.tres" id="1_7emix"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a0yv8"]
+_surfaces = [{
+"aabb": AABB(-2, 0, -3.02128, 4.90714, 1e-05, 5.02128),
+"format": 4097,
+"index_count": 18,
+"index_data": PackedByteArray(6, 0, 1, 0, 7, 0, 6, 0, 3, 0, 1, 0, 2, 0, 5, 0, 0, 0, 2, 0, 4, 0, 5, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0),
+"name": "Ship Interiors",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 64, 160, 53, 161, 61, 0, 0, 0, 0, 186, 92, 65, 192, 160, 14, 58, 64, 0, 0, 0, 0, 104, 124, 69, 190, 44, 30, 185, 62, 0, 0, 0, 0, 162, 66, 47, 192, 0, 0, 0, 192, 0, 0, 0, 0, 205, 204, 204, 191, 240, 195, 41, 64, 0, 0, 0, 0, 176, 19, 229, 190, 0, 0, 0, 192, 0, 0, 0, 0, 133, 235, 209, 63)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_melao"]
+resource_name = "CorridorModel_Cube_037"
+_surfaces = [{
+"aabb": AABB(-2, 0, -3.02128, 4.90714, 1e-05, 5.02128),
+"attribute_data": PackedByteArray(254, 87, 55, 63, 232, 52, 52, 63, 254, 87, 55, 63, 168, 48, 8, 63, 190, 83, 11, 63, 232, 52, 52, 63, 190, 83, 11, 63, 168, 48, 8, 63, 190, 83, 11, 63, 22, 206, 47, 63, 254, 87, 55, 63, 22, 206, 47, 63, 190, 83, 11, 63, 206, 38, 12, 63, 254, 87, 55, 63, 206, 38, 12, 63),
+"format": 4119,
+"index_count": 18,
+"index_data": PackedByteArray(6, 0, 1, 0, 7, 0, 6, 0, 3, 0, 1, 0, 2, 0, 5, 0, 0, 0, 2, 0, 4, 0, 5, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0),
+"material": ExtResource("1_7emix"),
+"name": "Ship Interiors",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 192, 255, 127, 255, 255, 43, 42, 255, 191, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 64, 255, 127, 255, 255, 162, 39, 255, 191, 160, 53, 161, 61, 0, 0, 0, 0, 186, 92, 65, 192, 255, 127, 255, 255, 172, 41, 255, 191, 160, 14, 58, 64, 0, 0, 0, 0, 104, 124, 69, 190, 255, 127, 255, 255, 136, 39, 255, 191, 44, 30, 185, 62, 0, 0, 0, 0, 162, 66, 47, 192, 255, 127, 255, 255, 211, 40, 255, 191, 0, 0, 0, 192, 0, 0, 0, 0, 205, 204, 204, 191, 255, 127, 255, 255, 204, 41, 255, 191, 240, 195, 41, 64, 0, 0, 0, 0, 176, 19, 229, 190, 255, 127, 255, 255, 147, 39, 255, 191, 0, 0, 0, 192, 0, 0, 0, 0, 133, 235, 209, 63, 255, 127, 255, 255, 245, 39, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a0yv8")
+
+[node name="floor_45" type="MeshInstance3D"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
+mesh = SubResource("ArrayMesh_melao")
+skeleton = NodePath("")

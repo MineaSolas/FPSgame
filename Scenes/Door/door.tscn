@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bdj8pagstco62"]
 
-[ext_resource type="PackedScene" uid="uid://dcge1upnddc2" path="res://addons/corridors/corridor_door.tscn" id="1_5rifa"]
+[ext_resource type="PackedScene" uid="uid://dcge1upnddc2" path="res://addons/corridors/Doors/corridor_door.tscn" id="1_5rifa"]
 [ext_resource type="Script" path="res://Scenes/Door/door.gd" id="1_ttcm7"]
-[ext_resource type="PackedScene" uid="uid://cugngjagm5tvy" path="res://addons/corridors/door_left_teal.tscn" id="2_7faog"]
-[ext_resource type="PackedScene" uid="uid://bhk52ymicy1yi" path="res://addons/corridors/door_right_teal.tscn" id="3_wc4to"]
+[ext_resource type="PackedScene" uid="uid://cugngjagm5tvy" path="res://addons/corridors/Doors/door_left_teal.tscn" id="2_7faog"]
+[ext_resource type="PackedScene" uid="uid://bhk52ymicy1yi" path="res://addons/corridors/Doors/door_right_teal.tscn" id="3_wc4to"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gm30s"]
 size = Vector3(4, 0.65, 0.5)

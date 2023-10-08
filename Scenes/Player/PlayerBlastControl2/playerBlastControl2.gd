@@ -7,14 +7,14 @@ extends CharacterBody3D
 @export var _bullet_scene : PackedScene
 @export var _blast_curve : Curve
 @export var _blast_radius = 5
-@export var _blast_power = 12
+@export var _blast_power = 8
 @export var reload_time = 0.5
 
 @export_group("Movement")
-@export var acceleration_ground = 30.0
+@export var acceleration_ground = 35.0
 @export var friction_ground = 20.0
 @export var acceleration_air = 5.0
-@export var friction_air = 5.0
+@export var friction_air = 2.0
 @export var max_speed_ground = 5.0
 @export var max_speed_air = 3.5
 @export var jump_power = 5.0
@@ -70,9 +70,14 @@ func _physics_process(delta):
 	character_velocity = Vector3(xz_character_velocity.x, character_velocity.y, xz_character_velocity.y)
 	
 	#print(character_velocity, environment_velocity)
-	
+		
 	velocity = character_velocity + environment_velocity
+	
 	move_and_slide()
+	
+	if is_on_ceiling():
+		environment_velocity.y = 0
+		character_velocity.y = 0
 	
 	# Add the gravity.
 	if is_on_floor():

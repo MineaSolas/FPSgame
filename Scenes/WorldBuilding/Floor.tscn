@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqkf1y32m634r"]
+
+[ext_resource type="PackedScene" uid="uid://boi14up1domu7" path="res://addons/corridors/CrossRoad/floor_open.tscn" id="1_q2dn1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y401g"]
+size = Vector3(4, 0.1, 4)
+
+[node name="Floor" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="floor_open" parent="." instance=ExtResource("1_q2dn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+
+[node name="floor_open2" parent="." instance=ExtResource("1_q2dn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.101, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049, 0)
+shape = SubResource("BoxShape3D_y401g")

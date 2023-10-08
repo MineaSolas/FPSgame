@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://4tt2dcnglxik"]
+
+[ext_resource type="PackedScene" uid="uid://ce5eqnj4jdupm" path="res://addons/corridors/Walls/corridor_window.tscn" id="1_6od7l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wj7l"]
+size = Vector3(4, 0.6, 1.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q6oxi"]
+size = Vector3(0.8, 3, 1.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_koraj"]
+size = Vector3(0.3, 0.3, 1.4)
+
+[node name="Window" type="StaticBody3D"]
+
+[node name="Corridor_Window" parent="." instance=ExtResource("1_6od7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8)
+
+[node name="Corridor_Window2" parent="." instance=ExtResource("1_6od7l")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -2.8)
+
+[node name="top" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, 0)
+shape = SubResource("BoxShape3D_4wj7l")
+
+[node name="side" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 1.5, 0)
+shape = SubResource("BoxShape3D_q6oxi")
+
+[node name="side2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 1.5, 0)
+shape = SubResource("BoxShape3D_q6oxi")
+
+[node name="bottom" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_4wj7l")
+
+[node name="corner" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -1.2, 2.4, 0)
+shape = SubResource("BoxShape3D_koraj")
+
+[node name="corner2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 1.2, 2.4, 0)
+shape = SubResource("BoxShape3D_koraj")
+
+[node name="corner3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 1.2, 0.6, 0)
+shape = SubResource("BoxShape3D_koraj")
+
+[node name="corner4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -1.2, 0.6, 0)
+shape = SubResource("BoxShape3D_koraj")
