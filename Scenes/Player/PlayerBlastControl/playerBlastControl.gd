@@ -100,3 +100,6 @@ func _all_targets_hit(nodes: Array[Node]):
 		if !_all_targets_hit(node.get_children()):
 			return false
 	return true
+
+func hit():
+	print("HIT")
