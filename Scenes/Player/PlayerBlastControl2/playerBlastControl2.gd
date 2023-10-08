@@ -7,11 +7,11 @@ extends CharacterBody3D
 @export var _bullet_scene : PackedScene
 @export var _blast_curve : Curve
 @export var _blast_radius = 5
-@export var _blast_power = 8
+@export var _blast_power = 12
 @export var reload_time = 0.5
 
 @export_group("Movement")
-@export var acceleration_ground = 20.0
+@export var acceleration_ground = 30.0
 @export var friction_ground = 20.0
 @export var acceleration_air = 5.0
 @export var friction_air = 5.0
@@ -19,7 +19,7 @@ extends CharacterBody3D
 @export var max_speed_air = 3.5
 @export var jump_power = 5.0
 
-var mouseSensibility = 1200
+var mouse_sensitivity = 1200
 var mouse_relative_x = 0
 var mouse_relative_y = 0
 
@@ -86,8 +86,8 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotation.y -= event.relative.x / mouseSensibility
-		$Head/Camera3d.rotation.x -= event.relative.y / mouseSensibility
+		rotation.y -= event.relative.x / mouse_sensitivity
+		$Head/Camera3d.rotation.x -= event.relative.y / mouse_sensitivity
 		$Head/Camera3d.rotation.x = clamp($Head/Camera3d.rotation.x, deg_to_rad(-90), deg_to_rad(90) )
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 10)
@@ -119,10 +119,6 @@ func shoot():
 
 	# Check if we hit a target
 	var collider = gunRay.get_collider() as Node3D
-	if collider != null:
-		print("Collided with ", collider.name)
-		if collider.has_method("hit"):
-			print("Hit target!")
-			collider.hit()
-	else:
-		print("No collider")
+	if collider != null && collider.has_method("hit"):
+		print("Hit target!")
+		collider.hit()
