@@ -15,7 +15,8 @@ extends CharacterBody3D
 @export var friction_ground = 20.0
 @export var acceleration_air = 5.0
 @export var friction_air = 5.0
-@export var max_speed = 5.0
+@export var max_speed_ground = 5.0
+@export var max_speed_air = 3.5
 @export var jump_power = 5.0
 
 var mouseSensibility = 1200
@@ -47,9 +48,11 @@ func _physics_process(delta):
 	
 	var acc = acceleration_ground
 	var friction = friction_ground
+	var max_speed = max_speed_ground
 	if not is_on_floor():
 		acc = acceleration_air
 		friction = friction_air
+		max_speed = max_speed_air
 		
 	if direction.x == 0: 
 		character_velocity.x = move_toward(character_velocity.x, 0, acc * delta)

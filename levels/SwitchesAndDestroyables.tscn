@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cuh53hxjiwq8w"]
+[gd_scene load_steps=23 format=3 uid="uid://cuh53hxjiwq8w"]
 
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="2_yq8w6"]
 [ext_resource type="PackedScene" uid="uid://dh8eyj7t6u7do" path="res://Scenes/Switch/Switch.tscn" id="3_7hqrh"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dqqygnugcatol" path="res://Scenes/PressurePlate/PressurePlate.tscn" id="11_y6j8j"]
 [ext_resource type="PackedScene" uid="uid://bdj8pagstco62" path="res://Scenes/Door/door.tscn" id="12_ejom7"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="12_mgw8e"]
-[ext_resource type="Script" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd" id="13_i5lwm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -178,16 +177,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.16496, 0.6, -1.89001)
 
 [node name="Player" parent="." instance=ExtResource("12_mgw8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62562, 0)
-script = ExtResource("13_i5lwm")
-_blast_radius = 5
-_blast_power = 8
-reload_time = 0.5
-acceleration_ground = 20.0
-friction_ground = 20.0
-acceleration_air = 5.0
-friction_air = 5.0
-max_speed = 5.0
-jump_power = 5.0
 
 [node name="Blocks" type="Node3D" parent="."]
 

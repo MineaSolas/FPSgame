@@ -1,17 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://bru6ysxn1me4l"]
 
-[ext_resource type="Script" path="res://Scenes/Player/PlayerBlastControl/playerBlastControl.gd" id="1_m3i7o"]
+[ext_resource type="Script" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd" id="1_hfbay"]
 [ext_resource type="PackedScene" uid="uid://s52e4i1g7uky" path="res://Scenes/Rocket/Rocket.tscn" id="2_weh6g"]
-[ext_resource type="Curve" uid="uid://c1rdg4kbquoyv" path="res://Scenes/Player/BlastCurveTest.tres" id="3_belql"]
+
+[sub_resource type="Curve" id="Curve_4m14c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.824176, 0.905263), -0.432598, -0.432598, 0, 0, Vector2(1, 0.473684), -3.64001, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6b3ky"]
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_m3i7o")
+script = ExtResource("1_hfbay")
 _bullet_scene = ExtResource("2_weh6g")
-_blast_curve = ExtResource("3_belql")
+_blast_curve = SubResource("Curve_4m14c")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_emkox")
