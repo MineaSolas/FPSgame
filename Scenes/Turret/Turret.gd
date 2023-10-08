@@ -8,6 +8,8 @@ var reloaded = false
 var target_position = Vector3()
 var new_bullet
 var timelerped = 0
+var broken = false
+var HP = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
