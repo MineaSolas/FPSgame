@@ -2,18 +2,17 @@ extends StaticBody3D
 
 signal hit_signal
 
-@export var has_been_hit = false
+@onready var target_mesh: MeshInstance3D = $MeshInstance3D
+@onready var mesh_target_hit = load("res://assets/target_hit.obj")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@export var has_been_hit = false :
+	set(value):
+		has_been_hit = value
+		print("Updating target mesh")
+		target_mesh.mesh = mesh_target_hit
+		print("Updated target mesh")
+		hit_signal.emit()
 
 func hit():
 	if not has_been_hit:
 		has_been_hit = true
-		hit_signal.emit()
