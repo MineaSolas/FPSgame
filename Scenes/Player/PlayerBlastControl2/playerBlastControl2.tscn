@@ -23,7 +23,7 @@ mesh = SubResource("CapsuleMesh_6b3ky")
 [node name="Head" type="Node3D" parent="."]
 
 [node name="Camera3d" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468479, -0.463024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468479, -0.420795)
 fov = 95.0
 
 [node name="RayCast3d" type="RayCast3D" parent="Head/Camera3d"]
