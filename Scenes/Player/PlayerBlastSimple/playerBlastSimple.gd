@@ -63,7 +63,7 @@ func blast(blast_pos):
 
 func shoot():
 	# Spawn Rocket
-	var rocket_spawn = get_global_position()
+	var rocket_spawn = position
 	var rocket_inst = _bullet_scene.instantiate()
 	get_parent().add_child(rocket_inst)
 	
