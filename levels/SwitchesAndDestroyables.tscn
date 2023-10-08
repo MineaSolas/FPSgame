@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cuh53hxjiwq8w"]
+[gd_scene load_steps=24 format=3 uid="uid://cuh53hxjiwq8w"]
 
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="2_yq8w6"]
 [ext_resource type="PackedScene" uid="uid://dh8eyj7t6u7do" path="res://Scenes/Switch/Switch.tscn" id="3_7hqrh"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dqqygnugcatol" path="res://Scenes/PressurePlate/PressurePlate.tscn" id="11_y6j8j"]
 [ext_resource type="PackedScene" uid="uid://bdj8pagstco62" path="res://Scenes/Door/door.tscn" id="12_ejom7"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="12_mgw8e"]
+[ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="13_6wi77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -297,6 +298,9 @@ block_style = 2
 transform = Transform3D(2.794, 0, 0, 0, 1, 0, 0, 0, 5, 65, 1, 1)
 block_color_group = 1
 block_style = 2
+
+[node name="Target" parent="." instance=ExtResource("13_6wi77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4222, 1.63615, 0)
 
 [connection signal="switched_on" from="Switch" to="Door" method="open"]
 [connection signal="switched_on" from="Switch2" to="Switch3" method="_on_pair_switched_on"]
