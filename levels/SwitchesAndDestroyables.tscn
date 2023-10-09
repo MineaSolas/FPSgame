@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cuh53hxjiwq8w"]
+[gd_scene load_steps=30 format=3 uid="uid://cuh53hxjiwq8w"]
 
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="2_yq8w6"]
 [ext_resource type="PackedScene" uid="uid://dh8eyj7t6u7do" path="res://Scenes/Switch/Switch.tscn" id="3_7hqrh"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="15_j1jdi"]
 [ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="16_sjraw"]
 [ext_resource type="PackedScene" uid="uid://bvskyf2hxcnot" path="res://Scenes/WorldBuilding/Ceiling.tscn" id="17_vpket"]
+[ext_resource type="PackedScene" uid="uid://5kdxohcdtq1y" path="res://Scenes/Turret/turret.tscn" id="20_al26a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -420,6 +421,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 9, 16)
 
 [node name="Building@Ceiling@Ceiling13" parent="Building@Walls" instance=ExtResource("17_vpket")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 9, 16)
+
+[node name="Turret" parent="." instance=ExtResource("20_al26a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75549, 0.5, -27.2278)
 
 [connection signal="switched_on" from="Switches/Switch" to="Switches/Door" method="open"]
 [connection signal="switched_on" from="Switches/Switch2" to="Switches/Switch3" method="_on_pair_switched_on"]

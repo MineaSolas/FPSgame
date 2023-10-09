@@ -4,6 +4,7 @@ var player = null
 # state is initially IDLE
 var state = IDLE
 var home_position
+var reloaded = true
 
 enum {ENGAGING, ALERT, IDLE}
 
@@ -15,13 +16,17 @@ const LENIENCE = 2.0
 @export var engaged_detector_radius : float
 @export var alert_detector_radius : float
 @export var sight_distance : float
+@export var bullet : PackedScene
 
 @onready var nav_agent =  $NavigationAgent3D
 @onready var engaged_detector = $EngagedDetector
 @onready var alert_detector = $AlertDetector
 @onready var sight = $Sight
 
+
+
 func _ready():
+	$Timer.start()
 	player = get_node(player_path)
 	home_position = global_position
 	
@@ -38,7 +43,7 @@ func _physics_process(delta):
 	
 	if can_see_player():
 			state = ENGAGING
-			print("state = ENGAGING")
+			#print("state = ENGAGING")
 	
 	if state == ENGAGING:
 		if can_see_player():
@@ -49,10 +54,14 @@ func _physics_process(delta):
 				move_towards_target(player.global_position)
 		else:
 			move_towards_target(player.global_position)
-
+		
 		# does enemy need to be able to look up and down as well? Currently they do not.
 		look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
-	
+		if reloaded:
+			print("test")
+			shoot()
+			$Timer.start()
+			reloaded = false
 	if state == ALERT:
 		# does enemy need to be able to look up and down as well? Currently they do not.
 		look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
@@ -74,6 +83,14 @@ func move_towards_target(target):
 	var next_nav_point = nav_agent.get_next_path_position()
 	velocity = (next_nav_point - global_position).normalized() * SPEED
 
+func shoot():
+	var new_bullet = bullet.instantiate()
+	new_bullet.muzzle_velocity = 12
+	get_parent().add_child(new_bullet)
+	new_bullet.global_transform = global_transform
+	print(new_bullet.global_transform)
+	#print(new_bullet.velocity)
+
 # If-check might be somewhat redundant at the moment because collision mask is also set to only player's layer.
 func _on_alert_detector_body_entered(body):
 	if body.name == "Player":
@@ -89,3 +106,7 @@ func _on_engaged_detector_body_exited(body):
 	if body.name == "Player":
 		state = ALERT
 		print("state = ALERT")
+
+
+func _on_timer_timeout():
+	reloaded = true

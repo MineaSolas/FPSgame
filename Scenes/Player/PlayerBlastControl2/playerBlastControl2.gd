@@ -3,6 +3,8 @@ extends CharacterBody3D
 @onready var gunRay = $Head/Camera3d/RayCast3d as RayCast3D
 @onready var Cam = $Head/Camera3d as Camera3D
 
+@export var HP = 3
+
 @export_group("Bullets")
 @export var _bullet_scene : PackedScene
 @export var _blast_curve : Curve
@@ -127,3 +129,15 @@ func shoot():
 	if collider != null && collider.has_method("hit"):
 		print("Hit target!")
 		collider.hit()
+
+func hit():
+	HP -= 1
+	if HP == 0:
+		death()
+	print("HIT")
+	
+func death():
+	print("You are dead!")
+	#TODO: Teleport to start of level (Marker3D at start?)
+	HP = 3
+	
