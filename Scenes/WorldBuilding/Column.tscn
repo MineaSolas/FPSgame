@@ -1,19 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfmwf2lx7ps72"]
 
+[ext_resource type="Material" uid="uid://b5is4ebouu8uu" path="res://assets/DetailMaterial.tres" id="1_1lsjd"]
+
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8tj2q"]
 height = 3.0
 radius = 0.23
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocusq"]
-albedo_color = Color(0.545098, 0.835294, 0.835294, 1)
-
 [node name="Column" type="StaticBody3D"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_8tj2q")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-material_override = SubResource("StandardMaterial3D_ocusq")
+material_override = ExtResource("1_1lsjd")
 radius = 0.2
 height = 3.0
 smooth_faces = false

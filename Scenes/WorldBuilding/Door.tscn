@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://chpkklg8cwdxq"]
+
+[ext_resource type="Script" path="res://Scenes/WorldBuilding/Door.gd" id="1_3ipln"]
+[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/WallMaterial.tres" id="2_q5l8g"]
+[ext_resource type="Material" uid="uid://b5is4ebouu8uu" path="res://assets/DetailMaterial.tres" id="3_aus7q"]
+[ext_resource type="PackedScene" uid="uid://cugngjagm5tvy" path="res://addons/corridors/Doors/door_left_teal.tscn" id="4_2oa23"]
+[ext_resource type="PackedScene" uid="uid://bhk52ymicy1yi" path="res://addons/corridors/Doors/door_right_teal.tscn" id="5_tjam5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gm30s"]
+size = Vector3(4, 0.6, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgm78"]
+size = Vector3(1.1, 3, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m68eg"]
+size = Vector3(1.1, 3, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tffrt"]
+size = Vector3(1.1, 3, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rdbvg"]
+size = Vector3(4, 0.6, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_06esq"]
+size = Vector3(0.2, 2.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8cmsh"]
+size = Vector3(0.2, 1.84, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_57dko"]
+size = Vector3(1.3, 2.4, 0.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ifvgm"]
+size = Vector3(1.3, 2.4, 0.15)
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_3ipln")
+animation_speed = 2.0
+
+[node name="wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, -0.3)
+shape = SubResource("BoxShape3D_gm30s")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1.5, -0.3)
+shape = SubResource("BoxShape3D_xgm78")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.5, -0.3)
+shape = SubResource("BoxShape3D_m68eg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 1.5, -0.3)
+mesh = SubResource("BoxMesh_tffrt")
+surface_material_override/0 = ExtResource("2_q5l8g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45, 1.5, -0.3)
+mesh = SubResource("BoxMesh_tffrt")
+surface_material_override/0 = ExtResource("2_q5l8g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, -0.3)
+mesh = SubResource("BoxMesh_rdbvg")
+surface_material_override/0 = ExtResource("2_q5l8g")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(0.997564, 0.0697565, 0, -0.0697565, 0.997564, 0, 0, 0, 1, -0.9, 1.24, -0.3)
+mesh = SubResource("BoxMesh_06esq")
+surface_material_override/0 = ExtResource("3_aus7q")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(-0.997564, -0.0697565, -8.74228e-08, -0.0697565, 0.997564, 0, 8.72098e-08, 6.0983e-09, -1, 0.9, 1.24, -0.3)
+mesh = SubResource("BoxMesh_06esq")
+surface_material_override/0 = ExtResource("3_aus7q")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 2.5, -0.3)
+mesh = SubResource("BoxMesh_8cmsh")
+surface_material_override/0 = ExtResource("3_aus7q")
+
+[node name="left_door" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+collision_layer = 3
+
+[node name="DoorLeft_Teal" parent="left_door" instance=ExtResource("4_2oa23")]
+transform = Transform3D(1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, 1, 0, 0, 2)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="left_door"]
+transform = Transform3D(1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, 1, -0.45, 1.2, -0.3)
+shape = SubResource("BoxShape3D_57dko")
+
+[node name="right_door" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+collision_mask = 3
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="right_door"]
+transform = Transform3D(1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, 1, 0.45, 1.2, -0.3)
+shape = SubResource("BoxShape3D_ifvgm")
+
+[node name="Door_Right_Teal" parent="right_door" instance=ExtResource("5_tjam5")]
+transform = Transform3D(1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, 1, 0, 0, 2)
