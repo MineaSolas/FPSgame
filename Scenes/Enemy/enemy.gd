@@ -46,15 +46,14 @@ func _ready():
 	
 	sight.target_position.z = sight_distance
 
-func _physics_process(delta):
+func _process(delta):
 	velocity = Vector3.ZERO
 	
 	if can_see_player():
 		state = ENGAGING
-	if global_position.distance_to(home_position) > 1  and state != ENGAGING and state != ALERT:
+	if !is_at_home()  and state != ENGAGING and state != ALERT:
 		state = RETURNING
-	if global_position.distance_to(home_position) < 1 and state == RETURNING:
-		print("we got home!")
+	if is_at_home() and state == RETURNING:
 		global_position = home_position
 		state = IDLE
 	
@@ -98,13 +97,8 @@ func target_is_in_range(range):
 func can_see_player():
 	return sight.is_colliding() and sight.get_collider().name == "Player"
 
-func needs_to_go_home():
-	if state == IDLE and home_position != global_position:
-		state = RETURNING
-		print("state = RETURNING")
-	elif state == RETURNING and home_position == global_position:
-		state = IDLE
-		print("state = IDLE")
+func is_at_home():
+	return global_position.distance_to(home_position) < 1
 
 func move_towards_target(target):
 	nav_agent.set_target_position(target)
