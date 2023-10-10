@@ -1,12 +1,20 @@
 extends Label
 
 var health = 3
-const STARTING_HEALTH = 3
+var max_health = 3
+
+func set_health(new_health):
+	health = new_health
+	max_health = new_health
+	update_health()
 
 func on_hit():
 	health -= 1
-	text = "lives: %s" % health
+	update_health()
 
 func reset():
-	health = STARTING_HEALTH
-	text = "lives: %s" % health
+	health = max_health
+	update_health()
+
+func update_health():
+	text = "health: %s" % health

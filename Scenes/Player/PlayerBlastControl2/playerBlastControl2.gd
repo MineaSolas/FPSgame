@@ -37,6 +37,7 @@ func _ready():
 	#Captures mouse and stops rgun from hitting yourself
 	gunRay.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$"../UI/Health".set_health(HP)
 
 func _physics_process(delta):
 	# Handle Shooting
@@ -139,9 +140,9 @@ func hit():
 	
 func death():
 	print("You are dead!")
-	#TODO: Teleport to start of level (Marker3D at start?)
-	$"../UI/Health".reset()
-	HP = 3
+	#TODO: Teleport to start of level (Marker3D at start?) => doesnt reset enemies and destructible blocks and targets etc
+	#TODO: Maybe add save point functionality? eg via autoload or orphan node when reloading that stores which savepoint player reached and puts them there at start
+	get_tree().reload_current_scene()
 	
 func _on_heal_zone_body_entered(body):
 	$"../UI/Health".reset()

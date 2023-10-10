@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_4of6h"]
 [ext_resource type="Script" path="res://levels/LimitedAmmoPlayer.gd" id="5_jx370"]
 [ext_resource type="PackedScene" uid="uid://5kdxohcdtq1y" path="res://Scenes/Turret/turret.tscn" id="6_g4rqn"]
-[ext_resource type="Script" path="res://levels/Health.gd" id="7_civsy"]
+[ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="8_8hwkr"]
 [ext_resource type="Script" path="res://levels/Ammo.gd" id="10_0afud"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
@@ -174,18 +174,15 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Health" type="Label" parent="UI"]
+[node name="Health" parent="UI" instance=ExtResource("8_8hwkr")]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 574.0
-offset_right = 161.0
-offset_bottom = 632.0
-theme_override_font_sizes/font_size = 40
-text = "Lives : 3"
-script = ExtResource("7_civsy")
+offset_left = 18.0
+offset_top = 573.0
+offset_right = 200.0
+offset_bottom = 631.0
+text = "Health : 3"
 
 [node name="Ammo" type="Label" parent="UI"]
-visible = false
 layout_mode = 0
 offset_left = 916.0
 offset_top = 572.0
