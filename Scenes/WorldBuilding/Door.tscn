@@ -96,7 +96,7 @@ shape = SubResource("BoxShape3D_57dko")
 
 [node name="right_door" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
-collision_mask = 3
+collision_layer = 3
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="right_door"]
 transform = Transform3D(1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, 1, 0.45, 1.2, -0.3)
