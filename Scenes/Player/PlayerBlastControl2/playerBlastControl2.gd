@@ -132,6 +132,7 @@ func shoot():
 
 func hit():
 	HP -= 1
+	$"../UI/Health".on_hit()
 	if HP == 0:
 		death()
 	print("HIT")
@@ -139,5 +140,9 @@ func hit():
 func death():
 	print("You are dead!")
 	#TODO: Teleport to start of level (Marker3D at start?)
+	$"../UI/Health".reset()
 	HP = 3
 	
+func _on_heal_zone_body_entered(body):
+	$"../UI/Health".reset()
+	HP = 3

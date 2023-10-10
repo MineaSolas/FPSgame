@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2j7qjoschorp"]
+[gd_scene load_steps=22 format=3 uid="uid://d2j7qjoschorp"]
 
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_oqkel"]
 [ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="2_t3wa3"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_etgme"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_4of6h"]
 [ext_resource type="PackedScene" uid="uid://5kdxohcdtq1y" path="res://Scenes/Turret/turret.tscn" id="6_g4rqn"]
+[ext_resource type="Script" path="res://levels/Health.gd" id="7_civsy"]
+[ext_resource type="Script" path="res://levels/Ammo.gd" id="10_0afud"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -40,7 +42,67 @@ _data = {
 }
 point_count = 5
 
-[node name="LimiredAmmo" type="Node3D"]
+[sub_resource type="GDScript" id="GDScript_6u84b"]
+resource_name = "LimitedAmmoPlayer"
+script/source = "extends \"res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd\"
+
+var bullets
+var max_bullets = 20
+
+func _ready():
+	bullets = max_bullets
+	$\"../UI/Ammo\".set_bullet_counts(max_bullets)
+	$\"../UI/Ammo\".show()
+	super._ready()
+	
+
+func shoot():
+	if bullets <= 0:
+		return
+	can_shoot = false
+	bullets -= 1
+	$\"../UI/Ammo\".on_shoot()
+	
+	# Spawn Rocket
+	var rocket_spawn = position
+	var rocket_inst = _bullet_scene.instantiate()
+	get_parent().add_child(rocket_inst)
+	
+	# Pos = player Pos. Shoots towards looking direction
+	rocket_inst.position = rocket_spawn
+	rocket_inst.rotation.y = rotation.y
+	rocket_inst.rotation.x = $Head/Camera3d.rotation.x - PI/2
+	
+	# Callback when rocket hits object
+	var callable = Callable(self, \"blast\")
+	rocket_inst.connect(\"objectHit\", callable, 0)
+	
+	await get_tree().create_timer(reload_time).timeout
+	can_shoot = true
+
+	# Check if we hit a target
+	var collider = gunRay.get_collider() as Node3D
+	if collider != null && collider.has_method(\"hit\"):
+		print(\"Hit target!\")
+		collider.hit()
+
+func _on_bullet_refill_body_entered(body):
+	bullets = max_bullets
+	$\"../UI/Ammo\".on_refill()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vjrnw"]
+size = Vector3(3.87609, 4.51704, 3.74611)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lvmr2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdxoy"]
+albedo_color = Color(1, 0.431373, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl1yf"]
+albedo_color = Color(0.866667, 0.537255, 0.239216, 1)
+
+[node name="LimitedAmmo" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11305, -0.230306, 5.07263)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -120,6 +182,7 @@ player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19565, -45.2947)
+script = SubResource("GDScript_6u84b")
 
 [node name="Target" parent="." instance=ExtResource("5_4of6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
@@ -128,3 +191,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -13.5606)
 
 [node name="Bullets" type="Node3D" parent="."]
+
+[node name="HealZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.97351, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HealZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86073, 0.0616088)
+shape = SubResource("BoxShape3D_vjrnw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HealZone"]
+transform = Transform3D(3.75, 0, 0, 0, 3.75, 0, 0, 0, 3.75, 0.0207608, 0.662425, 0.0820637)
+mesh = SubResource("BoxMesh_lvmr2")
+surface_material_override/0 = SubResource("StandardMaterial3D_xdxoy")
+
+[node name="BulletRefill" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29108, -1.97351, 3.83876)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BulletRefill"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86073, 0.0616088)
+shape = SubResource("BoxShape3D_vjrnw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BulletRefill"]
+transform = Transform3D(3.75, 0, 0, 0, 3.75, 0, 0, 0, 3.75, 0.0207608, 0.662425, 0.0820637)
+mesh = SubResource("BoxMesh_lvmr2")
+surface_material_override/0 = SubResource("StandardMaterial3D_yl1yf")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Health" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 574.0
+offset_right = 161.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 40
+text = "Lives : 3"
+script = ExtResource("7_civsy")
+
+[node name="Ammo" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 916.0
+offset_top = 572.0
+offset_right = 1145.0
+offset_bottom = 624.0
+theme_override_font_sizes/font_size = 35
+text = "Bullets: 10/10"
+script = ExtResource("10_0afud")
+
+[connection signal="body_entered" from="HealZone" to="Player" method="_on_heal_zone_body_entered"]
+[connection signal="body_entered" from="BulletRefill" to="Player" method="_on_bullet_refill_body_entered"]
