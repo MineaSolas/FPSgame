@@ -1,14 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2j7qjoschorp"]
+[gd_scene load_steps=23 format=3 uid="uid://d2j7qjoschorp"]
 
-[ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_oqkel"]
-[ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="2_t3wa3"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="3_wpixk"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_etgme"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_4of6h"]
 [ext_resource type="Script" path="res://levels/LimitedAmmoPlayer.gd" id="5_jx370"]
-[ext_resource type="PackedScene" uid="uid://5kdxohcdtq1y" path="res://Scenes/Turret/turret.tscn" id="6_g4rqn"]
 [ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="8_8hwkr"]
+[ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_xy1w5"]
+[ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="9_fxnbq"]
+[ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="9_yis3m"]
 [ext_resource type="Script" path="res://levels/Ammo.gd" id="10_0afud"]
+[ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="10_1vm0a"]
+[ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="10_4acjy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -19,11 +21,6 @@ sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
 background_mode = 2
 background_color = Color(0.2139, 0.570975, 0.69, 1)
 sky = SubResource("Sky_ivwug")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gtf0"]
-albedo_texture = ExtResource("2_t3wa3")
-uv1_scale = Vector3(3, 3, 3)
-uv1_triplanar = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_r2k81"]
 vertices = PackedVector3Array(0, 0.705, -73.76, 0, 0.705, -75.51, -1.5, 0.705, -76.51, -9, 0.705, -73.76, -24, 0.705, -87.76, -20.25, 0.705, -87.76, -19.25, 0.705, -89.26, -24, 0.705, -94.01, -12, 0.705, -100.26, -17, 0.705, -88.51, -17, 0.705, -87.26, -0.75, 0.705, -78.76, 0, 0.705, -78.76, 0, 0.705, -100.26, -24, 0.705, -94.01, -19.25, 0.705, -89.26, -17.75, 0.705, -89.26, -12, 0.705, -100.26, -24, 0.705, -100.26, -12, 0.705, -100.26, -17.75, 0.705, -89.26, -17, 0.705, -88.51, -9, 0.705, -73.76, -1.5, 0.705, -76.51, -1.5, 0.705, -78.01, -9, 0.705, -73.76, -1.5, 0.705, -78.01, -0.75, 0.705, -78.76, -17, 0.705, -87.26, 1.5, 0.705, -76.51, 0, 0.705, -75.51, 0, 0.705, -73.76, 9.25, 0.705, -73.76, 9.25, 0.705, -73.76, 24, 0.705, -78.51, 24, 0.705, -85.76, 12, 0.705, -100.26, 0, 0.705, -100.26, 0.75, 0.705, -78.76, 1.5, 0.705, -78.01, 1.5, 0.705, -76.51, 9.25, 0.705, -73.76, 0.75, 0.705, -78.76, 1.5, 0.705, -78.01, 9.25, 0.705, -73.76, 24, 0.705, -93.01, 24, 0.705, -100.26, 12, 0.705, -100.26, 10, 0.705, -73.01, 10, 0.705, -71.01, 24, 0.705, -71.01, 9.25, 0.705, -73.76, 10, 0.705, -73.01, 24, 0.705, -71.01, 24, 0.705, -78.51, 0, 0.705, -100.26, 0, 0.705, -78.76, 0.75, 0.705, -78.76, 24, 0.705, -85.76, 24, 0.705, -93.01, 12, 0.705, -100.26, -19, 0.705, -86.01, -20.25, 0.705, -87.76, -24, 0.705, -87.76, -24, 0.705, -79.51, -9, 0.705, -73.76, -17, 0.705, -87.26, -18, 0.705, -86.01, -18, 0.705, -86.01, -19, 0.705, -86.01, -24, 0.705, -79.51, -24, 0.705, -71.01, -10, 0.705, -73.01, -9, 0.705, -73.76, -24, 0.705, -71.01, -10, 0.705, -71.01, -10, 0.705, -73.01, -8, 8.205, -71.76, -8, 8.205, -66.26, 0, 8.205, -66.26, 0, 8.205, -71.76, 8, 8.205, -71.76, 0, 8.205, -71.76, 0, 8.205, -66.26, 8, 8.205, -66.26, -7.75, 0.705, -71.51, -7.75, 0.705, -66.51, 0, 0.705, -66.51, 0, 0.705, -71.51, 7.75, 0.705, -71.51, 0, 0.705, -71.51, 0, 0.705, -66.51, 7.75, 0.705, -66.51, -24, 0.705, -67.01, -10, 0.705, -67.01, -10, 0.705, -71.01, -24, 0.705, -71.01, 10, 0.705, -67.01, 24, 0.705, -67.01, 24, 0.705, -71.01, 10, 0.705, -71.01, -24, 0.705, -59.76, -24, 0.705, -52.26, -15.75, 0.705, -52.26, -7.25, 0.705, -52.26, -7.25, 0.705, -64.26, -9.25, 0.705, -64.26, -7.25, 0.705, -52.26, -9.25, 0.705, -64.26, -10, 0.705, -65.01, -15.75, 0.705, -52.26, -10, 0.705, -65.01, -10, 0.705, -67.01, -24, 0.705, -67.01, -24, 0.705, -59.76, -15.75, 0.705, -52.26, 15.5, 0.705, -52.26, 24, 0.705, -52.26, 24, 0.705, -59.76, 9.25, 0.705, -64.26, 7.25, 0.705, -64.26, 7.25, 0.705, -52.26, 10, 0.705, -65.01, 9.25, 0.705, -64.26, 7.25, 0.705, -52.26, 15.5, 0.705, -52.26, 24, 0.705, -67.01, 10, 0.705, -67.01, 10, 0.705, -65.01, 15.5, 0.705, -52.26, 24, 0.705, -59.76, 0, 0.705, -52.26, 7.25, 0.705, -52.26, 7.25, 0.705, -64.26, 0, 0.705, -64.26, 0, 0.705, -64.26, -7.25, 0.705, -64.26, -7.25, 0.705, -52.26, 0, 0.705, -52.26)
@@ -54,24 +51,11 @@ albedo_color = Color(1, 0.431373, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl1yf"]
 albedo_color = Color(0.866667, 0.537255, 0.239216, 1)
 
-[sub_resource type="Animation" id="Animation_xx06j"]
-resource_name = "death"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvi5f"]
-_data = {
-"death": SubResource("Animation_xx06j")
-}
-
 [node name="LimitedAmmo" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11305, -0.230306, 5.07263)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_l5pxq")
-
-[node name="BasicBlock4" parent="." instance=ExtResource("1_oqkel")]
-transform = Transform3D(9.10803, 0, 0, 0, 1, 0, 0, 0, 9, 6.49497, 2.07954, -31.5179)
-block_color_group = 1
-block_style = 2
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
@@ -79,30 +63,6 @@ light_energy = 1.232
 light_indirect_energy = 0.884
 light_volumetric_fog_energy = 0.768
 shadow_enabled = true
-
-[node name="BasicBlock3" parent="." instance=ExtResource("1_oqkel")]
-transform = Transform3D(2, 0, 0, 0, 20, 0, 0, 0, 30, 12.0086, 2.95161, -0.0307474)
-block_color_group = 3
-block_style = 2
-
-[node name="BasicBlock" parent="." instance=ExtResource("1_oqkel")]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 2.58247, 0, 0)
-
-[node name="BasicBlock2" parent="." instance=ExtResource("1_oqkel")]
-transform = Transform3D(6.981, 0, 0, 0, 1, 0, 0, 0, 4.093, 5.58332, 0.908197, -22.4728)
-block_color_group = 1
-block_style = 2
-
-[node name="CsgPolygon3d" type="CSGPolygon3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.06623, 0.523835, 0.0135)
-use_collision = true
-polygon = PackedVector2Array(0, 0, 0, 1, 0, 1, 1, 0)
-material = SubResource("StandardMaterial3D_2gtf0")
-
-[node name="BasicBlock5" parent="." instance=ExtResource("1_oqkel")]
-transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, -13.0662, 2.84246, -1.36987)
-block_color_group = 1
-block_style = 2
 
 [node name="EnemyTracking" type="Node3D" parent="."]
 
@@ -141,18 +101,12 @@ map_path = NodePath("../../../../..")
 player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19565, -45.2947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.396631, 28.3864)
 script = ExtResource("5_jx370")
-HP = 1
-
-[node name="Target" parent="." instance=ExtResource("5_4of6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
-
-[node name="Turret" parent="." instance=ExtResource("6_g4rqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -13.5606)
+HP = 4
 
 [node name="HealZone" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.97351, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6461, -1.97351, -23.1792)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HealZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86073, 0.0616088)
@@ -164,7 +118,7 @@ mesh = SubResource("BoxMesh_lvmr2")
 surface_material_override/0 = SubResource("StandardMaterial3D_xdxoy")
 
 [node name="BulletRefill" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29108, -1.97351, 3.83876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3475, -1.97351, -14.0078)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BulletRefill"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86073, 0.0616088)
@@ -199,10 +153,57 @@ theme_override_font_sizes/font_size = 35
 text = "Bullets: 10/10"
 script = ExtResource("10_0afud")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
-libraries = {
-"": SubResource("AnimationLibrary_rvi5f")
-}
+[node name="Sector1" type="Node3D" parent="."]
+
+[node name="Door" parent="Sector1" instance=ExtResource("9_yis3m")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -37)
+
+[node name="Map" type="Node3D" parent="Sector1"]
+
+[node name="WallThin" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(0.85, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, -37)
+
+[node name="WallThin2" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(0.85, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -37)
+
+[node name="WallThin3" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, -17)
+
+[node name="WallThin4" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -17)
+
+[node name="WallThin5" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, -10)
+
+[node name="WallThin6" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -10)
+
+[node name="Building" parent="Sector1/Map" instance=ExtResource("9_fxnbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.309)
+
+[node name="Corridor" parent="Sector1/Map" instance=ExtResource("10_4acjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.352)
+
+[node name="Corridor2" parent="Sector1/Map" instance=ExtResource("10_4acjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.648)
+
+[node name="Corridor3" parent="Sector1/Map" instance=ExtResource("10_4acjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.648)
+
+[node name="Floor" parent="Sector1/Map" instance=ExtResource("8_xy1w5")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Floor2" parent="Sector1/Map" instance=ExtResource("8_xy1w5")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -27)
+
+[node name="Target" parent="Sector1" instance=ExtResource("5_4of6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -24)
+
+[node name="Target2" parent="Sector1" instance=ExtResource("5_4of6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
+
+[node name="Target3" parent="Sector1" instance=ExtResource("5_4of6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
 
 [connection signal="body_entered" from="HealZone" to="Player" method="_on_heal_zone_body_entered"]
 [connection signal="body_entered" from="BulletRefill" to="Player" method="_on_bullet_refill_body_entered"]
