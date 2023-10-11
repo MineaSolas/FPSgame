@@ -1,16 +1,19 @@
-[gd_scene load_steps=23 format=3 uid="uid://d2j7qjoschorp"]
+[gd_scene load_steps=26 format=3 uid="uid://d2j7qjoschorp"]
 
+[ext_resource type="Script" path="res://Scenes/Player/LimitedAmmoPlayer.gd" id="3_hdiv3"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="3_wpixk"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_etgme"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_4of6h"]
-[ext_resource type="Script" path="res://levels/LimitedAmmoPlayer.gd" id="5_jx370"]
+[ext_resource type="Script" path="res://levels/Sector1.gd" id="6_jsb2r"]
 [ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="8_8hwkr"]
+[ext_resource type="Script" path="res://Scenes/WorldBuilding/Door.gd" id="8_mhw8h"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_xy1w5"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="9_fxnbq"]
 [ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="9_yis3m"]
 [ext_resource type="Script" path="res://levels/Ammo.gd" id="10_0afud"]
 [ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="10_1vm0a"]
 [ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="10_4acjy"]
+[ext_resource type="PackedScene" uid="uid://hv7st8vce7xw" path="res://Scenes/Target/MovingTarget/MovingTarget.tscn" id="12_m2e6e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -65,6 +68,7 @@ light_volumetric_fog_energy = 0.768
 shadow_enabled = true
 
 [node name="EnemyTracking" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 0, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="EnemyTracking"]
 navigation_mesh = SubResource("NavigationMesh_r2k81")
@@ -101,8 +105,8 @@ map_path = NodePath("../../../../..")
 player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.396631, -56.6136)
-script = ExtResource("5_jx370")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.396631, -2.04207)
+script = ExtResource("3_hdiv3")
 HP = 4
 has_health = true
 
@@ -155,9 +159,12 @@ text = "Bullets: 10/10"
 script = ExtResource("10_0afud")
 
 [node name="Sector1" type="Node3D" parent="."]
+script = ExtResource("6_jsb2r")
 
 [node name="Door" parent="Sector1" instance=ExtResource("9_yis3m")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -37)
+script = ExtResource("8_mhw8h")
+animation_speed = 1.8
 
 [node name="Map" type="Node3D" parent="Sector1"]
 
@@ -197,14 +204,47 @@ transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 [node name="Floor2" parent="Sector1/Map" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -27)
 
-[node name="Target" parent="Sector1" instance=ExtResource("5_4of6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -24)
+[node name="Floor3" parent="Sector1/Map" instance=ExtResource("8_xy1w5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -28)
 
 [node name="Target2" parent="Sector1" instance=ExtResource("5_4of6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -14, 4, -5)
 
 [node name="Target3" parent="Sector1" instance=ExtResource("5_4of6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 8, 2, 1)
+
+[node name="MovingTarget2" parent="Sector1" instance=ExtResource("12_m2e6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -31)
+
+[node name="MovingTarget3" parent="Sector1" instance=ExtResource("12_m2e6e")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20, 1, -28)
+
+[node name="Connections" type="Node3D" parent="."]
+
+[node name="Sector12" type="Node3D" parent="Connections"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49)
+
+[node name="Corridor2" parent="Connections/Sector12" instance=ExtResource("10_4acjy")]
+transform = Transform3D(-3.78552e-08, -0.5, -0.866025, -2.18557e-08, 0.866025, -0.5, 1, 0, -4.37114e-08, 8, 1, 0)
+
+[node name="Corridor3" parent="Connections/Sector12" instance=ExtResource("10_4acjy")]
+transform = Transform3D(-3.78552e-08, -0.5, -0.866025, -2.18557e-08, 0.866025, -0.5, 1, 0, -4.37114e-08, 11.5, 3, 0)
+
+[node name="Corridor4" parent="Connections/Sector12" instance=ExtResource("10_4acjy")]
+transform = Transform3D(-3.78552e-08, -0.5, -0.866025, -2.18557e-08, 0.866025, -0.5, 1, 0, -4.37114e-08, 15, 5, 0)
+
+[node name="Corridor" parent="Connections/Sector12" instance=ExtResource("10_4acjy")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 9)
+
+[node name="Floor" parent="Connections/Sector12" instance=ExtResource("8_xy1w5")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Floor2" parent="Connections/Sector12" instance=ExtResource("8_xy1w5")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 22.9, 6, 0)
 
 [connection signal="body_entered" from="HealZone" to="Player" method="_on_heal_zone_body_entered"]
 [connection signal="body_entered" from="BulletRefill" to="Player" method="_on_bullet_refill_body_entered"]
+[connection signal="hit_signal" from="Sector1/Target2" to="Sector1" method="_on_target_2_hit_signal"]
+[connection signal="hit_signal" from="Sector1/Target3" to="Sector1" method="_on_target_3_hit_signal"]
+[connection signal="hit_signal" from="Sector1/MovingTarget2" to="Sector1" method="_on_moving_target_2_hit_signal"]
+[connection signal="hit_signal" from="Sector1/MovingTarget3" to="Sector1" method="_on_moving_target_3_hit_signal"]
