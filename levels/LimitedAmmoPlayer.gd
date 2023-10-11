@@ -37,10 +37,12 @@ func shoot():
 	# Check if we hit a target
 	var collider = gunRay.get_collider() as Node3D
 	if collider != null && collider.has_method("hit"):
-		$"../UI/Targets".on_target_hit()
 		print("Hit target!")
 		collider.hit()
 
 func _on_bullet_refill_body_entered(body):
 	bullets = max_bullets
 	$"../UI/Ammo".on_refill()
+
+func _on_target_hit_signal():
+	$"../UI/Targets".on_target_hit()

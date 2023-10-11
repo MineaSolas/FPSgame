@@ -204,5 +204,6 @@ theme_override_font_sizes/font_size = 20
 text = "Targets: 0/0"
 script = ExtResource("10_7ibr5")
 
+[connection signal="hit_signal" from="Target" to="Player" method="_on_target_hit_signal"]
 [connection signal="body_entered" from="HealZone" to="Player" method="_on_heal_zone_body_entered"]
 [connection signal="body_entered" from="BulletRefill" to="Player" method="_on_bullet_refill_body_entered"]
