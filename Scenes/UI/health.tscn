@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fn3g7p4oqlet"]
 
-[ext_resource type="Script" path="res://levels/Health.gd" id="1_xxrm8"]
+[ext_resource type="Script" path="res://ui/Health.gd" id="1_xxrm8"]
 
 [node name="Health" type="Label"]
 offset_left = 11.0

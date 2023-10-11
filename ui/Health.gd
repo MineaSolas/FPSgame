@@ -17,4 +17,4 @@ func reset():
 	update_health()
 
 func update_health():
-	text = "health: %s" % health
+	text = "♥".repeat(health)

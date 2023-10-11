@@ -37,6 +37,7 @@ func shoot():
 	# Check if we hit a target
 	var collider = gunRay.get_collider() as Node3D
 	if collider != null && collider.has_method("hit"):
+		$"../UI/Targets".on_target_hit()
 		print("Hit target!")
 		collider.hit()
 

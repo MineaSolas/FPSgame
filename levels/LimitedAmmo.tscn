@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2j7qjoschorp"]
+[gd_scene load_steps=23 format=3 uid="uid://b381m6v1lw8nw"]
 
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_oqkel"]
 [ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="2_t3wa3"]
@@ -8,7 +8,8 @@
 [ext_resource type="Script" path="res://levels/LimitedAmmoPlayer.gd" id="5_jx370"]
 [ext_resource type="PackedScene" uid="uid://5kdxohcdtq1y" path="res://Scenes/Turret/turret.tscn" id="6_g4rqn"]
 [ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="8_8hwkr"]
-[ext_resource type="Script" path="res://levels/Ammo.gd" id="10_0afud"]
+[ext_resource type="Script" path="res://ui/Ammo.gd" id="9_qpi15"]
+[ext_resource type="Script" path="res://ui/Targets.gd" id="10_7ibr5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -176,21 +177,32 @@ offset_bottom = 40.0
 
 [node name="Health" parent="UI" instance=ExtResource("8_8hwkr")]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 573.0
-offset_right = 200.0
-offset_bottom = 631.0
+offset_left = 10.0
+offset_top = 13.0
+offset_right = 192.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 20
 text = "Health : 3"
 
 [node name="Ammo" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 916.0
-offset_top = 572.0
-offset_right = 1145.0
-offset_bottom = 624.0
-theme_override_font_sizes/font_size = 35
+offset_left = 10.0
+offset_top = 65.0
+offset_right = 141.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 20
 text = "Bullets: 10/10"
-script = ExtResource("10_0afud")
+script = ExtResource("9_qpi15")
+
+[node name="Targets" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 124.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 20
+text = "Targets: 0/0"
+script = ExtResource("10_7ibr5")
 
 [connection signal="body_entered" from="HealZone" to="Player" method="_on_heal_zone_body_entered"]
 [connection signal="body_entered" from="BulletRefill" to="Player" method="_on_bullet_refill_body_entered"]
