@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://b46vhbv0q2710"]
+
+[ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="1_q0ksb"]
+[ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="2_7okda"]
+[ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="3_xuq6m"]
+[ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="4_7ecve"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vfhbg"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_vfhbg")
+
+[sub_resource type="Environment" id="Environment_wftqi"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+sky = SubResource("Sky_ivwug")
+
+[node name="Buildings" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wftqi")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.966349, 0.250904, -0.056709, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
+light_energy = 1.232
+light_indirect_energy = 0.884
+light_volumetric_fog_energy = 0.768
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_q0ksb")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.5, 7.07855)
+
+[node name="WorldFloor" parent="." instance=ExtResource("2_7okda")]
+transform = Transform3D(300, 0, 0, 0, 1, 0, 0, 0, 300, 0, 0, 0)
+
+[node name="Building" parent="." instance=ExtResource("3_xuq6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 15.309)
+
+[node name="Box" parent="." instance=ExtResource("4_7ecve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 5)
+
+[node name="Box2" parent="." instance=ExtResource("4_7ecve")]
+transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 4, 4, 2, 1)
+
+[node name="Box3" parent="." instance=ExtResource("4_7ecve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 7)
+edge_visibility = [true, true, true, true, true, true, true, true, false, false, false, false]
