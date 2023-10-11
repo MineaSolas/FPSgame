@@ -1,0 +1,231 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0wjj3pqhhixc"]
+
+[ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="1_4ava0"]
+[ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="2_vpey1"]
+[ext_resource type="PackedScene" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="3_enewl"]
+[ext_resource type="PackedScene" uid="uid://c3ramhslgsjiw" path="res://Scenes/DeathZone/DeathZone.tscn" id="4_516kx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u3xba"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_u3xba")
+
+[sub_resource type="Environment" id="Environment_kw5mr"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+sky = SubResource("Sky_ivwug")
+
+[node name="AdvancedPlatforming" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4ava0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 0, -0.707107, 0.707107, 0.707107, -0.5, -0.5, 50, 50, -50)
+visible = false
+light_energy = 3.0
+
+[node name="Level1" type="Node3D" parent="."]
+
+[node name="BasicBlock5" parent="Level1" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 2.5, 0, 0, 0, 4, -0.957259, 6.68335, -10.6633)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock7" parent="Level1" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 2.5, 0, 0, 0, 4, 3.96923, 6.68335, -22.0733)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock6" parent="Level1" instance=ExtResource("2_vpey1")]
+transform = Transform3D(25, 0, 0, 0, 7.5, 0, 0, 0, 8, 0, 3.75, 0)
+block_color_group = 1
+block_style = 2
+
+[node name="GlassWall" parent="Level1" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, 0, 10, 0, 7.5, 0, -0.1, 0, -4.37114e-07, 1.26623, 9.19662, -16.3864)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level1"]
+environment = SubResource("Environment_kw5mr")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="Level1"]
+transform = Transform3D(-0.373311, 0.753258, 0.541517, 0.182362, -0.512743, 0.838951, 0.909606, 0.411942, 0.0540471, 55.1742, 93.3671, -109.348)
+light_energy = 1.232
+light_indirect_energy = 0.884
+light_volumetric_fog_energy = 0.768
+shadow_enabled = true
+
+[node name="DeathZone" parent="Level1" instance=ExtResource("4_516kx")]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0.390797, 0.0764656, -17.4428)
+reset_position = Vector3(0, 9, 0)
+
+[node name="WalledPlatform" type="Node3D" parent="Level1"]
+
+[node name="BasicBlock8" parent="Level1/WalledPlatform" instance=ExtResource("2_vpey1")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 5, -4.25495, 6.68335, -32.6042)
+block_color_group = 1
+block_style = 2
+
+[node name="GlassWall2" parent="Level1/WalledPlatform" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, 0, 5, 0, 10, 0, -0.1, 0, -2.18557e-07, -4.2699, 12.7813, -35.1756)
+
+[node name="GlassWall4" parent="Level1/WalledPlatform" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, 0, 5, 0, 10, 0, -0.1, 0, -2.18557e-07, -4.2699, 12.7813, -30.079)
+
+[node name="GlassWall3" parent="Level1/WalledPlatform" instance=ExtResource("3_enewl")]
+transform = Transform3D(0.1, 0, 0, 0, 10, 0, 0, 0, 5, -6.76, 12.781, -32.633)
+
+[node name="GlassWall5" parent="Level1/WalledPlatform" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, -5, 0, 0.1, -2.18557e-07, 0, 0, 0, 5, -4.26317, 17.7817, -32.633)
+
+[node name="Level2" type="Node3D" parent="."]
+
+[node name="DeathZone2" parent="Level2" instance=ExtResource("4_516kx")]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 45, 0.390797, 0.0764656, -65.0719)
+reset_position = Vector3(0, 9, -45)
+
+[node name="BasicBlock8" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(25, 0, 0, 0, 7.5, 0, 0, 0, 8, 0, 4.00157, -45.523)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock9" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 2.5, 0, 0, 0, 4, -1.88609, 6.5, -59.0367)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock11" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(0.5, 0, 0, 0, 25, 0, 0, 0, 8, 4.253, 17.529, -65.4)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock13" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(0.5, 0, 0, 0, 20, 0, 0, 0, 10, -8.458, 18.924, -81.554)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock15" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(3, 0, 0, 0, 20, 0, 0, 0, 0.5, -10.1837, 18.924, -86.2632)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock18" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(5, 0, 0, 0, 20, 0, 0, 0, 0.5, -1.67828, 18.924, -86.2632)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock16" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(-2.18557e-08, 7, 0, -0.5, -3.0598e-07, 0, 0, 0, 12, -6.5219, 28.7997, -81.554)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock17" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(-2.18557e-08, 2.5, 0, -0.5, -1.09278e-07, 0, 0, 0, 9, 3.31, 29.78, -65.376)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock14" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(0.5, 0, 0, 0, 20, 0, 0, 0, 10, -4.417, 18.924, -81.554)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock10" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 2.5, 0, 0, 0, 4, -1.88609, 6.5, -71.5823)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock12" parent="Level2" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 2.5, 0, 0, 0, 4, -5.89993, 11.9524, -71.5823)
+block_color_group = 1
+block_style = 2
+
+[node name="GlassWall2" parent="Level2" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, 0, 10, 0, 15, 0, -0.1, 0, -4.37114e-07, -3.59754, 12.2605, -64.3392)
+
+[node name="GlassWall6" parent="Level2" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, 0, 4, 0, 20, 0, -0.1, 0, -1.74846e-07, -1.859, 17.657, -73.6)
+
+[node name="GlassWall10" parent="Level2" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, 0, 2, 0, 20, 0, -0.1, 0, -8.74228e-08, -5.64954, 18.9473, -78.6151)
+
+[node name="GlassWall12" parent="Level2" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, 0, 2, 0, 20, 0, -0.1, 0, -8.74228e-08, -5.65, 18.947, -85.166)
+
+[node name="GlassWall11" parent="Level2" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, 0, 2, 0, 20, 0, -0.1, 0, -8.74228e-08, -7.244, 18.947, -81.859)
+
+[node name="GlassWall7" parent="Level2" instance=ExtResource("3_enewl")]
+transform = Transform3D(0.1, 0, 0, 0, 20, 0, 0, 0, 4, -3.906, 17.657, -71.585)
+
+[node name="GlassWall8" parent="Level2" instance=ExtResource("3_enewl")]
+transform = Transform3D(0.1, 0, 0, 0, 20, 0, 0, 0, 4, 0.147, 17.657, -71.585)
+
+[node name="GlassWall9" parent="Level2" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, -4, 0, 0.1, -1.74846e-07, 0, 0, 0, 4, -1.849, 27.715, -71.595)
+
+[node name="GlassWall13" parent="Level2" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, -11, 0, 0.1, -4.80825e-07, 0, 0, 0, 1, -3.58334, 19.8182, -64.3105)
+
+[node name="Level3" type="Node3D" parent="."]
+
+[node name="BasicBlock15" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(25, 0, 0, 0, 7.5, 0, 0, 0, 8, 0, 4.00157, -91.0766)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock25" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(25, 0, 0, 0, 7.5, 0, 0, 0, 8, 0, 4.00157, -161.042)
+block_color_group = 1
+block_style = 2
+
+[node name="DeathZone3" parent="Level3" instance=ExtResource("4_516kx")]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 80, 0.390797, 0.0764656, -127.749)
+reset_position = Vector3(0, 9, -91)
+
+[node name="BasicBlock16" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 2.5, 0, 0, 0, 4, 0, 6.5, -106.262)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock17" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 0.5, 0, 0, 0, 8, 0, 14.236, -108.38)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock19" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 0.5, 0, 0, 0, 4, 0, 27.9474, -114.208)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock22" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 0.5, 0, 0, 0, 4, 0, 19.8234, -122.789)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock23" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, 5.57849, 19.8234, -135.006)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock24" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, -2.33675, 19.8234, -143.448)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock21" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(7, 0, 0, 0, 0.5, 0, 0, 0, 15, 0, 32.2361, -118.081)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock18" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 14, 0, 0, 0, 0.5, 0, 21.1526, -112.454)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock20" parent="Level3" instance=ExtResource("2_vpey1")]
+transform = Transform3D(4, 0, 0, 0, 14, 0, 0, 0, 0.5, 0, 21.1526, -115.961)
+block_color_group = 1
+block_style = 2
+
+[node name="GlassWall3" parent="Level3" instance=ExtResource("3_enewl")]
+transform = Transform3D(-4.37114e-09, 0, 7, 0, 7, 0, -0.1, 0, -3.0598e-07, 0, 28.5133, -119.594)
