@@ -29,6 +29,7 @@ var character_velocity = Vector3(0,0,0)
 var environment_velocity = Vector3(0,0,0)
 
 var can_shoot = true
+var dead = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -37,8 +38,12 @@ func _ready():
 	#Captures mouse and stops rgun from hitting yourself
 	gunRay.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$"../UI/Health".set_health(HP)
 
 func _physics_process(delta):
+	if dead:
+		return
+	
 	# Handle Shooting
 	if Input.is_action_just_pressed("Shoot") and can_shoot:
 		shoot()
@@ -90,9 +95,13 @@ func _physics_process(delta):
 	else:
 		environment_velocity.y -= gravity/2 * delta
 		character_velocity.y -= gravity/2 * delta
+		
+	# TODO: when the end of the level has been reached, use 'all_targets_hit' 
+	# to chekc if all targets have been hit. Level is not finished if not all
+	# targets have been hit
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and !dead:
 		rotation.y -= event.relative.x / mouse_sensitivity
 		$Head/Camera3d.rotation.x -= event.relative.y / mouse_sensitivity
 		$Head/Camera3d.rotation.x = clamp($Head/Camera3d.rotation.x, deg_to_rad(-90), deg_to_rad(90) )
@@ -132,12 +141,38 @@ func shoot():
 
 func hit():
 	HP -= 1
+	$"../UI/Health".on_hit()
 	if HP == 0:
 		death()
 	print("HIT")
 	
+func _on_heal_zone_body_entered(body):
+	if body.name == "Player":
+		HP = 3
+		$"../UI/Health".reset()
+	
 func death():
 	print("You are dead!")
-	#TODO: Teleport to start of level (Marker3D at start?)
-	HP = 3
+	dead = true
+	$AnimationPlayer.play("death")
 	
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "death":
+		#TODO: Teleport to start of level (Marker3D at start?) => doesnt reset enemies and destructible blocks and targets etc
+		#TODO: Maybe add save point functionality? eg via autoload or orphan node when reloading that stores which savepoint player reached and puts them there at start
+		get_tree().reload_current_scene()
+	
+
+# Check if all targets in the node tree of the scene have been hit
+func all_targets_hit():
+	var scene = get_tree().current_scene
+	return _all_targets_hit(scene.get_children())
+
+# Recursively check if all targets in the node tree have been hit
+func _all_targets_hit(nodes: Array[Node]):
+	for node in nodes:
+		if node.has_method("target_has_been_hit") && node.target_has_been_hit() != true:
+				return false
+		if !_all_targets_hit(node.get_children()):
+			return false
+	return true

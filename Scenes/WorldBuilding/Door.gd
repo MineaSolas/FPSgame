@@ -22,3 +22,4 @@ func open():
 	
 func close():
 	opened = false
+

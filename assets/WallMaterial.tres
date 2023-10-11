@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c7mw6mbscs465"]
+
+[ext_resource type="Texture2D" uid="uid://cpdl4ndqllavn" path="res://addons/corridors/CorridorModel_Lighting Gradient.png" id="1_trtuj"]
+
+[resource]
+albedo_texture = ExtResource("1_trtuj")

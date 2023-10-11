@@ -1,19 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://boaew7c7m12jx"]
+[gd_scene load_steps=4 format=3 uid="uid://boaew7c7m12jx"]
 
-[ext_resource type="PackedScene" uid="uid://bsr1c0uuprxo" path="res://addons/corridors/Walls/corridor_wild_end_bland.tscn" id="1_itc2w"]
+[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/WallMaterial.tres" id="2_v1mpb"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_onycj"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0v48x"]
+size = Vector3(4, 3, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e73bt"]
 size = Vector3(4, 3, 0.4)
 
 [node name="WallThin" type="StaticBody3D"]
 collision_layer = 3
 
-[node name="Corridor_WildEndBland" parent="." instance=ExtResource("1_itc2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 1.9)
-
-[node name="Corridor_WildEndBland2" parent="." instance=ExtResource("1_itc2w")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.001, -1.9)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-shape = SubResource("BoxShape3D_onycj")
+shape = SubResource("BoxShape3D_0v48x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_e73bt")
+surface_material_override/0 = ExtResource("2_v1mpb")
