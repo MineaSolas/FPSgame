@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var Cam = $Head/Camera3d as Camera3D
 
 @export var HP = 3
+@export var has_health = false
 
 @export_group("Bullets")
 @export var _bullet_scene : PackedScene
@@ -38,7 +39,8 @@ func _ready():
 	#Captures mouse and stops rgun from hitting yourself
 	gunRay.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$"../UI/Health".set_health(HP)
+	if has_health:
+		$"../UI/Health".set_health(HP)
 
 func _physics_process(delta):
 	if dead:

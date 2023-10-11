@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://4iby3ru77xux"]
+[gd_scene load_steps=8 format=3 uid="uid://d0wjj3pqhhixc"]
 
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="1_4ava0"]
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="2_vpey1"]
-[ext_resource type="PackedScene" uid="uid://cpsmsr52q8o5d" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="3_enewl"]
+[ext_resource type="PackedScene" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="3_enewl"]
 [ext_resource type="PackedScene" uid="uid://c3ramhslgsjiw" path="res://Scenes/DeathZone/DeathZone.tscn" id="4_516kx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u3xba"]
