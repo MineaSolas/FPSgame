@@ -16,3 +16,6 @@ signal hit_signal
 func hit():
 	if not has_been_hit:
 		has_been_hit = true
+
+func target_has_been_hit():
+	return has_been_hit

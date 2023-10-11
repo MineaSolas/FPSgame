@@ -90,6 +90,10 @@ func _physics_process(delta):
 	else:
 		environment_velocity.y -= gravity/2 * delta
 		character_velocity.y -= gravity/2 * delta
+		
+	# TODO: when the end of the level has been reached, use 'all_targets_hit' 
+	# to chekc if all targets have been hit. Level is not finished if not all
+	# targets have been hit
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -140,4 +144,17 @@ func death():
 	print("You are dead!")
 	#TODO: Teleport to start of level (Marker3D at start?)
 	HP = 3
-	
+
+# Check if all targets in the node tree of the scene have been hit
+func all_targets_hit():
+	var scene = get_tree().current_scene
+	return _all_targets_hit(scene.get_children())
+
+# Recursively check if all targets in the node tree have been hit
+func _all_targets_hit(nodes: Array[Node]):
+	for node in nodes:
+		if node.has_method("target_has_been_hit") && node.target_has_been_hit() != true:
+				return false
+		if !_all_targets_hit(node.get_children()):
+			return false
+	return true
