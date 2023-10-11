@@ -6,7 +6,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjnuq"]
 transparency = 1
-albedo_color = Color(0.227451, 0.815686, 0.937255, 0.74902)
+albedo_color = Color(0.227451, 0.815686, 0.937255, 0.615686)
 
 [node name="GlassWall" type="StaticBody3D"]
 collision_layer = 3
