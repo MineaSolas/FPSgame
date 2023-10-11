@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2j7qjoschorp"]
+[gd_scene load_steps=24 format=3 uid="uid://d2j7qjoschorp"]
 
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_oqkel"]
 [ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="2_t3wa3"]
@@ -53,6 +53,14 @@ albedo_color = Color(1, 0.431373, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl1yf"]
 albedo_color = Color(0.866667, 0.537255, 0.239216, 1)
+
+[sub_resource type="Animation" id="Animation_xx06j"]
+resource_name = "death"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvi5f"]
+_data = {
+"death": SubResource("Animation_xx06j")
+}
 
 [node name="LimitedAmmo" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11305, -0.230306, 5.07263)
@@ -135,14 +143,13 @@ player_path = NodePath("../../../../../Player")
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19565, -45.2947)
 script = ExtResource("5_jx370")
+HP = 1
 
 [node name="Target" parent="." instance=ExtResource("5_4of6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
 
 [node name="Turret" parent="." instance=ExtResource("6_g4rqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -13.5606)
-
-[node name="Bullets" type="Node3D" parent="."]
 
 [node name="HealZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.97351, 0)
@@ -191,6 +198,11 @@ offset_bottom = 624.0
 theme_override_font_sizes/font_size = 35
 text = "Bullets: 10/10"
 script = ExtResource("10_0afud")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+"": SubResource("AnimationLibrary_rvi5f")
+}
 
 [connection signal="body_entered" from="HealZone" to="Player" method="_on_heal_zone_body_entered"]
 [connection signal="body_entered" from="BulletRefill" to="Player" method="_on_bullet_refill_body_entered"]
