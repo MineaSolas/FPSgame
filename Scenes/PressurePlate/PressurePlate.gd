@@ -13,6 +13,7 @@ var turned_on = false :
 		turned_on = value
 		await get_tree().create_timer(animation_speed).timeout
 		set_color()
+		send_signal()
 
 @export var color_off = Color.RED
 @export var color_on = Color.GREEN
