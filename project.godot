@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 
 Settings="*res://Global/Settings.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/csgtomeshinstance/plugin.cfg", "res://addons/destruction/plugin.cfg")
+
 [input]
 
 moveLeft={

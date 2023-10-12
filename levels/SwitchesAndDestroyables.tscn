@@ -5,11 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://bra1ivnn006kp" path="res://Scenes/Breakable/DestroyArea.tscn" id="4_vq7ea"]
 [ext_resource type="PackedScene" uid="uid://cpygyhpto115x" path="res://Scenes/Cube/CubeScene.obj" id="5_ikuiy"]
 [ext_resource type="ArrayMesh" uid="uid://c317hikqi4c1d" path="res://Scenes/Cube/Cube.obj" id="6_xojr8"]
-[ext_resource type="Material" uid="uid://c160fmwi4ub0" path="res://Scenes/Breakable/breakable.tres" id="7_24ibr"]
+[ext_resource type="Material" uid="uid://cdhpifvewr2ux" path="res://Scenes/Breakable/breakable.tres" id="7_24ibr"]
 [ext_resource type="PackedScene" uid="uid://2nck07a67jm3" path="res://Scenes/Cube/FracturedCube.obj" id="8_dg21v"]
 [ext_resource type="PackedScene" uid="uid://dr18vgc3yj535" path="res://Scenes/Cube/Cube.tscn" id="9_mddom"]
+[ext_resource type="Texture2D" uid="uid://cpdl4ndqllavn" path="res://addons/corridors/CorridorModel_Lighting Gradient.png" id="10_lyet5"]
 [ext_resource type="Material" uid="uid://ca4bnyqs0ydkr" path="res://Scenes/Breakable/breakable_critical.tres" id="10_w1jcc"]
 [ext_resource type="PackedScene" uid="uid://dqqygnugcatol" path="res://Scenes/PressurePlate/PressurePlate.tscn" id="11_y6j8j"]
+[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/WallMaterial.tres" id="12_h4hhy"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="12_mgw8e"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="13_6wi77"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="14_tdbxo"]
@@ -31,26 +33,17 @@ sky = SubResource("Sky_kvda2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_usawn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsxjb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8b6v"]
 next_pass = ExtResource("7_24ibr")
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.627451)
+albedo_texture = ExtResource("10_lyet5")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_try5c"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4me3o"]
-next_pass = SubResource("StandardMaterial3D_try5c")
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.627451)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo174"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxaep"]
 next_pass = ExtResource("10_w1jcc")
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.627451)
+albedo_texture = ExtResource("10_lyet5")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a45nw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hued5"]
+next_pass = ExtResource("10_w1jcc")
+albedo_texture = ExtResource("10_lyet5")
 
 [node name="SwitchesAndDestroyables" type="Node3D"]
 
@@ -118,7 +111,7 @@ shape = SubResource("BoxShape3D_usawn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Brakables/BreakableCube"]
 mesh = ExtResource("6_xojr8")
-surface_material_override/0 = SubResource("StandardMaterial3D_hsxjb")
+surface_material_override/0 = SubResource("StandardMaterial3D_k8b6v")
 
 [node name="BreakableCube2" type="StaticBody3D" parent="Brakables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 2.3)
@@ -139,7 +132,7 @@ transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_usawn")
 
 [node name="MeshInstance3D" parent="Brakables/BreakableCube2" instance=ExtResource("9_mddom")]
-surface_material_override/0 = SubResource("StandardMaterial3D_4me3o")
+surface_material_override/0 = SubResource("StandardMaterial3D_wxaep")
 
 [node name="BreakableCube3" type="StaticBody3D" parent="Brakables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5, 4.71891)
@@ -163,7 +156,7 @@ shape = SubResource("BoxShape3D_usawn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Brakables/BreakableCube3"]
 mesh = ExtResource("6_xojr8")
-surface_material_override/0 = SubResource("StandardMaterial3D_fo174")
+surface_material_override/0 = SubResource("StandardMaterial3D_hued5")
 
 [node name="Cube" type="StaticBody3D" parent="Brakables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.91905, 1.5, -4.4205)
@@ -175,7 +168,7 @@ shape = SubResource("BoxShape3D_t8n23")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Brakables/Cube"]
 mesh = ExtResource("6_xojr8")
-surface_material_override/0 = SubResource("StandardMaterial3D_a45nw")
+surface_material_override/0 = ExtResource("12_h4hhy")
 
 [node name="BasicBlock" parent="." instance=ExtResource("2_yq8w6")]
 transform = Transform3D(300, 0, 0, 0, 1, 0, 0, 0, 300, 0, 0, 0)
@@ -301,7 +294,7 @@ block_color_group = 1
 block_style = 2
 
 [node name="Target" parent="." instance=ExtResource("13_6wi77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4222, 1.63615, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.196, 1.63615, 0)
 
 [node name="Building_Walls" parent="." instance=ExtResource("14_tdbxo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 15.309)

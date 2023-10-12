@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://c81kt7m22n3jo"]
+
+[ext_resource type="PackedScene" uid="uid://ccppai6n5q2pw" path="res://Scenes/WorldBuilding/Arch.tscn" id="1_01yms"]
+[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/WallMaterial.tres" id="2_ca433"]
+[ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="3_1qqbe"]
+[ext_resource type="PackedScene" uid="uid://bvskyf2hxcnot" path="res://Scenes/WorldBuilding/Ceiling.tscn" id="4_ds4k0"]
+[ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="5_ck1cx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ed217"]
+size = Vector3(0.2, 3, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7fgjr"]
+size = Vector3(0.2, 3, 0.2)
+
+[node name="CrossRoad" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Arch" parent="." instance=ExtResource("1_01yms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Arch2" parent="." instance=ExtResource("1_01yms")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 2)
+
+[node name="Arch3" parent="." instance=ExtResource("1_01yms")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
+
+[node name="Arch4" parent="." instance=ExtResource("1_01yms")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 0)
+
+[node name="corner" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 1.5, 2.1)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="corner"]
+shape = SubResource("BoxShape3D_ed217")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="corner"]
+mesh = SubResource("BoxMesh_7fgjr")
+surface_material_override/0 = ExtResource("2_ca433")
+
+[node name="Column" parent="corner" instance=ExtResource("3_1qqbe")]
+transform = Transform3D(0.92388, 0, 0.382683, 0, 0.999, 0, -0.382683, 0, 0.92388, -0.35, 0, -0.349999)
+
+[node name="corner2" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.1, 1.5, -2.1)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="corner2"]
+shape = SubResource("BoxShape3D_ed217")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="corner2"]
+mesh = SubResource("BoxMesh_7fgjr")
+surface_material_override/0 = ExtResource("2_ca433")
+
+[node name="Column" parent="corner2" instance=ExtResource("3_1qqbe")]
+transform = Transform3D(0.92388, 0, 0.382683, 0, 0.999, 0, -0.382683, 0, 0.92388, -0.35, 0, -0.349999)
+
+[node name="corner3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.1, 1.5, 2.1)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="corner3"]
+shape = SubResource("BoxShape3D_ed217")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="corner3"]
+mesh = SubResource("BoxMesh_7fgjr")
+surface_material_override/0 = ExtResource("2_ca433")
+
+[node name="Column" parent="corner3" instance=ExtResource("3_1qqbe")]
+transform = Transform3D(0.92388, 0, 0.382683, 0, 0.999, 0, -0.382683, 0, 0.92388, -0.35, 0, -0.349999)
+
+[node name="corner4" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1, 1.5, -2.1)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="corner4"]
+shape = SubResource("BoxShape3D_ed217")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="corner4"]
+mesh = SubResource("BoxMesh_7fgjr")
+surface_material_override/0 = ExtResource("2_ca433")
+
+[node name="Column" parent="corner4" instance=ExtResource("3_1qqbe")]
+transform = Transform3D(0.92388, 0, 0.382683, 0, 0.999, 0, -0.382683, 0, 0.92388, -0.35, 0, -0.349999)
+
+[node name="Ceiling" parent="." instance=ExtResource("4_ds4k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)
+
+[node name="Floor" parent="." instance=ExtResource("5_ck1cx")]
