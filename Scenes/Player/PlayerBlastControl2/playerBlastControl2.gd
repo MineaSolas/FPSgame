@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-@onready var gunRay = $Head/Camera3d/RayCast3d as RayCast3D
 @onready var Cam = $Head/Camera3d as Camera3D
 
 @export var HP = 3
@@ -37,7 +36,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	#Captures mouse and stops rgun from hitting yourself
-	gunRay.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if has_health:
 		$"../UI/Health".set_health(HP)
@@ -132,14 +130,11 @@ func shoot():
 	var callable = Callable(self, "blast")
 	rocket_inst.connect("objectHit", callable, 0)
 	
+	$AudioStreamPlayer3D.pitch_scale = randf_range(0.9,1.2)
+	$AudioStreamPlayer3D.play()
+	
 	await get_tree().create_timer(reload_time).timeout
 	can_shoot = true
-
-	# Check if we hit a target
-	var collider = gunRay.get_collider() as Node3D
-	if collider != null && collider.has_method("hit"):
-		print("Hit target!")
-		collider.hit()
 
 func hit():
 	HP -= 1

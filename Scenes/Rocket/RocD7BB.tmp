@@ -1,0 +1,122 @@
+[gd_scene load_steps=17 format=3 uid="uid://s52e4i1g7uky"]
+
+[ext_resource type="Script" path="res://Scenes/Rocket/Rocket.gd" id="1_8eebb"]
+[ext_resource type="PackedScene" uid="uid://c00og7aae8xle" path="res://Scenes/Rocket/Scorch Decals/ScorchDecal.tscn" id="2_ok6ra"]
+[ext_resource type="AudioStream" uid="uid://pgm4g1266huo" path="res://audio/explosion1.mp3" id="2_sxiki"]
+[ext_resource type="Texture2D" uid="uid://crte64yj3k5mh" path="res://art/PNG (Transparent)/smoke_01.png" id="4_htm0u"]
+[ext_resource type="Texture2D" uid="uid://d06qcqxtk8k33" path="res://art/PNG (Transparent)/flame_01.png" id="4_sbgnu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xmf7i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rei5t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0dtt"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_sbgnu")
+detail_albedo = ExtResource("4_sbgnu")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_tnid1"]
+offsets = PackedFloat32Array(0, 0.0243902, 0.0406504, 0.113821, 0.138211, 0.674797, 0.813008)
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 1, 1, 0.6, 0, 1, 1, 0.6, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_alxuu"]
+gradient = SubResource("Gradient_tnid1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cnkpl"]
+lifetime_randomness = 0.2
+direction = Vector3(0, -1, 0)
+spread = 39.38
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+damping_min = 5.0
+damping_max = 10.0
+angle_max = 360.0
+scale_min = 0.8
+color_ramp = SubResource("GradientTexture1D_alxuu")
+attractor_interaction_enabled = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_y4tlf"]
+lightmap_size_hint = Vector2i(4, 4)
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqsvb"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_htm0u")
+detail_albedo = ExtResource("4_sbgnu")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_28inf"]
+offsets = PackedFloat32Array(0, 0.382114, 0.845528, 0.943089)
+colors = PackedColorArray(0.25, 0.25, 0.25, 1, 0, 0, 0, 0.941176, 0, 0, 0, 0.658824, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oe3cw"]
+gradient = SubResource("Gradient_28inf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_injr8"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 13.0
+damping_min = 5.0
+damping_max = 10.0
+angle_max = 360.0
+scale_min = 0.8
+color_ramp = SubResource("GradientTexture1D_oe3cw")
+attractor_interaction_enabled = false
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_8eebb")
+_decal = ExtResource("2_ok6ra")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_xmf7i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_rei5t")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_sxiki")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.916629, 0)
+material_override = SubResource("StandardMaterial3D_p0dtt")
+amount = 800
+lifetime = 0.3
+visibility_aabb = AABB(-0.001, -0.001, -0.001, 0.002, 0.002, 0.002)
+process_material = SubResource("ParticleProcessMaterial_cnkpl")
+draw_pass_1 = SubResource("QuadMesh_y4tlf")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.916629, 0)
+material_override = SubResource("StandardMaterial3D_dqsvb")
+emitting = false
+amount = 300
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.97
+visibility_aabb = AABB(-0.001, -0.001, -0.001, 0.002, 0.002, 0.002)
+process_material = SubResource("ParticleProcessMaterial_injr8")
+draw_pass_1 = SubResource("QuadMesh_y4tlf")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 3, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

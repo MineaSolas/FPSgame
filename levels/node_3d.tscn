@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctahsvj88g1om"]
+[gd_scene load_steps=14 format=3 uid="uid://ctahsvj88g1om"]
 
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_ujgwk"]
 [ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="3_m1rsk"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="4_0y87f"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_i5d5b"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_a15ef"]
+[ext_resource type="PackedScene" uid="uid://c00og7aae8xle" path="res://Scenes/Rocket/Scorch Decals/ScorchDecal.tscn" id="6_f22js"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -66,6 +67,8 @@ block_style = 2
 [node name="CsgPolygon3d" type="CSGPolygon3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.06623, 0.523835, 0.0135)
 use_collision = true
+collision_layer = 3
+collision_mask = 3
 polygon = PackedVector2Array(0, 0, 0, 1, 0, 1, 1, 0)
 material = SubResource("StandardMaterial3D_2gtf0")
 
@@ -101,3 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19565, 0)
 
 [node name="Target" parent="." instance=ExtResource("5_a15ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
+
+[node name="Decal" parent="." instance=ExtResource("6_f22js")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.1479, 2.15252, 15.1125)
+distance_fade_begin = 0.0

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c00og7aae8xle"]
+
+[ext_resource type="Texture2D" uid="uid://coi4y76rhvgau" path="res://art/PNG (Transparent)/scorch_02.png" id="1_gfft8"]
+[ext_resource type="Script" path="res://Scenes/Rocket/Scorch Decals/ScorchDecal.gd" id="2_metpa"]
+[ext_resource type="Texture2D" uid="uid://cu0hwy8k4gaxd" path="res://art/PNG (Transparent)/scorch_01.png" id="2_o0b1m"]
+[ext_resource type="Texture2D" uid="uid://c3rishddw78n7" path="res://art/PNG (Transparent)/scorch_03.png" id="2_vqjgc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3r6ko"]
+
+[node name="Decal" type="Decal"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+size = Vector3(2, 0.001, 2)
+texture_albedo = SubResource("PlaceholderTexture2D_3r6ko")
+modulate = Color(0, 0, 0, 1)
+upper_fade = 1.01584e-05
+lower_fade = 2.97455e-05
+script = ExtResource("2_metpa")
+texture1 = ExtResource("2_o0b1m")
+texture2 = ExtResource("1_gfft8")
+texture3 = ExtResource("2_vqjgc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
