@@ -24,3 +24,4 @@ func _on_body_entered(_body):
 func _on_area_entered(area):
 	if area.has_method("hit"):
 		area.hit()
+		self.queue_free()
