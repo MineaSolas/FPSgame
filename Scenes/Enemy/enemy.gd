@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal death
+
 var player = null
 var map = null
 # state is initially IDLE
@@ -17,6 +19,7 @@ const LENIENCE = 2.0
 
 @export var map_path : NodePath
 @export var player_path : NodePath
+@export var hp : float
 @export var engaged_detector_radius : float
 @export var alert_detector_radius : float
 @export var sight_distance : float
@@ -113,8 +116,13 @@ func shoot():
 	new_bullet.muzzle_velocity = 12
 	map.add_child(new_bullet)
 	new_bullet.global_transform = global_transform
-	#print(new_bullet.global_transform)
-	#print(new_bullet.velocity)
+
+func hit():
+	print("hit by bullet!")
+	hp -= 1
+	if hp <= 0:
+		emit_signal("death")
+		queue_free()
 
 # If-check might be somewhat redundant at the moment because collision mask is also set to only player's layer.
 func _on_alert_detector_body_entered(body):

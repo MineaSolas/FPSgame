@@ -46,6 +46,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 5
 script = ExtResource("1_hfbay")
 _bullet_scene = ExtResource("2_weh6g")
 _blast_curve = ExtResource("3_ibo3i")
