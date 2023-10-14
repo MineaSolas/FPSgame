@@ -123,16 +123,14 @@ func shoot():
 	get_parent().add_child(rocket_inst)
 
 	# Pos = player Pos. Shoots towards looking direction
-	rocket_inst.position = $Head/Camera3d.global_position + Vector3(0,-0.2,0)
+	rocket_inst.position = global_position + Vector3(0,0.25,0)
 	if gunRay.is_colliding(): 
 		rocket_inst.look_at(gunRay.get_collision_point(), Vector3.UP)
 	else:
 		rocket_inst.rotation = $Head/Camera3d.global_rotation
 	if rocket_inst.global_rotation == Vector3(0,0,0):
 		rocket_inst.global_rotation = $Head/Camera3d.global_rotation
-	print(rocket_inst.global_rotation)
 	rocket_inst.rotation_degrees.x -= 90
-	print(rocket_inst.global_rotation)
 	
 	# Callback when rocket hits object
 	var callable = Callable(self, "blast")
