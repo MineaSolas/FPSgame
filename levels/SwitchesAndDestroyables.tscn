@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bra1ivnn006kp" path="res://Scenes/Breakable/DestroyArea.tscn" id="4_vq7ea"]
 [ext_resource type="PackedScene" uid="uid://cpygyhpto115x" path="res://Scenes/Cube/CubeScene.obj" id="5_ikuiy"]
 [ext_resource type="ArrayMesh" uid="uid://c317hikqi4c1d" path="res://Scenes/Cube/Cube.obj" id="6_xojr8"]
-[ext_resource type="Material" uid="uid://cdhpifvewr2ux" path="res://Scenes/Breakable/breakable.tres" id="7_24ibr"]
+[ext_resource type="Material" uid="uid://c160fmwi4ub0" path="res://Scenes/Breakable/breakable.tres" id="7_24ibr"]
 [ext_resource type="PackedScene" uid="uid://2nck07a67jm3" path="res://Scenes/Cube/FracturedCube.obj" id="8_dg21v"]
 [ext_resource type="PackedScene" uid="uid://dr18vgc3yj535" path="res://Scenes/Cube/Cube.tscn" id="9_mddom"]
 [ext_resource type="Texture2D" uid="uid://cpdl4ndqllavn" path="res://addons/corridors/CorridorModel_Lighting Gradient.png" id="10_lyet5"]
