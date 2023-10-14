@@ -123,7 +123,7 @@ func shoot():
 	get_parent().add_child(rocket_inst)
 
 	# Set rocket position to little above player's
-	rocket_inst.position = global_position + Vector3(0,0.2,0)
+	rocket_inst.position = position + Vector3(0,0.2,0)
 	
 	# Move the rocket a bit to the front so it doesn't come from inside player
 	rocket_inst.rotation = $Head/Camera3d.global_rotation
