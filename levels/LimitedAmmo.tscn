@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2j7qjoschorp"]
+[gd_scene load_steps=41 format=3 uid="uid://d2j7qjoschorp"]
 
 [ext_resource type="Script" path="res://Scenes/Player/LimitedAmmoPlayer.gd" id="3_hdiv3"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="3_wpixk"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_etgme"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_4of6h"]
 [ext_resource type="Script" path="res://levels/Sector1.gd" id="6_jsb2r"]
+[ext_resource type="Script" path="res://levels/NoBullets.gd" id="6_vkhoo"]
 [ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="8_8hwkr"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_xy1w5"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="9_fxnbq"]
@@ -60,6 +61,44 @@ albedo_color = Color(1, 0.431373, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl1yf"]
 albedo_color = Color(0.866667, 0.537255, 0.239216, 1)
+
+[sub_resource type="Animation" id="Animation_w84h2"]
+resource_name = "blinking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b8g0d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hbu1o"]
+_data = {
+"RESET": SubResource("Animation_b8g0d"),
+"blinking": SubResource("Animation_w84h2")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_715if"]
 
@@ -124,7 +163,7 @@ map_path = NodePath("../../../../..")
 player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.553, 19.7962, -44.4031)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525587, 16.3979, -26.6329)
 script = ExtResource("3_hdiv3")
 HP = 4
 has_health = true
@@ -158,6 +197,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
 
 [node name="Health" parent="UI" instance=ExtResource("8_8hwkr")]
 layout_mode = 0
@@ -176,6 +217,28 @@ offset_bottom = 624.0
 theme_override_font_sizes/font_size = 35
 text = "Bullets: 10/10"
 script = ExtResource("10_0afud")
+
+[node name="NoBullets" type="Label" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 444.0
+offset_top = 486.0
+offset_right = 694.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Out of bullets. Hold 'R' to restart"
+horizontal_alignment = 1
+vertical_alignment = 2
+script = ExtResource("6_vkhoo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/NoBullets"]
+autoplay = "blinking"
+libraries = {
+"": SubResource("AnimationLibrary_hbu1o")
+}
 
 [node name="Connections" type="Node3D" parent="."]
 
@@ -291,15 +354,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -28)
 
 [node name="Target2" parent="Sector1" instance=ExtResource("5_4of6h")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -14, 4, -5)
+collision_layer = 3
 
 [node name="Target3" parent="Sector1" instance=ExtResource("5_4of6h")]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 8, 2, 1)
+collision_layer = 3
 
 [node name="MovingTarget2" parent="Sector1" instance=ExtResource("12_m2e6e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -31)
+collision_layer = 3
 
 [node name="MovingTarget3" parent="Sector1" instance=ExtResource("12_m2e6e")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20, 1, -28)
+collision_layer = 3
 
 [node name="Sector2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 6, -48)
@@ -11641,6 +11708,8 @@ transform = Transform3D(5, 0, 0, 0, 8, 0, 0, 0, 5, 6.20047, 10.1372, 9.1659)
 [node name="Column4" parent="Sector5/NavigationRegion3D" instance=ExtResource("20_jjyxg")]
 transform = Transform3D(5, 0, 0, 0, 8, 0, 0, 0, 5, 27.0933, 10.1372, 9.1659)
 
+[connection signal="no_bullets" from="Player" to="UI/NoBullets" method="_on_player_no_bullets"]
+[connection signal="player_died" from="Player" to="UI/NoBullets" method="_on_player_player_died"]
 [connection signal="body_entered" from="HealZone" to="Player" method="_on_heal_zone_body_entered"]
 [connection signal="body_entered" from="BulletRefill" to="Player" method="_on_bullet_refill_body_entered"]
 [connection signal="hit_signal" from="Sector1/Target2" to="Sector1" method="_on_target_2_hit_signal"]
