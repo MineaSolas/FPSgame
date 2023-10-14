@@ -135,12 +135,6 @@ func shoot():
 	await get_tree().create_timer(reload_time).timeout
 	can_shoot = true
 
-	# Check if we hit a target
-	var collider = gunRay.get_collider() as Node3D
-	if collider != null && collider.has_method("hit"):
-		print("Hit target!")
-		collider.hit()
-
 func hit():
 	HP -= 1
 	$"../UI/Health".on_hit()

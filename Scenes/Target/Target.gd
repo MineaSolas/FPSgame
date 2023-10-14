@@ -8,9 +8,7 @@ signal hit_signal
 @export var has_been_hit = false :
 	set(value):
 		has_been_hit = value
-		print("Updating target mesh")
 		target_mesh.mesh = mesh_target_hit
-		print("Updated target mesh")
 		hit_signal.emit()
 
 func hit():
