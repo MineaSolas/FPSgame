@@ -24,4 +24,7 @@ func _on_body_entered(_body):
 func _on_area_entered(area):
 	if area.has_method("hit"):
 		area.hit()
+		if running: 
+			objectHit.emit(position)
+		running = false
 		self.queue_free()

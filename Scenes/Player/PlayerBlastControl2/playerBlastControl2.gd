@@ -9,8 +9,8 @@ extends CharacterBody3D
 @export_group("Bullets")
 @export var _bullet_scene : PackedScene
 @export var _blast_curve : Curve
-@export var _blast_radius = 5
-@export var _blast_power = 8
+@export var _blast_radius = 5.0
+@export var _blast_power = 8.0
 @export var reload_time = 0.5
 
 @export_group("Movement")
@@ -30,8 +30,8 @@ var character_velocity = Vector3(0,0,0)
 var environment_velocity = Vector3(0,0,0)
 var elevator_velocity = Vector3(0,0,0)
 
-var elevator_speed = 0
-var elevator_decceleration = 10.0
+var elevator_speed = 0.0
+var elevator_decceleration = 2.0
 
 var can_shoot = true
 var dead = false
@@ -84,7 +84,6 @@ func _physics_process(delta):
 	var xz_character_velocity = Vector2(character_velocity.x, character_velocity.z).limit_length(max_speed)
 	character_velocity = Vector3(xz_character_velocity.x, character_velocity.y, xz_character_velocity.y)
 	
-	#print(character_velocity, environment_velocity)
 		
 	velocity = character_velocity + environment_velocity + elevator_velocity
 	position += Vector3(0,elevator_speed,0) * delta
@@ -170,6 +169,10 @@ func _on_heal_zone_body_entered(body):
 		HP = 3
 		$"../UI/Health".reset()
 	
+func part_broken(ends_game):
+	if ends_game:
+		death()
+	
 func death():
 	print("You are dead!")
 	dead = true
@@ -182,7 +185,10 @@ func _on_animation_player_animation_finished(anim_name):
 		get_tree().reload_current_scene()
 	
 func _set_elevator_speed(value):
-	elevator_velocity = Vector3(0,elevator_speed,0)
+	if value == 0:
+		elevator_velocity = Vector3(0,elevator_speed,0)
+	else:
+		elevator_velocity = Vector3(0,0,0)
 	elevator_speed = value
 
 # Check if all targets in the node tree of the scene have been hit

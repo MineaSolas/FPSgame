@@ -2,9 +2,10 @@ extends Node3D
 
 signal status_changed(speed)
 
-@export var speed = 10
-@export var max_height = 23.7
+@export var speed = 8.0
+@export var max_height = 23.2
 @export var swich_off_delay = 0.2
+@export var down_speed_up = 1.5
 
 @onready var box = $Box
 @onready var initial_pos = box.position
@@ -16,11 +17,13 @@ var moving = false
 
 func _process(delta):
 	moving = false
-	if active and box.position.y + delta * elevator_speed <= initial_pos.y + max_height:
+	if active and box.position.y <= initial_pos.y + max_height:
 		box.position.y += delta * elevator_speed
 		moving = true
-	elif not (active) and box.position.y - delta * elevator_speed >= initial_pos.y:
-		box.position.y -= delta * elevator_speed
+	elif not (active) and box.position.y >= initial_pos.y:
+		box.position.y -= delta * elevator_speed * down_speed_up
+		
+	box.position.y = clamp(box.position.y, initial_pos.y, initial_pos.y + max_height)
 	
 	if not was_moving == moving:
 		if moving: status_changed.emit(speed)

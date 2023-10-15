@@ -48,3 +48,4 @@ func start_shooting_practice():
 	await get_tree().create_timer(GATE_OPENING_DELAY).timeout
 	shootingSwitch.switch_off()
 	
+	

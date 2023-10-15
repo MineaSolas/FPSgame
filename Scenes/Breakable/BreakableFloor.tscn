@@ -27,8 +27,8 @@ ends_game = true
 fragmented = ExtResource("5_nri8a")
 explosion_power = 5.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -0.288, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestroyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.048, 0)
 shape = SubResource("BoxShape3D_f0b87")
 
 [editable path="Floor"]
