@@ -10,8 +10,9 @@ var home_position
 var does_follow_path
 var pathfollow = null
 var reloaded = true
+var killable = true
 
-enum {ENGAGING, ALERT, RETURNING, IDLE}
+enum {ENGAGING, ALERT, RETURNING, IDLE, KILLED}
 
 const SPEED = 4.0
 const ATTACK_RANGE = 10.0
@@ -29,7 +30,7 @@ const LENIENCE = 2.0
 @onready var engaged_detector = $EngagedDetector
 @onready var alert_detector = $AlertDetector
 @onready var sight = $Sight
-
+@onready var killed_texture = load("res://art/denkeykong_killed.png")
 
 
 func _ready():
@@ -50,6 +51,9 @@ func _ready():
 	sight.target_position.z = sight_distance
 
 func _process(delta):
+	if state == KILLED:
+		return
+	
 	velocity = Vector3.ZERO
 	
 	if can_see_player():
@@ -92,7 +96,16 @@ func _process(delta):
 	else:
 		move_and_slide()
 	
+func hit():
+	if !killable or state == KILLED:
+		return
+	state = KILLED
+	var material = StandardMaterial3D.new()
+	material.albedo_texture = killed_texture
+	$MeshInstance3D.set_surface_override_material(0, material)
 	
+	await get_tree().create_timer(1).timeout
+	queue_free()
 
 func target_is_in_range(range):
 	return global_position.distance_to(player.global_position) <= range
