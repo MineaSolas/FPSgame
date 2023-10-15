@@ -1,0 +1,125 @@
+[gd_scene load_steps=21 format=3 uid="uid://bxgq6fb5ejqg8"]
+
+[ext_resource type="Script" path="res://Scenes/Breakable/BreakableBox.gd" id="1_ja8y1"]
+[ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="1_w1wp1"]
+[ext_resource type="Texture2D" uid="uid://cpdl4ndqllavn" path="res://addons/corridors/CorridorModel_Lighting Gradient.png" id="2_kk33r"]
+[ext_resource type="Material" uid="uid://ca4bnyqs0ydkr" path="res://Scenes/Breakable/breakable_critical.tres" id="3_3xml1"]
+[ext_resource type="PackedScene" uid="uid://bra1ivnn006kp" path="res://Scenes/Breakable/DestroyArea.tscn" id="4_japkb"]
+[ext_resource type="PackedScene" uid="uid://c5h5ce5h18ahe" path="res://assets/BrokenBox.obj" id="5_1o7e1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t02w7"]
+next_pass = ExtResource("3_3xml1")
+albedo_texture = ExtResource("2_kk33r")
+
+[sub_resource type="BoxMesh" id="BoxMesh_2hoge"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jd36o"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ahr73"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r1df7"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_srhrc"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vmyv6"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1b870"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s2k2e"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jrfau"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ffp6n"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xyi0v"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hbdhm"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mfvft"]
+
+[node name="Track" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3, -3, -11.5)
+script = ExtResource("1_ja8y1")
+
+[node name="Box" parent="." instance=ExtResource("1_w1wp1")]
+transform = Transform3D(2.5, 0, 0, 0, 2, 0, 0, 0, 0.2, 6.89298, 4.5, 14.2)
+rotation_speed = null
+movement_speed = 4.0
+max_X = 12.65
+initial_X = 0
+
+[node name="box" parent="Box" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_t02w7")
+
+[node name="edge" parent="Box/edges" index="0"]
+transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.48004, 0.47505, 0)
+mesh = SubResource("BoxMesh_2hoge")
+
+[node name="edge3" parent="Box/edges" index="1"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, 0.2505)
+mesh = SubResource("BoxMesh_jd36o")
+
+[node name="edge4" parent="Box/edges" index="2"]
+transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.48004, 0.47505, 0)
+mesh = SubResource("BoxMesh_ahr73")
+
+[node name="edge5" parent="Box/edges" index="3"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, -0.2505)
+mesh = SubResource("BoxMesh_r1df7")
+
+[node name="edge6" parent="Box/edges" index="4"]
+transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.48004, -0.47505, 0)
+mesh = SubResource("BoxMesh_srhrc")
+
+[node name="edge7" parent="Box/edges" index="5"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, 0.2505)
+mesh = SubResource("BoxMesh_vmyv6")
+
+[node name="edge8" parent="Box/edges" index="6"]
+transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.48004, -0.47505, 0)
+mesh = SubResource("BoxMesh_1b870")
+
+[node name="edge9" parent="Box/edges" index="7"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, -0.2505)
+mesh = SubResource("BoxMesh_s2k2e")
+
+[node name="edge2" parent="Box/edges" index="8"]
+transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.48004, 0, 0.2505)
+mesh = SubResource("BoxMesh_jrfau")
+
+[node name="edge10" parent="Box/edges" index="9"]
+transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.48004, 0, -0.2505)
+mesh = SubResource("BoxMesh_ffp6n")
+
+[node name="edge12" parent="Box/edges" index="10"]
+transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.48004, 0, -0.2505)
+mesh = SubResource("BoxMesh_xyi0v")
+
+[node name="edge11" parent="Box/edges" index="11"]
+transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.48004, 0, 0.2505)
+mesh = SubResource("BoxMesh_hbdhm")
+
+[node name="DestroyArea" parent="Box" instance=ExtResource("4_japkb")]
+ends_game = true
+fragmented = ExtResource("5_1o7e1")
+fade_delay = 1.0
+shrink_delay = 1.0
+animation_length = 1.0
+explosion_power = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/DestroyArea"]
+shape = SubResource("BoxShape3D_mfvft")
+
+[editable path="Box"]

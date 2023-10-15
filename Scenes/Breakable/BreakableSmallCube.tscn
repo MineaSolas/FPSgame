@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6utsm7xnap1p"]
+
+[ext_resource type="PackedScene" uid="uid://dr18vgc3yj535" path="res://Scenes/Cube/Cube.tscn" id="1_j3usm"]
+[ext_resource type="Texture2D" uid="uid://cpdl4ndqllavn" path="res://addons/corridors/CorridorModel_Lighting Gradient.png" id="2_n4by4"]
+[ext_resource type="Material" uid="uid://cdhpifvewr2ux" path="res://Scenes/Breakable/breakable.tres" id="3_wbo0w"]
+[ext_resource type="PackedScene" uid="uid://bra1ivnn006kp" path="res://Scenes/Breakable/DestroyArea.tscn" id="4_ewgbt"]
+[ext_resource type="PackedScene" uid="uid://nfmjqlvxsuwm" path="res://assets/BrokenSmallCube.obj" id="5_rmu2x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pbinp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0lyw"]
+next_pass = ExtResource("3_wbo0w")
+albedo_texture = ExtResource("2_n4by4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lcv6w"]
+
+[node name="BreakableSmallCube" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("1_j3usm")]
+mesh = SubResource("BoxMesh_pbinp")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0lyw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lcv6w")
+
+[node name="DestroyArea" parent="." instance=ExtResource("4_ewgbt")]
+fragmented = ExtResource("5_rmu2x")
+fade_delay = 0.5
+shrink_delay = 0.5
+animation_length = 0.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestroyArea"]
+shape = SubResource("BoxShape3D_lcv6w")

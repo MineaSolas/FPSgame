@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://boh7dq5xpepss"]
+
+[ext_resource type="Script" path="res://Scenes/Breakable/BreakableDoor.gd" id="1_7vm1b"]
+[ext_resource type="PackedScene" uid="uid://cugngjagm5tvy" path="res://addons/corridors/Doors/door_left_teal.tscn" id="1_m8fc4"]
+[ext_resource type="PackedScene" uid="uid://bhk52ymicy1yi" path="res://addons/corridors/Doors/door_right_teal.tscn" id="2_k1c1m"]
+[ext_resource type="Texture2D" uid="uid://bfisu6ohih1d0" path="res://addons/corridors/CorridorModel_Earth Ship Colors.png" id="2_v5n56"]
+[ext_resource type="Material" uid="uid://cdhpifvewr2ux" path="res://Scenes/Breakable/breakable.tres" id="3_s3wbd"]
+[ext_resource type="PackedScene" uid="uid://bra1ivnn006kp" path="res://Scenes/Breakable/DestroyArea.tscn" id="5_hwr66"]
+[ext_resource type="PackedScene" uid="uid://dbxx16yyfhuco" path="res://assets/BrokenDoor.obj" id="6_nsaoh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhp28"]
+next_pass = ExtResource("3_s3wbd")
+albedo_texture = ExtResource("2_v5n56")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28gse"]
+next_pass = ExtResource("3_s3wbd")
+albedo_texture = ExtResource("2_v5n56")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xs165"]
+size = Vector3(2.2, 2.4, 0.15)
+
+[node name="BreakableDoor" type="StaticBody3D"]
+script = ExtResource("1_7vm1b")
+
+[node name="DoorLeft_Teal" parent="." instance=ExtResource("1_m8fc4")]
+transform = Transform3D(1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, 1, 0, 0, 2.3)
+surface_material_override/0 = SubResource("StandardMaterial3D_lhp28")
+
+[node name="Door_Right_Teal" parent="." instance=ExtResource("2_k1c1m")]
+transform = Transform3D(1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, 1, 0, 0, 2.3)
+surface_material_override/0 = SubResource("StandardMaterial3D_28gse")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_xs165")
+
+[node name="DestroyArea" parent="." instance=ExtResource("5_hwr66")]
+fragmented = ExtResource("6_nsaoh")
+fade_delay = 0.5
+shrink_delay = 0.5
+animation_length = 0.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestroyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_xs165")

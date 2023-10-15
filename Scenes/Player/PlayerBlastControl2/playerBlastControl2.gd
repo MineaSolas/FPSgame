@@ -9,8 +9,8 @@ extends CharacterBody3D
 @export_group("Bullets")
 @export var _bullet_scene : PackedScene
 @export var _blast_curve : Curve
-@export var _blast_radius = 5
-@export var _blast_power = 8
+@export var _blast_radius = 5.0
+@export var _blast_power = 8.0
 @export var reload_time = 0.5
 
 @export_group("Movement")
@@ -28,6 +28,10 @@ var mouse_relative_y = 0
 
 var character_velocity = Vector3(0,0,0)
 var environment_velocity = Vector3(0,0,0)
+var elevator_velocity = Vector3(0,0,0)
+
+var elevator_speed = 0.0
+var elevator_decceleration = 2.0
 
 var can_shoot = true
 var dead = false
@@ -43,11 +47,11 @@ func _ready():
 		$"../UI/Health".set_health(HP)
 
 func _physics_process(delta):
-	#if Input.is_action_just_pressed("RearView"):
-	#	if $Head/TextureRect.visible:
-	#		$Head/TextureRect.visible = true
-	#	else:
-	#		$Head/TextureRect.visible = false
+	if Input.is_action_just_pressed("RearView"):
+		if $Head/Camera3d/Control/RearCam.visible:
+			$Head/Camera3d/Control/RearCam.visible = false
+		else:
+			$Head/Camera3d/Control/RearCam.visible = true
 	$Head/SubViewport/Camera3d2.global_transform = global_transform
 	$Head/SubViewport/Camera3d2.rotation += Vector3(0, PI, 0)
 	
@@ -83,28 +87,42 @@ func _physics_process(delta):
 	environment_velocity.x = move_toward(environment_velocity.x, 0, friction * delta)
 	environment_velocity.z = move_toward(environment_velocity.z, 0, friction * delta)
 	
+	elevator_velocity.y = move_toward(elevator_velocity.y, 0, elevator_decceleration * delta)
+	
 	var xz_character_velocity = Vector2(character_velocity.x, character_velocity.z).limit_length(max_speed)
 	character_velocity = Vector3(xz_character_velocity.x, character_velocity.y, xz_character_velocity.y)
 	
-	#print(character_velocity, environment_velocity)
 		
-	velocity = character_velocity + environment_velocity
+	velocity = character_velocity + environment_velocity + elevator_velocity
+	position += Vector3(0,elevator_speed,0) * delta
 	
 	move_and_slide()
 	
 	if is_on_ceiling():
 		environment_velocity.y = 0
 		character_velocity.y = 0
+		elevator_velocity.y = 0
+	if is_on_wall():
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			if round(collision.get_normal().x) == 1 or round(collision.get_normal().x) == -1:
+				environment_velocity.x = 0
+				character_velocity.x = 0
+			if round(collision.get_normal().z) == 1 or round(collision.get_normal().z) == -1:
+				environment_velocity.z = 0
+				character_velocity.z = 0
 	
 	# Add the gravity.
 	if is_on_floor():
 		environment_velocity.y = 0
 		character_velocity.y = 0
-		if Input.is_action_just_pressed("Jump"):
-			character_velocity.y = jump_power
+		elevator_velocity.y = 0
 	else:
 		environment_velocity.y -= gravity/2 * delta
 		character_velocity.y -= gravity/2 * delta
+		
+	if (is_on_floor() or elevator_speed > 0) and Input.is_action_just_pressed("Jump"):
+		character_velocity.y = jump_power
 		
 	# TODO: when the end of the level has been reached, use 'all_targets_hit' 
 	# to chekc if all targets have been hit. Level is not finished if not all
@@ -167,6 +185,10 @@ func _on_heal_zone_body_entered(body):
 		HP = 3
 		$"../UI/Health".reset()
 	
+func part_broken(ends_game):
+	if ends_game:
+		death()
+	
 func death():
 	print("You are dead!")
 	dead = true
@@ -178,6 +200,12 @@ func _on_animation_player_animation_finished(anim_name):
 		#TODO: Maybe add save point functionality? eg via autoload or orphan node when reloading that stores which savepoint player reached and puts them there at start
 		get_tree().reload_current_scene()
 	
+func _set_elevator_speed(value):
+	if value == 0:
+		elevator_velocity = Vector3(0,elevator_speed,0)
+	else:
+		elevator_velocity = Vector3(0,0,0)
+	elevator_speed = value
 
 # Check if all targets in the node tree of the scene have been hit
 func all_targets_hit():

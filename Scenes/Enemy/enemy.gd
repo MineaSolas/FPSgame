@@ -6,9 +6,7 @@ signal death
 enum {ENGAGING, ALERT, RETURNING, IDLE, KILLED}
 
 @export_category("Nodes")
-@export var map_path : NodePath
-@export var player_path : NodePath
-@export var bullet : PackedScene
+@export var bullet : PackedScene = load("res://Scenes/Turret/bullet.tscn")
 
 @export_category("Ranges")
 @export var engaged_detector_radius : float
@@ -22,15 +20,14 @@ enum {ENGAGING, ALERT, RETURNING, IDLE, KILLED}
 @export var speed = 4.0
 @export var killable = true
 
-
 @onready var nav_agent =  $NavigationAgent3D
 @onready var engaged_detector = $EngagedDetector
 @onready var alert_detector = $AlertDetector
 @onready var sight = $Sight
 @onready var killed_texture = load("res://art/denkeykong_killed.png")
 
-@onready var player = get_node(player_path)
-@onready var map = get_node(map_path)
+var player : Node
+@onready var map = get_tree().current_scene
 @onready var home_position = global_position
 @onready var does_follow_path = get_parent() is PathFollow3D
 
@@ -41,6 +38,7 @@ var reloaded = true
 
 func _ready():
 	$Timer.stop()
+	player = _find_player(get_tree().current_scene.get_children())
 	if does_follow_path:
 		pathfollow = get_parent()
 	
@@ -51,6 +49,15 @@ func _ready():
 	alert_detector.scale = to_scale_with * Vector3(1.0, 1.0, 1.0)
 	
 	sight.target_position.z = sight_distance
+	
+func _find_player(nodes: Array[Node]):
+	for node in nodes:
+		if node.name == "Player":
+			return node
+		var child_player = _find_player(node.get_children())
+		if child_player != null:
+			return child_player
+	return null
 
 func _process(delta):
 	if state == KILLED:

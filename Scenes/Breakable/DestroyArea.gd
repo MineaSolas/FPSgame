@@ -42,5 +42,7 @@ func set_fragmented(to: PackedScene) -> void:
 		get_tree().node_configuration_warning_changed.emit(self)
 
 func hit():
+	if get_parent().has_method("stop"):
+		get_parent().stop()
 	destruction.destroy(explosion_power)
 	part_broken.emit(ends_game)
