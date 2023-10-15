@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="7_ddluw"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_a4hs5"]
 [ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="9_o0fp5"]
-[ext_resource type="PackedScene" uid="uid://cjoqcmqwcf60t" path="res://addons/corridors/Corridor_90/wall_corridor_bend_90.tscn" id="10_70py6"]
+[ext_resource type="PackedScene" uid="uid://ibesibsmbcaf" path="res://Scenes/WorldBuilding/Corridor90.tscn" id="11_467cq"]
 [ext_resource type="PackedScene" uid="uid://ccppai6n5q2pw" path="res://Scenes/WorldBuilding/Arch.tscn" id="11_tcl41"]
 [ext_resource type="PackedScene" uid="uid://hv7st8vce7xw" path="res://Scenes/Target/MovingTarget/MovingTarget.tscn" id="12_4jkdl"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="13_21dxx"]
@@ -144,14 +144,14 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.50646, 4.20646, -11.
 [node name="CorridorEntry" type="Node3D" parent="Buildings/Corridor2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410546, 0, 0)
 
-[node name="wallCorridor Bend_90" parent="Buildings/Corridor2/CorridorEntry" instance=ExtResource("10_70py6")]
-transform = Transform3D(5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 7.47293, 4.54183, -13.7268)
-
 [node name="Arch" parent="Buildings/Corridor2/CorridorEntry" instance=ExtResource("11_tcl41")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.35801, 4.47388, -13.2001)
 
 [node name="Floor" parent="Buildings/Corridor2/CorridorEntry" instance=ExtResource("8_a4hs5")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 9.26168, 4.58773, -11.7094)
+
+[node name="Corridor90" parent="Buildings/Corridor2/CorridorEntry" instance=ExtResource("11_467cq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.473, 4.542, -13.727)
 
 [node name="Corridor" type="Node3D" parent="Buildings/Corridor2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.915, 2.933, -12.976)
@@ -171,9 +171,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.23599, 5.09727, -19.8
 [node name="CorridorExit" type="Node3D" parent="Buildings/Corridor2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.1439, 0, -18.814)
 
-[node name="wallCorridor Bend_90" parent="Buildings/Corridor2/CorridorExit" instance=ExtResource("10_70py6")]
-transform = Transform3D(5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 7.47293, 4.54183, -13.7268)
-
 [node name="Arch" parent="Buildings/Corridor2/CorridorExit" instance=ExtResource("11_tcl41")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.35801, 4.47388, -13.2001)
 
@@ -182,6 +179,9 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 9.26168, 4.58773, -14.4342)
 
 [node name="Arch2" parent="Buildings/Corridor2/CorridorExit" instance=ExtResource("11_tcl41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.52881, 4.47388, -15.8221)
+
+[node name="Corridor90" parent="Buildings/Corridor2/CorridorExit" instance=ExtResource("11_467cq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.473, 4.542, -13.727)
 
 [node name="Building2" type="Node3D" parent="Buildings"]
 
@@ -224,11 +224,11 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -
 [node name="CorridorEntry" type="Node3D" parent="Buildings/Corridor3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410546, 0, 0)
 
-[node name="wallCorridor Bend_90" parent="Buildings/Corridor3/CorridorEntry" instance=ExtResource("10_70py6")]
-transform = Transform3D(5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 7.47293, 4.54183, -13.7268)
-
 [node name="Arch" parent="Buildings/Corridor3/CorridorEntry" instance=ExtResource("11_tcl41")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.35801, 4.47388, -13.2001)
+
+[node name="Corridor90" parent="Buildings/Corridor3/CorridorEntry" instance=ExtResource("11_467cq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.473, 4.542, -13.727)
 
 [node name="Corridor" type="Node3D" parent="Buildings/Corridor3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.915, 2.933, -12.976)
@@ -242,14 +242,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.666, -9.2323)
 [node name="CorridorExit" type="Node3D" parent="Buildings/Corridor3"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.1439, 0, -18.814)
 
-[node name="wallCorridor Bend_90" parent="Buildings/Corridor3/CorridorExit" instance=ExtResource("10_70py6")]
-transform = Transform3D(5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 7.47293, 4.54183, -13.7268)
-
 [node name="Arch" parent="Buildings/Corridor3/CorridorExit" instance=ExtResource("11_tcl41")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.35801, 4.47388, -13.2001)
 
 [node name="Arch2" parent="Buildings/Corridor3/CorridorExit" instance=ExtResource("11_tcl41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.52881, 4.47388, -15.8221)
+
+[node name="Corridor90" parent="Buildings/Corridor3/CorridorExit" instance=ExtResource("11_467cq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.473, 4.542, -13.727)
 
 [node name="Enemy" parent="Buildings/Corridor3" instance=ExtResource("2_v35jq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.57987, 5.18675, -17.5849)
@@ -260,11 +260,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.018
 [node name="CorridorEntry" type="Node3D" parent="Buildings/Corridor4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410546, 0, 0)
 
-[node name="wallCorridor Bend_90" parent="Buildings/Corridor4/CorridorEntry" instance=ExtResource("10_70py6")]
-transform = Transform3D(5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 7.47293, 4.54183, -13.7268)
-
 [node name="Arch" parent="Buildings/Corridor4/CorridorEntry" instance=ExtResource("11_tcl41")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.35801, 4.47388, -13.2001)
+
+[node name="Corridor90" parent="Buildings/Corridor4/CorridorEntry" instance=ExtResource("11_467cq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.473, 4.542, -13.727)
 
 [node name="Corridor" type="Node3D" parent="Buildings/Corridor4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.915, 2.933, -12.976)
@@ -278,14 +278,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.666, -9.2323)
 [node name="CorridorExit" type="Node3D" parent="Buildings/Corridor4"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.1439, 0, -18.814)
 
-[node name="wallCorridor Bend_90" parent="Buildings/Corridor4/CorridorExit" instance=ExtResource("10_70py6")]
-transform = Transform3D(5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 7.47293, 4.54183, -13.7268)
-
 [node name="Arch" parent="Buildings/Corridor4/CorridorExit" instance=ExtResource("11_tcl41")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.35801, 4.47388, -13.2001)
 
 [node name="Arch2" parent="Buildings/Corridor4/CorridorExit" instance=ExtResource("11_tcl41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.52881, 4.47388, -15.8221)
+
+[node name="Corridor90" parent="Buildings/Corridor4/CorridorExit" instance=ExtResource("11_467cq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.473, 4.542, -13.727)
 
 [node name="Enemy" parent="Buildings/Corridor4" instance=ExtResource("2_v35jq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7.12557, 5.1509, -14.4437)
@@ -307,14 +307,14 @@ transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 
 [node name="CrossRoad" parent="Buildings/CrossRoad" instance=ExtResource("5_bsgjr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.515, -44)
 
-[node name="wallCorridor Bend_90" parent="Buildings/CrossRoad" instance=ExtResource("10_70py6")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.31755, 1.71048, -39.946)
+[node name="Corridor90" parent="Buildings/CrossRoad" instance=ExtResource("11_467cq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.318, 1.71, -39.946)
 
-[node name="wallCorridor Bend_91" parent="Buildings/CrossRoad" instance=ExtResource("10_70py6")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 1.952, 1.675, -39.521)
+[node name="Corridor91" parent="Buildings/CrossRoad" instance=ExtResource("11_467cq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.952, 1.675, -39.521)
 
-[node name="wallCorridor Bend_92" parent="Buildings/CrossRoad" instance=ExtResource("10_70py6")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.31755, 1.71048, -48.0037)
+[node name="Corridor92" parent="Buildings/CrossRoad" instance=ExtResource("11_467cq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.318, 1.71, -48.004)
 
 [node name="GlassWall" parent="Buildings/CrossRoad" instance=ExtResource("3_3638c")]
 transform = Transform3D(0.2, 0, 0, 0, 3, 0, 0, 0, 3.3, -0.951, 3.01, -43.95)
