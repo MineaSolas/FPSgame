@@ -43,11 +43,11 @@ func _ready():
 		$"../UI/Health".set_health(HP)
 
 func _physics_process(delta):
-	#if Input.is_action_just_pressed("RearView"):
-	#	if $Head/TextureRect.visible:
-	#		$Head/TextureRect.visible = true
-	#	else:
-	#		$Head/TextureRect.visible = false
+	if Input.is_action_just_pressed("RearView"):
+		if $Head/Camera3d/Control/RearCam.visible:
+			$Head/Camera3d/Control/RearCam.visible = false
+		else:
+			$Head/Camera3d/Control/RearCam.visible = true
 	$Head/SubViewport/Camera3d2.global_transform = global_transform
 	$Head/SubViewport/Camera3d2.rotation += Vector3(0, PI, 0)
 	
@@ -95,6 +95,16 @@ func _physics_process(delta):
 	if is_on_ceiling():
 		environment_velocity.y = 0
 		character_velocity.y = 0
+	if is_on_wall():
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			print(collision.get_normal().x, collision.get_normal().z)
+			if round(collision.get_normal().x) == 1 or round(collision.get_normal().x) == -1:
+				environment_velocity.x = 0
+				character_velocity.x = 0
+			if round(collision.get_normal().z) == 1 or round(collision.get_normal().z) == -1:
+				environment_velocity.z = 0
+				character_velocity.z = 0
 	
 	# Add the gravity.
 	if is_on_floor():
