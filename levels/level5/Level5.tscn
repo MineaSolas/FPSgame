@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bndbehloojmre"]
+[gd_scene load_steps=10 format=3 uid="uid://bndbehloojmre"]
 
 [ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="1_judt8"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="2_udopw"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="2_v35jq"]
+[ext_resource type="PackedScene" uid="uid://cpsmsr52q8o5d" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="3_3638c"]
 [ext_resource type="Material" uid="uid://cv3opj8v4jic8" path="res://addons/corridors/floors.tres" id="3_ffhmy"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="3_yssap"]
 [ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="5_bq631"]
@@ -25,12 +26,22 @@ point_count = 5
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 180, 0, 1.198, -81.812)
 
 [node name="Building1" parent="." instance=ExtResource("2_udopw")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.6, -10.203)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.6, -4.70617)
+
+[node name="GlassWall" parent="Building1" instance=ExtResource("3_3638c")]
+transform = Transform3D(-0.1, 0, 6.03983e-07, 0, 4, 0, -1.50996e-08, 0, -4, 2.00878, 0.96, -3.542)
+
+[node name="GlassWall2" parent="Building1" instance=ExtResource("3_3638c")]
+transform = Transform3D(-0.1, 0, 7.54979e-07, 0, 4, 0, -1.50996e-08, 0, -5, -2.10458, 0.96, -3.542)
+
+[node name="GlassWall3" parent="Building1" instance=ExtResource("3_3638c")]
+transform = Transform3D(-4.37114e-09, 0, 4, 0, 4, 0, -0.1, 0, -1.74846e-07, -0.15535, 0.96, -6.06221)
 
 [node name="EnemyTracking" type="Node3D" parent="Building1"]
 transform = Transform3D(-0.35, 0, -2.62268e-08, 0, 0.35, 0, 3.0598e-08, 0, -0.3, 0, 0, -12)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Building1/EnemyTracking"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_l6n1d")
 
 [node name="arena" type="CSGBox3D" parent="Building1/EnemyTracking/NavigationRegion3D"]
@@ -40,7 +51,7 @@ use_collision = true
 size = Vector3(50, 0.5, 50)
 
 [node name="Path3D" type="Path3D" parent="Building1/EnemyTracking/NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644406, -77.231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, -2.84217e-14, 0, 1, -1.36424e-12, 0.644406, -77.231)
 curve = SubResource("Curve3D_d2orc")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Building1/EnemyTracking/NavigationRegion3D/Path3D"]
