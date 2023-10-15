@@ -99,13 +99,16 @@ func _process(delta):
 func hit():
 	if !killable or state == KILLED:
 		return
-	state = KILLED
-	var material = StandardMaterial3D.new()
-	material.albedo_texture = killed_texture
-	$MeshInstance3D.set_surface_override_material(0, material)
-	
-	await get_tree().create_timer(1).timeout
-	queue_free()
+	hp -= 1
+	if hp <= 0:
+		emit_signal("death")
+		state = KILLED
+		var material = StandardMaterial3D.new()
+		material.albedo_texture = killed_texture
+		$MeshInstance3D.set_surface_override_material(0, material)
+		
+		await get_tree().create_timer(1).timeout
+		queue_free()
 
 func target_is_in_range(range):
 	return global_position.distance_to(player.global_position) <= range
@@ -129,13 +132,6 @@ func shoot():
 	new_bullet.muzzle_velocity = 12
 	map.add_child(new_bullet)
 	new_bullet.global_transform = global_transform
-
-func hit():
-	print("hit by bullet!")
-	hp -= 1
-	if hp <= 0:
-		emit_signal("death")
-		queue_free()
 
 # If-check might be somewhat redundant at the moment because collision mask is also set to only player's layer.
 func _on_alert_detector_body_entered(body):
