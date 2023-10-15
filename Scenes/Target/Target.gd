@@ -2,7 +2,7 @@ extends StaticBody3D
 
 signal hit_signal
 
-@onready var target_mesh: MeshInstance3D = $MeshInstance3D
+@onready var target_mesh: MeshInstance3D = $"../MeshInstance3D"
 @onready var mesh_target_hit = load("res://assets/target_hit.obj")
 
 @export var has_been_hit = false :

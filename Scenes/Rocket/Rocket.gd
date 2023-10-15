@@ -19,6 +19,9 @@ func _on_body_entered(_body):
 	if running: 
 		objectHit.emit(position)
 	running = false
+	# for hitting enemies, as they are not areas
+	if _body.has_method("hit"):
+		_body.hit()
 	queue_free()
 
 func _on_area_entered(area):

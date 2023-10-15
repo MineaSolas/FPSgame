@@ -36,7 +36,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.174533, 0, 0.261799), Vector3(-0.610865, 0, 0.174533)]
+"values": [Vector3(0, 0, 0), Vector3(-0.610865, 0, 0.0872665), Vector3(-0.610865, 0, 0.261799)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ct7u1"]
@@ -46,6 +46,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 5
 script = ExtResource("1_hfbay")
 _bullet_scene = ExtResource("2_weh6g")
 _blast_curve = ExtResource("3_ibo3i")
