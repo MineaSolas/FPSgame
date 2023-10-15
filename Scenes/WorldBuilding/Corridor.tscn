@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://co4fu3b1g0efi"]
 
-[ext_resource type="Material" uid="uid://8rtxw4nemutk" path="res://assets/FloorMaterial.tres" id="1_xdiyx"]
+[ext_resource type="Material" uid="uid://8rtxw4nemutk" path="res://assets/materials/FloorMaterial.tres" id="1_xdiyx"]
 [ext_resource type="PackedScene" uid="uid://bwom6m10faeac" path="res://addons/corridors/Corridor/wall_corridor_straight.tscn" id="2_hmaif"]
 [ext_resource type="PackedScene" uid="uid://ccppai6n5q2pw" path="res://Scenes/WorldBuilding/Arch.tscn" id="3_ejbbp"]
 

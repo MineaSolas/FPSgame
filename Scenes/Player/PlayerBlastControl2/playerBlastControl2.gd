@@ -47,6 +47,14 @@ func _ready():
 		$"../UI/Health".set_health(HP)
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("RearView"):
+		if $Head/Camera3d/Control/RearCam.visible:
+			$Head/Camera3d/Control/RearCam.visible = false
+		else:
+			$Head/Camera3d/Control/RearCam.visible = true
+	$Head/SubViewport/Camera3d2.global_transform = global_transform
+	$Head/SubViewport/Camera3d2.rotation += Vector3(0, PI, 0)
+	
 	if dead:
 		return
 	
@@ -94,6 +102,15 @@ func _physics_process(delta):
 		environment_velocity.y = 0
 		character_velocity.y = 0
 		elevator_velocity.y = 0
+	if is_on_wall():
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			if round(collision.get_normal().x) == 1 or round(collision.get_normal().x) == -1:
+				environment_velocity.x = 0
+				character_velocity.x = 0
+			if round(collision.get_normal().z) == 1 or round(collision.get_normal().z) == -1:
+				environment_velocity.z = 0
+				character_velocity.z = 0
 	
 	# Add the gravity.
 	if is_on_floor():
@@ -132,7 +149,7 @@ func shoot():
 	get_parent().add_child(rocket_inst)
 
 	# Set rocket position to little above player's
-	rocket_inst.position = global_position + Vector3(0,0.2,0)
+	rocket_inst.position = position + Vector3(0,0.2,0)
 	
 	# Move the rocket a bit to the front so it doesn't come from inside player
 	rocket_inst.rotation = $Head/Camera3d.global_rotation
@@ -151,8 +168,7 @@ func shoot():
 	rocket_inst.rotation_degrees.x -= 90
 	
 	# Callback when rocket hits object
-	var callable = Callable(self, "blast")
-	rocket_inst.connect("objectHit", callable, 0)
+	rocket_inst.connect("objectHit", self.blast, 0)
 	
 	await get_tree().create_timer(reload_time).timeout
 	can_shoot = true

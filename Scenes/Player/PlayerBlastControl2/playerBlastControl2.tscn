@@ -1,13 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://bru6ysxn1me4l"]
+[gd_scene load_steps=14 format=3 uid="uid://bru6ysxn1me4l"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd" id="1_hfbay"]
 [ext_resource type="PackedScene" uid="uid://s52e4i1g7uky" path="res://Scenes/Rocket/Rocket.tscn" id="2_weh6g"]
 [ext_resource type="Curve" uid="uid://c1rdg4kbquoyv" path="res://Scenes/Player/BlastCurveTest.tres" id="3_ibo3i"]
-[ext_resource type="Texture2D" uid="uid://soqot2rf3qg8" path="res://assets/textures/cross.png" id="4_4ci3c"]
+[ext_resource type="Texture2D" uid="uid://cuxydjf02o1ae" path="res://art/cross.png" id="4_0m3au"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6b3ky"]
+
+[sub_resource type="Gradient" id="Gradient_5pnpl"]
+colors = PackedColorArray(0.219608, 0.6, 0.835294, 1, 0.219608, 0.6, 0.835294, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eqpi6"]
+gradient = SubResource("Gradient_5pnpl")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nfcbn"]
+viewport_path = NodePath("Head/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_803m7"]
+font_color = Color(1, 1, 1, 0.266667)
 
 [sub_resource type="Animation" id="Animation_dy5u6"]
 length = 0.001
@@ -37,7 +49,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.174533, 0, 0.261799), Vector3(-0.610865, 0, 0.174533)]
+"values": [Vector3(0, 0, 0), Vector3(-0.610865, 0, 0.0872665), Vector3(-0.610865, 0, 0.261799)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ct7u1"]
@@ -47,6 +59,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 5
 script = ExtResource("1_hfbay")
 _bullet_scene = ExtResource("2_weh6g")
 _blast_curve = ExtResource("3_ibo3i")
@@ -80,7 +93,7 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Head/Camera3d/Control"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -92,7 +105,49 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(20, 20)
-texture = ExtResource("4_4ci3c")
+texture = ExtResource("4_0m3au")
+
+[node name="RearCam" type="Control" parent="Head/Camera3d/Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 556.0
+offset_top = 304.0
+offset_right = 596.0
+offset_bottom = 344.0
+
+[node name="TextureRect" type="TextureRect" parent="Head/Camera3d/Control/RearCam"]
+layout_mode = 0
+offset_left = -543.0
+offset_top = -295.0
+offset_right = -145.0
+offset_bottom = 70.0
+texture = SubResource("GradientTexture2D_eqpi6")
+
+[node name="TextureRect2" type="TextureRect" parent="Head/Camera3d/Control/RearCam"]
+layout_mode = 0
+offset_left = -535.0
+offset_top = -286.0
+offset_right = -155.0
+offset_bottom = 60.0
+texture = SubResource("ViewportTexture_nfcbn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Head/Camera3d/Control/RearCam"]
+layout_mode = 0
+offset_left = -538.0
+offset_top = 69.0
+offset_right = -400.0
+offset_bottom = 95.0
+text = "(Press C to toggle rear-view)"
+label_settings = SubResource("LabelSettings_803m7")
+
+[node name="SubViewport" type="SubViewport" parent="Head"]
+render_target_update_mode = 4
+
+[node name="Camera3d2" type="Camera3D" parent="Head/SubViewport"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.468, 0.4)
+fov = 95.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
