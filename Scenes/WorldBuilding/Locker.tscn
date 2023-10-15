@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct4aj8cbs2rdp"]
+
+[ext_resource type="PackedScene" uid="uid://cquqf01wtskwn" path="res://addons/corridors/Decorations/prop_locker.tscn" id="1_kgk25"]
+[ext_resource type="Texture2D" uid="uid://bfisu6ohih1d0" path="res://addons/corridors/CorridorModel_Earth Ship Colors.png" id="2_kso0o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7mpb"]
+albedo_texture = ExtResource("2_kso0o")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blgg0"]
+size = Vector3(0.8, 1.8, 0.25)
+
+[node name="Locker" type="StaticBody3D"]
+
+[node name="prop_Locker" parent="." instance=ExtResource("1_kgk25")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -2)
+material_override = SubResource("StandardMaterial3D_u7mpb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.12)
+shape = SubResource("BoxShape3D_blgg0")

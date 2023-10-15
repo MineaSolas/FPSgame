@@ -13,7 +13,6 @@ var turned_on = false :
 		turned_on = value
 		await get_tree().create_timer(animation_speed).timeout
 		set_color()
-		send_signal()
 
 @export var color_off = Color.RED
 @export var color_on = Color.GREEN
@@ -47,9 +46,19 @@ func send_signal():
 		switched_off.emit()
 
 func _on_switch_area_body_entered(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and not turned_on:
 		turned_on = true
+		send_signal()
 
 func _on_switch_area_body_exited(body):
-	if body.is_in_group("Player") and not one_use:
+	if body.is_in_group("Player") and not one_use and turned_on:
+		turned_on = false
+		send_signal()
+		
+func switch_on():
+	if not turned_on: 
+		turned_on = true
+	
+func switch_off():
+	if turned_on: 
 		turned_on = false

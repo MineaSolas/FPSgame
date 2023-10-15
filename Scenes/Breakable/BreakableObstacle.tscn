@@ -1,0 +1,118 @@
+[gd_scene load_steps=18 format=3 uid="uid://c4bcayjdeeli0"]
+
+[ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="1_tq36b"]
+[ext_resource type="Texture2D" uid="uid://cpdl4ndqllavn" path="res://addons/corridors/CorridorModel_Lighting Gradient.png" id="2_egoiy"]
+[ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="2_nks34"]
+[ext_resource type="Material" uid="uid://ca4bnyqs0ydkr" path="res://Scenes/Breakable/breakable_critical.tres" id="3_354jq"]
+[ext_resource type="PackedScene" uid="uid://ct4aj8cbs2rdp" path="res://Scenes/WorldBuilding/Locker.tscn" id="5_uswba"]
+[ext_resource type="Texture2D" uid="uid://bfisu6ohih1d0" path="res://addons/corridors/CorridorModel_Earth Ship Colors.png" id="6_4gu6t"]
+[ext_resource type="PackedScene" uid="uid://bra1ivnn006kp" path="res://Scenes/Breakable/DestroyArea.tscn" id="7_ys21q"]
+[ext_resource type="PackedScene" uid="uid://brpkl80dgr5k" path="res://assets/BrokenObstacle.obj" id="8_11plr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbkr0"]
+next_pass = ExtResource("3_354jq")
+albedo_texture = ExtResource("2_egoiy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vi3g"]
+next_pass = ExtResource("3_354jq")
+albedo_texture = ExtResource("2_egoiy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsumn"]
+next_pass = ExtResource("3_354jq")
+albedo_color = Color(0.545098, 0.835294, 0.835294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptyql"]
+next_pass = ExtResource("3_354jq")
+albedo_color = Color(0.545098, 0.835294, 0.835294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2c6dp"]
+next_pass = ExtResource("3_354jq")
+albedo_color = Color(0.545098, 0.835294, 0.835294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ib8fo"]
+next_pass = ExtResource("3_354jq")
+albedo_texture = ExtResource("6_4gu6t")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ywv4g"]
+size = Vector3(2, 3, 0.4)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0mvhg"]
+height = 4.8
+radius = 0.23
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blgg0"]
+size = Vector3(0.8, 1.8, 0.25)
+
+[node name="Obstacle" type="Node3D"]
+
+[node name="WallThin" parent="." instance=ExtResource("1_tq36b")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.3, 0, 0)
+
+[node name="MeshInstance3D" parent="WallThin" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cbkr0")
+
+[node name="WallThin6" parent="." instance=ExtResource("1_tq36b")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1.3, 0, 0)
+
+[node name="MeshInstance3D" parent="WallThin6" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7vi3g")
+
+[node name="Column" parent="." instance=ExtResource("2_nks34")]
+transform = Transform3D(-4.37114e-08, 1.6, -4.37114e-08, 0, -6.99382e-08, -1, -1, -6.99382e-08, 1.91069e-15, 0, 0.200001, 0)
+
+[node name="CSGCylinder3D" parent="Column" index="1"]
+material_override = SubResource("StandardMaterial3D_hsumn")
+
+[node name="Column2" parent="." instance=ExtResource("2_nks34")]
+transform = Transform3D(-4.37114e-08, 1.6, -4.37114e-08, 0, -6.99382e-08, -1, -1, -6.99382e-08, 1.91069e-15, 0, 1.66316, 0)
+
+[node name="CSGCylinder3D" parent="Column2" index="1"]
+material_override = SubResource("StandardMaterial3D_ptyql")
+
+[node name="Column3" parent="." instance=ExtResource("2_nks34")]
+transform = Transform3D(-4.37114e-08, 1.6, -4.37114e-08, 0, -6.99382e-08, -1, -1, -6.99382e-08, 1.91069e-15, 0, 3.2, 0)
+
+[node name="CSGCylinder3D" parent="Column3" index="1"]
+material_override = SubResource("StandardMaterial3D_2c6dp")
+
+[node name="Locker" parent="." instance=ExtResource("5_uswba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.5, 0)
+
+[node name="prop_Locker" parent="Locker" index="0"]
+material_override = SubResource("StandardMaterial3D_ib8fo")
+
+[node name="DestroyArea" parent="." instance=ExtResource("7_ys21q")]
+ends_game = true
+fragmented = ExtResource("8_11plr")
+explosion_power = 5.0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DestroyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 1.5, 0)
+shape = SubResource("BoxShape3D_ywv4g")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="DestroyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 1.5, 0)
+shape = SubResource("BoxShape3D_ywv4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestroyArea"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("CylinderShape3D_0mvhg")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="DestroyArea"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 1.663, 0)
+shape = SubResource("CylinderShape3D_0mvhg")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="DestroyArea"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 3.2, 0)
+shape = SubResource("CylinderShape3D_0mvhg")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="DestroyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 2, -0.12)
+shape = SubResource("BoxShape3D_blgg0")
+
+[editable path="WallThin"]
+[editable path="WallThin6"]
+[editable path="Column"]
+[editable path="Column2"]
+[editable path="Column3"]
+[editable path="Locker"]

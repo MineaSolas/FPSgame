@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://wu0wk4dbigfu"]
+
+[ext_resource type="Script" path="res://Scenes/Gate/Gate.gd" id="1_3b7t0"]
+[ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="1_hgfjp"]
+
+[node name="Gate" type="Node3D"]
+script = ExtResource("1_3b7t0")
+
+[node name="Top" parent="." instance=ExtResource("1_hgfjp")]
+transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 1, 0)
+
+[node name="Bottom" parent="." instance=ExtResource("1_hgfjp")]
+transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, -1, 0)

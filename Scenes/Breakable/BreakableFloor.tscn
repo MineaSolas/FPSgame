@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://dobgw7s1o403h"]
+
+[ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="1_f8kv2"]
+[ext_resource type="PackedScene" uid="uid://bra1ivnn006kp" path="res://Scenes/Breakable/DestroyArea.tscn" id="2_dntb8"]
+[ext_resource type="Texture2D" uid="uid://chua1mbxv803f" path="res://addons/corridors/CorridorModel_Floor.png" id="2_e7oev"]
+[ext_resource type="Material" uid="uid://ca4bnyqs0ydkr" path="res://Scenes/Breakable/breakable_critical.tres" id="3_xs1ug"]
+[ext_resource type="PackedScene" uid="uid://hxstq8gt4llb" path="res://assets/BrokenFloor.obj" id="5_nri8a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u02re"]
+next_pass = ExtResource("3_xs1ug")
+albedo_texture = ExtResource("2_e7oev")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f0b87"]
+size = Vector3(4, 0.1, 4)
+
+[node name="BreakableFloor" type="Node3D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_f8kv2")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="Floor" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_u02re")
+
+[node name="DestroyArea" parent="." instance=ExtResource("2_dntb8")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+ends_game = true
+fragmented = ExtResource("5_nri8a")
+explosion_power = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -0.288, 0)
+shape = SubResource("BoxShape3D_f0b87")
+
+[editable path="Floor"]
