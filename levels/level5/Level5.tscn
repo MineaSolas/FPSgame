@@ -51,12 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
 collision_mask = 3
 map_path = NodePath("../../../../../..")
 player_path = NodePath("../../../../../../Player")
-engaged_detector_radius = 40.0
-alert_detector_radius = 40.0
-sight_distance = 40.0
-attack_range = 35.0
-lenience = 10.0
-speed = 6.0
 
 [node name="Player" parent="." instance=ExtResource("3_yssap")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
