@@ -147,8 +147,6 @@ size = Vector3(17.6, 8.49, 7.32)
 [node name="Enemy" parent="EnemyTracking/NavigationRegion3D" instance=ExtResource("3_wpixk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644406, -77.231)
 collision_mask = 3
-map_path = NodePath("../../..")
-player_path = NodePath("../../../Player")
 
 [node name="Path3D" type="Path3D" parent="EnemyTracking/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644406, -77.231)
@@ -159,8 +157,6 @@ transform = Transform3D(0.073662, 0, -0.997283, 0, 1, 0, 0.997283, 0, 0.073662, 
 
 [node name="Enemy" parent="EnemyTracking/NavigationRegion3D/Path3D/PathFollow3D" instance=ExtResource("3_wpixk")]
 collision_mask = 3
-map_path = NodePath("../../../../..")
-player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.487485, 1.92432, -29.3105)
@@ -11712,14 +11708,10 @@ navigation_mesh = SubResource("NavigationMesh_kk73p")
 
 [node name="Enemy" parent="Sector5/NavigationRegion3D" instance=ExtResource("3_wpixk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -7)
-map_path = NodePath("../../..")
-player_path = NodePath("../../../Player")
 hp = 1.0
 
 [node name="Enemy2" parent="Sector5/NavigationRegion3D" instance=ExtResource("3_wpixk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 7)
-map_path = NodePath("../../..")
-player_path = NodePath("../../../Player")
 hp = 1.0
 
 [node name="Floor" parent="Sector5/NavigationRegion3D" instance=ExtResource("8_xy1w5")]
