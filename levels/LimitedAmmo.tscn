@@ -62,6 +62,21 @@ albedo_color = Color(1, 0.431373, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl1yf"]
 albedo_color = Color(0.866667, 0.537255, 0.239216, 1)
 
+[sub_resource type="Animation" id="Animation_b8g0d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_w84h2"]
 resource_name = "blinking"
 length = 2.0
@@ -77,21 +92,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.5, 2, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_b8g0d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hbu1o"]
@@ -163,7 +163,7 @@ map_path = NodePath("../../../../..")
 player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525587, 16.3979, -26.6329)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.096, 16.3979, -44.3227)
 script = ExtResource("3_hdiv3")
 HP = 4
 has_health = true
@@ -354,11 +354,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -28)
 
 [node name="Target2" parent="Sector1" instance=ExtResource("5_4of6h")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -14, 4, -5)
-collision_layer = 3
 
 [node name="Target3" parent="Sector1" instance=ExtResource("5_4of6h")]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 8, 2, 1)
-collision_layer = 3
 
 [node name="MovingTarget2" parent="Sector1" instance=ExtResource("12_m2e6e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -31)
@@ -11643,21 +11641,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.422043, 0, -6.29375)
 
 [node name="Target" parent="Sector4" instance=ExtResource("5_4of6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8112, 1, -6.393)
-collision_layer = 3
 
 [node name="Floor3" parent="Sector4" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1.1, 9.41118, 2, -6.29736)
 
 [node name="Target2" parent="Sector4" instance=ExtResource("5_4of6h")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.35452, 2.8974, -9.19294)
-collision_layer = 3
 
 [node name="Floor4" parent="Sector4" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(1, 0, 0, 0, 0.75, 0, 0, 0, 1, 9.43565, 3.89461, 4.14624)
 
 [node name="Target3" parent="Sector4" instance=ExtResource("5_4of6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.06985, 4.73271, 4.28151)
-collision_layer = 3
 
 [node name="Floor5" parent="Sector4" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(1, 0, 0, 0, 0.75, 0, 0, 0, 1, 20.3146, 4.90279, 4.14624)

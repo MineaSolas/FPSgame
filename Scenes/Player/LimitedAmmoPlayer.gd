@@ -4,7 +4,7 @@ signal no_bullets
 signal player_died
 
 var bullets
-var max_bullets = 2
+var max_bullets = 20
 var reset_time = 0
 
 func _ready():
@@ -18,7 +18,7 @@ func _process(delta):
 		reset_time += delta
 	else:
 		reset_time = 0
-	if reset_time >= 2:
+	if reset_time >= 1.5:
 		death()
 
 func shoot():
