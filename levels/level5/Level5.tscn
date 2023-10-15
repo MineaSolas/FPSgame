@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bndbehloojmre"]
+[gd_scene load_steps=13 format=3 uid="uid://bndbehloojmre"]
 
 [ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="1_judt8"]
-[ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="2_udopw"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="2_v35jq"]
 [ext_resource type="PackedScene" uid="uid://cpsmsr52q8o5d" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="3_3638c"]
 [ext_resource type="Material" uid="uid://cv3opj8v4jic8" path="res://addons/corridors/floors.tres" id="3_ffhmy"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="3_yssap"]
 [ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="5_bq631"]
+[ext_resource type="PackedScene" uid="uid://c81kt7m22n3jo" path="res://Scenes/WorldBuilding/CrossRoad.tscn" id="5_bsgjr"]
+[ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="6_ye3se"]
+[ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="7_ddluw"]
+[ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_a4hs5"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_l6n1d"]
 vertices = PackedVector3Array(0, 0.705, -73.76, 0, 0.705, -75.51, -1.5, 0.705, -76.51, -9, 0.705, -73.76, -24, 0.705, -87.76, -20.25, 0.705, -87.76, -19.25, 0.705, -89.26, -24, 0.705, -94.01, -12, 0.705, -100.26, -17, 0.705, -88.51, -17, 0.705, -87.26, -0.75, 0.705, -78.76, 0, 0.705, -78.76, 0, 0.705, -100.26, -24, 0.705, -94.01, -19.25, 0.705, -89.26, -17.75, 0.705, -89.26, -12, 0.705, -100.26, -24, 0.705, -100.26, -12, 0.705, -100.26, -17.75, 0.705, -89.26, -17, 0.705, -88.51, -9, 0.705, -73.76, -1.5, 0.705, -76.51, -1.5, 0.705, -78.01, -9, 0.705, -73.76, -1.5, 0.705, -78.01, -0.75, 0.705, -78.76, -17, 0.705, -87.26, 1.5, 0.705, -76.51, 0, 0.705, -75.51, 0, 0.705, -73.76, 9.25, 0.705, -73.76, 9.25, 0.705, -73.76, 24, 0.705, -78.51, 24, 0.705, -85.76, 12, 0.705, -100.26, 0, 0.705, -100.26, 0.75, 0.705, -78.76, 1.5, 0.705, -78.01, 1.5, 0.705, -76.51, 9.25, 0.705, -73.76, 0.75, 0.705, -78.76, 1.5, 0.705, -78.01, 9.25, 0.705, -73.76, 24, 0.705, -93.01, 24, 0.705, -100.26, 12, 0.705, -100.26, 10, 0.705, -73.01, 10, 0.705, -71.01, 24, 0.705, -71.01, 9.25, 0.705, -73.76, 10, 0.705, -73.01, 24, 0.705, -71.01, 24, 0.705, -78.51, 0, 0.705, -100.26, 0, 0.705, -78.76, 0.75, 0.705, -78.76, 24, 0.705, -85.76, 24, 0.705, -93.01, 12, 0.705, -100.26, -19, 0.705, -86.01, -20.25, 0.705, -87.76, -24, 0.705, -87.76, -24, 0.705, -79.51, -9, 0.705, -73.76, -17, 0.705, -87.26, -18, 0.705, -86.01, -18, 0.705, -86.01, -19, 0.705, -86.01, -24, 0.705, -79.51, -24, 0.705, -71.01, -10, 0.705, -73.01, -9, 0.705, -73.76, -24, 0.705, -71.01, -10, 0.705, -71.01, -10, 0.705, -73.01, -8, 8.205, -71.76, -8, 8.205, -66.26, 0, 8.205, -66.26, 0, 8.205, -71.76, 8, 8.205, -71.76, 0, 8.205, -71.76, 0, 8.205, -66.26, 8, 8.205, -66.26, -7.75, 0.705, -71.51, -7.75, 0.705, -66.51, 0, 0.705, -66.51, 0, 0.705, -71.51, 7.75, 0.705, -71.51, 0, 0.705, -71.51, 0, 0.705, -66.51, 7.75, 0.705, -66.51, -24, 0.705, -67.01, -10, 0.705, -67.01, -10, 0.705, -71.01, -24, 0.705, -71.01, 10, 0.705, -67.01, 24, 0.705, -67.01, 24, 0.705, -71.01, 10, 0.705, -71.01, -24, 0.705, -59.76, -24, 0.705, -52.26, -15.75, 0.705, -52.26, -7.25, 0.705, -52.26, -7.25, 0.705, -64.26, -9.25, 0.705, -64.26, -7.25, 0.705, -52.26, -9.25, 0.705, -64.26, -10, 0.705, -65.01, -15.75, 0.705, -52.26, -10, 0.705, -65.01, -10, 0.705, -67.01, -24, 0.705, -67.01, -24, 0.705, -59.76, -15.75, 0.705, -52.26, 15.5, 0.705, -52.26, 24, 0.705, -52.26, 24, 0.705, -59.76, 9.25, 0.705, -64.26, 7.25, 0.705, -64.26, 7.25, 0.705, -52.26, 10, 0.705, -65.01, 9.25, 0.705, -64.26, 7.25, 0.705, -52.26, 15.5, 0.705, -52.26, 24, 0.705, -67.01, 10, 0.705, -67.01, 10, 0.705, -65.01, 15.5, 0.705, -52.26, 24, 0.705, -59.76, 0, 0.705, -52.26, 7.25, 0.705, -52.26, 7.25, 0.705, -64.26, 0, 0.705, -64.26, 0, 0.705, -64.26, -7.25, 0.705, -64.26, -7.25, 0.705, -52.26, 0, 0.705, -52.26)
@@ -22,50 +25,99 @@ point_count = 5
 
 [node name="Level5" type="Node3D"]
 
-[node name="Floor" parent="." instance=ExtResource("1_judt8")]
-transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 180, 0, 1.198, -81.812)
+[node name="Player" parent="." instance=ExtResource("3_yssap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+has_health = true
 
-[node name="Building1" parent="." instance=ExtResource("2_udopw")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.6, -4.70617)
+[node name="Buildings" type="Node3D" parent="."]
 
-[node name="GlassWall" parent="Building1" instance=ExtResource("3_3638c")]
-transform = Transform3D(-0.1, 0, 6.03983e-07, 0, 4, 0, -1.50996e-08, 0, -4, 2.00878, 0.96, -3.542)
+[node name="Entrance" type="Node3D" parent="Buildings"]
 
-[node name="GlassWall2" parent="Building1" instance=ExtResource("3_3638c")]
-transform = Transform3D(-0.1, 0, 7.54979e-07, 0, 4, 0, -1.50996e-08, 0, -5, -2.10458, 0.96, -3.542)
+[node name="CrossRoad" parent="Buildings/Entrance" instance=ExtResource("5_bsgjr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66221, -0.634897)
 
-[node name="GlassWall3" parent="Building1" instance=ExtResource("3_3638c")]
-transform = Transform3D(-4.37114e-09, 0, 4, 0, 4, 0, -0.1, 0, -1.74846e-07, -0.15535, 0.96, -6.06221)
+[node name="GlassWall" parent="Buildings/Entrance" instance=ExtResource("3_3638c")]
+transform = Transform3D(0.1, 0, 0, 0, 4, 0, 0, 0, 5, -2.00878, 2.56, -1.04937)
 
-[node name="EnemyTracking" type="Node3D" parent="Building1"]
-transform = Transform3D(-0.35, 0, -2.62268e-08, 0, 0.35, 0, 3.0598e-08, 0, -0.3, 0, 0, -12)
+[node name="GlassWall2" parent="Buildings/Entrance" instance=ExtResource("3_3638c")]
+transform = Transform3D(0.1, 0, 1.02318e-12, 0, 4, 0, 0, 0, 5, 2.10458, 2.56, -1.16417)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Building1/EnemyTracking"]
+[node name="GlassWall3" parent="Buildings/Entrance" instance=ExtResource("3_3638c")]
+transform = Transform3D(1.94707e-08, 0, -4, 0, 4, 0, 0.1, 0, 7.7883e-07, 0.155351, 2.56, 1.35604)
+
+[node name="Corridors" type="Node3D" parent="Buildings"]
+
+[node name="Corridor2" parent="Buildings/Corridors" instance=ExtResource("6_ye3se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.666, -9.2323)
+
+[node name="Corridor" parent="Buildings/Corridors" instance=ExtResource("6_ye3se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66585, -4.83175)
+
+[node name="Building1" type="Node3D" parent="Buildings"]
+
+[node name="EnemyTracking" type="Node3D" parent="Buildings/Building1"]
+transform = Transform3D(0.35, 0, 7.15256e-08, 0, 0.35, 0, -8.34466e-08, 0, 0.3, 1.81195e-06, 1.6, 7.29383)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Buildings/Building1/EnemyTracking"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_l6n1d")
 
-[node name="arena" type="CSGBox3D" parent="Building1/EnemyTracking/NavigationRegion3D"]
+[node name="arena" type="CSGBox3D" parent="Buildings/Building1/EnemyTracking/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09495e-13, 0, -76.26)
 material_override = ExtResource("3_ffhmy")
 use_collision = true
 size = Vector3(50, 0.5, 50)
 
-[node name="Path3D" type="Path3D" parent="Building1/EnemyTracking/NavigationRegion3D"]
+[node name="Path3D" type="Path3D" parent="Buildings/Building1/EnemyTracking/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -2.84217e-14, 0, 1, -1.36424e-12, 0.644406, -77.231)
 curve = SubResource("Curve3D_d2orc")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Building1/EnemyTracking/NavigationRegion3D/Path3D"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Buildings/Building1/EnemyTracking/NavigationRegion3D/Path3D"]
 transform = Transform3D(0.073662, 0, -0.997283, 0, 1, 0, 0.997283, 0, 0.073662, -18.5477, 0.230309, -10.4911)
 
-[node name="Enemy" parent="Building1/EnemyTracking/NavigationRegion3D/Path3D/PathFollow3D" instance=ExtResource("2_v35jq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
+[node name="Enemy" parent="Buildings/Building1/EnemyTracking/NavigationRegion3D/Path3D/PathFollow3D" instance=ExtResource("2_v35jq")]
+transform = Transform3D(1, 0, 7.45058e-09, 0, 1, 0, 8.19564e-08, 0, 1, 5.03888, 0.366954, -11.0127)
 collision_mask = 3
-map_path = NodePath("../../../../../..")
-player_path = NodePath("../../../../../../Player")
+map_path = NodePath("../../../../../../..")
+player_path = NodePath("../../../../../../../Player")
 
-[node name="Player" parent="." instance=ExtResource("3_yssap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-has_health = true
+[node name="Walls" type="Node3D" parent="Buildings/Building1"]
+
+[node name="WallST" parent="Buildings/Building1/Walls" instance=ExtResource("7_ddluw")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -11.279)
+
+[node name="WallSL" parent="Buildings/Building1/Walls" instance=ExtResource("7_ddluw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.92088, 1.634, -11.279)
+
+[node name="WallSR" parent="Buildings/Building1/Walls" instance=ExtResource("7_ddluw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95305, 1.63366, -11.2787)
+
+[node name="WallL" parent="Buildings/Building1/Walls" instance=ExtResource("7_ddluw")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -6.15334, 1.5, -15.1734)
+
+[node name="WallR" parent="Buildings/Building1/Walls" instance=ExtResource("7_ddluw")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 5.83935, 1.5, -15.1734)
+
+[node name="WallB" parent="Buildings/Building1/Walls" instance=ExtResource("7_ddluw")]
+transform = Transform3D(-8.74228e-08, -4, 0, 2, -1.74846e-07, 0, 0, 0, 1, 6.00115, 3.33967, -18.9409)
+
+[node name="Ceiling" parent="Buildings/Building1/Walls" instance=ExtResource("7_ddluw")]
+transform = Transform3D(-8.74228e-08, 4, -4.37114e-08, 0, -1.74846e-07, -1, -2, -1.74846e-07, 1.91069e-15, -6.16048, 7.34042, -15.1734)
+
+[node name="Platforms" type="Node3D" parent="Buildings/Building1"]
+
+[node name="Floor" parent="Buildings/Building1/Platforms" instance=ExtResource("8_a4hs5")]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -5.43309, 3.7331, -11.7634)
+
+[node name="Enemies" type="Node3D" parent="Buildings/Building1"]
+
+[node name="Enemy" parent="Buildings/Building1/Enemies" instance=ExtResource("2_v35jq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.50646, 4.20646, -11.6479)
+map_path = NodePath("../../../..")
+player_path = NodePath("../../../../Player")
+
+[node name="Floor" parent="." instance=ExtResource("1_judt8")]
+transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 180, 0, 1.198, -81.812)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, 0.5, 0, -0.707107, 0.707107, 0.707107, -0.5, -0.5, 50, 50, -50)
