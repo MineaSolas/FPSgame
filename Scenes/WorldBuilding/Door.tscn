@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://chpkklg8cwdxq"]
 
 [ext_resource type="Script" path="res://Scenes/WorldBuilding/Door.gd" id="1_3ipln"]
-[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/WallMaterial.tres" id="2_q5l8g"]
-[ext_resource type="Material" uid="uid://b5is4ebouu8uu" path="res://assets/DetailMaterial.tres" id="3_aus7q"]
+[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/materials/WallMaterial.tres" id="2_q5l8g"]
+[ext_resource type="Material" uid="uid://b5is4ebouu8uu" path="res://assets/materials/DetailMaterial.tres" id="3_aus7q"]
 [ext_resource type="PackedScene" uid="uid://cugngjagm5tvy" path="res://addons/corridors/Doors/door_left_teal.tscn" id="4_2oa23"]
 [ext_resource type="PackedScene" uid="uid://bhk52ymicy1yi" path="res://addons/corridors/Doors/door_right_teal.tscn" id="5_tjam5"]
 

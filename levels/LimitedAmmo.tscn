@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="3_wpixk"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_etgme"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_4of6h"]
+[ext_resource type="Script" path="res://Scenes/UI/Ammo.gd" id="5_jnih2"]
 [ext_resource type="Script" path="res://levels/LimitedAmmoPlayer.gd" id="5_jx370"]
 [ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="8_8hwkr"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_xy1w5"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="9_fxnbq"]
 [ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="9_yis3m"]
-[ext_resource type="Script" path="res://levels/Ammo.gd" id="10_0afud"]
 [ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="10_1vm0a"]
 [ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="10_4acjy"]
 
@@ -152,7 +152,7 @@ offset_right = 1145.0
 offset_bottom = 624.0
 theme_override_font_sizes/font_size = 35
 text = "Bullets: 10/10"
-script = ExtResource("10_0afud")
+script = ExtResource("5_jnih2")
 
 [node name="Sector1" type="Node3D" parent="."]
 
