@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bru6ysxn1me4l"]
+[gd_scene load_steps=14 format=3 uid="uid://bru6ysxn1me4l"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd" id="1_hfbay"]
 [ext_resource type="PackedScene" uid="uid://s52e4i1g7uky" path="res://Scenes/Rocket/Rocket.tscn" id="2_weh6g"]
@@ -106,6 +106,7 @@ pivot_offset = Vector2(20, 20)
 texture = ExtResource("4_0m3au")
 
 [node name="RearCam" type="Control" parent="Head/Camera3d/Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 556.0
@@ -122,6 +123,7 @@ offset_bottom = 70.0
 texture = SubResource("GradientTexture2D_eqpi6")
 
 [node name="TextureRect2" type="TextureRect" parent="Head/Camera3d/Control/RearCam"]
+layout_mode = 0
 offset_left = -535.0
 offset_top = -286.0
 offset_right = -155.0
