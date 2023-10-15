@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://hv7st8vce7xw"]
 
 [ext_resource type="Script" path="res://Scenes/Target/MovingTarget/MovingTarget.gd" id="1_51n0a"]
-[ext_resource type="ArrayMesh" uid="uid://bruuqw2b1tlt5" path="res://assets/target.obj" id="1_hv1uo"]
+[ext_resource type="ArrayMesh" uid="uid://bruuqw2b1tlt5" path="res://assets/meshes/target.obj" id="2_hag1c"]
 [ext_resource type="Script" path="res://Scenes/Switch/switch_area.gd" id="3_rrasc"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yq4t4"]
@@ -15,7 +15,7 @@ radius = 0.95
 script = ExtResource("1_51n0a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_hv1uo")
+mesh = ExtResource("2_hag1c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_yq4t4")

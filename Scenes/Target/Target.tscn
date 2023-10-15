@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://52attaykg0eq"]
 
 [ext_resource type="Script" path="res://Scenes/Target/TargetParent.gd" id="1_fqsty"]
-[ext_resource type="ArrayMesh" uid="uid://bruuqw2b1tlt5" path="res://assets/target.obj" id="1_frll0"]
+[ext_resource type="ArrayMesh" uid="uid://bruuqw2b1tlt5" path="res://assets/meshes/target.obj" id="1_frll0"]
 [ext_resource type="Script" path="res://Scenes/Target/Target.gd" id="1_m1ypd"]
 [ext_resource type="Script" path="res://Scenes/Switch/switch_area.gd" id="4_cpl6k"]
 
@@ -30,7 +30,6 @@ script = ExtResource("4_cpl6k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="target/switch_area"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.14, 0.01, 0)
-visible = false
 shape = SubResource("CylinderShape3D_pqh51")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

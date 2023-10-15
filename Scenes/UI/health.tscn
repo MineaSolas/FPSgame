@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fn3g7p4oqlet"]
 
-[ext_resource type="Script" path="res://levels/Health.gd" id="1_xxrm8"]
+[ext_resource type="Script" path="res://Scenes/UI/Health.gd" id="1_71xsp"]
 
 [node name="Health" type="Label"]
 offset_left = 11.0
@@ -9,4 +9,4 @@ offset_right = 161.0
 offset_bottom = 632.0
 theme_override_font_sizes/font_size = 40
 text = "Health: 3"
-script = ExtResource("1_xxrm8")
+script = ExtResource("1_71xsp")

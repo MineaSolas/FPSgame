@@ -119,18 +119,30 @@ func shoot():
 	can_shoot = false
 	
 	# Spawn Rocket
-	var rocket_spawn = position
 	var rocket_inst = _bullet_scene.instantiate()
 	get_parent().add_child(rocket_inst)
+
+	# Set rocket position to little above player's
+	rocket_inst.position = position + Vector3(0,0.2,0)
 	
-	# Pos = player Pos. Shoots towards looking direction
-	rocket_inst.position = rocket_spawn
-	rocket_inst.rotation.y = rotation.y
-	rocket_inst.rotation.x = $Head/Camera3d.rotation.x - PI/2
+	# Move the rocket a bit to the front so it doesn't come from inside player
+	rocket_inst.rotation = $Head/Camera3d.global_rotation
+	rocket_inst.rotation_degrees.x = -90
+	rocket_inst.rotation_degrees.z = 0
+	var offset = clamp(($Head/Camera3d.global_rotation_degrees.x+90)/70, 0, 3)
+	rocket_inst.position += rocket_inst.transform.basis.y * offset
+	
+	# Direct the rocket towards the point where the player is aiming
+	if gunRay.is_colliding(): 
+		rocket_inst.look_at(gunRay.get_collision_point(), Vector3.UP)
+	else:
+		rocket_inst.rotation = $Head/Camera3d.global_rotation
+	if rocket_inst.global_rotation == Vector3(0,0,0):
+		rocket_inst.global_rotation = $Head/Camera3d.global_rotation
+	rocket_inst.rotation_degrees.x -= 90
 	
 	# Callback when rocket hits object
-	var callable = Callable(self, "blast")
-	rocket_inst.connect("objectHit", callable, 0)
+	rocket_inst.connect("objectHit", self.blast, 0)
 	
 	await get_tree().create_timer(reload_time).timeout
 	can_shoot = true

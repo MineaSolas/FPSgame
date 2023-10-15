@@ -15,7 +15,7 @@ var init_position
 		hit_signal.emit()
 
 @onready var target_mesh: MeshInstance3D = $MeshInstance3D
-@onready var mesh_target_hit = load("res://assets/target_hit.obj")
+@onready var mesh_target_hit = load("res://assets/meshes/target_hit.obj")
 
 func _ready():
 	init_position = global_position

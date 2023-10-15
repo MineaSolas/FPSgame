@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="3_wpixk"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_etgme"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_4of6h"]
+[ext_resource type="Script" path="res://Scenes/UI/Ammo.gd" id="5_jnih2"]
 [ext_resource type="Script" path="res://levels/Sector1.gd" id="6_jsb2r"]
 [ext_resource type="Script" path="res://levels/NoBullets.gd" id="6_vkhoo"]
 [ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="8_8hwkr"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_xy1w5"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="9_fxnbq"]
 [ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="9_yis3m"]
-[ext_resource type="Script" path="res://levels/Ammo.gd" id="10_0afud"]
 [ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="10_1vm0a"]
 [ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="10_4acjy"]
 [ext_resource type="PackedScene" uid="uid://hv7st8vce7xw" path="res://Scenes/Target/MovingTarget/MovingTarget.tscn" id="12_m2e6e"]
@@ -163,7 +163,7 @@ map_path = NodePath("../../../../..")
 player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.096, 16.3979, -44.3227)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.487485, 16.3979, -3.5436)
 script = ExtResource("3_hdiv3")
 HP = 4
 has_health = true
@@ -216,7 +216,7 @@ offset_right = 1145.0
 offset_bottom = 624.0
 theme_override_font_sizes/font_size = 35
 text = "Bullets: 10/10"
-script = ExtResource("10_0afud")
+script = ExtResource("5_jnih2")
 
 [node name="NoBullets" type="Label" parent="UI"]
 visible = false
