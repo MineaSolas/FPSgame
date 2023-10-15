@@ -26,7 +26,7 @@ enum {ENGAGING, ALERT, RETURNING, IDLE, KILLED}
 @onready var sight = $Sight
 @onready var killed_texture = load("res://art/denkeykong_killed.png")
 
-var player = Node
+var player : Node
 @onready var map = get_tree().current_scene
 @onready var home_position = global_position
 @onready var does_follow_path = get_parent() is PathFollow3D

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cpdl4ndqllavn" path="res://addons/corridors/CorridorModel_Lighting Gradient.png" id="10_lyet5"]
 [ext_resource type="Material" uid="uid://ca4bnyqs0ydkr" path="res://Scenes/Breakable/breakable_critical.tres" id="10_w1jcc"]
 [ext_resource type="PackedScene" uid="uid://dqqygnugcatol" path="res://Scenes/PressurePlate/PressurePlate.tscn" id="11_y6j8j"]
-[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/WallMaterial.tres" id="12_h4hhy"]
+[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/materials/WallMaterial.tres" id="12_h4hhy"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="12_mgw8e"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="13_6wi77"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="14_tdbxo"]
