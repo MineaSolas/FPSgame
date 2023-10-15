@@ -142,8 +142,7 @@ func shoot():
 	rocket_inst.rotation_degrees.x -= 90
 	
 	# Callback when rocket hits object
-	var callable = Callable(self, "blast")
-	rocket_inst.connect("objectHit", callable, 0)
+	rocket_inst.connect("objectHit", self.blast, 0)
 	
 	await get_tree().create_timer(reload_time).timeout
 	can_shoot = true
