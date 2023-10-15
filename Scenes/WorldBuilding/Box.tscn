@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://cf4x8lslcpbia"]
 
-[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/WallMaterial.tres" id="1_imch1"]
+[ext_resource type="Material" uid="uid://c7mw6mbscs465" path="res://assets/materials/WallMaterial.tres" id="1_imch1"]
 [ext_resource type="Script" path="res://Scenes/WorldBuilding/BoxScript.gd" id="1_rerv0"]
-[ext_resource type="Material" uid="uid://b5is4ebouu8uu" path="res://assets/DetailMaterial.tres" id="2_i6tsk"]
+[ext_resource type="Material" uid="uid://b5is4ebouu8uu" path="res://assets/materials/DetailMaterial.tres" id="2_i6tsk"]
 [ext_resource type="Script" path="res://Scenes/WorldBuilding/edge.gd" id="3_j7u7m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfvft"]

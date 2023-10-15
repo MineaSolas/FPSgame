@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://52attaykg0eq"]
 
 [ext_resource type="Script" path="res://Scenes/Target/TargetParent.gd" id="1_fqsty"]
-[ext_resource type="ArrayMesh" uid="uid://bruuqw2b1tlt5" path="res://assets/target.obj" id="1_frll0"]
+[ext_resource type="ArrayMesh" uid="uid://bruuqw2b1tlt5" path="res://assets/meshes/target.obj" id="1_frll0"]
 [ext_resource type="Script" path="res://Scenes/Target/Target.gd" id="1_m1ypd"]
 [ext_resource type="Script" path="res://Scenes/Switch/switch_area.gd" id="4_cpl6k"]
 

@@ -54,3 +54,9 @@ func _on_pair_switched_on():
 
 func _on_pair_switched_off():
 	turned_on = true
+
+func switch_on():
+	turned_on = true
+	
+func switch_off():
+	turned_on = false
