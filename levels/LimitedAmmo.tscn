@@ -163,7 +163,7 @@ map_path = NodePath("../../../../..")
 player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.487485, 16.3979, -3.5436)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.487485, 1.92432, -29.3105)
 script = ExtResource("3_hdiv3")
 HP = 4
 has_health = true
@@ -245,6 +245,9 @@ libraries = {
 [node name="Sector12" type="Node3D" parent="Connections"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49)
 
+[node name="Column" parent="Connections/Sector12" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(1, 0, 0, 0, 6.5, 0, 0, 0, 1, 5.04448, 9.09263, -4.96026)
+
 [node name="Corridor2" parent="Connections/Sector12" instance=ExtResource("10_4acjy")]
 transform = Transform3D(-3.78552e-08, -0.5, -0.866025, -2.18557e-08, 0.866025, -0.5, 1, 0, -4.37114e-08, 8, 1, 0)
 
@@ -259,6 +262,21 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 9)
 
 [node name="Floor" parent="Connections/Sector12" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="WallThin" parent="Connections/Sector12" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(0.75, 0, 0, 0, 1.5, 0, 0, 0, 1, -4.48939, 0, 5.90155)
+
+[node name="WallThin2" parent="Connections/Sector12" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(0.75, 0, 0, 0, 1.5, 0, 0, 0, 1, 4.43712, 0, 5.9042)
+
+[node name="WallThin3" parent="Connections/Sector12" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(-4.37114e-08, -0.5, 0.866025, 0, 0.866025, 0.5, -1, 2.18557e-08, -3.78552e-08, 6.26455, 0, 3.87861)
+
+[node name="WallThin4" parent="Connections/Sector12" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(-1.31134e-07, 0, 1, 0, 6.5, 0, -3, 0, -4.37114e-08, -5.90777, 0, -0.0406036)
+
+[node name="WallThin5" parent="Connections/Sector12" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1, -0.0302815, 4.50604, 5.90685)
 
 [node name="Sector34" type="Node3D" parent="Connections"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.034, 6, -49.22)
@@ -308,28 +326,28 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 22)
 script = ExtResource("6_jsb2r")
 
 [node name="Door" parent="Sector1" instance=ExtResource("9_yis3m")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -37)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -36.9581)
 animation_speed = 1.8
 
 [node name="Map" type="Node3D" parent="Sector1"]
 
 [node name="WallThin" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
-transform = Transform3D(0.85, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, -37)
+transform = Transform3D(0.85, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.29311, 0, -37)
 
 [node name="WallThin2" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
-transform = Transform3D(0.85, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -37)
+transform = Transform3D(0.85, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4.27146, 0, -37)
 
 [node name="WallThin3" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
-transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, -17)
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, -17.4942)
 
 [node name="WallThin4" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
-transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -17)
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -17.5174)
 
 [node name="WallThin5" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
-transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, -9.7005)
 
 [node name="WallThin6" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
-transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -9.7005)
 
 [node name="Building" parent="Sector1/Map" instance=ExtResource("9_fxnbq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.309)
@@ -352,6 +370,21 @@ transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -27)
 [node name="Floor3" parent="Sector1/Map" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -28)
 
+[node name="Column" parent="Sector1/Map" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(3, 0, 0, 0, 9, 0, 0, 0, 3, -8.93836, 0, -34.4117)
+
+[node name="Column2" parent="Sector1/Map" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(3, 0, 0, 0, 9, 0, 0, 0, 3, -8.93836, 0, -28.7691)
+
+[node name="WallThin7" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -9.67975)
+
+[node name="WallThin8" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -17.5189)
+
+[node name="WallThin9" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -37.0106)
+
 [node name="Target2" parent="Sector1" instance=ExtResource("5_4of6h")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -14, 4, -5)
 
@@ -359,12 +392,19 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 8, 2, 1)
 
 [node name="MovingTarget2" parent="Sector1" instance=ExtResource("12_m2e6e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -31)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2425, 2.99098, -36.3507)
 collision_layer = 3
 
 [node name="MovingTarget3" parent="Sector1" instance=ExtResource("12_m2e6e")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20, 1, -28)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18.2065, 1, -34.3489)
 collision_layer = 3
+offset = Vector3(0, 0, 10)
+
+[node name="WallThin7" parent="Sector1" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(-3.71547e-08, 0, 1.5, 0, 18, 0, -0.85, 0, -6.55671e-08, 13.6776, -37.4194, -33.3756)
+
+[node name="WallThin8" parent="Sector1" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(-3.71547e-08, 0, 1.5, 0, 18, 0, -0.85, 0, -6.55671e-08, 13.6776, -37.1361, -22.9507)
 
 [node name="Sector2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 6, -48)
