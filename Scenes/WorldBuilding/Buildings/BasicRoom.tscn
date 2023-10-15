@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="3_pbaaf"]
 [ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="4_v3p62"]
 [ext_resource type="PackedScene" uid="uid://bvskyf2hxcnot" path="res://Scenes/WorldBuilding/Ceiling.tscn" id="5_otu34"]
-[ext_resource type="PackedScene" uid="uid://bj466nvtom3bw" path="res://Scenes/WorldBuilding/CrossRoad.tscn" id="6_r8m2i"]
+[ext_resource type="PackedScene" uid="uid://c81kt7m22n3jo" path="res://Scenes/WorldBuilding/CrossRoad.tscn" id="6_r8m2i"]
 
 [node name="Building" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.3094)

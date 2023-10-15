@@ -2,15 +2,6 @@ extends CharacterBody3D
 
 signal death
 
-var player = null
-var map = null
-# state is initially IDLE
-var state = IDLE
-var home_position
-var does_follow_path
-var pathfollow = null
-var reloaded = true
-var killable = true
 
 enum {ENGAGING, ALERT, RETURNING, IDLE, KILLED}
 
@@ -19,14 +10,18 @@ enum {ENGAGING, ALERT, RETURNING, IDLE, KILLED}
 @export var player_path : NodePath
 @export var bullet : PackedScene
 
-@export_category("Difficulty")
-@export var hp : float
+@export_category("Ranges")
 @export var engaged_detector_radius : float
 @export var alert_detector_radius : float
 @export var sight_distance : float
 @export var attack_range = 10.0
+
+@export_category("Difficulty")
+@export var hp : float
 @export var lenience = 2.0
 @export var speed = 4.0
+@export var killable = true
+
 
 @onready var nav_agent =  $NavigationAgent3D
 @onready var engaged_detector = $EngagedDetector
@@ -34,16 +29,21 @@ enum {ENGAGING, ALERT, RETURNING, IDLE, KILLED}
 @onready var sight = $Sight
 @onready var killed_texture = load("res://art/denkeykong_killed.png")
 
+@onready var player = get_node(player_path)
+@onready var map = get_node(map_path)
+@onready var home_position = global_position
+@onready var does_follow_path = get_parent() is PathFollow3D
+
+# state is initially IDLE
+var state = IDLE
+var pathfollow : PathFollow3D = null
+var reloaded = true
 
 func _ready():
 	$Timer.stop()
-	player = get_node(player_path)
-	map = get_node(map_path)
-	home_position = global_position
-	does_follow_path = get_parent() is PathFollow3D
 	if does_follow_path:
 		pathfollow = get_parent()
-		
+	
 	var to_scale_with = engaged_detector_radius * 2.0
 	engaged_detector.scale = to_scale_with * Vector3(1.0, 1.0, 1.0)
 	

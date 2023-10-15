@@ -43,6 +43,14 @@ func _ready():
 		$"../UI/Health".set_health(HP)
 
 func _physics_process(delta):
+	#if Input.is_action_just_pressed("RearView"):
+	#	if $Head/TextureRect.visible:
+	#		$Head/TextureRect.visible = true
+	#	else:
+	#		$Head/TextureRect.visible = false
+	$Head/SubViewport/Camera3d2.global_transform = global_transform
+	$Head/SubViewport/Camera3d2.rotation += Vector3(0, PI, 0)
+	
 	if dead:
 		return
 	

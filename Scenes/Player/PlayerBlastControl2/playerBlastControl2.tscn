@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bru6ysxn1me4l"]
+[gd_scene load_steps=10 format=3 uid="uid://bru6ysxn1me4l"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd" id="1_hfbay"]
 [ext_resource type="PackedScene" uid="uid://s52e4i1g7uky" path="res://Scenes/Rocket/Rocket.tscn" id="2_weh6g"]
@@ -7,6 +7,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6b3ky"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nfcbn"]
+viewport_path = NodePath("Head/SubViewport")
 
 [sub_resource type="Animation" id="Animation_dy5u6"]
 length = 0.001
@@ -90,6 +93,18 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(20, 20)
+
+[node name="SubViewport" type="SubViewport" parent="Head"]
+render_target_update_mode = 4
+
+[node name="Camera3d2" type="Camera3D" parent="Head/SubViewport"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.468, 0.4)
+fov = 95.0
+
+[node name="TextureRect" type="TextureRect" parent="Head"]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = SubResource("ViewportTexture_nfcbn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
