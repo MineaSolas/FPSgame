@@ -2,9 +2,11 @@ extends CharacterBody3D
 
 @onready var gunRay = $Head/Camera3d/RayCast3d as RayCast3D
 @onready var Cam = $Head/Camera3d as Camera3D
+@onready var healthBar = $Head/Camera3d/Control/HealthBar
 
-@export var HP = 3
+@export var max_health = 3
 @export var has_health = false
+var health = 3 : set = set_health
 
 @export_group("Bullets")
 @export var _bullet_scene : PackedScene
@@ -43,10 +45,16 @@ func _ready():
 	#Captures mouse and stops rgun from hitting yourself
 	gunRay.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	if has_health:
-		$"../UI/Health".set_health(HP)
+		health = max_health
+		healthBar.visible = true
 
 func _physics_process(delta):
+	
+	if dead:
+		return
+		
 	if Input.is_action_just_pressed("RearView"):
 		if $Head/Camera3d/Control/RearCam.visible:
 			$Head/Camera3d/Control/RearCam.visible = false
@@ -54,9 +62,6 @@ func _physics_process(delta):
 			$Head/Camera3d/Control/RearCam.visible = true
 	$Head/SubViewport/Camera3d2.global_transform = global_transform
 	$Head/SubViewport/Camera3d2.rotation += Vector3(0, PI, 0)
-	
-	if dead:
-		return
 	
 	# Handle Shooting
 	if Input.is_action_just_pressed("Shoot") and can_shoot:
@@ -128,6 +133,41 @@ func _physics_process(delta):
 	# TODO: when the end of the level has been reached, use 'all_targets_hit' 
 	# to chekc if all targets have been hit. Level is not finished if not all
 	# targets have been hit
+	
+func set_health(value):
+	health = value
+	
+	var healths = healthBar.get_children()
+	for i in healths.size():
+		if (i+1) > health:
+			healths[i].queue_free()
+			
+	for i in health:
+		if (i+1) > healths.size():
+			var newHealth = TextureRect.new()
+			newHealth.scale = Vector2(0.4, 0.4)
+			
+			if (i+1) == max_health:
+				newHealth.texture = load("res://art/health_bar_end.png")
+				newHealth.position.x = 50 + 52*(i-1)
+			elif (i+1) > 1:
+				newHealth.texture = load("res://art/health_bar.png")
+				newHealth.position.x = 50 + 52*(i-1)
+			elif (i+1) == 1:
+				newHealth.texture = load("res://art/health_bar_start.png")
+				newHealth.position.x = 10
+			
+			healthBar.add_child(newHealth)
+			
+	healths = healthBar.get_children()
+			
+	if health == 0:
+		death()
+	
+	if health == 1 and max_health > 1:
+		healths[0].texture = load("res://art/health_bar_start_critical.png")
+	else:
+		healths[0].texture = load("res://art/health_bar_start.png")
 
 func _input(event):
 	if event is InputEventMouseMotion and !dead:
@@ -175,16 +215,11 @@ func shoot():
 	can_shoot = true
 
 func hit():
-	HP -= 1
-	$"../UI/Health".on_hit()
-	if HP == 0:
-		death()
-	print("HIT")
+	health -= 1
 	
 func _on_heal_zone_body_entered(body):
 	if body.name == "Player":
-		HP = 3
-		$"../UI/Health".reset()
+		health = 3
 	
 func part_broken(ends_game):
 	if ends_game:

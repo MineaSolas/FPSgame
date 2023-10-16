@@ -142,6 +142,16 @@ offset_bottom = 95.0
 text = "(Press C to toggle rear-view)"
 label_settings = SubResource("LabelSettings_803m7")
 
+[node name="HealthBar" type="Control" parent="Head/Camera3d/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -67.0
+offset_right = 250.0
+grow_vertical = 0
+
 [node name="SubViewport" type="SubViewport" parent="Head"]
 render_target_update_mode = 4
 
