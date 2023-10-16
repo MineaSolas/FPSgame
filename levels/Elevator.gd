@@ -16,7 +16,11 @@ var was_moving = false
 var moving = false
 
 func _process(delta):
+	move(delta)
+	
+func move(delta):
 	moving = false
+	
 	if active and box.position.y <= initial_pos.y + max_height:
 		box.position.y += delta * elevator_speed
 		moving = true
@@ -35,6 +39,7 @@ func activate():
 	active = true
 
 func deactivate():
+	move(0.1)
 	elevator_speed = 0
 	active = false
 	await get_tree().create_timer(swich_off_delay).timeout
