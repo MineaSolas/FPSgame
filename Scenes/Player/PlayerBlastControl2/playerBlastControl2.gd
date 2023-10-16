@@ -102,13 +102,14 @@ func _physics_process(delta):
 		environment_velocity.y = 0
 		character_velocity.y = 0
 		elevator_velocity.y = 0
+		
 	if is_on_wall():
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
-			if round(collision.get_normal().x) == 1 or round(collision.get_normal().x) == -1:
+			if abs(collision.get_normal().x) > 0.75:
 				environment_velocity.x = 0
 				character_velocity.x = 0
-			if round(collision.get_normal().z) == 1 or round(collision.get_normal().z) == -1:
+			if abs(collision.get_normal().z) > 0.75:
 				environment_velocity.z = 0
 				character_velocity.z = 0
 	
