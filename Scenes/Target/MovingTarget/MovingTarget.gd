@@ -21,7 +21,7 @@ func _ready():
 	init_position = global_position
 	start_tween()
 
-func hit():
+func parent_hit():
 	if not has_been_hit:
 		has_been_hit = true
 

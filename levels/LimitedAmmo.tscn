@@ -5,25 +5,25 @@
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_etgme"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_4of6h"]
 [ext_resource type="Script" path="res://Scenes/UI/Ammo.gd" id="5_jnih2"]
-[ext_resource type="Script" path="res://levels/Sector1.gd" id="6_jsb2r"]
-[ext_resource type="Script" path="res://levels/NoBullets.gd" id="6_vkhoo"]
+[ext_resource type="Script" path="res://levels/LimitedAmmoScripts/NoBullets.gd" id="6_2fo75"]
 [ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="8_8hwkr"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_xy1w5"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="9_fxnbq"]
 [ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="9_yis3m"]
 [ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="10_1vm0a"]
 [ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="10_4acjy"]
+[ext_resource type="Script" path="res://levels/LimitedAmmoScripts/Sector1.gd" id="11_vea4q"]
 [ext_resource type="PackedScene" uid="uid://hv7st8vce7xw" path="res://Scenes/Target/MovingTarget/MovingTarget.tscn" id="12_m2e6e"]
 [ext_resource type="PackedScene" uid="uid://bra1ivnn006kp" path="res://Scenes/Breakable/DestroyArea.tscn" id="14_j11yg"]
 [ext_resource type="PackedScene" uid="uid://2nck07a67jm3" path="res://Scenes/Cube/FracturedCube.obj" id="15_54q5x"]
 [ext_resource type="PackedScene" uid="uid://dr18vgc3yj535" path="res://Scenes/Cube/Cube.tscn" id="16_4wquo"]
 [ext_resource type="Texture2D" uid="uid://cpdl4ndqllavn" path="res://addons/corridors/CorridorModel_Lighting Gradient.png" id="17_gsc2w"]
 [ext_resource type="Material" uid="uid://ca4bnyqs0ydkr" path="res://Scenes/Breakable/breakable_critical.tres" id="18_ndv1t"]
-[ext_resource type="Script" path="res://levels/Sector4.gd" id="19_aoquv"]
 [ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="20_jjyxg"]
-[ext_resource type="Script" path="res://levels/Sector5.gd" id="20_vqqvh"]
-[ext_resource type="Script" path="res://levels/Finish.gd" id="23_xtfpm"]
-[ext_resource type="Script" path="res://levels/DeathZone.gd" id="24_tl73l"]
+[ext_resource type="Script" path="res://levels/LimitedAmmoScripts/Sector4.gd" id="20_nvc4p"]
+[ext_resource type="Script" path="res://levels/LimitedAmmoScripts/Sector5.gd" id="22_pqn23"]
+[ext_resource type="Script" path="res://levels/LimitedAmmoScripts/Finish.gd" id="23_ut3kb"]
+[ext_resource type="Script" path="res://levels/LimitedAmmoScripts/DeathZone.gd" id="24_rkfi0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -155,8 +155,6 @@ size = Vector3(17.6, 8.49, 7.32)
 [node name="Enemy" parent="EnemyTracking/NavigationRegion3D" instance=ExtResource("3_wpixk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644406, -77.231)
 collision_mask = 3
-map_path = NodePath("../../..")
-player_path = NodePath("../../../Player")
 
 [node name="Path3D" type="Path3D" parent="EnemyTracking/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644406, -77.231)
@@ -167,11 +165,9 @@ transform = Transform3D(0.073662, 0, -0.997283, 0, 1, 0, 0.997283, 0, 0.073662, 
 
 [node name="Enemy" parent="EnemyTracking/NavigationRegion3D/Path3D/PathFollow3D" instance=ExtResource("3_wpixk")]
 collision_mask = 3
-map_path = NodePath("../../../../..")
-player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.702578, 0.355791, 28.1873)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.7711, 9.44454, -49.4263)
 script = ExtResource("3_hdiv3")
 HP = 4
 has_health = true
@@ -240,7 +236,7 @@ theme_override_font_sizes/font_size = 20
 text = "Out of bullets. Hold 'R' to restart"
 horizontal_alignment = 1
 vertical_alignment = 2
-script = ExtResource("6_vkhoo")
+script = ExtResource("6_2fo75")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/NoBullets"]
 autoplay = "blinking"
@@ -290,7 +286,7 @@ transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1, -0.0302815, 4.50604, 5.90685)
 transform = Transform3D(-8.74228e-08, 0, 1, 0, 5.65, 0, -2, 0, -4.37114e-08, 4.79301, 2.47823, 1.99717)
 
 [node name="Sector34" type="Node3D" parent="Connections"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.034, 6, -49.22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.1793, 6, -49.22)
 
 [node name="Floor" parent="Connections/Sector34" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(4.25, 0, 0, 0, 1.063, 0, 0, 0, 2.125, 1.848, 0, 0.134998)
@@ -304,8 +300,11 @@ transform = Transform3D(-6.2186e-08, -1, -1.73205, -4.37114e-08, 1.73205, -1, 2,
 [node name="Corridor7" parent="Connections/Sector34" instance=ExtResource("10_4acjy")]
 transform = Transform3D(-6.2186e-08, -1, -1.73205, -4.37114e-08, 1.73205, -1, 2, 6.76217e-09, -7.57103e-08, 20.6747, 5.91795, 0.220001)
 
+[node name="Floor2" parent="Connections/Sector34" instance=ExtResource("8_xy1w5")]
+transform = Transform3D(2.47487, 0, 2.47487, 0, 1, 0, -2.47487, 0, 2.47487, -5.6123, 0, 0.283829)
+
 [node name="Sector45" type="Node3D" parent="Connections"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 172.325, 19.0134, -44.5223)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 148.47, 19.0134, -44.5223)
 
 [node name="Corridor" parent="Connections/Sector45" instance=ExtResource("10_4acjy")]
 
@@ -328,10 +327,7 @@ transform = Transform3D(-1.31134e-07, 1.5, -4.37114e-08, 0, -6.55671e-08, -1, -3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0668259, 0, 18)
 
 [node name="Sector1" type="Node3D" parent="."]
-script = ExtResource("6_jsb2r")
-
-[node name="Column2" parent="Sector1" instance=ExtResource("20_jjyxg")]
-transform = Transform3D(1, 0, 0, 0, 9, 0, 0, 0, 1, 8.04081, -12.5278, 0.990859)
+script = ExtResource("11_vea4q")
 
 [node name="Door" parent="Sector1" instance=ExtResource("9_yis3m")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -36.9581)
@@ -357,6 +353,12 @@ transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, -9.7005)
 [node name="WallThin6" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, -9.7005)
 
+[node name="WallThin10" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4, 0, 9.4507)
+
+[node name="WallThin11" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4, 0, 9.4507)
+
 [node name="Building" parent="Sector1/Map" instance=ExtResource("9_fxnbq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.309)
 
@@ -370,7 +372,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.648)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.648)
 
 [node name="Floor" parent="Sector1/Map" instance=ExtResource("8_xy1w5")]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="Floor2" parent="Sector1/Map" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -27)
@@ -381,6 +383,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -28)
 [node name="WallThin7" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
 transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -9.67975)
 
+[node name="WallThin12" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
+transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.994, 9.45)
+
 [node name="WallThin8" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
 transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -17.5189)
 
@@ -388,14 +393,18 @@ transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -17.5189)
 transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -37.0106)
 
 [node name="MovingTarget" parent="Sector1" instance=ExtResource("12_m2e6e")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -14, 4, -5)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7.67613, 4, -5)
 offset = Vector3(0, 5, 0)
 
 [node name="Column" parent="Sector1/MovingTarget" instance=ExtResource("20_jjyxg")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 9, 0, -0.707107, 0, 0.707107, -0.0685892, -14.5, 0.00919247)
 
-[node name="Target3" parent="Sector1" instance=ExtResource("5_4of6h")]
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 8, 2, 1)
+[node name="MovingTarget4" parent="Sector1" instance=ExtResource("12_m2e6e")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 5.02136, 2, -0.190027)
+offset = Vector3(3, 0, 2)
+
+[node name="Column2" parent="Sector1/MovingTarget4" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(-0.5, 0, 0.866026, 0, 9, 0, -0.866026, 0, -0.5, -0.0283213, -14.5278, -0.0307713)
 
 [node name="MovingTarget2" parent="Sector1" instance=ExtResource("12_m2e6e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.833, 2.99098, -36.3507)
@@ -11709,18 +11718,9 @@ shape = SubResource("BoxShape3D_f4yys")
 [node name="MeshInstance3D" parent="Sector2/MegaWall/BreakableCube452" instance=ExtResource("16_4wquo")]
 surface_material_override/0 = SubResource("StandardMaterial3D_habnd")
 
-[node name="Sector3 (tbd)" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.671, 6, -49.228)
-
-[node name="Floor" parent="Sector3 (tbd)" instance=ExtResource("8_xy1w5")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -2.1588, 0, 0)
-
-[node name="Door" parent="Sector3 (tbd)" instance=ExtResource("9_yis3m")]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 9.8509, 0, 0)
-
 [node name="Sector4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.911, 14.1159, -48.6249)
-script = ExtResource("19_aoquv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.056, 14.1159, -48.6249)
+script = ExtResource("20_nvc4p")
 
 [node name="MainFloor" parent="Sector4" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 6, 8.17378, -3, 2.19347)
@@ -11788,6 +11788,7 @@ transform = Transform3D(0.5, 0, 0, 0, 1.1, 0, 0, 0, 0.5, -4.81229, -1.57841, -6.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0717, -1.57841, 3.35329)
 
 [node name="PlatformTwo" type="Node3D" parent="Sector4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495701, 0)
 
 [node name="Floor3" parent="Sector4/PlatformTwo" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1.1, 9.41118, 2, -6.29736)
@@ -11823,6 +11824,7 @@ transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 10.8885, -1.07967, -4.49131)
 transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 9.36543, -1.10643, -9.20525)
 
 [node name="PlatformThree" type="Node3D" parent="Sector4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.241371, 0)
 
 [node name="Floor4" parent="Sector4/PlatformThree" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(1, 0, 0, 0, 0.75, 0, 0, 0, 1, 9.43565, 3.89461, 4.14624)
@@ -11897,8 +11899,8 @@ transform = Transform3D(-8.74228e-08, 0, 1, 0, 1, 0, -2, 0, -4.37114e-08, 22.207
 transform = Transform3D(-1.31134e-07, 0, 1, 0, 1, 0, -3, 0, -4.37114e-08, 22.207, 4.812, -3.74871)
 
 [node name="Sector5" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193, 9, -44)
-script = ExtResource("20_vqqvh")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.145, 9, -44)
+script = ExtResource("22_pqn23")
 
 [node name="StaticBody3D" parent="Sector5" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 40.388, 0, 0)
@@ -11955,7 +11957,7 @@ transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 34.190
 
 [node name="Finish" type="Area3D" parent="Sector5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7242, 0, 0)
-script = ExtResource("23_xtfpm")
+script = ExtResource("23_ut3kb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sector5/Finish"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9449, 4.53487, 0)
@@ -11963,7 +11965,7 @@ shape = SubResource("BoxShape3D_vqm36")
 
 [node name="DeathZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.45, -21.5672, 0)
-script = ExtResource("24_tl73l")
+script = ExtResource("24_rkfi0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone"]
 shape = SubResource("BoxShape3D_vnntl")
@@ -11973,7 +11975,7 @@ shape = SubResource("BoxShape3D_vnntl")
 [connection signal="body_entered" from="HealZone" to="Player" method="_on_heal_zone_body_entered"]
 [connection signal="body_entered" from="BulletRefill" to="Player" method="_on_bullet_refill_body_entered"]
 [connection signal="hit_signal" from="Sector1/MovingTarget" to="Sector1" method="_on_moving_target_hit_signal"]
-[connection signal="hit_signal" from="Sector1/Target3" to="Sector1" method="_on_target_3_hit_signal"]
+[connection signal="hit_signal" from="Sector1/MovingTarget4" to="Sector1" method="_on_moving_target_4_hit_signal"]
 [connection signal="hit_signal" from="Sector1/MovingTarget2" to="Sector1" method="_on_moving_target_2_hit_signal"]
 [connection signal="hit_signal" from="Sector1/MovingTarget3" to="Sector1" method="_on_moving_target_3_hit_signal"]
 [connection signal="hit_signal" from="Sector4/PlatformOne/Target" to="Sector4" method="_on_target_hit_signal"]

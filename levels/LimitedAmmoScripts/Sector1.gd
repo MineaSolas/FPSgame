@@ -15,18 +15,14 @@ func _on_moving_target_3_hit_signal():
 	target_2 = true
 	check_for_open()
 
-func _on_target_3_hit_signal():
+func _on_moving_target_hit_signal():
 	target_3 = true
 	check_for_open()
 
-func _on_target_2_hit_signal():
+func _on_moving_target_4_hit_signal():
 	target_4 = true
 	check_for_open()
 
 func check_for_open():
 	if target_1 and target_2 and target_3 and target_4:
 		door.open()
-
-func _on_moving_target_hit_signal():
-	target_4 = true
-	check_for_open()
