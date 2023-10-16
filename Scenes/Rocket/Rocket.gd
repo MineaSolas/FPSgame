@@ -17,9 +17,6 @@ func _on_body_entered(_body):
 	if _body.has_method("hit"):
 		_body.hit()
 	running = false
-	# for hitting enemies, as they are not areas
-	if _body.has_method("hit"):
-		_body.hit()
 	queue_free()
 
 

@@ -17,10 +17,10 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 3
 script = ExtResource("1_4pawi")
+bullet = ExtResource("2_dcdyi")
 engaged_detector_radius = 20.0
 alert_detector_radius = 30.0
 sight_distance = -15.0
-bullet = ExtResource("2_dcdyi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.822144, 0, -0.569279, 0, 1, 0, 0.569279, 0, -0.822144, 0, 0, 0)
