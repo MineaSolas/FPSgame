@@ -4,7 +4,7 @@ signal no_bullets
 signal player_died
 
 var bullets
-var max_bullets = 20
+var max_bullets = 30
 var reset_time = 0
 
 func _ready():

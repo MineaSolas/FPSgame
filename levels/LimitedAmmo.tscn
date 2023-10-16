@@ -171,7 +171,7 @@ map_path = NodePath("../../../../..")
 player_path = NodePath("../../../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.857, 9.9774, -49.7749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.702578, 0.355791, 28.1873)
 script = ExtResource("3_hdiv3")
 HP = 4
 has_health = true
@@ -330,9 +330,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0668259, 0, 18)
 [node name="Sector1" type="Node3D" parent="."]
 script = ExtResource("6_jsb2r")
 
-[node name="Column" parent="Sector1" instance=ExtResource("20_jjyxg")]
-transform = Transform3D(1, 0, 0, 0, 9, 0, 0, 0, 1, -14.055, -10.5, -5.042)
-
 [node name="Column2" parent="Sector1" instance=ExtResource("20_jjyxg")]
 transform = Transform3D(1, 0, 0, 0, 9, 0, 0, 0, 1, 8.04081, -12.5278, 0.990859)
 
@@ -381,12 +378,6 @@ transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -27)
 [node name="Floor3" parent="Sector1/Map" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -28)
 
-[node name="Column" parent="Sector1/Map" instance=ExtResource("20_jjyxg")]
-transform = Transform3D(3, 0, 0, 0, 9, 0, 0, 0, 3, -8.93836, 0, -34.4117)
-
-[node name="Column2" parent="Sector1/Map" instance=ExtResource("20_jjyxg")]
-transform = Transform3D(3, 0, 0, 0, 9, 0, 0, 0, 3, -8.93836, 0, -28.7691)
-
 [node name="WallThin7" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
 transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -9.67975)
 
@@ -396,20 +387,40 @@ transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -17.5189)
 [node name="WallThin9" parent="Sector1/Map" instance=ExtResource("10_1vm0a")]
 transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 1.5, 0, 2.9937, -37.0106)
 
-[node name="Target2" parent="Sector1" instance=ExtResource("5_4of6h")]
+[node name="MovingTarget" parent="Sector1" instance=ExtResource("12_m2e6e")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -14, 4, -5)
+offset = Vector3(0, 5, 0)
+
+[node name="Column" parent="Sector1/MovingTarget" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 9, 0, -0.707107, 0, 0.707107, -0.0685892, -14.5, 0.00919247)
 
 [node name="Target3" parent="Sector1" instance=ExtResource("5_4of6h")]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 8, 2, 1)
 
 [node name="MovingTarget2" parent="Sector1" instance=ExtResource("12_m2e6e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2425, 2.99098, -36.3507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.833, 2.99098, -36.3507)
 collision_layer = 3
+duration = 4.0
+
+[node name="Column" parent="Sector1/MovingTarget2" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(0.5, 0, 0, 0, 4.75, 0, 0, 0, 0.5, 0, 7.98574, 0)
+
+[node name="Column3" parent="Sector1" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(3, 0, 0, 0, 9, 0, 0, 0, 3, -9.52887, 8.9407e-08, -34.4117)
+
+[node name="Column4" parent="Sector1" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(3, 0, 0, 0, 9, 0, 0, 0, 3, -9.529, 0, -31.6746)
+
+[node name="Column5" parent="Sector1" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(3, 0, 0, 0, 9, 0, 0, 0, 3, -9.52887, 8.9407e-08, -28.7691)
 
 [node name="MovingTarget3" parent="Sector1" instance=ExtResource("12_m2e6e")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18.2065, 1, -34.3489)
 collision_layer = 3
 offset = Vector3(0, 0, 10)
+
+[node name="Column" parent="Sector1/MovingTarget3" instance=ExtResource("20_jjyxg")]
+transform = Transform3D(0.5, 0, 0, 0, 7, 0, 0, 0, 0.5, 0, 11.2603, 0)
 
 [node name="WallThin7" parent="Sector1" instance=ExtResource("10_1vm0a")]
 transform = Transform3D(-3.71547e-08, 0, 1.5, 0, 18, 0, -0.85, 0, -6.55671e-08, 13.6776, -37.4194, -33.3756)
@@ -11961,7 +11972,7 @@ shape = SubResource("BoxShape3D_vnntl")
 [connection signal="player_died" from="Player" to="UI/NoBullets" method="_on_player_player_died"]
 [connection signal="body_entered" from="HealZone" to="Player" method="_on_heal_zone_body_entered"]
 [connection signal="body_entered" from="BulletRefill" to="Player" method="_on_bullet_refill_body_entered"]
-[connection signal="hit_signal" from="Sector1/Target2" to="Sector1" method="_on_target_2_hit_signal"]
+[connection signal="hit_signal" from="Sector1/MovingTarget" to="Sector1" method="_on_moving_target_hit_signal"]
 [connection signal="hit_signal" from="Sector1/Target3" to="Sector1" method="_on_target_3_hit_signal"]
 [connection signal="hit_signal" from="Sector1/MovingTarget2" to="Sector1" method="_on_moving_target_2_hit_signal"]
 [connection signal="hit_signal" from="Sector1/MovingTarget3" to="Sector1" method="_on_moving_target_3_hit_signal"]
