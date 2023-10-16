@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://drkyim3ov7pxa"]
+[gd_scene load_steps=5 format=3 uid="uid://drkyim3ov7pxa"]
 
 [ext_resource type="Script" path="res://levels/Elevator.gd" id="1_p87ag"]
 [ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="2_f607q"]
 [ext_resource type="PackedScene" uid="uid://dqqygnugcatol" path="res://Scenes/PressurePlate/PressurePlate.tscn" id="3_hqa2x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0osah"]
-size = Vector3(0.85, 0.6, 0.85)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7df7n"]
-size = Vector3(3.6, 0.5, 3)
+size = Vector3(0.6, 1, 0.6)
 
 [node name="ElevatorPlatform" type="Node3D"]
 script = ExtResource("1_p87ag")
@@ -21,16 +18,15 @@ transform = Transform3D(0.417, 0, 0, 0, 2, 0, 0, 0, 0.333, 0, 0.5, 0)
 color_off = Color(0, 0, 1, 1)
 color_on = Color(0, 1, 1, 1)
 
+[node name="CollisionShape3D" parent="Box/PressurePlate/case" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.335221, 0)
+
+[node name="CollisionShape3D" parent="Box/PressurePlate/plate" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.260256, 0)
+
 [node name="CollisionShape3D" parent="Box/PressurePlate/plate/switch_area" index="0"]
-shape = SubResource("BoxShape3D_0osah")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_7df7n")
+shape = SubResource("BoxShape3D_0osah")
 
 [connection signal="switched_off" from="Box/PressurePlate" to="." method="deactivate"]
 [connection signal="switched_on" from="Box/PressurePlate" to="." method="activate"]
