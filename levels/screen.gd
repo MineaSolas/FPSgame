@@ -4,18 +4,18 @@ signal done_writing
 signal confirmed
 signal level_selected(level)
 
-const LVL_NAMES = ["", "Hitting the targets", "", "", "", ""]
-const LVL_PATHS = ["", "res://levels/Level2.tscn", "", "", "", ""]
+const LVL_NAMES = ["", "Hitting the targets", "", "Limited use of ammo", "", ""]
+const LVL_PATHS = ["", "res://levels/Level2.tscn", "", "res://levels/Level4LimitedAmmo.tscn", "", ""]
 const LVL_OBJECTIVES = ["", 
 "Find and hit all targets in the testing environment.", 
 "", 
-"", 
+"Reach the goal with limited ammunition.", 
 "", 
 ""]
 const LVL_NOTES = ["", 
 "Think carefully where to shoot.", 
 "", 
-"", 
+"Spare those rockets where possible!", 
 "", 
 ""]
 
@@ -129,7 +129,7 @@ func play_level_passed():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write("to procceed with the next test", NORMAL_TEXT)
+	write("to proceed with the next test", NORMAL_TEXT)
 	await done_writing
 	
 	await confirmed
@@ -180,7 +180,7 @@ func play_level_introduction():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write("to procceed with the test", NORMAL_TEXT)
+	write("to proceed with the test", NORMAL_TEXT)
 	await done_writing
 	
 	await confirmed
@@ -262,7 +262,7 @@ func play_introduction():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
-	write("Openning project ", NORMAL_TEXT)
+	write("Opening project ", NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -298,7 +298,7 @@ func play_introduction():
 	
 	writing_speed = DEFAULT_WRITING_SPEED
 	writing_delay = DEFAULT_WRITING_DELAY
-	write_line("The exosceleton construction was completed", NORMAL_TEXT)
+	write_line("The exoskeleton construction was completed", NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
@@ -375,7 +375,7 @@ func play_test_selection():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("incresing difficulty", NORMAL_TEXT, "white")
+	write_line("increasing difficulty", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	

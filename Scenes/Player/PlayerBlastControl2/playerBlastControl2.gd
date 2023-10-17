@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 @export var max_health = 3
 @export var has_health = false
-var health = 3 : set = set_health
+var health = 2 : set = set_health
 
 @export_group("Bullets")
 @export var _bullet_scene : PackedScene
@@ -36,6 +36,7 @@ var elevator_speed = 0.0
 var elevator_decceleration = 2.0
 
 var can_shoot = true
+var can_be_hit = true
 var dead = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -215,7 +216,12 @@ func shoot():
 	can_shoot = true
 
 func hit():
-	health -= 1
+	if can_be_hit:
+		health -= 1
+		can_be_hit = false
+		# Invincibility frames here
+		await get_tree().create_timer(1).timeout
+		can_be_hit = true
 	
 func _on_heal_zone_body_entered(body):
 	if body.name == "Player":
