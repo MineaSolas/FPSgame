@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bndbehloojmre"]
+[gd_scene load_steps=18 format=3 uid="uid://bndbehloojmre"]
 
 [ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="1_judt8"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="2_v35jq"]
 [ext_resource type="PackedScene" uid="uid://cpsmsr52q8o5d" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="3_3638c"]
 [ext_resource type="Material" uid="uid://cv3opj8v4jic8" path="res://addons/corridors/floors.tres" id="3_ffhmy"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="3_yssap"]
-[ext_resource type="PackedScene" uid="uid://fn3g7p4oqlet" path="res://Scenes/UI/health.tscn" id="5_bq631"]
 [ext_resource type="PackedScene" uid="uid://c81kt7m22n3jo" path="res://Scenes/WorldBuilding/CrossRoad.tscn" id="5_bsgjr"]
 [ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="6_ye3se"]
 [ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="7_ddluw"]
@@ -33,7 +32,6 @@ point_count = 5
 
 [node name="Player" parent="." instance=ExtResource("3_yssap")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
-HP = 30
 has_health = true
 
 [node name="Buildings" type="Node3D" parent="."]
@@ -135,9 +133,6 @@ transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, 0.720853, 4.78226, -16.12
 transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 5.24965, 4.59436, -13.166)
 
 [node name="Enemies" type="Node3D" parent="Buildings/Building1"]
-
-[node name="Enemy" parent="Buildings/Building1/Enemies" instance=ExtResource("2_v35jq")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.50646, 4.20646, -11.6479)
 
 [node name="Corridor2" type="Node3D" parent="Buildings"]
 
@@ -373,13 +368,5 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Health" parent="UI" instance=ExtResource("5_bq631")]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 573.0
-offset_right = 200.0
-offset_bottom = 631.0
-text = "Health : 3"
 
 [editable path="Buildings/Corridor5/Door2"]
