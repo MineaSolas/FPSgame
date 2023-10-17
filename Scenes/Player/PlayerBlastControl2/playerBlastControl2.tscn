@@ -55,7 +55,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_8g8fn"]
 resource_name = "low_bullets"
-length = 1.25
+length = 1.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -64,7 +64,7 @@ tracks/0/path = NodePath(".:label_settings:font_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0.2, 0.8, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
@@ -101,7 +101,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_w84h2"]
 resource_name = "blinking"
-length = 2.1
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -110,8 +110,8 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(0.5, 2, 1),
+"times": PackedFloat32Array(0, 1.1, 2),
+"transitions": PackedFloat32Array(1.36604, 2, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
