@@ -32,7 +32,7 @@ var hit_targets = 0
 
 func hit_target():
 	hit_targets += 1
-	target_counter.text = "Targets:" + ("%02d" % hit_targets) + "/" + str(total_targets)
+	target_counter.text = "Targets: " + ("%02d" % hit_targets) + "/" + str(total_targets)
 	if hit_targets == total_targets:
 		level_passed()
 
