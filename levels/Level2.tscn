@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://d4ij7tfcect3t"]
+[gd_scene load_steps=63 format=3 uid="uid://d4ij7tfcect3t"]
 
 [ext_resource type="Script" path="res://levels/Level2.gd" id="1_rchbh"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="1_wmoj3"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://wu0wk4dbigfu" path="res://Scenes/Gate/Gate.tscn" id="30_84kp4"]
 [ext_resource type="PackedScene" uid="uid://bxgq6fb5ejqg8" path="res://Scenes/Breakable/BreakableBox.tscn" id="30_cv4mp"]
 [ext_resource type="PackedScene" uid="uid://c6utsm7xnap1p" path="res://Scenes/Breakable/BreakableSmallCube.tscn" id="32_rrloq"]
+[ext_resource type="PackedScene" uid="uid://ckacxkfej64m6" path="res://Scenes/Fade/Fade.tscn" id="34_x2dxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ys6pk"]
 
@@ -83,40 +84,40 @@ size = Vector3(0.2, 1.84, 0.5)
 next_pass = ExtResource("12_hwlun")
 albedo_texture = ExtResource("22_ygk3y")
 
-[sub_resource type="BoxMesh" id="BoxMesh_0hosk"]
+[sub_resource type="BoxMesh" id="BoxMesh_d8eit"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_yhw75"]
+[sub_resource type="BoxMesh" id="BoxMesh_i4gg2"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_gdbd6"]
+[sub_resource type="BoxMesh" id="BoxMesh_qjbq2"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ylkl8"]
+[sub_resource type="BoxMesh" id="BoxMesh_tt5xb"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_as4cg"]
+[sub_resource type="BoxMesh" id="BoxMesh_vcafr"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_qtc28"]
+[sub_resource type="BoxMesh" id="BoxMesh_qcgtg"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_isqy8"]
+[sub_resource type="BoxMesh" id="BoxMesh_hq8lx"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_7n50k"]
+[sub_resource type="BoxMesh" id="BoxMesh_w2o1v"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_itohr"]
+[sub_resource type="BoxMesh" id="BoxMesh_avqju"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_rfdms"]
+[sub_resource type="BoxMesh" id="BoxMesh_0la8l"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_tf4yf"]
+[sub_resource type="BoxMesh" id="BoxMesh_o8k3r"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_3jbk3"]
+[sub_resource type="BoxMesh" id="BoxMesh_485tr"]
 size = Vector3(0.1, 0.1, 1.0005)
 
 [node name="Level2" type="Node3D"]
@@ -1421,7 +1422,7 @@ rotation_speed = null
 initial_X = 7.0
 
 [node name="RotatingBox" parent="ShootingRange/LongRoom/TargetRoom/Main" instance=ExtResource("19_mxtw8")]
-transform = Transform3D(0.825322, 0, -1.82176, 0, 2, 0, 1.82176, 0, 0.825322, -1.12677, 1.47617, 10.7081)
+transform = Transform3D(1.95748, 0, 0.410165, 0, 2, 0, -0.410165, 0, 1.95748, -1.12677, 1.47617, 10.7081)
 rotation_speed = Vector3(0, 60, 0)
 initial_X = -1.51166
 
@@ -1453,7 +1454,7 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
 [node name="Box7" parent="ShootingRange/LongRoom/TargetRoom/Main/Track" instance=ExtResource("19_mxtw8")]
-transform = Transform3D(2.49391, 0, 0.0348782, 0, 1.5, 0, -0.174391, 0, 0.498782, 3.18441, 4.376, 14.405)
+transform = Transform3D(2.49391, 0, 0.0348782, 0, 1.5, 0, -0.174391, 0, 0.498782, 6.26485, 4.376, 14.405)
 rotation_speed = null
 movement_speed = -2
 max_X = 10
@@ -1464,51 +1465,51 @@ transform = Transform3D(0.0139513, 0, 0.199513, 0, 0.333333, 0, -0.997564, 0, 0.
 [node name="Track2" parent="ShootingRange/LongRoom/TargetRoom/Main" instance=ExtResource("30_cv4mp")]
 
 [node name="Box" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2" index="0"]
-transform = Transform3D(2.5, 0, 0, 0, 2, 0, 0, 0, 0.2, 11.6504, 4.5, 14.2)
+transform = Transform3D(2.5, 0, 0, 0, 2, 0, 0, 0, 0.2, 3.90794, 4.5, 14.2)
 
 [node name="edge" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="0"]
-mesh = SubResource("BoxMesh_0hosk")
+mesh = SubResource("BoxMesh_d8eit")
 
 [node name="edge3" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="1"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, 0.2505)
-mesh = SubResource("BoxMesh_yhw75")
+mesh = SubResource("BoxMesh_i4gg2")
 
 [node name="edge4" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="2"]
-mesh = SubResource("BoxMesh_gdbd6")
+mesh = SubResource("BoxMesh_qjbq2")
 
 [node name="edge5" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="3"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, -0.2505)
-mesh = SubResource("BoxMesh_ylkl8")
+mesh = SubResource("BoxMesh_tt5xb")
 
 [node name="edge6" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="4"]
-mesh = SubResource("BoxMesh_as4cg")
+mesh = SubResource("BoxMesh_vcafr")
 
 [node name="edge7" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="5"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, 0.2505)
-mesh = SubResource("BoxMesh_qtc28")
+mesh = SubResource("BoxMesh_qcgtg")
 
 [node name="edge8" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="6"]
-mesh = SubResource("BoxMesh_isqy8")
+mesh = SubResource("BoxMesh_hq8lx")
 
 [node name="edge9" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="7"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, -0.2505)
-mesh = SubResource("BoxMesh_7n50k")
+mesh = SubResource("BoxMesh_w2o1v")
 
 [node name="edge2" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="8"]
 transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.48004, 0, 0.2505)
-mesh = SubResource("BoxMesh_itohr")
+mesh = SubResource("BoxMesh_avqju")
 
 [node name="edge10" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="9"]
 transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.48004, 0, -0.2505)
-mesh = SubResource("BoxMesh_rfdms")
+mesh = SubResource("BoxMesh_0la8l")
 
 [node name="edge12" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="10"]
 transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.48004, 0, -0.2505)
-mesh = SubResource("BoxMesh_tf4yf")
+mesh = SubResource("BoxMesh_o8k3r")
 
 [node name="edge11" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="11"]
 transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.48004, 0, 0.2505)
-mesh = SubResource("BoxMesh_3jbk3")
+mesh = SubResource("BoxMesh_485tr")
 
 [node name="Breakables" type="Node3D" parent="ShootingRange/LongRoom/TargetRoom/Main"]
 
@@ -1878,6 +1879,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.2, 0
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.378, 13.2)
 one_use = true
 
+[node name="Fade" parent="." instance=ExtResource("34_x2dxi")]
+
 [connection signal="part_broken" from="MainRoom/BreakableFloor/DestroyArea" to="Player" method="part_broken"]
 [connection signal="switched_on" from="Elevator/Top/Door/Switch" to="Elevator/Top/Door" method="open"]
 [connection signal="switched_on" from="Elevator/Top/Door/Switch" to="Elevator/Top/Door/Switch2" method="switch_on"]
@@ -1893,6 +1896,7 @@ one_use = true
 [connection signal="switched_on" from="TimedShootingRange/Switch" to="." method="start_shooting_practice"]
 [connection signal="part_broken" from="DummyHall/Corridor/BreakableDoor/DestroyArea" to="Player" method="part_broken"]
 [connection signal="switched_on" from="DummyHall/PressurePlate" to="DummyHall/Corridor/Door" method="open"]
+[connection signal="fade_out_finished" from="Fade" to="." method="_on_fade_out_finished"]
 
 [editable path="MainRoom/BreakableFloor"]
 [editable path="MainRoom/BreakableFloor/Floor"]

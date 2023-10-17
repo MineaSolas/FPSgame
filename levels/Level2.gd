@@ -1,5 +1,17 @@
 extends Node3D
 
+@onready var fade = $Fade
+
+func _ready():
+	fade.show_self()
+	fade.fade_in()
+	
+func level_passed():
+	fade.fade_out()
+	
+func _on_fade_out_finished():
+	get_tree().change_scene_to_file("res://levels/screen.tscn")
+
 @onready var shootingRangeInnerDoor = $ShootingRange/Hallway5/Corridor/Door2
 @onready var shootingRangeOuterDoor = $ShootingRange/Hallway5/Corridor/Door
 @onready var elevatorBottomDoor = $Elevator/Bottom/Corridor2/Door
@@ -47,5 +59,4 @@ func start_shooting_practice():
 	gateRight.close()
 	await get_tree().create_timer(GATE_OPENING_DELAY).timeout
 	shootingSwitch.switch_off()
-	
 	
