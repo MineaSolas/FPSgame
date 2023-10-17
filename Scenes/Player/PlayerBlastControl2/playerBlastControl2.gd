@@ -136,11 +136,34 @@ func _physics_process(delta):
 		
 	if (is_on_floor() or elevator_speed > 0) and Input.is_action_just_pressed("Jump"):
 		character_velocity.y = jump_power
-		
-	# TODO: when the end of the level has been reached, use 'all_targets_hit' 
-	# to chekc if all targets have been hit. Level is not finished if not all
-	# targets have been hit
-	
+
+var total_targets = 0
+var hit_targets = 0
+var on_level_passed: Callable
+
+func finish_level_on_all_targets_hit(level_passed: Callable):
+	on_level_passed = level_passed
+	var targets = get_tree().get_nodes_in_group("Targets")
+	total_targets = targets.size()
+	for target in targets:
+		target.connect("hit_signal", hit_target)
+	set_target_counter_text()
+	targetCounter.show()
+
+func hit_target():
+	hit_targets += 1
+	set_target_counter_text()
+	if hit_targets == total_targets:
+		on_level_passed.call()
+
+func set_target_counter_text():
+	var hit_targets_str: String
+	if total_targets >= 10:
+		hit_targets_str = "%02d" % hit_targets
+	else:
+		hit_targets_str = "%d" % hit_targets
+	targetCounter.text = "Targets: " + hit_targets_str + "/" + str(total_targets)
+
 func set_health(value):
 	health = value
 	
@@ -173,7 +196,7 @@ func set_health(value):
 	
 	if health == 1 and max_health > 1:
 		healths[0].texture = load("res://art/health_bar_start_critical.png")
-	else:
+	elif health == 1:
 		healths[0].texture = load("res://art/health_bar_start.png")
 
 func _input(event):

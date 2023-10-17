@@ -15,6 +15,8 @@ func  spawn_enemies():
 		if node.is_in_group("SpawnPositions"):
 			var newEnemy = enemy.instantiate()
 			newEnemy.hp = 3
+			newEnemy.attack_range = 15
+			newEnemy.sight_distance = -20
 			node.add_child(newEnemy)
 			newEnemy.connect("death", self.enemy_died, 0)
 			enemyCounter = maxEnemies

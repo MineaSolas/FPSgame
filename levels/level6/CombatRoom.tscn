@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://psfp0nifmbar"]
+[gd_scene load_steps=13 format=3 uid="uid://psfp0nifmbar"]
 
 [ext_resource type="Script" path="res://levels/level6/CombatRoom.gd" id="1_3v58y"]
 [ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="1_w1ib7"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="10_ya1n1"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="11_ftap1"]
 [ext_resource type="Script" path="res://levels/level6/EnemySpawner.gd" id="11_v4ctx"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_kjkur"]
+vertices = PackedVector3Array(-4.5001, 6.9999, -0.720712, -4.5001, 6.9999, 8.77929, 4.4999, 6.9999, 8.77929, 4.4999, 6.9999, -0.720712, 4.4999, 6.9999, -0.720712, 4.4999, 6.9999, -10.2207, -4.5001, 6.9999, -10.2207, -4.5001, 6.9999, -0.720712, 3.9999, 0.9999, -9.72071, -4.0001, 0.9999, -9.72071, -4.0001, 0.9999, -8.47071, -2.0001, 0.9999, -8.22071, 1.9999, 0.9999, -8.22071, 3.9999, 0.9999, -8.47071, -2.0001, 0.9999, -8.22071, -2.0001, 0.9999, -3.47071, 1.9999, 0.9999, -3.47071, 1.9999, 0.9999, -8.22071, 2.9999, 3.9999, -8.47071, 3.2499, 1.7499, -2.22071, 3.9999, 1.7499, -2.22071, 3.9999, 3.9999, -9.72071, 3.9999, 3.9999, -8.47071, -2.7501, 3.9999, -8.72071, 2.9999, 3.9999, -8.47071, 3.9999, 3.9999, -9.72071, -4.0001, 3.9999, -9.72071, -4.0001, 1.7499, -2.22071, -3.2501, 1.7499, -2.22071, -2.7501, 3.9999, -8.72071, -4.0001, 3.9999, -9.72071, -4.0001, 3.9999, -8.47071, 3.9999, 1.7499, -2.22071, 3.2499, 1.7499, -2.22071, 2.9999, 1.2499, -0.970712, 3.9999, 0.9999, 2.02929, -3.0001, 1.2499, -0.970712, -3.2501, 1.7499, -2.22071, -4.0001, 1.7499, -2.22071, -4.0001, 0.9999, 2.02929, -4.0001, 0.9999, 5.77929, -2.5001, 0.9999, 5.77929, -2.2501, 0.9999, 4.77929, 2.4999, 0.9999, 4.77929, 2.7499, 0.9999, 6.02929, 3.9999, 0.9999, 6.27929, 3.9999, 0.9999, 3.52929, 3.9999, 0.9999, 2.02929, 2.9999, 1.2499, -0.970712, 1.9999, 0.9999, -0.970712, 0.7499, 0.9999, 2.27929, 2.4999, 0.9999, 4.77929, 3.9999, 0.9999, 3.52929, 0.9999, 0.9999, 3.52929, -4.0001, 0.9999, 3.52929, -4.0001, 0.9999, 5.77929, -2.2501, 0.9999, 4.77929, -1.0001, 0.9999, 3.52929, 1.9999, 0.9999, -0.970712, 1.9999, 0.9999, -1.72071, -2.0001, 0.9999, -1.72071, -2.0001, 0.9999, -0.970712, -0.7501, 0.9999, 2.27929, 0.7499, 0.9999, 2.27929, -0.7501, 0.9999, 2.27929, -1.0001, 0.9999, 3.52929, 0.9999, 0.9999, 3.52929, 0.7499, 0.9999, 2.27929, -2.0001, 0.9999, -0.970712, -3.0001, 1.2499, -0.970712, -4.0001, 0.9999, 2.02929, -0.7501, 0.9999, 2.27929, -2.2501, 0.9999, 4.77929, 2.4999, 0.9999, 4.77929, 0.9999, 0.9999, 3.52929, -1.0001, 0.9999, 3.52929, -2.2501, 0.9999, 6.27929, -2.5001, 0.9999, 5.77929, -4.0001, 0.9999, 5.77929, 3.9999, 0.9999, 8.27929, 3.9999, 0.9999, 6.27929, 2.7499, 0.9999, 6.02929, -1.2501, 0.9999, 8.27929, -1.0001, 0.9999, 8.77929, -2.2501, 0.9999, 6.27929, -4.0001, 0.9999, 5.77929, -4.0001, 0.9999, 8.27929, -1.2501, 0.9999, 8.27929, 2.7499, 0.9999, 6.02929, -2.2501, 0.9999, 6.27929, -1.2501, 0.9999, 8.27929)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(13, 12, 8), PackedInt32Array(8, 12, 11), PackedInt32Array(8, 11, 10), PackedInt32Array(8, 10, 9), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15), PackedInt32Array(21, 22, 18), PackedInt32Array(18, 22, 19), PackedInt32Array(19, 22, 20), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 26), PackedInt32Array(30, 29, 31), PackedInt32Array(31, 29, 28), PackedInt32Array(31, 28, 27), PackedInt32Array(33, 32, 34), PackedInt32Array(34, 32, 35), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 39), PackedInt32Array(42, 41, 40), PackedInt32Array(44, 43, 45), PackedInt32Array(45, 43, 46), PackedInt32Array(48, 47, 49), PackedInt32Array(49, 47, 50), PackedInt32Array(53, 52, 51), PackedInt32Array(55, 54, 56), PackedInt32Array(56, 54, 57), PackedInt32Array(58, 63, 59), PackedInt32Array(59, 63, 62), PackedInt32Array(59, 62, 61), PackedInt32Array(59, 61, 60), PackedInt32Array(67, 66, 64), PackedInt32Array(64, 66, 65), PackedInt32Array(69, 68, 70), PackedInt32Array(70, 68, 71), PackedInt32Array(75, 74, 72), PackedInt32Array(72, 74, 73), PackedInt32Array(78, 77, 76), PackedInt32Array(80, 79, 81), PackedInt32Array(81, 79, 83), PackedInt32Array(81, 83, 82), PackedInt32Array(85, 84, 86), PackedInt32Array(86, 84, 87), PackedInt32Array(90, 89, 88)]
 
 [node name="CombatRoom" type="Node3D"]
 script = ExtResource("1_3v58y")
@@ -44,118 +48,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.2437
 [node name="Switch2" parent="Start" instance=ExtResource("6_q3vte")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.24377, 2.20332, -5.52423)
 
-[node name="CombatArea" type="Node3D" parent="."]
-
-[node name="Box3" parent="CombatArea" instance=ExtResource("1_w1ib7")]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, -16.2)
-
-[node name="Arch" parent="CombatArea" instance=ExtResource("8_vdltq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -6.4)
-
-[node name="Door3" parent="CombatArea" instance=ExtResource("3_x371a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -26)
-
-[node name="Box4" parent="CombatArea" instance=ExtResource("1_w1ib7")]
-transform = Transform3D(9.2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 3, -24.8)
-collision_layer = 7
-
-[node name="Box5" parent="CombatArea" instance=ExtResource("1_w1ib7")]
-transform = Transform3D(2, 0, 0, 0, 0.939693, -3.00978, 0, 0.34202, 8.2693, -3.6, 1.525, -19.84)
-collision_layer = 7
-
-[node name="Box6" parent="CombatArea" instance=ExtResource("1_w1ib7")]
-transform = Transform3D(2, 0, 0, 0, 0.939693, -3.00978, 0, 0.34202, 8.2693, 3.6, 1.525, -19.84)
-collision_layer = 7
-
-[node name="GlassWall" parent="CombatArea" instance=ExtResource("9_a45t4")]
-transform = Transform3D(3.35838, 0, 0, 0, 6, 0, 0, 0, 0.2, 0, 3.5, -10)
-collision_layer = 7
-
-[node name="Column" parent="CombatArea" instance=ExtResource("10_ya1n1")]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 1.8, 3.5, -10)
-collision_layer = 7
-
-[node name="Column2" parent="CombatArea" instance=ExtResource("10_ya1n1")]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -1.8, 3.5, -10)
-collision_layer = 7
-
-[node name="Ceiling" type="Node3D" parent="CombatArea"]
-transform = Transform3D(1.15, 0, 0, 0, 1, 0, 0, 0, 0.96, 0, 0, -12.3556)
-
-[node name="Ceiling" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, 0)
-
-[node name="Ceiling2" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, 0)
-
-[node name="Ceiling3" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -4)
-
-[node name="Ceiling4" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -4)
-
-[node name="Ceiling5" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -8)
-
-[node name="Ceiling6" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -8)
-
-[node name="Ceiling7" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -12)
-
-[node name="Ceiling8" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -12)
-
-[node name="Ceiling9" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, 4)
-
-[node name="Ceiling10" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, 4)
-
-[node name="walls" type="Node3D" parent="CombatArea"]
-
-[node name="WallThin3" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.5, 0.5, -6.4)
-
-[node name="WallThin4" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.5, 0.5, -6.4)
-
-[node name="WallThin5" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(-2.14186e-07, 0, 1, 0, 2, 0, -4.9, 0, -4.37114e-08, 4.8, 0.5, -16.25)
-
-[node name="WallThin6" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(-2.14186e-07, 0, 1, 0, 2, 0, -4.9, 0, -4.37114e-08, -4.8, 0.5, -16.25)
-
-[node name="WallThin7" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.5, 0.5, -26)
-
-[node name="WallThin8" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.5, 0.5, -26)
-
-[node name="WallThin9" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -6.4)
-
-[node name="WallThin10" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -26)
-
-[node name="WallThin6" parent="CombatArea" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.28284, 0.5, -12.8)
-
-[node name="Arch2" parent="CombatArea" instance=ExtResource("8_vdltq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -12.8)
-
-[node name="Arch3" parent="CombatArea" instance=ExtResource("8_vdltq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -12.8)
-
-[node name="WallThin7" parent="CombatArea" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.283, 0.5, -12.8)
-
-[node name="WallThin9" parent="CombatArea" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -12.8)
-
-[node name="WallThin8" parent="CombatArea" instance=ExtResource("4_lkh1y")]
-transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0.5, -18.076)
-
 [node name="EnemySpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -16)
 script = ExtResource("11_v4ctx")
@@ -182,6 +74,127 @@ transform = Transform3D(-0.999977, 0, 0.00675426, 0, 1, 0, -0.00675426, 0, -0.99
 [node name="Pos7" type="Node3D" parent="EnemySpawner" groups=["SpawnPositions"]]
 transform = Transform3D(-0.999977, 0, 0.00675426, 0, 1, 0, -0.00675426, 0, -0.999977, 3.36905, 0, 1.52293)
 
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.5293)
+navigation_mesh = SubResource("NavigationMesh_kjkur")
+
+[node name="CombatArea" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.5293)
+
+[node name="Box3" parent="NavigationRegion3D/CombatArea" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, -16.2)
+
+[node name="Arch" parent="NavigationRegion3D/CombatArea" instance=ExtResource("8_vdltq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -6.4)
+
+[node name="Door3" parent="NavigationRegion3D/CombatArea" instance=ExtResource("3_x371a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -26)
+
+[node name="Box4" parent="NavigationRegion3D/CombatArea" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(9.2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 3, -24.8)
+collision_layer = 7
+
+[node name="Box5" parent="NavigationRegion3D/CombatArea" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(2, 0, 0, 0, 0.939693, -3.00978, 0, 0.34202, 8.2693, -3.6, 1.525, -19.84)
+collision_layer = 7
+
+[node name="Box6" parent="NavigationRegion3D/CombatArea" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(2, 0, 0, 0, 0.939693, -3.00978, 0, 0.34202, 8.2693, 3.6, 1.525, -19.84)
+collision_layer = 7
+
+[node name="GlassWall" parent="NavigationRegion3D/CombatArea" instance=ExtResource("9_a45t4")]
+transform = Transform3D(3.35838, 0, 0, 0, 6, 0, 0, 0, 0.2, 0, 3.5, -10)
+collision_layer = 7
+
+[node name="Column" parent="NavigationRegion3D/CombatArea" instance=ExtResource("10_ya1n1")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 1.8, 3.5, -10)
+collision_layer = 7
+
+[node name="Column2" parent="NavigationRegion3D/CombatArea" instance=ExtResource("10_ya1n1")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -1.8, 3.5, -10)
+collision_layer = 7
+
+[node name="Ceiling" type="Node3D" parent="NavigationRegion3D/CombatArea"]
+transform = Transform3D(1.15, 0, 0, 0, 1, 0, 0, 0, 0.96, 0, 0, -12.3556)
+
+[node name="Ceiling" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, 0)
+
+[node name="Ceiling2" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, 0)
+
+[node name="Ceiling3" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -4)
+
+[node name="Ceiling4" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -4)
+
+[node name="Ceiling5" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -8)
+
+[node name="Ceiling6" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -8)
+
+[node name="Ceiling7" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -12)
+
+[node name="Ceiling8" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -12)
+
+[node name="Ceiling9" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, 4)
+
+[node name="Ceiling10" parent="NavigationRegion3D/CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, 4)
+
+[node name="walls" type="Node3D" parent="NavigationRegion3D/CombatArea"]
+
+[node name="WallThin3" parent="NavigationRegion3D/CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.5, 0.5, -6.4)
+
+[node name="WallThin4" parent="NavigationRegion3D/CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.5, 0.5, -6.4)
+
+[node name="WallThin5" parent="NavigationRegion3D/CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(-2.14186e-07, 0, 1, 0, 2, 0, -4.9, 0, -4.37114e-08, 4.8, 0.5, -16.25)
+
+[node name="WallThin6" parent="NavigationRegion3D/CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(-2.14186e-07, 0, 1, 0, 2, 0, -4.9, 0, -4.37114e-08, -4.8, 0.5, -16.25)
+
+[node name="WallThin7" parent="NavigationRegion3D/CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.5, 0.5, -26)
+
+[node name="WallThin8" parent="NavigationRegion3D/CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.5, 0.5, -26)
+
+[node name="WallThin9" parent="NavigationRegion3D/CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -6.4)
+
+[node name="WallThin10" parent="NavigationRegion3D/CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -26)
+
+[node name="WallThin6" parent="NavigationRegion3D/CombatArea" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.28284, 0.5, -12.8)
+collision_layer = 7
+
+[node name="Arch2" parent="NavigationRegion3D/CombatArea" instance=ExtResource("8_vdltq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -12.8)
+
+[node name="Arch3" parent="NavigationRegion3D/CombatArea" instance=ExtResource("8_vdltq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -12.8)
+
+[node name="WallThin7" parent="NavigationRegion3D/CombatArea" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.283, 0.5, -12.8)
+collision_layer = 7
+
+[node name="WallThin9" parent="NavigationRegion3D/CombatArea" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -12.8)
+collision_layer = 7
+
+[node name="WallThin8" parent="NavigationRegion3D/CombatArea" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0.5, -18.076)
+collision_layer = 7
+
 [connection signal="completeSignal" from="." to="Start/Door" method="open"]
 [connection signal="completeSignal" from="." to="Start/Door2" method="open"]
 [connection signal="completeSignal" from="." to="Start/Switch" method="_on_pair_switched_off"]
@@ -193,4 +206,4 @@ transform = Transform3D(-0.999977, 0, 0.00675426, 0, 1, 0, -0.00675426, 0, -0.99
 [connection signal="switched_on" from="Start/Switch2" to="Start/Door2" method="open"]
 [connection signal="switched_on" from="Start/Switch2" to="Start/Switch" method="_on_pair_switched_on"]
 [connection signal="switched_on" from="Start/Switch2" to="EnemySpawner" method="spawn_enemies"]
-[connection signal="allEnemiesDead" from="EnemySpawner" to="CombatArea/Door3" method="open"]
+[connection signal="allEnemiesDead" from="EnemySpawner" to="NavigationRegion3D/CombatArea/Door3" method="open"]
