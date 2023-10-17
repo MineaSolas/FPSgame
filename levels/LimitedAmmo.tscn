@@ -11910,13 +11910,13 @@ navigation_mesh = SubResource("NavigationMesh_kk73p")
 
 [node name="Enemy" parent="Sector5/NavigationRegion3D" instance=ExtResource("3_wpixk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -7)
-hp = 3.0
 sight_distance = -25.0
+hp = 3.0
 
 [node name="Enemy2" parent="Sector5/NavigationRegion3D" instance=ExtResource("3_wpixk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 7)
-hp = 3.0
 sight_distance = -25.0
+hp = 3.0
 
 [node name="Floor" parent="Sector5/NavigationRegion3D" instance=ExtResource("8_xy1w5")]
 transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 9, 16.5459, 0, 0)
