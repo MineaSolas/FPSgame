@@ -63,40 +63,40 @@ emission_enabled = true
 emission = Color(0, 0.780392, 0.85098, 1)
 emission_energy_multiplier = 1.68
 
-[sub_resource type="BoxMesh" id="BoxMesh_aauca"]
+[sub_resource type="BoxMesh" id="BoxMesh_grjc2"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_58xpb"]
+[sub_resource type="BoxMesh" id="BoxMesh_hupix"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_r5ctg"]
+[sub_resource type="BoxMesh" id="BoxMesh_76hsh"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_12fby"]
+[sub_resource type="BoxMesh" id="BoxMesh_nfirn"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_18bwp"]
+[sub_resource type="BoxMesh" id="BoxMesh_fh1qi"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_b2ef3"]
+[sub_resource type="BoxMesh" id="BoxMesh_dhw55"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_bnwke"]
+[sub_resource type="BoxMesh" id="BoxMesh_7owf7"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_m6ic1"]
+[sub_resource type="BoxMesh" id="BoxMesh_wj4gg"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_tnq7t"]
+[sub_resource type="BoxMesh" id="BoxMesh_kmtso"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_dv5fv"]
+[sub_resource type="BoxMesh" id="BoxMesh_rpkxe"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_qkuyq"]
+[sub_resource type="BoxMesh" id="BoxMesh_pqb76"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_v5j60"]
+[sub_resource type="BoxMesh" id="BoxMesh_al3k5"]
 size = Vector3(0.1, 0.1, 1.0005)
 
 [node name="level6" type="Node3D"]
@@ -578,61 +578,62 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 35, -8, 35)
 
 [node name="Box" parent="BossRoom/TargetRoom/Track" index="0"]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 2.62601, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0.740589, 0, 0)
+movement_speed = -3.0
 
 [node name="edge" parent="BossRoom/TargetRoom/Track/Box/edges" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.4501, 0.47505, 0)
-mesh = SubResource("BoxMesh_aauca")
+mesh = SubResource("BoxMesh_grjc2")
 
 [node name="edge3" parent="BossRoom/TargetRoom/Track/Box/edges" index="1"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, 0.2505)
-mesh = SubResource("BoxMesh_58xpb")
+mesh = SubResource("BoxMesh_hupix")
 
 [node name="edge4" parent="BossRoom/TargetRoom/Track/Box/edges" index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.4501, 0.47505, 0)
-mesh = SubResource("BoxMesh_r5ctg")
+mesh = SubResource("BoxMesh_76hsh")
 
 [node name="edge5" parent="BossRoom/TargetRoom/Track/Box/edges" index="3"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, -0.2505)
-mesh = SubResource("BoxMesh_12fby")
+mesh = SubResource("BoxMesh_nfirn")
 
 [node name="edge6" parent="BossRoom/TargetRoom/Track/Box/edges" index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.4501, -0.47505, 0)
-mesh = SubResource("BoxMesh_18bwp")
+mesh = SubResource("BoxMesh_fh1qi")
 
 [node name="edge7" parent="BossRoom/TargetRoom/Track/Box/edges" index="5"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, 0.2505)
-mesh = SubResource("BoxMesh_b2ef3")
+mesh = SubResource("BoxMesh_dhw55")
 
 [node name="edge8" parent="BossRoom/TargetRoom/Track/Box/edges" index="6"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.4501, -0.47505, 0)
-mesh = SubResource("BoxMesh_bnwke")
+mesh = SubResource("BoxMesh_7owf7")
 
 [node name="edge9" parent="BossRoom/TargetRoom/Track/Box/edges" index="7"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, -0.2505)
-mesh = SubResource("BoxMesh_m6ic1")
+mesh = SubResource("BoxMesh_wj4gg")
 
 [node name="edge2" parent="BossRoom/TargetRoom/Track/Box/edges" index="8"]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.4501, 0, 0.2505)
-mesh = SubResource("BoxMesh_tnq7t")
+mesh = SubResource("BoxMesh_kmtso")
 
 [node name="edge10" parent="BossRoom/TargetRoom/Track/Box/edges" index="9"]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.4501, 0, -0.2505)
-mesh = SubResource("BoxMesh_dv5fv")
+mesh = SubResource("BoxMesh_rpkxe")
 
 [node name="edge12" parent="BossRoom/TargetRoom/Track/Box/edges" index="10"]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.4501, 0, -0.2505)
-mesh = SubResource("BoxMesh_qkuyq")
+mesh = SubResource("BoxMesh_pqb76")
 
 [node name="edge11" parent="BossRoom/TargetRoom/Track/Box/edges" index="11"]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.4501, 0, 0.2505)
-mesh = SubResource("BoxMesh_v5j60")
+mesh = SubResource("BoxMesh_al3k5")
 
 [node name="Box3" parent="BossRoom/TargetRoom/TargetsNObstacles" index="7"]
-transform = Transform3D(0.523665, 0, 1.40562, 0, 1.5, 0, -1.40562, 0, 0.523665, 2.70451, 1.22157, -23.128)
+transform = Transform3D(-0.193021, 0, 1.48753, 0, 1.5, 0, -1.48753, 0, -0.193021, 2.70451, 1.22157, -23.128)
 
 [node name="Box" parent="BossRoom/TargetRoom/TargetsNObstacles" index="19"]
-transform = Transform3D(1, 0, 0, 0, 2.99392, -0.0127228, 0, 0.190842, 0.199595, -1.01383, 2, -23.011)
+transform = Transform3D(1, 0, 0, 0, 2.99392, -0.0127228, 0, 0.190842, 0.199595, -0.881595, 2, -23.011)
 movement_speed = 2.0
 
 [node name="Platforming2" type="Node3D" parent="BossRoom"]

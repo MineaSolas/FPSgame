@@ -173,7 +173,7 @@ func set_health(value):
 	
 	if health == 1 and max_health > 1:
 		healths[0].texture = load("res://art/health_bar_start_critical.png")
-	else:
+	elif health == 1:
 		healths[0].texture = load("res://art/health_bar_start.png")
 
 func _input(event):
