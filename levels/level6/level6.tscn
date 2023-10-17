@@ -1,0 +1,857 @@
+[gd_scene load_steps=43 format=3 uid="uid://t3ylv1uotk22"]
+
+[ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="1_7n2o8"]
+[ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="4_ec7h0"]
+[ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="5_flokx"]
+[ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="6_6vqak"]
+[ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="6_a6th4"]
+[ext_resource type="PackedScene" uid="uid://ccppai6n5q2pw" path="res://Scenes/WorldBuilding/Arch.tscn" id="7_5d5c2"]
+[ext_resource type="PackedScene" uid="uid://dh8eyj7t6u7do" path="res://Scenes/Switch/Switch.tscn" id="8_irx5p"]
+[ext_resource type="PackedScene" uid="uid://c81kt7m22n3jo" path="res://Scenes/WorldBuilding/CrossRoad.tscn" id="8_v0b0s"]
+[ext_resource type="PackedScene" uid="uid://cpsmsr52q8o5d" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="11_r1ewh"]
+[ext_resource type="Script" path="res://levels/level6/glowToggleSphere.gd" id="13_1vkk1"]
+[ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="13_e2vk2"]
+[ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="13_miqkg"]
+[ext_resource type="Material" uid="uid://cfdx08rt37g33" path="res://assets/materials/GlassWall.tres" id="14_xopr5"]
+[ext_resource type="Material" uid="uid://bg7yeabelpiue" path="res://assets/materials/EnergyLevels/EnergyOn.tres" id="15_mk6nd"]
+[ext_resource type="Script" path="res://levels/level6/LightOff.gd" id="16_1idoc"]
+[ext_resource type="PackedScene" uid="uid://c3ramhslgsjiw" path="res://Scenes/DeathZone/DeathZone.tscn" id="16_6ntng"]
+[ext_resource type="Script" path="res://levels/level6/glowToggle.gd" id="16_p6bty"]
+[ext_resource type="Script" path="res://levels/level6/EndStage.gd" id="19_8yj1c"]
+[ext_resource type="PackedScene" uid="uid://tlovy2onsch6" path="res://levels/level6/TargetRoom.tscn" id="19_pjyrh"]
+[ext_resource type="PackedScene" uid="uid://psfp0nifmbar" path="res://levels/level6/CombatRoom.tscn" id="20_asgmi"]
+[ext_resource type="PackedScene" uid="uid://5kdxohcdtq1y" path="res://Scenes/Turret/turret.tscn" id="21_0gdxy"]
+[ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="22_me1lb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vfhbg"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_vfhbg")
+
+[sub_resource type="Environment" id="Environment_wftqi"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+background_energy_multiplier = 0.4
+sky = SubResource("Sky_ivwug")
+fog_enabled = true
+fog_light_color = Color(0.0235294, 0.0313726, 0.0392157, 1)
+fog_density = 0.0
+fog_height = 4.0
+fog_height_density = 0.1
+volumetric_fog_density = 0.0
+volumetric_fog_gi_inject = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8d73"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p68kk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imtmp"]
+albedo_color = Color(0.231373, 0.231373, 0.231373, 1)
+emission_enabled = true
+emission = Color(0, 0.780392, 0.85098, 1)
+emission_energy_multiplier = 1.68
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qntkj"]
+albedo_color = Color(0.231373, 0.231373, 0.231373, 1)
+emission_enabled = true
+emission = Color(0, 0.780392, 0.85098, 1)
+emission_energy_multiplier = 1.68
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5un0k"]
+albedo_color = Color(0.231373, 0.231373, 0.231373, 1)
+emission_enabled = true
+emission = Color(0, 0.780392, 0.85098, 1)
+emission_energy_multiplier = 1.68
+
+[sub_resource type="BoxMesh" id="BoxMesh_aauca"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_58xpb"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r5ctg"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_12fby"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_18bwp"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b2ef3"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bnwke"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m6ic1"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tnq7t"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dv5fv"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qkuyq"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v5j60"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[node name="level6" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wftqi")
+
+[node name="Player" parent="." instance=ExtResource("1_7n2o8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+has_health = true
+
+[node name="StartingArea" type="Node3D" parent="."]
+
+[node name="Corridor" parent="StartingArea" instance=ExtResource("5_flokx")]
+
+[node name="Corridor2" parent="StartingArea" instance=ExtResource("5_flokx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Corridor3" parent="StartingArea" instance=ExtResource("5_flokx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 10)
+
+[node name="Corridor4" parent="StartingArea" instance=ExtResource("5_flokx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 18)
+
+[node name="CrossRoad" parent="StartingArea" instance=ExtResource("8_v0b0s")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 26)
+
+[node name="Arch5" parent="StartingArea/CrossRoad" instance=ExtResource("7_5d5c2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 0)
+
+[node name="arch_oneway" parent="StartingArea/CrossRoad/Arch5/arch" index="0"]
+transform = Transform3D(4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, 0, 3, 4)
+
+[node name="WallThin" parent="StartingArea" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="CrossRoad2" parent="StartingArea" instance=ExtResource("8_v0b0s")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, 26)
+
+[node name="WallThin2" parent="StartingArea/CrossRoad2" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -2)
+
+[node name="WallThin3" parent="StartingArea/CrossRoad2" instance=ExtResource("6_a6th4")]
+transform = Transform3D(-4.37114e-08, 0, 0.5, 0, 1, 0, -1, 0, -2.18557e-08, 2, 0, 0)
+
+[node name="CrossRoad3" parent="StartingArea" instance=ExtResource("8_v0b0s")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, 26)
+
+[node name="WallThin5" parent="StartingArea/CrossRoad3" instance=ExtResource("6_a6th4")]
+transform = Transform3D(-4.37114e-08, 0, 0.5, 0, 1, 0, -1, 0, -2.18557e-08, -2, 0, 0)
+
+[node name="WallThin4" parent="StartingArea/CrossRoad3" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -2)
+
+[node name="BigDoorWall" type="Node3D" parent="StartingArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.001)
+
+[node name="Door" parent="StartingArea/BigDoorWall" instance=ExtResource("6_6vqak")]
+
+[node name="WallThin2" parent="StartingArea/BigDoorWall" instance=ExtResource("6_a6th4")]
+transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="WallThin3" parent="StartingArea/BigDoorWall" instance=ExtResource("6_a6th4")]
+transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="WallThin4" parent="StartingArea/BigDoorWall" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Switch" parent="StartingArea/BigDoorWall" instance=ExtResource("8_irx5p")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.323, 1.5, -0.455)
+
+[node name="Door" parent="StartingArea" instance=ExtResource("6_6vqak")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, 30)
+
+[node name="Switch" parent="StartingArea/Door" instance=ExtResource("8_irx5p")]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 1.25, 1, -0.333)
+
+[node name="Door2" parent="StartingArea" instance=ExtResource("6_6vqak")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, 30)
+
+[node name="Switch" parent="StartingArea/Door2" instance=ExtResource("8_irx5p")]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, -1.25, 1, -0.3335)
+
+[node name="GlassWall" parent="StartingArea" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(7, 0, 0, 0, 6, 0, 0, 0, 0.2, 0, 3, 30)
+
+[node name="Box" parent="StartingArea" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(4, 0, 0, 0, 0.939693, -1.7101, 0, 0.34202, 4.69846, -8, -1.315, 32.583)
+
+[node name="Column" parent="StartingArea/Box" instance=ExtResource("13_e2vk2")]
+transform = Transform3D(0.25, 0, 0, 0, 19.9472, 0.0283148, 0, -1.45204, 0.388971, 0.4, -30, 2.55)
+
+[node name="Column2" parent="StartingArea/Box" instance=ExtResource("13_e2vk2")]
+transform = Transform3D(0.25, 0, 0, 0, 19.9472, 0.0283148, 0, -1.45204, 0.388971, -0.4, -30, 2.55)
+
+[node name="Box2" parent="StartingArea" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(4, 0, 0, 0, 0.939693, -1.7101, 0, 0.34202, 4.69846, 8, -1.315, 32.583)
+
+[node name="Column" parent="StartingArea/Box2" instance=ExtResource("13_e2vk2")]
+transform = Transform3D(0.25, 0, 0, 0, 19.9472, 0.0283148, 0, -1.45204, 0.388971, 0.4, -30, 2.55)
+
+[node name="Column2" parent="StartingArea/Box2" instance=ExtResource("13_e2vk2")]
+transform = Transform3D(0.25, 0, 0, 0, 19.9472, 0.0283148, 0, -1.45204, 0.388971, -0.4, -30, 2.55)
+
+[node name="BossRoom" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 90)
+
+[node name="Floor" parent="BossRoom" instance=ExtResource("13_miqkg")]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -60, 0)
+
+[node name="Ceiling" parent="BossRoom" instance=ExtResource("13_miqkg")]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 60, 0)
+
+[node name="Startplat" parent="BossRoom" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(-4.37114e-07, 0, 2, 0, 1, 0, -10, 0, -8.74228e-08, 0, -7, -39.7479)
+
+[node name="MiddleHub" type="Node3D" parent="BossRoom"]
+
+[node name="MiddleCylinder" type="Node3D" parent="BossRoom/MiddleHub"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="BossRoom/MiddleHub/MiddleCylinder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.5, 0)
+use_collision = true
+collision_layer = 3
+radius = 18.0
+height = 60.0
+sides = 50
+material = SubResource("StandardMaterial3D_w8d73")
+
+[node name="CornerCylinder" type="CSGCylinder3D" parent="BossRoom/MiddleHub/MiddleCylinder"]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 12, -34.294, -12)
+use_collision = true
+collision_layer = 3
+radius = 0.2
+height = 63.5541
+sides = 50
+material = SubResource("StandardMaterial3D_p68kk")
+
+[node name="CornerCylinder2" type="CSGCylinder3D" parent="BossRoom/MiddleHub/MiddleCylinder"]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 12, -34.294, 12)
+use_collision = true
+collision_layer = 3
+radius = 0.2
+height = 63.5541
+sides = 50
+material = SubResource("StandardMaterial3D_p68kk")
+
+[node name="CornerCylinder3" type="CSGCylinder3D" parent="BossRoom/MiddleHub/MiddleCylinder"]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, -12, -34.294, -12)
+use_collision = true
+collision_layer = 3
+radius = 0.2
+height = 63.5541
+sides = 50
+material = SubResource("StandardMaterial3D_p68kk")
+
+[node name="CornerCylinder4" type="CSGCylinder3D" parent="BossRoom/MiddleHub/MiddleCylinder"]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, -12, -34.294, 12)
+use_collision = true
+collision_layer = 3
+radius = 0.2
+height = 63.5541
+sides = 50
+material = SubResource("StandardMaterial3D_p68kk")
+
+[node name="MiddleCylinder2" type="CSGCylinder3D" parent="BossRoom/MiddleHub/MiddleCylinder"]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -8, 0)
+use_collision = true
+collision_layer = 3
+radius = 0.6
+height = 1.0
+sides = 50
+material = ExtResource("14_xopr5")
+
+[node name="MiddleCylinder2" type="CSGCylinder3D" parent="BossRoom/MiddleHub/MiddleCylinder/MiddleCylinder2"]
+operation = 2
+radius = 0.59
+height = 1.0
+sides = 50
+material = ExtResource("14_xopr5")
+
+[node name="Platforms" type="Node3D" parent="BossRoom/MiddleHub"]
+
+[node name="PlatformN" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 2, 0, -8, 23)
+
+[node name="PlatformE" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(-4.37114e-07, 0, 2, 0, 1, 0, -10, 0, -8.74228e-08, -23, -8, 0)
+
+[node name="PlatformS" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 2, 0, -8, -23)
+
+[node name="PlatformW" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(-4.37114e-07, 0, 2, 0, 1, 0, -10, 0, -8.74228e-08, 23, -8, 0)
+
+[node name="PlatformSE" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10.6066, 0, 1.41421, 0, 1, 0, -10.6066, 0, 1.41421, -18, -8, -18)
+
+[node name="PlatformSW" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10.6066, 0, -1.41421, 0, 1, 0, 10.6066, 0, 1.41421, 18, -8, -18)
+
+[node name="PlatformNE" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10.6066, 0, -1.41421, 0, 1, 0, 10.6066, 0, 1.41421, -18, -8, 18)
+
+[node name="PlatformNW" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10.6066, 0, 1.41421, 0, 1, 0, -10.6066, 0, 1.41421, 18, -8, 18)
+
+[node name="PlatformSE2" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10.6066, 0, -1.41421, 0, 1, 0, 10.6066, 0, 1.41421, -26.4174, -8, -26.4174)
+
+[node name="PlatformSE3" parent="BossRoom/MiddleHub/Platforms" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10.6066, 0, -1.41421, 0, 1, 0, 10.6066, 0, 1.41421, 26.417, -8, 26.417)
+
+[node name="EnergyBalls" type="Node3D" parent="BossRoom/MiddleHub"]
+
+[node name="BallNPillarsSW" type="Node3D" parent="BossRoom/MiddleHub/EnergyBalls"]
+
+[node name="Switch" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW" instance=ExtResource("8_irx5p")]
+transform = Transform3D(-6.18172e-08, -0.707107, 1.41421, 2, -4.37114e-08, 0, 6.18172e-08, 0.707107, 1.41421, 56.4853, 8.59555, -56.4902)
+color_off = Color(0.0117647, 0.976471, 0.996078, 1)
+color_on = Color(0, 0, 0, 1)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.5, -12)
+use_collision = true
+collision_layer = 3
+radius = 7.0
+radial_segments = 50
+rings = 13
+material = SubResource("StandardMaterial3D_imtmp")
+script = ExtResource("13_1vkk1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/CSGSphere3D"]
+light_color = Color(0.211765, 0.815686, 1, 1)
+light_energy = 20.0
+light_size = 2.0
+omni_range = 31.819
+omni_attenuation = 1.03526
+script = ExtResource("16_1idoc")
+
+[node name="CSGCylinder3DUP" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW"]
+transform = Transform3D(1, 0, 0, 0, 4.9944, 0, 0, 0, 1, 12, 32.9911, -12)
+use_collision = true
+collision_layer = 3
+height = 11.0412
+sides = 20
+material = SubResource("StandardMaterial3D_imtmp")
+script = ExtResource("16_p6bty")
+
+[node name="CSGCylinder3DDOWN" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW"]
+transform = Transform3D(1, 0, 0, 0, 4.9944, 0, 0, 0, 1, 57, 33.967, -57)
+use_collision = true
+collision_layer = 3
+height = 10.7505
+sides = 20
+material = SubResource("StandardMaterial3D_imtmp")
+script = ExtResource("16_p6bty")
+
+[node name="CSGCylinder3DSIDE" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW"]
+transform = Transform3D(-3.09086e-08, -3.53158, 0.707107, 1, -2.18312e-07, 0, 3.09086e-08, 3.53158, 0.707107, 34.4533, 59.876, -34.4533)
+height = 12.6929
+sides = 20
+material = SubResource("StandardMaterial3D_imtmp")
+script = ExtResource("16_p6bty")
+
+[node name="BallNPillarsNW" type="Node3D" parent="BossRoom/MiddleHub/EnergyBalls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Switch" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW" instance=ExtResource("8_irx5p")]
+transform = Transform3D(-6.18172e-08, -0.707107, 1.41421, 2, -4.37114e-08, 0, 6.18172e-08, 0.707107, 1.41421, 56.4853, -3.18588, -56.4902)
+color_off = Color(0.0117647, 0.976471, 0.996078, 1)
+color_on = Color(0, 0, 0, 1)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.5, -12)
+use_collision = true
+collision_layer = 3
+radius = 7.0
+radial_segments = 50
+rings = 13
+material = SubResource("StandardMaterial3D_qntkj")
+script = ExtResource("13_1vkk1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/CSGSphere3D"]
+light_color = Color(0.211765, 0.815686, 1, 1)
+light_energy = 20.0
+light_size = 2.0
+omni_range = 31.819
+omni_attenuation = 1.03526
+script = ExtResource("16_1idoc")
+
+[node name="CSGCylinder3DUP" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW"]
+transform = Transform3D(1, 0, 0, 0, 4.9944, 0, 0, 0, 1, 12, 32.9911, -12)
+use_collision = true
+collision_layer = 3
+height = 11.0412
+sides = 20
+material = SubResource("StandardMaterial3D_qntkj")
+script = ExtResource("16_p6bty")
+
+[node name="CSGCylinder3DDOWN" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW"]
+transform = Transform3D(1, 0, 0, 0, 3.81915, 0, 0, 0, 1, 57, 28.3897, -57)
+use_collision = true
+collision_layer = 3
+height = 17.8004
+sides = 20
+material = SubResource("StandardMaterial3D_qntkj")
+script = ExtResource("16_p6bty")
+
+[node name="CSGCylinder3DSIDE" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW"]
+transform = Transform3D(-3.09086e-08, -3.53158, 0.707107, 1, -2.18312e-07, 0, 3.09086e-08, 3.53158, 0.707107, 34.4533, 59.876, -34.4533)
+height = 12.6929
+sides = 20
+material = SubResource("StandardMaterial3D_qntkj")
+script = ExtResource("16_p6bty")
+
+[node name="BallNPillarsNE" type="Node3D" parent="BossRoom/MiddleHub/EnergyBalls"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Switch" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE" instance=ExtResource("8_irx5p")]
+transform = Transform3D(-6.18172e-08, -0.707107, 1.41421, 2, -4.37114e-08, 0, 6.18172e-08, 0.707107, 1.41421, 56.4853, -1.90093, -56.4902)
+color_off = Color(0.0117647, 0.976471, 0.996078, 1)
+color_on = Color(0, 0, 0, 1)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.5, -12)
+use_collision = true
+collision_layer = 3
+radius = 7.0
+radial_segments = 50
+rings = 13
+material = ExtResource("15_mk6nd")
+script = ExtResource("13_1vkk1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/CSGSphere3D"]
+light_color = Color(0.211765, 0.815686, 1, 1)
+light_energy = 20.0
+light_size = 2.0
+omni_range = 31.819
+omni_attenuation = 1.03526
+script = ExtResource("16_1idoc")
+
+[node name="CSGCylinder3DUP" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE"]
+transform = Transform3D(1, 0, 0, 0, 4.9944, 0, 0, 0, 1, 12, 32.9911, -12)
+use_collision = true
+collision_layer = 3
+height = 11.0412
+sides = 20
+material = ExtResource("15_mk6nd")
+script = ExtResource("16_p6bty")
+
+[node name="CSGCylinder3DDOWN" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE"]
+transform = Transform3D(1, 0, 0, 0, 5.83376, 0, 0, 0, 1, 57, 28.2793, -57)
+use_collision = true
+collision_layer = 3
+height = 10.7505
+sides = 20
+material = ExtResource("15_mk6nd")
+script = ExtResource("16_p6bty")
+
+[node name="CSGCylinder3DSIDE" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE"]
+transform = Transform3D(-3.09086e-08, -3.53158, 0.707107, 1, -2.18312e-07, 0, 3.09086e-08, 3.53158, 0.707107, 34.4533, 59.876, -34.4533)
+height = 12.6929
+sides = 20
+material = ExtResource("15_mk6nd")
+script = ExtResource("16_p6bty")
+
+[node name="BallNPillarsSE" type="Node3D" parent="BossRoom/MiddleHub/EnergyBalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Switch" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE" instance=ExtResource("8_irx5p")]
+transform = Transform3D(-6.18172e-08, -0.707107, 1.41421, 2, -4.37114e-08, 0, 6.18172e-08, 0.707107, 1.41421, 56.4853, -3.24927, -56.4902)
+color_off = Color(0.0117647, 0.976471, 0.996078, 1)
+color_on = Color(0, 0, 0, 1)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.5, -12)
+use_collision = true
+collision_layer = 3
+radius = 7.0
+radial_segments = 50
+rings = 13
+material = SubResource("StandardMaterial3D_5un0k")
+script = ExtResource("13_1vkk1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/CSGSphere3D"]
+light_color = Color(0.211765, 0.815686, 1, 1)
+light_energy = 20.0
+light_size = 2.0
+omni_range = 31.819
+omni_attenuation = 1.03526
+script = ExtResource("16_1idoc")
+
+[node name="CSGCylinder3DUP" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE"]
+transform = Transform3D(1, 0, 0, 0, 4.9944, 0, 0, 0, 1, 12, 32.9911, -12)
+use_collision = true
+collision_layer = 3
+height = 11.0412
+sides = 20
+material = SubResource("StandardMaterial3D_5un0k")
+script = ExtResource("16_p6bty")
+
+[node name="CSGCylinder3DDOWN" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE"]
+transform = Transform3D(1, 0, 0, 0, 6.04363, 0, 0, 0, 1, 57, 27.5824, -57)
+use_collision = true
+collision_layer = 3
+height = 10.7505
+sides = 20
+material = SubResource("StandardMaterial3D_5un0k")
+script = ExtResource("16_p6bty")
+
+[node name="CSGCylinder3DSIDE" type="CSGCylinder3D" parent="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE"]
+transform = Transform3D(-3.09086e-08, -3.53158, 0.707107, 1, -2.18312e-07, 0, 3.09086e-08, 3.53158, 0.707107, 34.4533, 59.876, -34.4533)
+height = 12.6929
+sides = 20
+material = SubResource("StandardMaterial3D_5un0k")
+script = ExtResource("16_p6bty")
+
+[node name="Platforming" type="Node3D" parent="BossRoom"]
+
+[node name="Platform" parent="BossRoom/Platforming" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10.6066, 0, -1.41421, 0, 1, 0, 10.6066, 0, 1.41421, 25, -8, -25)
+
+[node name="GlassWall" parent="BossRoom/Platforming" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(10.6066, 0, -0.353553, 0, 8, 0, 10.6066, 0, 0.353553, 21.5, -2, -21.5)
+
+[node name="Platform2" parent="BossRoom/Platforming" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(10.6066, 0, 1.41421, 0, 1, 0, -10.6066, 0, 1.41421, 32, -8, -32)
+
+[node name="Platform3" parent="BossRoom/Platforming" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(-6.18172e-07, -0.707107, 1.41421, 20, -4.37114e-08, 0, 6.18172e-07, 0.707107, 1.41421, 40, 1.37806, -40)
+
+[node name="Platform4" parent="BossRoom/Platforming" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 40.353, 11.8788, -40.353)
+
+[node name="Platform5" parent="BossRoom/Platforming" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(1.41421, 0, 1.41421, 0, 1, 0, -1.41421, 0, 1.41421, 52.0553, 11.8788, -52.0553)
+
+[node name="WallJump" type="Node3D" parent="BossRoom/Platforming"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.13924, 0)
+
+[node name="GlassWall3" parent="BossRoom/Platforming/WallJump" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(14.2153, 0, 0.0707107, 0, 14.1942, 0, -14.2153, 0, 0.0707107, 46.0383, 18.49, -47.477)
+
+[node name="Platform6" parent="BossRoom/Platforming/WallJump" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(15.3152, 0, 1.55563, 0, 0.2, 0, -15.3152, 0, 1.55563, 46.3513, 25.6836, -46.3513)
+
+[node name="GlassWall4" parent="BossRoom/Platforming/WallJump" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(14.2153, 0, 0.0707107, 0, 14.1942, 0, -14.2153, 0, 0.0707107, 47.4722, 18.49, -46.0431)
+
+[node name="Platform7" parent="BossRoom/Platforming/WallJump" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(-3.19193e-07, -0.141421, 1.55563, 10.327, -8.74228e-09, 0, 3.19193e-07, 0.141421, 1.55563, 53.9335, 20.4231, -53.9335)
+
+[node name="Platform6" parent="BossRoom/Platforming" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(-6.18172e-07, -0.707107, 1.41421, 20, -4.37114e-08, 0, 6.18172e-07, 0.707107, 1.41421, 52.3933, 1.37806, -52.3933)
+
+[node name="SwitchRoom" type="Node3D" parent="BossRoom"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 55.6415, 7.00871, -55.6415)
+
+[node name="Box" parent="BossRoom/SwitchRoom" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(4.8, 0, 0, 0, 0.2, 0, 0, 0, 2.2, 0.1, 0, 0)
+
+[node name="Box2" parent="BossRoom/SwitchRoom" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(5, 0, 0, 0, 0.2, 0, 0, 0, 2.2, 0, 3, 0)
+
+[node name="Box3" parent="BossRoom/SwitchRoom" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(5, 0, 0, 0, -8.74228e-09, -2.8, 0, 0.2, -1.22392e-07, 0, 1.5, 1)
+
+[node name="Box4" parent="BossRoom/SwitchRoom" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(5, 0, 0, 0, -8.74228e-09, -2.8, 0, 0.2, -1.22392e-07, 0, 1.5, -1)
+
+[node name="Box5" parent="BossRoom/SwitchRoom" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(-1.39876e-07, -0.2, 0, 3.2, -8.74228e-09, 0, 0, 0, 2.2, 2.6, 1.5, 0)
+
+[node name="CombatRoom" parent="BossRoom" instance=ExtResource("20_asgmi")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -35.5188, -8, -35.5188)
+
+[node name="TargetRoom" parent="BossRoom" instance=ExtResource("19_pjyrh")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 35, -8, 35)
+
+[node name="Box" parent="BossRoom/TargetRoom/Track" index="0"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 2.62601, 0, 0)
+
+[node name="edge" parent="BossRoom/TargetRoom/Track/Box/edges" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.4501, 0.47505, 0)
+mesh = SubResource("BoxMesh_aauca")
+
+[node name="edge3" parent="BossRoom/TargetRoom/Track/Box/edges" index="1"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, 0.2505)
+mesh = SubResource("BoxMesh_58xpb")
+
+[node name="edge4" parent="BossRoom/TargetRoom/Track/Box/edges" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.4501, 0.47505, 0)
+mesh = SubResource("BoxMesh_r5ctg")
+
+[node name="edge5" parent="BossRoom/TargetRoom/Track/Box/edges" index="3"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, -0.2505)
+mesh = SubResource("BoxMesh_12fby")
+
+[node name="edge6" parent="BossRoom/TargetRoom/Track/Box/edges" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.4501, -0.47505, 0)
+mesh = SubResource("BoxMesh_18bwp")
+
+[node name="edge7" parent="BossRoom/TargetRoom/Track/Box/edges" index="5"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, 0.2505)
+mesh = SubResource("BoxMesh_b2ef3")
+
+[node name="edge8" parent="BossRoom/TargetRoom/Track/Box/edges" index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.4501, -0.47505, 0)
+mesh = SubResource("BoxMesh_bnwke")
+
+[node name="edge9" parent="BossRoom/TargetRoom/Track/Box/edges" index="7"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, -0.2505)
+mesh = SubResource("BoxMesh_m6ic1")
+
+[node name="edge2" parent="BossRoom/TargetRoom/Track/Box/edges" index="8"]
+transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.4501, 0, 0.2505)
+mesh = SubResource("BoxMesh_tnq7t")
+
+[node name="edge10" parent="BossRoom/TargetRoom/Track/Box/edges" index="9"]
+transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.4501, 0, -0.2505)
+mesh = SubResource("BoxMesh_dv5fv")
+
+[node name="edge12" parent="BossRoom/TargetRoom/Track/Box/edges" index="10"]
+transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.4501, 0, -0.2505)
+mesh = SubResource("BoxMesh_qkuyq")
+
+[node name="edge11" parent="BossRoom/TargetRoom/Track/Box/edges" index="11"]
+transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.4501, 0, 0.2505)
+mesh = SubResource("BoxMesh_v5j60")
+
+[node name="Box3" parent="BossRoom/TargetRoom/TargetsNObstacles" index="7"]
+transform = Transform3D(0.523665, 0, 1.40562, 0, 1.5, 0, -1.40562, 0, 0.523665, 2.70451, 1.22157, -23.128)
+
+[node name="Box" parent="BossRoom/TargetRoom/TargetsNObstacles" index="19"]
+transform = Transform3D(1, 0, 0, 0, 2.99392, -0.0127228, 0, 0.190842, 0.199595, -1.01383, 2, -23.011)
+movement_speed = 2.0
+
+[node name="Platforming2" type="Node3D" parent="BossRoom"]
+
+[node name="GlassWall3" parent="BossRoom/Platforming2" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(42.4264, 0, 0.0707107, 0, 80, 0, -42.4264, 0, 0.0707107, -45, 19.748, 35)
+
+[node name="GlassWall4" parent="BossRoom/Platforming2" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(42.4264, 0, 0.0707107, 0, 80, 0, -42.4264, 0, 0.0707107, -35, 19.748, 45)
+
+[node name="PlatformNE" parent="BossRoom/Platforming2" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(9.8995, 0, -1.41421, 0, 1, 0, 9.8995, 0, 1.41421, -36, -8, 36)
+
+[node name="PlatformNE2" parent="BossRoom/Platforming2" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(9.8995, 0, -8.48528, 0, 1, 0, 9.8995, 0, 8.48528, -55.4867, -8, 55.4867)
+
+[node name="GlassWall" parent="BossRoom/Platforming2" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(5.65685, 0, 0.141421, 0, 10, 0, 5.65685, 0, -0.141421, -53, -2.566, 53)
+
+[node name="Walls" type="Node3D" parent="BossRoom"]
+
+[node name="WallS" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(-30, 1.74846e-06, 0, -2.62268e-06, -20, 0, 0, 0, 1, 0, 0, -59.8004)
+
+[node name="WallS2" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(12.0037, 0, 0, 0, 20, 0, 0, 0, 1, 36, 0, -59.8)
+
+[node name="WallS3" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(12.0037, 0, 0, 0, 20, 0, 0, 0, 1, -36, 0, -59.8)
+
+[node name="WallS4" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(6, 0, 0, 0, 18, 0, 0, 0, 1, 0, 6, -59.8)
+
+[node name="WallW" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1.31134e-06, 7.64274e-14, 1, 2.62268e-06, -20, 0, 30, 1.74846e-06, -4.37114e-08, 60, 0, 0)
+
+[node name="WallW2" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(-1.31134e-06, 0, 1, 0, 20, 0, -30, 0, -4.37114e-08, 60, 0, 0)
+
+[node name="WallE" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1.31134e-06, 7.64274e-14, 1, 2.62268e-06, -20, 0, 30, 1.74846e-06, -4.37114e-08, -60, 0, 0)
+
+[node name="WallE2" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(-1.31134e-06, 0, 1, 0, 20, 0, -30, 0, -4.37114e-08, -60, 0, 0)
+
+[node name="WallN" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(-30, 1.74846e-06, 0, -2.62268e-06, -20, 0, 0, 0, 1, 0, 0, 60)
+
+[node name="WallN2" parent="BossRoom/Walls" instance=ExtResource("6_a6th4")]
+transform = Transform3D(30, 0, 0, 0, 20, 0, 0, 0, 1, 0, 0, 60)
+
+[node name="EnemyTargetBox" type="Node3D" parent="BossRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -90)
+
+[node name="Box" parent="BossRoom/EnemyTargetBox" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(2.21284, 0, 4.25419, 0, 1, 0, -2.21284, 0, 4.25419, -56.1736, -5, 33.8426)
+
+[node name="WallThin" parent="BossRoom/EnemyTargetBox" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1.06066, 0, -0.707107, 0, 1, 0, 1.06066, 0, 0.707107, -55.1613, -4.5, 32.9277)
+
+[node name="WallThin2" parent="BossRoom/EnemyTargetBox" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1.06066, 0, -0.707107, 0, 1, 0, 1.06066, 0, 0.707107, -57.077, -4.5, 34.8434)
+
+[node name="WallThin3" parent="BossRoom/EnemyTargetBox" instance=ExtResource("6_a6th4")]
+transform = Transform3D(0.551543, 0, 0.707107, 0, 1, 0, -0.551543, 0, 0.707107, -58.1581, -4.5, 31.8665)
+
+[node name="Floor" parent="BossRoom/EnemyTargetBox" instance=ExtResource("13_miqkg")]
+transform = Transform3D(0.424264, 0, 0.989949, 0, 1, 0, -0.424264, 0, 0.989949, -56.0638, -1.5, 33.9968)
+
+[node name="TargetTargetBox" type="Node3D" parent="BossRoom"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.5, 0, 89.5)
+
+[node name="Box" parent="BossRoom/TargetTargetBox" instance=ExtResource("4_ec7h0")]
+transform = Transform3D(2.21284, 0, 4.25419, 0, 1, 0, -2.21284, 0, 4.25419, -56.1736, -5, 33.8426)
+
+[node name="WallThin" parent="BossRoom/TargetTargetBox" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1.06066, 0, -0.707107, 0, 1, 0, 1.06066, 0, 0.707107, -55.1613, -4.5, 32.9277)
+
+[node name="WallThin2" parent="BossRoom/TargetTargetBox" instance=ExtResource("6_a6th4")]
+transform = Transform3D(1.06066, 0, -0.707107, 0, 1, 0, 1.06066, 0, 0.707107, -57.077, -4.5, 34.8434)
+
+[node name="WallThin3" parent="BossRoom/TargetTargetBox" instance=ExtResource("6_a6th4")]
+transform = Transform3D(0.551543, 0, 0.707107, 0, 1, 0, -0.551543, 0, 0.707107, -58.1581, -4.5, 31.8665)
+
+[node name="Floor" parent="BossRoom/TargetTargetBox" instance=ExtResource("13_miqkg")]
+transform = Transform3D(0.424264, 0, 0.989949, 0, 1, 0, -0.424264, 0, 0.989949, -56.0638, -1.5, 33.9968)
+
+[node name="EndStage" type="Node3D" parent="BossRoom"]
+script = ExtResource("19_8yj1c")
+
+[node name="EndBox" type="Node3D" parent="BossRoom/EndStage"]
+
+[node name="GlassWall" parent="BossRoom/EndStage/EndBox" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 20, 8, -6, 0)
+
+[node name="GlassWall2" parent="BossRoom/EndStage/EndBox" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 20, -8, -6, 0)
+
+[node name="GlassWall3" parent="BossRoom/EndStage/EndBox" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(-4.37114e-08, 0, 20, 0, 5, 0, -1, 0, -8.74228e-07, 0, -6, 8)
+
+[node name="GlassWall4" parent="BossRoom/EndStage/EndBox" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(-4.37114e-08, 0, 20, 0, 5, 0, -1, 0, -8.74228e-07, 0, -6, -8)
+
+[node name="GlassWall5" parent="BossRoom/EndStage/EndBox" instance=ExtResource("11_r1ewh")]
+transform = Transform3D(16.5, 0, 0, 0, 1, 0, 0, 0, 16.5, 0, -3, -0.13)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="BossRoom/EndStage"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15.9402, 0)
+light_color = Color(0, 1, 0.0509804, 1)
+light_energy = 7.0
+spot_range = 37.557
+spot_attenuation = 0.707107
+spot_angle = 26.82
+spot_angle_attenuation = 0.933033
+
+[node name="Turrets" type="Node3D" parent="BossRoom/EndStage"]
+
+[node name="Turret" parent="BossRoom/EndStage/Turrets" node_paths=PackedStringArray("player") instance=ExtResource("21_0gdxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -8.5, -13)
+player = NodePath("../../../../Player")
+
+[node name="Turret2" parent="BossRoom/EndStage/Turrets" node_paths=PackedStringArray("player") instance=ExtResource("21_0gdxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -8.5, -3)
+player = NodePath("../../../../Player")
+
+[node name="Turret3" parent="BossRoom/EndStage/Turrets" node_paths=PackedStringArray("player") instance=ExtResource("21_0gdxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -8.5, 3)
+player = NodePath("../../../../Player")
+
+[node name="Turret4" parent="BossRoom/EndStage/Turrets" node_paths=PackedStringArray("player") instance=ExtResource("21_0gdxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -8.5, 13)
+player = NodePath("../../../../Player")
+
+[node name="Turret5" parent="BossRoom/EndStage/Turrets" node_paths=PackedStringArray("player") instance=ExtResource("21_0gdxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -8.5, 13)
+player = NodePath("../../../../Player")
+
+[node name="Turret6" parent="BossRoom/EndStage/Turrets" node_paths=PackedStringArray("player") instance=ExtResource("21_0gdxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, -8.5, 3)
+player = NodePath("../../../../Player")
+
+[node name="Turret7" parent="BossRoom/EndStage/Turrets" node_paths=PackedStringArray("player") instance=ExtResource("21_0gdxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, -8.5, -3)
+player = NodePath("../../../../Player")
+
+[node name="Turret8" parent="BossRoom/EndStage/Turrets" node_paths=PackedStringArray("player") instance=ExtResource("21_0gdxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -8.5, -13)
+player = NodePath("../../../../Player")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="Target" parent="." instance=ExtResource("22_me1lb")]
+transform = Transform3D(-4.37114e-08, -5, 0, 1, -2.18557e-07, 0, 0, 0, 5, 0.100449, -8.52631, 89.6925)
+
+[node name="DeathZones" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.4995, 90)
+
+[node name="DeathZoneSW" parent="DeathZones" instance=ExtResource("16_6ntng")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 30, 0, -30)
+reset_position = Vector3(18, -6, 72)
+
+[node name="DeathZoneSE" parent="DeathZones" instance=ExtResource("16_6ntng")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, -30, 0, -30)
+reset_position = Vector3(-18, -6, 71)
+
+[node name="DeathZoneNE" parent="DeathZones" instance=ExtResource("16_6ntng")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, -30, 0, 30)
+reset_position = Vector3(-18, -6, 109)
+
+[node name="DeathZoneNW" parent="DeathZones" instance=ExtResource("16_6ntng")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 30, 0, 30)
+reset_position = Vector3(18, -6, 109)
+
+[connection signal="switched_on" from="StartingArea/BigDoorWall/Switch" to="StartingArea/BigDoorWall/Door" method="_on_switch_switched_on"]
+[connection signal="switched_on" from="StartingArea/Door/Switch" to="StartingArea/Door" method="_on_switch_switched_on"]
+[connection signal="switched_on" from="StartingArea/Door/Switch" to="StartingArea/Door2" method="_on_switch_switched_on"]
+[connection signal="switched_on" from="StartingArea/Door/Switch" to="StartingArea/Door2/Switch" method="_on_pair_switched_off"]
+[connection signal="switched_on" from="StartingArea/Door2/Switch" to="StartingArea/Door" method="_on_switch_switched_on"]
+[connection signal="switched_on" from="StartingArea/Door2/Switch" to="StartingArea/Door/Switch" method="_on_pair_switched_off"]
+[connection signal="switched_on" from="StartingArea/Door2/Switch" to="StartingArea/Door2" method="_on_switch_switched_on"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/CSGSphere3D" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/CSGSphere3D/OmniLight3D" method="_on_switch_switched_on"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/CSGCylinder3DUP" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/CSGCylinder3DDOWN" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/CSGCylinder3DSIDE" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSW/Switch" to="BossRoom/EndStage" method="disabledBall"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/CSGSphere3D" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/CSGSphere3D/OmniLight3D" method="_on_switch_switched_on"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/CSGCylinder3DUP" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/CSGCylinder3DDOWN" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/CSGCylinder3DSIDE" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/Switch" to="BossRoom/TargetRoom" method="room_complete"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNW/Switch" to="BossRoom/EndStage" method="disabledBall"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/CSGSphere3D" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/CSGSphere3D/OmniLight3D" method="_on_switch_switched_on"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/CSGCylinder3DUP" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/CSGCylinder3DDOWN" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/CSGCylinder3DSIDE" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsNE/Switch" to="BossRoom/EndStage" method="disabledBall"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/CSGSphere3D" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/CSGSphere3D/OmniLight3D" method="_on_switch_switched_on"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/CSGCylinder3DUP" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/CSGCylinder3DDOWN" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/Switch" to="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/CSGCylinder3DSIDE" method="glowOff"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/Switch" to="BossRoom/CombatRoom" method="room_complete"]
+[connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/Switch" to="BossRoom/EndStage" method="disabledBall"]
+[connection signal="part_broken" from="BossRoom/TargetRoom/Track/Box/DestroyArea" to="Player" method="part_broken"]
+
+[editable path="StartingArea/CrossRoad"]
+[editable path="StartingArea/CrossRoad/Arch2"]
+[editable path="StartingArea/CrossRoad/Arch2/arch/arch_oneway"]
+[editable path="StartingArea/CrossRoad/Arch5"]
+[editable path="BossRoom/TargetRoom"]
+[editable path="BossRoom/TargetRoom/Track"]
+[editable path="BossRoom/TargetRoom/Track/Box"]

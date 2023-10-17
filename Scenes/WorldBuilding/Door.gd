@@ -32,3 +32,7 @@ func open():
 func close():
 	opened = false
 
+
+
+func _on_switch_switched_on():
+	open()

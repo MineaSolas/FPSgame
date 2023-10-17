@@ -1,0 +1,196 @@
+[gd_scene load_steps=12 format=3 uid="uid://psfp0nifmbar"]
+
+[ext_resource type="Script" path="res://levels/level6/CombatRoom.gd" id="1_3v58y"]
+[ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="1_w1ib7"]
+[ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="3_x371a"]
+[ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="4_lkh1y"]
+[ext_resource type="PackedScene" uid="uid://bvskyf2hxcnot" path="res://Scenes/WorldBuilding/Ceiling.tscn" id="5_mpp7i"]
+[ext_resource type="PackedScene" uid="uid://dh8eyj7t6u7do" path="res://Scenes/Switch/Switch.tscn" id="6_q3vte"]
+[ext_resource type="PackedScene" uid="uid://ccppai6n5q2pw" path="res://Scenes/WorldBuilding/Arch.tscn" id="8_vdltq"]
+[ext_resource type="PackedScene" uid="uid://cpsmsr52q8o5d" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="9_a45t4"]
+[ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="10_ya1n1"]
+[ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="11_ftap1"]
+[ext_resource type="Script" path="res://levels/level6/EnemySpawner.gd" id="11_v4ctx"]
+
+[node name="CombatRoom" type="Node3D"]
+script = ExtResource("1_3v58y")
+
+[node name="Start" type="Node3D" parent="."]
+
+[node name="Box" parent="Start" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Door" parent="Start" instance=ExtResource("3_x371a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+
+[node name="Door2" parent="Start" instance=ExtResource("3_x371a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6)
+
+[node name="Box2" parent="Start" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(4.8, 0, 0, 0, 1, 0, 0, 0, 4.4, 0, 0, -4)
+
+[node name="WallThin" parent="Start" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(-4.80825e-08, 0, 1, 0, 1, 0, -1.1, 0, -4.37114e-08, 2.2, 0.5, -4)
+
+[node name="WallThin2" parent="Start" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(-4.80825e-08, 0, 1, 0, 1, 0, -1.1, 0, -4.37114e-08, -2.2, 0.5, -4)
+
+[node name="Ceiling" parent="Start" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -4)
+
+[node name="Switch" parent="Start" instance=ExtResource("6_q3vte")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.24377, 2.20332, -1.54987)
+
+[node name="Switch2" parent="Start" instance=ExtResource("6_q3vte")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.24377, 2.20332, -5.52423)
+
+[node name="CombatArea" type="Node3D" parent="."]
+
+[node name="Box3" parent="CombatArea" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, -16.2)
+
+[node name="Arch" parent="CombatArea" instance=ExtResource("8_vdltq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -6.4)
+
+[node name="Door3" parent="CombatArea" instance=ExtResource("3_x371a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -26)
+
+[node name="Box4" parent="CombatArea" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(9.2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 3, -24.8)
+collision_layer = 7
+
+[node name="Box5" parent="CombatArea" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(2, 0, 0, 0, 0.939693, -3.00978, 0, 0.34202, 8.2693, -3.6, 1.525, -19.84)
+collision_layer = 7
+
+[node name="Box6" parent="CombatArea" instance=ExtResource("1_w1ib7")]
+transform = Transform3D(2, 0, 0, 0, 0.939693, -3.00978, 0, 0.34202, 8.2693, 3.6, 1.525, -19.84)
+collision_layer = 7
+
+[node name="GlassWall" parent="CombatArea" instance=ExtResource("9_a45t4")]
+transform = Transform3D(3.35838, 0, 0, 0, 6, 0, 0, 0, 0.2, 0, 3.5, -10)
+collision_layer = 7
+
+[node name="Column" parent="CombatArea" instance=ExtResource("10_ya1n1")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 1.8, 3.5, -10)
+collision_layer = 7
+
+[node name="Column2" parent="CombatArea" instance=ExtResource("10_ya1n1")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -1.8, 3.5, -10)
+collision_layer = 7
+
+[node name="Ceiling" type="Node3D" parent="CombatArea"]
+transform = Transform3D(1.15, 0, 0, 0, 1, 0, 0, 0, 0.96, 0, 0, -12.3556)
+
+[node name="Ceiling" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, 0)
+
+[node name="Ceiling2" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, 0)
+
+[node name="Ceiling3" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -4)
+
+[node name="Ceiling4" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -4)
+
+[node name="Ceiling5" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -8)
+
+[node name="Ceiling6" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -8)
+
+[node name="Ceiling7" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -12)
+
+[node name="Ceiling8" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -12)
+
+[node name="Ceiling9" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, 4)
+
+[node name="Ceiling10" parent="CombatArea/Ceiling" instance=ExtResource("5_mpp7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, 4)
+
+[node name="walls" type="Node3D" parent="CombatArea"]
+
+[node name="WallThin3" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.5, 0.5, -6.4)
+
+[node name="WallThin4" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.5, 0.5, -6.4)
+
+[node name="WallThin5" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(-2.14186e-07, 0, 1, 0, 2, 0, -4.9, 0, -4.37114e-08, 4.8, 0.5, -16.25)
+
+[node name="WallThin6" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(-2.14186e-07, 0, 1, 0, 2, 0, -4.9, 0, -4.37114e-08, -4.8, 0.5, -16.25)
+
+[node name="WallThin7" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.5, 0.5, -26)
+
+[node name="WallThin8" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.5, 0.5, -26)
+
+[node name="WallThin9" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -6.4)
+
+[node name="WallThin10" parent="CombatArea/walls" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -26)
+
+[node name="WallThin6" parent="CombatArea" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.28284, 0.5, -12.8)
+
+[node name="Arch2" parent="CombatArea" instance=ExtResource("8_vdltq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -12.8)
+
+[node name="Arch3" parent="CombatArea" instance=ExtResource("8_vdltq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -12.8)
+
+[node name="WallThin7" parent="CombatArea" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.283, 0.5, -12.8)
+
+[node name="WallThin9" parent="CombatArea" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -12.8)
+
+[node name="WallThin8" parent="CombatArea" instance=ExtResource("4_lkh1y")]
+transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0.5, -18.076)
+
+[node name="EnemySpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -16)
+script = ExtResource("11_v4ctx")
+enemy = ExtResource("11_ftap1")
+
+[node name="Pos1" type="Node3D" parent="EnemySpawner" groups=["SpawnPositions"]]
+transform = Transform3D(-0.999977, 0, 0.00675426, 0, 1, 0, -0.00675426, 0, -0.999977, 0, 0, -3.69686)
+
+[node name="Pos2" type="Node3D" parent="EnemySpawner" groups=["SpawnPositions"]]
+transform = Transform3D(-0.813091, 0, 0.582137, 0, 1, 0, -0.582137, 0, -0.813091, -1.01641, 0, 3.95974)
+
+[node name="Pos3" type="Node3D" parent="EnemySpawner" groups=["SpawnPositions"]]
+transform = Transform3D(-0.813101, 0, -0.582123, 0, 1, 0, 0.582123, 0, -0.813101, 1.016, 0, 4.53907)
+
+[node name="Pos4" type="Node3D" parent="EnemySpawner" groups=["SpawnPositions"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 3, -8.5)
+
+[node name="Pos5" type="Node3D" parent="EnemySpawner" groups=["SpawnPositions"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 3, -8.5)
+
+[node name="Pos6" type="Node3D" parent="EnemySpawner" groups=["SpawnPositions"]]
+transform = Transform3D(-0.999977, 0, 0.00675426, 0, 1, 0, -0.00675426, 0, -0.999977, -2.74441, 0, 0.918522)
+
+[node name="Pos7" type="Node3D" parent="EnemySpawner" groups=["SpawnPositions"]]
+transform = Transform3D(-0.999977, 0, 0.00675426, 0, 1, 0, -0.00675426, 0, -0.999977, 3.36905, 0, 1.52293)
+
+[connection signal="completeSignal" from="." to="Start/Door" method="open"]
+[connection signal="completeSignal" from="." to="Start/Door2" method="open"]
+[connection signal="completeSignal" from="." to="Start/Switch" method="_on_pair_switched_off"]
+[connection signal="completeSignal" from="." to="Start/Switch2" method="_on_pair_switched_off"]
+[connection signal="switched_on" from="Start/Switch" to="Start/Door" method="open"]
+[connection signal="switched_on" from="Start/Switch" to="Start/Door2" method="close"]
+[connection signal="switched_on" from="Start/Switch" to="Start/Switch2" method="_on_pair_switched_on"]
+[connection signal="switched_on" from="Start/Switch2" to="Start/Door" method="close"]
+[connection signal="switched_on" from="Start/Switch2" to="Start/Door2" method="open"]
+[connection signal="switched_on" from="Start/Switch2" to="Start/Switch" method="_on_pair_switched_on"]
+[connection signal="switched_on" from="Start/Switch2" to="EnemySpawner" method="spawn_enemies"]
+[connection signal="allEnemiesDead" from="EnemySpawner" to="CombatArea/Door3" method="open"]
