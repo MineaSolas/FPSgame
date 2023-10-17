@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bru6ysxn1me4l"]
+[gd_scene load_steps=27 format=3 uid="uid://bru6ysxn1me4l"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd" id="1_hfbay"]
 [ext_resource type="PackedScene" uid="uid://s52e4i1g7uky" path="res://Scenes/Rocket/Rocket.tscn" id="2_weh6g"]
@@ -24,9 +24,6 @@ gradient = SubResource("Gradient_5pnpl")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_nfcbn"]
 viewport_path = NodePath("Head/SubViewport")
-
-[sub_resource type="LabelSettings" id="LabelSettings_803m7"]
-font_color = Color(1, 1, 1, 0.266667)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjt7a"]
 line_spacing = 0.0
@@ -221,15 +218,6 @@ offset_right = -155.0
 offset_bottom = 60.0
 texture = SubResource("ViewportTexture_nfcbn")
 expand_mode = 1
-
-[node name="Label" type="Label" parent="Head/Camera3d/Control/RearCam"]
-layout_mode = 0
-offset_left = -538.0
-offset_top = 69.0
-offset_right = -400.0
-offset_bottom = 95.0
-text = "(Press C to toggle rear-view)"
-label_settings = SubResource("LabelSettings_803m7")
 
 [node name="HealthBar" type="Control" parent="Head/Camera3d/Control"]
 visible = false
