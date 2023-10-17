@@ -1,0 +1,337 @@
+[gd_scene load_steps=26 format=3 uid="uid://tlovy2onsch6"]
+
+[ext_resource type="Script" path="res://levels/level6/CombatRoom.gd" id="1_vaxiu"]
+[ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="2_nnxa0"]
+[ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="3_raa4r"]
+[ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="4_cp5me"]
+[ext_resource type="PackedScene" uid="uid://bvskyf2hxcnot" path="res://Scenes/WorldBuilding/Ceiling.tscn" id="5_cyd6v"]
+[ext_resource type="PackedScene" uid="uid://dh8eyj7t6u7do" path="res://Scenes/Switch/Switch.tscn" id="6_lhsn2"]
+[ext_resource type="PackedScene" uid="uid://ccppai6n5q2pw" path="res://Scenes/WorldBuilding/Arch.tscn" id="7_jt34p"]
+[ext_resource type="PackedScene" uid="uid://cpsmsr52q8o5d" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="8_ovnfo"]
+[ext_resource type="PackedScene" uid="uid://4tt2dcnglxik" path="res://Scenes/WorldBuilding/Window.tscn" id="9_kd1el"]
+[ext_resource type="PackedScene" uid="uid://cchooob88w6ft" path="res://Scenes/WorldBuilding/WallThick.tscn" id="10_x2hmo"]
+[ext_resource type="PackedScene" path="res://Scenes/Breakable/BreakableBox.tscn" id="11_kde0v"]
+[ext_resource type="PackedScene" path="res://Scenes/Breakable/BreakableSmallCube.tscn" id="12_e7oq6"]
+[ext_resource type="Script" path="res://levels/level6/TargetManager.gd" id="14_8xm1w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y6urd"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l48bp"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6kv73"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wv7gf"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lmqd5"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wch67"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j5t1p"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rh700"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3b1w2"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0hwt3"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1e20i"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mfq28"]
+size = Vector3(0.1, 0.1, 1.0005)
+
+[node name="TargetRoom" type="Node3D"]
+script = ExtResource("1_vaxiu")
+
+[node name="Start" type="Node3D" parent="."]
+
+[node name="Box" parent="Start" instance=ExtResource("2_nnxa0")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Door" parent="Start" instance=ExtResource("3_raa4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+
+[node name="Door2" parent="Start" instance=ExtResource("3_raa4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6)
+
+[node name="Box2" parent="Start" instance=ExtResource("2_nnxa0")]
+transform = Transform3D(4.8, 0, 0, 0, 1, 0, 0, 0, 4.4, 0, 0, -4)
+
+[node name="WallThin" parent="Start" instance=ExtResource("4_cp5me")]
+transform = Transform3D(-4.80825e-08, 0, 1, 0, 1, 0, -1.1, 0, -4.37114e-08, 2.2, 0.5, -4)
+
+[node name="WallThin2" parent="Start" instance=ExtResource("4_cp5me")]
+transform = Transform3D(-4.80825e-08, 0, 1, 0, 1, 0, -1.1, 0, -4.37114e-08, -2.2, 0.5, -4)
+
+[node name="Ceiling" parent="Start" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -4)
+
+[node name="Switch" parent="Start" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.24377, 2.20332, -1.54987)
+
+[node name="Switch2" parent="Start" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.24377, 2.20332, -5.52423)
+
+[node name="TargetArea" type="Node3D" parent="."]
+
+[node name="Floor" parent="TargetArea" instance=ExtResource("2_nnxa0")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, -16.2)
+
+[node name="Arch" parent="TargetArea" instance=ExtResource("7_jt34p")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -6.4)
+
+[node name="Door3" parent="TargetArea" instance=ExtResource("3_raa4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -26)
+
+[node name="Ceiling" type="Node3D" parent="TargetArea"]
+transform = Transform3D(1.15, 0, 0, 0, 1, 0, 0, 0, 0.96, 0, 0, -12.3556)
+
+[node name="Ceiling" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, 0)
+
+[node name="Ceiling2" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, 0)
+
+[node name="Ceiling3" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -4)
+
+[node name="Ceiling4" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -4)
+
+[node name="Ceiling5" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -8)
+
+[node name="Ceiling6" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -8)
+
+[node name="Ceiling7" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, -12)
+
+[node name="Ceiling8" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, -12)
+
+[node name="Ceiling9" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6.505, 4)
+
+[node name="Ceiling10" parent="TargetArea/Ceiling" instance=ExtResource("5_cyd6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.505, 4)
+
+[node name="walls" type="Node3D" parent="TargetArea"]
+
+[node name="WallThin3" parent="TargetArea/walls" instance=ExtResource("4_cp5me")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.5, 0.5, -6.4)
+
+[node name="WallThin4" parent="TargetArea/walls" instance=ExtResource("4_cp5me")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.5, 0.5, -6.4)
+
+[node name="WallThin5" parent="TargetArea/walls" instance=ExtResource("4_cp5me")]
+transform = Transform3D(-2.14186e-07, 0, 1, 0, 2, 0, -4.9, 0, -4.37114e-08, 4.8, 0.5, -16.25)
+
+[node name="WallThin6" parent="TargetArea/walls" instance=ExtResource("4_cp5me")]
+transform = Transform3D(-2.14186e-07, 0, 1, 0, 2, 0, -4.9, 0, -4.37114e-08, -4.8, 0.5, -16.25)
+
+[node name="WallThin7" parent="TargetArea/walls" instance=ExtResource("4_cp5me")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, 3.5, 0.5, -26)
+
+[node name="WallThin8" parent="TargetArea/walls" instance=ExtResource("4_cp5me")]
+transform = Transform3D(0.75, 0, 0, 0, 2, 0, 0, 0, 1, -3.5, 0.5, -26)
+
+[node name="WallThin9" parent="TargetArea/walls" instance=ExtResource("4_cp5me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -6.4)
+
+[node name="WallThin10" parent="TargetArea/walls" instance=ExtResource("4_cp5me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -26)
+
+[node name="Border" type="Node3D" parent="."]
+
+[node name="Window" parent="Border" instance=ExtResource("9_kd1el")]
+transform = Transform3D(2.47381, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499, -10)
+
+[node name="Window2" parent="Border" instance=ExtResource("9_kd1el")]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 1, -3.8, 4.09757, -10)
+
+[node name="Window3" parent="Border" instance=ExtResource("9_kd1el")]
+transform = Transform3D(0.6, 0, 0, 0, 0.8, 0, 0, 0, 1, 3.8, 4.06871, -10)
+
+[node name="WallThick" parent="Border" instance=ExtResource("10_x2hmo")]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -10)
+
+[node name="WallThick2" parent="Border" instance=ExtResource("10_x2hmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.305118, 0, 0, 0, 1, -4, 3.5, -10)
+
+[node name="WallThick3" parent="Border" instance=ExtResource("10_x2hmo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.322085, 0, 0, 0, 1, 4, 3.5, -10)
+
+[node name="Track" parent="." instance=ExtResource("11_kde0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
+
+[node name="Box" parent="Track" index="0"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 1.0664, 0, 0)
+movement_speed = 3.0
+max_X = 3.0
+initial_X = -3.0
+
+[node name="edge" parent="Track/Box/edges" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.4501, 0.47505, 0)
+mesh = SubResource("BoxMesh_y6urd")
+
+[node name="edge3" parent="Track/Box/edges" index="1"]
+mesh = SubResource("BoxMesh_l48bp")
+
+[node name="edge4" parent="Track/Box/edges" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.4501, 0.47505, 0)
+mesh = SubResource("BoxMesh_6kv73")
+
+[node name="edge5" parent="Track/Box/edges" index="3"]
+mesh = SubResource("BoxMesh_wv7gf")
+
+[node name="edge6" parent="Track/Box/edges" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.4501, -0.47505, 0)
+mesh = SubResource("BoxMesh_lmqd5")
+
+[node name="edge7" parent="Track/Box/edges" index="5"]
+mesh = SubResource("BoxMesh_wch67")
+
+[node name="edge8" parent="Track/Box/edges" index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.4501, -0.47505, 0)
+mesh = SubResource("BoxMesh_j5t1p")
+
+[node name="edge9" parent="Track/Box/edges" index="7"]
+mesh = SubResource("BoxMesh_rh700")
+
+[node name="edge2" parent="Track/Box/edges" index="8"]
+transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.4501, 0, 0.2505)
+mesh = SubResource("BoxMesh_3b1w2")
+
+[node name="edge10" parent="Track/Box/edges" index="9"]
+transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.4501, 0, -0.2505)
+mesh = SubResource("BoxMesh_0hwt3")
+
+[node name="edge12" parent="Track/Box/edges" index="10"]
+transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.4501, 0, -0.2505)
+mesh = SubResource("BoxMesh_1e20i")
+
+[node name="edge11" parent="Track/Box/edges" index="11"]
+transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.4501, 0, 0.2505)
+mesh = SubResource("BoxMesh_mfq28")
+
+[node name="TargetsNObstacles" type="Node3D" parent="."]
+
+[node name="BreakableSmallCube" parent="TargetsNObstacles" instance=ExtResource("12_e7oq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.022, 1, -16.803)
+
+[node name="WallThin10" parent="TargetsNObstacles" instance=ExtResource("4_cp5me")]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 1, 3.84911, 0.5, -18.8546)
+
+[node name="BreakableSmallCube3" parent="TargetsNObstacles" instance=ExtResource("12_e7oq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.909, 1, -16.803)
+
+[node name="Switch2" parent="TargetsNObstacles" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-09, -2, 0, 0.2, -8.74228e-08, 3.80566, 2.08479, -18.5942)
+pos_change = 0.0
+
+[node name="BreakableSmallCube4" parent="TargetsNObstacles" instance=ExtResource("12_e7oq6")]
+transform = Transform3D(0.939334, 0, 0.343004, 0, 1, 0, -0.343004, 0, 0.939334, 3.511, 2, -16.803)
+
+[node name="Box2" parent="TargetsNObstacles" instance=ExtResource("2_nnxa0")]
+transform = Transform3D(1.76125, 0, 0.947623, 0, 2, 0, -0.947623, 0, 1.76125, -1.50077, 1.5, -17.0139)
+
+[node name="Switch2" parent="TargetsNObstacles/Box2" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(2, 0, -3.55271e-15, 0, -8.74228e-09, -2, 0, 0.2, -8.74228e-08, -4.76837e-07, 0, 0.49927)
+pos_change = 0.0
+
+[node name="Switch3" parent="TargetsNObstacles" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-09, -2, 0, 0.2, -8.74228e-08, -3.6352, 1.09406, -25.7756)
+pos_change = 0.0
+
+[node name="Box3" parent="TargetsNObstacles" instance=ExtResource("2_nnxa0")]
+transform = Transform3D(-0.704555, 0, 1.32424, 0, 1.5, 0, -1.32424, 0, -0.704555, 2.70451, 1.22157, -23.128)
+rotation_speed = Vector3(0, 50, 0)
+
+[node name="Switch3" parent="TargetsNObstacles/Box3" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(2, -4.47035e-08, 1.42109e-14, 0, -8.74228e-09, -2, 4.76837e-07, 0.2, -8.74228e-08, 0, 0, 0.521029)
+pos_change = 0.0
+
+[node name="Switch4" parent="TargetsNObstacles" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-09, -2, 0, 0.2, -8.74228e-08, 0, 1.98976, -25.7756)
+pos_change = 0.0
+
+[node name="Switch5" parent="TargetsNObstacles" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-09, -2, 0, 0.2, -8.74228e-08, 0.972389, 1.00596, -25.7756)
+pos_change = 0.0
+
+[node name="GlassWall" parent="TargetsNObstacles" instance=ExtResource("8_ovnfo")]
+transform = Transform3D(1.5, 0, 0, 0, 0.2, 0, 0, 0, 15, -3.85047, 3.874, -18.3309)
+
+[node name="GlassWall2" parent="TargetsNObstacles" instance=ExtResource("8_ovnfo")]
+transform = Transform3D(-1.09278e-07, -0.2, 0, 2.5, -8.74228e-09, 0, 0, 0, 15, -3, 5, -18.331)
+
+[node name="GlassWall3" parent="TargetsNObstacles" instance=ExtResource("8_ovnfo")]
+transform = Transform3D(1.5, 0, 0, 0, 0.2, 0, 0, 0, 15, 3.85, 3.874, -18.331)
+
+[node name="GlassWall4" parent="TargetsNObstacles" instance=ExtResource("8_ovnfo")]
+transform = Transform3D(-1.09278e-07, -0.2, 0, 2.5, -8.74228e-09, 0, 0, 0, 15, 3, 5, -18.331)
+
+[node name="Switch6" parent="TargetsNObstacles" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(4, 0, 0, 0, -8.74228e-09, -4, 0, 0.2, -1.74846e-07, 3.8, 5, -25.771)
+pos_change = 0.0
+
+[node name="Switch7" parent="TargetsNObstacles" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(4, 0, 0, 0, -8.74228e-09, -4, 0, 0.2, -1.74846e-07, -3.8, 5, -25.771)
+pos_change = 0.0
+
+[node name="Box4" parent="TargetsNObstacles" instance=ExtResource("2_nnxa0")]
+transform = Transform3D(3.40226, 0, 0, 0, 0.94202, 0, 0, 0, 1, 2.87426, 0.966475, -13.6981)
+
+[node name="Switch8" parent="TargetsNObstacles" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(-8.74228e-08, -0.2, 8.74228e-08, 0, -8.74228e-09, -2, 2, -8.74228e-09, 3.82137e-15, 4.53218, 2.08479, -21.9885)
+pos_change = 0.0
+
+[node name="TargetManager" type="Node3D" parent="TargetsNObstacles"]
+script = ExtResource("14_8xm1w")
+numberOfTargets = 10
+
+[node name="Box" parent="TargetsNObstacles" instance=ExtResource("2_nnxa0")]
+transform = Transform3D(1, 0, 0, 0, 2.99392, -0.0127228, 0, 0.190842, 0.199595, -0.918921, 2, -23.011)
+movement_speed = -2.0
+max_X = 1.0
+initial_X = -1.0
+
+[node name="Switch" parent="TargetsNObstacles/Box" instance=ExtResource("6_lhsn2")]
+transform = Transform3D(2, 0, 0, 0, 0.00424093, -0.665317, 0, 0.997974, 0.63614, 0, 0.324, 1)
+pos_change = 0.0
+
+[connection signal="completeSignal" from="." to="Start/Door" method="open"]
+[connection signal="completeSignal" from="." to="Start/Door2" method="open"]
+[connection signal="completeSignal" from="." to="Start/Switch" method="_on_pair_switched_off"]
+[connection signal="completeSignal" from="." to="Start/Switch2" method="_on_pair_switched_off"]
+[connection signal="switched_on" from="Start/Switch" to="Start/Door" method="open"]
+[connection signal="switched_on" from="Start/Switch" to="Start/Door2" method="close"]
+[connection signal="switched_on" from="Start/Switch" to="Start/Switch2" method="_on_pair_switched_on"]
+[connection signal="switched_on" from="Start/Switch2" to="Start/Door" method="close"]
+[connection signal="switched_on" from="Start/Switch2" to="Start/Door2" method="open"]
+[connection signal="switched_on" from="Start/Switch2" to="Start/Switch" method="_on_pair_switched_on"]
+[connection signal="switched_on" from="TargetsNObstacles/Switch2" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+[connection signal="switched_on" from="TargetsNObstacles/Box2/Switch2" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+[connection signal="switched_on" from="TargetsNObstacles/Switch3" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+[connection signal="switched_on" from="TargetsNObstacles/Box3/Switch3" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+[connection signal="switched_on" from="TargetsNObstacles/Switch4" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+[connection signal="switched_on" from="TargetsNObstacles/Switch5" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+[connection signal="switched_on" from="TargetsNObstacles/Switch6" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+[connection signal="switched_on" from="TargetsNObstacles/Switch7" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+[connection signal="switched_on" from="TargetsNObstacles/Switch8" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+[connection signal="allTargetsHit" from="TargetsNObstacles/TargetManager" to="TargetArea/Door3" method="open"]
+[connection signal="switched_on" from="TargetsNObstacles/Box/Switch" to="TargetsNObstacles/TargetManager" method="hitTarget"]
+
+[editable path="Track"]
+[editable path="Track/Box"]

@@ -123,7 +123,11 @@ func target_is_in_range(range):
 	return global_position.distance_to(player.global_position) <= range
 	
 func can_see_player():
-	return sight.is_colliding() and sight.get_collider().name == "Player"
+	if not sight.is_colliding():
+		return false
+	if sight.get_collider():
+		return sight.get_collider().is_in_group("Player")
+	return false
 
 func is_at_home():
 	return global_position.distance_to(home_position) < 1
