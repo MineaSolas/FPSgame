@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var gunRay = $Head/Camera3d/RayCast3d as RayCast3D
 @onready var Cam = $Head/Camera3d as Camera3D
 @onready var healthBar = $Head/Camera3d/Control/HealthBar
+@onready var targetCounter = $Head/Camera3d/Control/Targets/Label
 
 @export var max_health = 3
 @export var has_health = false
