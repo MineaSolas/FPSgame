@@ -1,17 +1,17 @@
 extends "res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd"
 
-signal no_bullets
-signal player_died
-
 var bullets
 # 30 should be right i think
-var max_bullets = 70
+var max_bullets = 7
 var reset_time = 0
+
+@onready var ammo_ui = $"Head/Camera3d/Control/LimitedAmmo/Ammo"
+@onready var no_bullets_ui = $"Head/Camera3d/Control/LimitedAmmo/NoBullets"
 
 func _ready():
 	bullets = max_bullets
-	$"../UI/Ammo".set_bullet_counts(max_bullets)
-	$"../UI/Ammo".show()
+	ammo_ui.set_bullet_counts(max_bullets)
+	ammo_ui.show()
 	super._ready()
 
 func _process(delta):
@@ -26,11 +26,11 @@ func shoot():
 	if bullets <= 0:
 		return
 	bullets -= 1
-	$"../UI/Ammo".on_shoot()
+	ammo_ui.on_shoot()
 	super.shoot()
 	if bullets == 0:
-		emit_signal("no_bullets")
+		no_bullets_ui._on_player_no_bullets()
 
 func death():
-	emit_signal("player_died")
+	no_bullets_ui._on_player_player_died()
 	super.death()

@@ -1,14 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://d2j7qjoschorp"]
+[gd_scene load_steps=37 format=3 uid="uid://d2j7qjoschorp"]
 
 [ext_resource type="Script" path="res://levels/Level4LimitedAmmoScripts/Level4LimitedAmmo.gd" id="1_30jky"]
 [ext_resource type="Script" path="res://Scenes/Player/LimitedAmmoPlayer.gd" id="3_hdiv3"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="3_wpixk"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="4_etgme"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="5_4of6h"]
-[ext_resource type="Script" path="res://Scenes/UI/Ammo.gd" id="5_jnih2"]
-[ext_resource type="FontFile" uid="uid://bljf7tsob13ta" path="res://assets/fonts/OrbitronMedium-Bz9B.ttf" id="5_l70dy"]
-[ext_resource type="Script" path="res://levels/Level4LimitedAmmoScripts/NoBullets.gd" id="6_accjn"]
-[ext_resource type="FontFile" uid="uid://b7pj2n311vbh6" path="res://assets/fonts/OrbitronBold-10M0.ttf" id="6_yvy2w"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_xy1w5"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="9_fxnbq"]
 [ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="9_yis3m"]
@@ -44,97 +40,6 @@ sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
 background_mode = 2
 background_color = Color(0.2139, 0.570975, 0.69, 1)
 sky = SubResource("Sky_ivwug")
-
-[sub_resource type="LabelSettings" id="LabelSettings_3tbak"]
-font = ExtResource("5_l70dy")
-font_size = 30
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 4
-shadow_color = Color(0.545098, 0.835294, 0.835294, 1)
-
-[sub_resource type="Animation" id="Animation_1nl7f"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:label_settings:font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_8g8fn"]
-resource_name = "low_bullets"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:label_settings:font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rm6dd"]
-_data = {
-"RESET": SubResource("Animation_1nl7f"),
-"low_bullets": SubResource("Animation_8g8fn")
-}
-
-[sub_resource type="LabelSettings" id="LabelSettings_hn4v2"]
-font = ExtResource("6_yvy2w")
-font_size = 25
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 4
-shadow_color = Color(0.545098, 0.835294, 0.835294, 1)
-
-[sub_resource type="Animation" id="Animation_b8g0d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_w84h2"]
-resource_name = "blinking"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(0.5, 2, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hbu1o"]
-_data = {
-"RESET": SubResource("Animation_b8g0d"),
-"blinking": SubResource("Animation_w84h2")
-}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_715if"]
 
@@ -181,54 +86,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6237, 7.23247, -49.482)
 script = ExtResource("3_hdiv3")
 max_health = 2
 has_health = true
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-size_flags_vertical = 8
-metadata/_edit_use_anchors_ = true
-
-[node name="Ammo" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 916.0
-offset_top = 572.0
-offset_right = 1145.0
-offset_bottom = 624.0
-theme_override_font_sizes/font_size = 35
-text = "Ammo: 10/10"
-label_settings = SubResource("LabelSettings_3tbak")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_jnih2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Ammo"]
-libraries = {
-"": SubResource("AnimationLibrary_rm6dd")
-}
-
-[node name="NoBullets" type="Label" parent="UI"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-offset_left = 444.0
-offset_top = 486.0
-offset_right = 694.0
-offset_bottom = 512.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 20
-text = "Out of bullets. Hold 'R' to restart"
-label_settings = SubResource("LabelSettings_hn4v2")
-horizontal_alignment = 1
-vertical_alignment = 2
-script = ExtResource("6_accjn")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/NoBullets"]
-libraries = {
-"": SubResource("AnimationLibrary_hbu1o")
-}
 
 [node name="Connections" type="Node3D" parent="."]
 
@@ -10050,8 +9907,6 @@ shape = SubResource("BoxShape3D_vnntl")
 
 [node name="Fade" parent="." instance=ExtResource("25_r3j00")]
 
-[connection signal="no_bullets" from="Player" to="UI/NoBullets" method="_on_player_no_bullets"]
-[connection signal="player_died" from="Player" to="UI/NoBullets" method="_on_player_player_died"]
 [connection signal="hit_signal" from="Sector1/MovingTarget" to="Sector1" method="_on_moving_target_hit_signal"]
 [connection signal="hit_signal" from="Sector1/MovingTarget4" to="Sector1" method="_on_moving_target_4_hit_signal"]
 [connection signal="hit_signal" from="Sector1/MovingTarget2" to="Sector1" method="_on_moving_target_2_hit_signal"]
