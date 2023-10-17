@@ -3,7 +3,7 @@ extends Node3D
 @export var resetPosition = Vector3(0,0,0)
 @export var nextDeathZone : Node3D
 
-@onready var label = $"../../Label"
+@onready var label = $"../../Player/Head/Camera3d/Control/Skip"
 
 var player
 var nrFails = 0
@@ -24,17 +24,17 @@ func _process(delta):
 		
 	if player != null and !justLeft:
 		if player.position.z > resetPosition.z + 1 or player.position.z <= nextDeathZone.resetPosition.z:
+			nrFails = 0
 			label.visible = false
 			justLeft = true
 
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Player"):
-		print(nrFails)
 		player = body
 		reset_position(player)
 		nrFails += 1
-		if nrFails >= 2:
+		if nrFails >= 6:
 			label.visible = true
 	
 
