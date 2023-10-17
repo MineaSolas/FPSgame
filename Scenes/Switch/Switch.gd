@@ -44,7 +44,7 @@ func send_signal():
 	else:
 		switched_off.emit()
 
-func hit():
+func parent_hit():
 	if not turned_on:
 		turned_on = true
 		send_signal()
