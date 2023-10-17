@@ -12,7 +12,7 @@ const LVL_OBJECTIVES = ["",
 "Reach the goal with limited ammunition.", 
 "Make your way to the end of the parkour.", 
 ""]
-const LVL_NOTES = ["", 
+const LVL_NOTES = ["Make sure to hit all the targets on the way.", 
 "Think carefully where to shoot.", 
 "", 
 "Spare those rockets where possible!", 

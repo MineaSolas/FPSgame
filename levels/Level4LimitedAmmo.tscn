@@ -177,7 +177,7 @@ light_volumetric_fog_energy = 0.768
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_etgme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36086, 7.23247, 5.47943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6237, 7.23247, -49.482)
 script = ExtResource("3_hdiv3")
 max_health = 2
 has_health = true
@@ -212,10 +212,14 @@ libraries = {
 visible = false
 layout_mode = 1
 anchors_preset = -1
-offset_left = 444.0
-offset_top = 486.0
-offset_right = 694.0
-offset_bottom = 512.0
+anchor_left = 8.587
+anchor_top = 12.075
+anchor_right = 8.587
+anchor_bottom = 12.075
+offset_left = 100.52
+offset_top = 2.99997
+offset_right = 350.52
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
@@ -385,7 +389,7 @@ offset = Vector3(0, 5, 0)
 transform = Transform3D(0.707107, 0, 0.707107, 0, 9, 0, -0.707107, 0, 0.707107, -0.0685892, -14.5, 0.00919247)
 
 [node name="MovingTarget4" parent="Sector1" instance=ExtResource("12_m2e6e")]
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 5.02136, 2, -0.190027)
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 6.21586, 2, -0.190027)
 offset = Vector3(3, 0, 2)
 
 [node name="Column2" parent="Sector1/MovingTarget4" instance=ExtResource("20_jjyxg")]
@@ -10030,7 +10034,7 @@ transform = Transform3D(-3.93403e-07, 0, 3, 0, 5, 0, -9, 0, -1.31134e-07, 34.190
 transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 34.1909, 0.107049, -11.9648)
 
 [node name="Target" parent="Sector5" instance=ExtResource("5_4of6h")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 45.9687, 2.78329, 0)
+transform = Transform3D(-3.5, 0, -5.28485e-07, 0, 3.5, 0, 5.28485e-07, 0, -3.5, 45.9687, 4.3162, 0)
 
 [node name="WallThin4" parent="Sector5" instance=ExtResource("10_1vm0a")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 40.2906, 0, 5.81791)

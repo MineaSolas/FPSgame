@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd3atm2jhvv22"]
+
+[ext_resource type="Texture2D" uid="uid://bv478mvfktwys" path="res://art/level design imgs4.png" id="1_ovntq"]
+[ext_resource type="Texture2D" uid="uid://b3ttjm3hjhrvp" path="res://art/level design imgs2.png" id="2_0rovb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0v48x"]
+size = Vector3(4, 4, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8lq8"]
+albedo_texture = ExtResource("1_ovntq")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_n7k8s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7nju"]
+next_pass = SubResource("CanvasItemMaterial_n7k8s")
+albedo_color = Color(0, 0, 0, 1)
+normal_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_max3d"]
+size = Vector3(4, 3, 0.4)
+
+[node name="WallThin" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_0v48x")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 1.60547, 0.216164)
+material_override = SubResource("StandardMaterial3D_j8lq8")
+texture = ExtResource("2_0rovb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.18979, 0, 0, 0, 1.47995, 0, 0, 0, 1, 0.000538349, 1.62853, 0)
+material_override = SubResource("StandardMaterial3D_o7nju")
+mesh = SubResource("BoxMesh_max3d")
+surface_material_override/0 = SubResource("StandardMaterial3D_o7nju")
