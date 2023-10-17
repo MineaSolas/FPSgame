@@ -1,7 +1,7 @@
 extends Node2D
 
 signal done_writing
-signal confirmed
+signal player_answer
 signal level_selected(level)
 
 const LVL_NAMES = ["", "Hitting the targets", "", "", "", ""]
@@ -35,14 +35,25 @@ const DEFAULT_LOADING_DELAY = 0.4
 const DEFAULT_LINE_DELAY = 0.3
 const DEFAULT_WRITING_DELAY = 0.001
 const DEFAULT_WRITING_SPEED = 4.0
+
+var exit = false
 	
 func _ready():
 	fade.show_self()
 	label.scroll_active = false
 	fade.fade_in()
+
+func format_time(ms):
+	var minutes = int(ms / 60 / 1000)
+	var seconds = int(ms / 1000) % 60
+	var miliseconds = int(ms) % 1000
+	return ("%02d" % minutes) + (":%02d" % seconds) + (":%03d" % miliseconds)
 	
 func _on_fade_out_finished():
-	get_tree().change_scene_to_file(LVL_PATHS[progress.selected_lvl-1])
+	if exit:
+		get_tree().quit()
+	else:
+		get_tree().change_scene_to_file(LVL_PATHS[progress.selected_lvl-1])
 
 func _on_fade_in_finished():
 	if not progress.selected_lvl:
@@ -52,7 +63,10 @@ func _on_fade_in_finished():
 	
 func _process(delta):
 	if Input.is_action_just_pressed("confirm"):
-		confirmed.emit()
+		player_answer.emit()
+	elif Input.is_action_just_pressed("exit"):
+		exit = true
+		player_answer.emit()
 	if Input.is_action_just_pressed("selectLvl1"):
 		level_selected.emit(1)
 	elif Input.is_action_just_pressed("selectLvl2"):
@@ -86,6 +100,9 @@ func write_line(text, size, color=null, bold=false):
 	write(text+"\n", size, color, bold)
 	
 func play_level_passed():
+	await get_tree().create_timer(0.5).timeout
+	progress.passed[progress.selected_lvl-1] = true
+	
 	writing_speed = DEFAULT_WRITING_SPEED
 	writing_delay = 0.02
 	write_line("TEST #" + str(progress.selected_lvl) + " - " + LVL_NAMES[progress.selected_lvl-1], LARGE_TEXT)
@@ -97,7 +114,7 @@ func play_level_passed():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("4032IVGM6Y-GRP10-A1\n", NORMAL_TEXT)
+	write_line("4032IVGM6Y-GRP10-A1\n", NORMAL_TEXT, "yellow")
 	await done_writing
 	await get_tree().create_timer(0.5).timeout
 	
@@ -105,7 +122,7 @@ func play_level_passed():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line(LVL_OBJECTIVES[progress.selected_lvl-1], NORMAL_TEXT, "yellow")
+	write_line(LVL_OBJECTIVES[progress.selected_lvl-1], NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -113,32 +130,73 @@ func play_level_passed():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line(LVL_NOTES[progress.selected_lvl-1] + "\n", NORMAL_TEXT, "white")
+	write_line(LVL_NOTES[progress.selected_lvl-1] + "\n", NORMAL_TEXT, "#0048F5")
 	await done_writing
 	await get_tree().create_timer(0.5).timeout
 	
-	write_line("TEST PASSED !\n", NORMAL_TEXT + 10, "green")
+	write_line("TEST PASSED !", NORMAL_TEXT + 10, "green")
 	await done_writing
 	await get_tree().create_timer(0.5).timeout
 	
-	write("Please, ", NORMAL_TEXT)
+	write("\nTest duration: ", NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write(" CONFIRM  <SPACE>  ", NORMAL_TEXT, "red")
+	write_line(format_time(progress.time_records[progress.selected_lvl-1]), NORMAL_TEXT, "white")
 	await done_writing
-	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	await get_tree().create_timer(0.5).timeout
 	
-	write("to procceed with the next test", NORMAL_TEXT)
+	write("\nUpdating testing progress . ", NORMAL_TEXT)
 	await done_writing
+	await get_tree().create_timer(DEFAULT_LOADING_DELAY).timeout
 	
-	await confirmed
+	writing_speed = 2.0
+	writing_delay = DEFAULT_LOADING_DELAY
+	write(". .", NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_LOADING_DELAY).timeout
 	
-	write_line("  Confirmed !\n", NORMAL_TEXT, "green")
+	writing_speed = DEFAULT_WRITING_SPEED
+	writing_delay = DEFAULT_WRITING_DELAY
+	write_line("  Tests passed: " + str(progress.passed.count(true)) + "/6\n", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
-	play_test_selection()
+	if (progress.passed.has(false)):
+		write("Please, ", NORMAL_TEXT)
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write(" CONFIRM  <SPACE>  ", NORMAL_TEXT, "red")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write("to procceed with the next test or ", NORMAL_TEXT)
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write(" EXIT  <ESC>  ", NORMAL_TEXT, "red")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write("the system", NORMAL_TEXT)
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		await player_answer
+		
+		if exit:
+			write_line("  Interrupt !\n", NORMAL_TEXT, "purple")
+			await done_writing
+			await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+			play_exit()
+		else:
+			write_line("  Confirmed !\n", NORMAL_TEXT, "green")
+			await done_writing
+			await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+			play_test_selection()
+	else:
+		play_testing_completed()
 	
 func play_level_introduction():
 	writing_speed = DEFAULT_WRITING_SPEED
@@ -152,7 +210,7 @@ func play_level_introduction():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("4032IVGM6Y-GRP10-A1\n", NORMAL_TEXT)
+	write_line("4032IVGM6Y-GRP10-A1\n", NORMAL_TEXT, "yellow")
 	await done_writing
 	await get_tree().create_timer(0.5).timeout
 	
@@ -160,7 +218,7 @@ func play_level_introduction():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line(LVL_OBJECTIVES[progress.selected_lvl-1], NORMAL_TEXT, "yellow")
+	write_line(LVL_OBJECTIVES[progress.selected_lvl-1], NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -168,10 +226,10 @@ func play_level_introduction():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line(LVL_NOTES[progress.selected_lvl-1] + "\n", NORMAL_TEXT, "white")
+	write_line(LVL_NOTES[progress.selected_lvl-1] + "\n", NORMAL_TEXT, "#0048F5")
 	await done_writing
 	await get_tree().create_timer(0.5).timeout
-	
+
 	write("Please, ", NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
@@ -180,16 +238,196 @@ func play_level_introduction():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write("to procceed with the test", NORMAL_TEXT)
+	write("to procceed with the test or ", NORMAL_TEXT)
 	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	await confirmed
+	write(" EXIT  <ESC>  ", NORMAL_TEXT, "red")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("  Confirmed !\n", NORMAL_TEXT, "green")
+	write("the system", NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	await player_answer
+	
+	if exit:
+		write_line("  Interrupt !\n", NORMAL_TEXT, "purple")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+		play_exit()
+	else:
+		write_line("  Confirmed !\n", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+		
+		write("Initializing the test . ", NORMAL_TEXT)
+		await done_writing
+		await get_tree().create_timer(DEFAULT_LOADING_DELAY).timeout
+		
+		writing_speed = 2.0
+		writing_delay = DEFAULT_LOADING_DELAY
+		write(". .", NORMAL_TEXT)
+		await done_writing
+		await get_tree().create_timer(DEFAULT_LOADING_DELAY).timeout
+		
+		writing_speed = DEFAULT_WRITING_SPEED
+		writing_delay = DEFAULT_WRITING_DELAY
+		write_line("  Good luck !\n", NORMAL_TEXT, "white")
+		await done_writing
+		await get_tree().create_timer(1.5).timeout
+		
+		fade.fade_out()
+	
+
+	
+func play_testing_completed():
+	writing_speed = DEFAULT_WRITING_SPEED
+	writing_delay = 0.02
+	write_line("TESTING COMPLETED !", NORMAL_TEXT + 10, "green")
+	await done_writing
+	await get_tree().create_timer(0.5).timeout
+	
+	write_line("\nAll test were passed successfully\n", NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
-	write("Initializing the test . ", NORMAL_TEXT)
+	write_line("Displaying results:", NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+	
+	write("#1 ", NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("- " + LVL_NAMES[0], NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("  |  passed in ", NORMAL_TEXT, "green")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write_line(format_time(progress.time_records[0]), NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("#2 ", NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("- " + LVL_NAMES[1], NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("  |  passed in ", NORMAL_TEXT, "green")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write_line(format_time(progress.time_records[1]), NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("#3 ", NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("- " + LVL_NAMES[2], NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("  |  passed in ", NORMAL_TEXT, "green")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write_line(format_time(progress.time_records[2]), NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("#4 ", NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("- " + LVL_NAMES[3], NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("  |  passed in ", NORMAL_TEXT, "green")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write_line(format_time(progress.time_records[3]), NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("#5 ", NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("- " + LVL_NAMES[4], NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("  |  passed in ", NORMAL_TEXT, "green")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write_line(format_time(progress.time_records[4]), NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("#6 ", NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("- " + LVL_NAMES[5], NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("  |  passed in ", NORMAL_TEXT, "green")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write_line(format_time(progress.time_records[5]), NORMAL_TEXT, "white")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("\nPlease, ", NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write(" CONFIRM  <SPACE>  ", NORMAL_TEXT, "red")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("if you would like to continue testing or ", NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write(" EXIT  <ESC>  ", NORMAL_TEXT, "red")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("the system", NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	await player_answer
+	
+	if exit:
+		write_line("  Interrupt !\n", NORMAL_TEXT, "purple")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+		play_exit()
+	else:
+		write_line("  Confirmed !\n", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+		play_test_selection()
+
+func play_exit():
+	write("Shutting down . ", NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LOADING_DELAY).timeout
 	
@@ -201,10 +439,11 @@ func play_level_introduction():
 	
 	writing_speed = DEFAULT_WRITING_SPEED
 	writing_delay = DEFAULT_WRITING_DELAY
-	write_line("  Good luck !\n", NORMAL_TEXT, "green")
+	write_line("  Goodbye !\n", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(1.5).timeout
 	
+	exit = true
 	fade.fade_out()
 
 func play_introduction():
@@ -254,11 +493,11 @@ func play_introduction():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
-	write_line("Found projects: 42", NORMAL_TEXT)
+	write_line("Found projects: 42", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
-	write_line("Active projects: 1\n", NORMAL_TEXT)
+	write_line("Active projects: 1\n", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
@@ -298,15 +537,15 @@ func play_introduction():
 	
 	writing_speed = DEFAULT_WRITING_SPEED
 	writing_delay = DEFAULT_WRITING_DELAY
-	write_line("The exosceleton construction was completed", NORMAL_TEXT)
+	write_line("The exosceleton construction was completed", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
-	write_line("Control software was installed", NORMAL_TEXT)
+	write_line("Control software was installed", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
-	write_line("All initial system checks were completed\n", NORMAL_TEXT)
+	write_line("All initial system checks were completed\n", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
@@ -346,18 +585,47 @@ func play_introduction():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write("to procceed with the testing", NORMAL_TEXT)
+	write("to procceed with the testing or ", NORMAL_TEXT)
 	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	await confirmed
-	
-	write_line("  Confirmed !\n", NORMAL_TEXT, "green")
+	write(" EXIT  <ESC>  ", NORMAL_TEXT, "red")
 	await done_writing
-	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	play_test_selection()
+	write("the system", NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	await player_answer
+	
+	if exit:
+		write_line("  Interrupt !\n", NORMAL_TEXT, "purple")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+		play_exit()
+	else:
+		write_line("  Confirmed !\n", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
+		play_test_selection()
 	
 func play_test_selection():
+	write("Redirecting to test selection . ", NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_LOADING_DELAY).timeout
+	
+	writing_speed = 2.0
+	writing_delay = DEFAULT_LOADING_DELAY
+	write(". .", NORMAL_TEXT)
+	await done_writing
+	await get_tree().create_timer(DEFAULT_LOADING_DELAY).timeout
+	
+	writing_speed = DEFAULT_WRITING_SPEED
+	writing_delay = DEFAULT_WRITING_DELAY
+	write_line("  Redirected !\n", NORMAL_TEXT, "green")
+	await done_writing
+	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
 	write("There are ", NORMAL_TEXT)
 	await done_writing
@@ -403,56 +671,87 @@ func play_test_selection():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
-	write(" 1 ", NORMAL_TEXT, "white")
+	write("1 ", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("- " + LVL_NAMES[0], NORMAL_TEXT)
+	write("- " + LVL_NAMES[0], NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write("2 ", NORMAL_TEXT, "white")
+	if (progress.passed[0]):
+		write("  |  passed", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("\n2 ", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("- " + LVL_NAMES[1], NORMAL_TEXT)
+	write("- " + LVL_NAMES[1], NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write("3 ", NORMAL_TEXT, "white")
+	if (progress.passed[1]):
+		write("  |  passed", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("\n3 ", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("- " + LVL_NAMES[2], NORMAL_TEXT)
+	write("- " + LVL_NAMES[2], NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write("4 ", NORMAL_TEXT, "white")
+	if (progress.passed[2]):
+		write("  |  passed", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("\n4 ", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("- " + LVL_NAMES[3], NORMAL_TEXT)
+	write("- " + LVL_NAMES[3], NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write("5 ", NORMAL_TEXT, "white")
+	if (progress.passed[3]):
+		write("  |  passed", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("\n5 ", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("- " + LVL_NAMES[4], NORMAL_TEXT)
+	write("- " + LVL_NAMES[4], NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write("6 ", NORMAL_TEXT, "white")
+	if (progress.passed[4]):
+		write("  |  passed", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	write("\n6 ", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("- " + LVL_NAMES[5], NORMAL_TEXT)
+	write("- " + LVL_NAMES[5], NORMAL_TEXT)
 	await done_writing
+	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+	
+	if (progress.passed[5]):
+		write("  |  passed", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
 	progress.selected_lvl = await level_selected
 	
-	write("\nYou have selected test ", NORMAL_TEXT)
+	write("\n\nYou have selected test ", NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -472,7 +771,7 @@ func play_test_selection():
 	
 	writing_speed = DEFAULT_WRITING_SPEED
 	writing_delay = DEFAULT_WRITING_DELAY
-	write_line("  Loaded !\n", NORMAL_TEXT, "green")
+	write_line("  Loaded !", NORMAL_TEXT, "green")
 	await done_writing
 	await get_tree().create_timer(1).timeout
 	
