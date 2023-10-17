@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bru6ysxn1me4l"]
+[gd_scene load_steps=30 format=3 uid="uid://bru6ysxn1me4l"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd" id="1_hfbay"]
 [ext_resource type="PackedScene" uid="uid://s52e4i1g7uky" path="res://Scenes/Rocket/Rocket.tscn" id="2_weh6g"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bu7fk154nx4hy" path="res://assets/textures/mouse_button.png" id="6_y3q2m"]
 [ext_resource type="Texture2D" uid="uid://oet8cr68xvax" path="res://assets/textures/empty_key.png" id="7_23py5"]
 [ext_resource type="FontFile" uid="uid://cv5fhqxscdtvg" path="res://assets/fonts/ElgethyBold-MZLP.ttf" id="8_31ijo"]
+[ext_resource type="FontFile" uid="uid://bljf7tsob13ta" path="res://assets/fonts/OrbitronMedium-Bz9B.ttf" id="10_nrv82"]
 [ext_resource type="Script" path="res://Scenes/UI/Ammo.gd" id="11_gbbkl"]
 [ext_resource type="Script" path="res://levels/Level4LimitedAmmoScripts/NoBullets.gd" id="13_oksqh"]
 
@@ -30,10 +31,12 @@ font_color = Color(1, 1, 1, 0.266667)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjt7a"]
 line_spacing = 0.0
+font = ExtResource("10_nrv82")
 font_size = 30
-outline_size = 1
-outline_color = Color(1, 0, 0, 1)
-shadow_color = Color(1, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0.545098, 0.835294, 0.835294, 1)
 
 [sub_resource type="Animation" id="Animation_1nl7f"]
 length = 0.001
@@ -52,6 +55,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_8g8fn"]
 resource_name = "low_bullets"
+length = 1.25
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -72,6 +76,14 @@ _data = {
 "low_bullets": SubResource("Animation_8g8fn")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_g1kwa"]
+font = ExtResource("10_nrv82")
+font_size = 25
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0.545098, 0.835294, 0.835294, 1)
+
 [sub_resource type="Animation" id="Animation_b8g0d"]
 length = 0.001
 tracks/0/type = "value"
@@ -89,7 +101,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_w84h2"]
 resource_name = "blinking"
-length = 2.0
+length = 2.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -387,13 +399,17 @@ metadata/_edit_use_anchors_ = true
 [node name="Ammo" type="Label" parent="Head/Camera3d/Control/LimitedAmmo"]
 visible = false
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -114.5
-offset_right = 114.5
-offset_bottom = 52.0
-grow_horizontal = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -237.0
+offset_top = -83.0
+offset_right = -8.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("5_ttgg0")
 theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
@@ -430,6 +446,7 @@ theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 1
 theme_override_font_sizes/font_size = 20
 text = "Out of bullets. Hold 'R' to restart"
+label_settings = SubResource("LabelSettings_g1kwa")
 horizontal_alignment = 1
 vertical_alignment = 2
 script = ExtResource("13_oksqh")
