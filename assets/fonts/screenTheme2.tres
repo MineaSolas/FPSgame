@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://byygbwn2llcjv"]
+
+[ext_resource type="FontFile" uid="uid://b7pj2n311vbh6" path="res://assets/fonts/OrbitronBold-10M0.ttf" id="1_cnnoh"]
+[ext_resource type="FontFile" uid="uid://gt6o0a4i82kg" path="res://assets/fonts/OrbitronLight-R7GV.ttf" id="2_mguve"]
+
+[resource]
+default_font = ExtResource("2_mguve")
+default_font_size = 30
+RichTextLabel/colors/default_color = Color(0.164706, 0.831373, 1, 1)
+RichTextLabel/colors/font_shadow_color = Color(0.164706, 0.831373, 1, 0.392157)
+RichTextLabel/constants/line_separation = 7
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 3
+RichTextLabel/fonts/bold_font = ExtResource("1_cnnoh")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_cnnoh")
