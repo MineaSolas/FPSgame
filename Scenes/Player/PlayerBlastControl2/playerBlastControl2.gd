@@ -39,6 +39,11 @@ var can_shoot = true
 var can_be_hit = true
 var dead = false
 
+@onready var timer = $Timer
+@onready var timeLabel = $Head/Camera3d/Control/Time/Label
+@onready var progress = get_node("/root/Progress")
+var start_time = 0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -256,3 +261,18 @@ func _all_targets_hit(nodes: Array[Node]):
 		if !_all_targets_hit(node.get_children()):
 			return false
 	return true
+
+func start_timer():
+	start_time = Time.get_ticks_msec()
+	timer.start()
+	
+func stop_timer():
+	timer.stop()
+	progress.time_records[progress.selected_lvl-1] = update_time()
+
+func update_time():
+	var ms = Time.get_ticks_msec() - start_time
+	var minutes = int(ms / 60 / 1000)
+	var seconds = int(ms / 1000) % 60
+	timeLabel.text = ("%02d" % minutes) + (":%02d" % seconds)
+	return ms

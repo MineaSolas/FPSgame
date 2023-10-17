@@ -1,9 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bru6ysxn1me4l"]
+[gd_scene load_steps=19 format=3 uid="uid://bru6ysxn1me4l"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd" id="1_hfbay"]
 [ext_resource type="PackedScene" uid="uid://s52e4i1g7uky" path="res://Scenes/Rocket/Rocket.tscn" id="2_weh6g"]
 [ext_resource type="Curve" uid="uid://c1rdg4kbquoyv" path="res://Scenes/Player/BlastCurveTest.tres" id="3_ibo3i"]
 [ext_resource type="Texture2D" uid="uid://cuxydjf02o1ae" path="res://art/cross.png" id="4_0m3au"]
+[ext_resource type="Theme" uid="uid://byygbwn2llcjv" path="res://assets/fonts/screenTheme2.tres" id="5_ttgg0"]
+[ext_resource type="FontFile" uid="uid://blpllojtjhe2o" path="res://assets/fonts/MyFont-Light.otf" id="6_ldltw"]
+[ext_resource type="Texture2D" uid="uid://bu7fk154nx4hy" path="res://assets/textures/mouse_button.png" id="6_y3q2m"]
+[ext_resource type="Texture2D" uid="uid://oet8cr68xvax" path="res://assets/textures/empty_key.png" id="7_23py5"]
+[ext_resource type="FontFile" uid="uid://cv5fhqxscdtvg" path="res://assets/fonts/ElgethyBold-MZLP.ttf" id="8_31ijo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
 
@@ -152,6 +157,101 @@ offset_top = -67.0
 offset_right = 250.0
 grow_vertical = 0
 
+[node name="Time" type="Control" parent="Head/Camera3d/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Head/Camera3d/Control/Time"]
+layout_mode = 1
+offset_right = 106.0
+offset_bottom = 34.0
+theme = ExtResource("5_ttgg0")
+theme_override_colors/font_shadow_color = Color(0.164706, 0.831373, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("6_ldltw")
+text = "00:00"
+vertical_alignment = 3
+
+[node name="Hints" type="Control" parent="Head/Camera3d/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -265.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Head/Camera3d/Control/Hints"]
+layout_mode = 1
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 110.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_y3q2m")
+
+[node name="Mouse" type="Label" parent="Head/Camera3d/Control/Hints"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 14.0
+offset_right = 136.0
+offset_bottom = 48.0
+theme = ExtResource("5_ttgg0")
+theme_override_colors/font_shadow_color = Color(0.164706, 0.831373, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 20
+text = "shoot"
+
+[node name="TextureRect2" type="TextureRect" parent="Head/Camera3d/Control/Hints"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 10.0
+offset_right = 205.0
+offset_bottom = 110.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_23py5")
+
+[node name="C" type="Label" parent="Head/Camera3d/Control/Hints"]
+offset_left = 111.0
+offset_top = 10.0
+offset_right = 291.0
+offset_bottom = 44.0
+theme = ExtResource("5_ttgg0")
+theme_override_colors/font_color = Color(0.164706, 0.831373, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.164706, 0.831373, 1, 0.454902)
+theme_override_colors/font_outline_color = Color(0.164706, 0.831373, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("8_31ijo")
+theme_override_font_sizes/font_size = 25
+text = "C"
+
+[node name="BackView" type="Label" parent="Head/Camera3d/Control/Hints"]
+offset_left = 135.0
+offset_top = 14.0
+offset_right = 315.0
+offset_bottom = 48.0
+theme = ExtResource("5_ttgg0")
+theme_override_colors/font_shadow_color = Color(0.164706, 0.831373, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 20
+text = "back-view"
+
 [node name="SubViewport" type="SubViewport" parent="Head"]
 render_target_update_mode = 4
 
@@ -164,4 +264,7 @@ libraries = {
 "": SubResource("AnimationLibrary_ct7u1")
 }
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="update_time"]
