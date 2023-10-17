@@ -4,19 +4,19 @@ signal done_writing
 signal confirmed
 signal level_selected(level)
 
-const LVL_NAMES = ["", "Hitting the targets", "", "Limited use of ammo", "", ""]
-const LVL_PATHS = ["", "res://levels/Level2.tscn", "", "res://levels/Level4LimitedAmmo.tscn", "", ""]
+const LVL_NAMES = ["", "Hitting the targets", "", "Limited use of ammo", "Advanced Platforming", ""]
+const LVL_PATHS = ["", "res://levels/Level2.tscn", "", "res://levels/Level4LimitedAmmo.tscn", "res://levels/AdvancedPlatforming.tscn", ""]
 const LVL_OBJECTIVES = ["", 
 "Find and hit all targets in the testing environment.", 
 "", 
 "Reach the goal with limited ammunition.", 
-"", 
+"Make your way to the end of the parkour.", 
 ""]
 const LVL_NOTES = ["", 
 "Think carefully where to shoot.", 
 "", 
 "Spare those rockets where possible!", 
-"", 
+"Beware of the hints and use the rear-view camera when jumping backwards!", 
 ""]
 
 @onready var label = $CanvasLayer/ScreenText
