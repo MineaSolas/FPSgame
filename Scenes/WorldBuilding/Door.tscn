@@ -35,7 +35,7 @@ size = Vector3(1.3, 2.4, 0.15)
 
 [node name="Door" type="Node3D"]
 script = ExtResource("1_3ipln")
-animation_speed = 2.0
+animation_speed = 0.5
 
 [node name="wall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
@@ -104,3 +104,7 @@ shape = SubResource("BoxShape3D_ifvgm")
 
 [node name="Door_Right_Teal" parent="right_door" instance=ExtResource("5_tjam5")]
 transform = Transform3D(1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, 1, 0, 0, 2)
+
+[node name="DoorSlidingPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="DoorOpeningJinglePlayer" type="AudioStreamPlayer3D" parent="."]

@@ -34,8 +34,3 @@ func shoot():
 func death():
 	emit_signal("player_died")
 	super.death()
-
-func _on_bullet_refill_body_entered(body):
-	if body.name == "Player":
-		bullets = max_bullets
-		$"../UI/Ammo".on_refill()

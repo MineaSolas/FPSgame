@@ -223,10 +223,6 @@ func hit():
 		await get_tree().create_timer(1).timeout
 		can_be_hit = true
 	
-func _on_heal_zone_body_entered(body):
-	if body.name == "Player":
-		health = 3
-	
 func part_broken(ends_game):
 	if ends_game:
 		death()
@@ -238,8 +234,6 @@ func death():
 	
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "death":
-		#TODO: Teleport to start of level (Marker3D at start?) => doesnt reset enemies and destructible blocks and targets etc
-		#TODO: Maybe add save point functionality? eg via autoload or orphan node when reloading that stores which savepoint player reached and puts them there at start
 		get_tree().reload_current_scene()
 	
 func _set_elevator_speed(value):
