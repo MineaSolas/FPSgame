@@ -4,18 +4,18 @@ signal done_writing
 signal player_answer
 signal level_selected(level)
 
-const LVL_NAMES = ["", "Hitting the targets", "", "", "", ""]
-const LVL_PATHS = ["", "res://levels/Level2.tscn", "", "", "", ""]
+const LVL_NAMES = ["", "Hitting the targets", "", "Limited use of ammo", "", ""]
+const LVL_PATHS = ["", "res://levels/Level2.tscn", "", "res://levels/Level4LimitedAmmo.tscn", "", ""]
 const LVL_OBJECTIVES = ["", 
 "Find and hit all targets in the testing environment.", 
 "", 
-"", 
+"Reach the goal with limited ammunition.", 
 "", 
 ""]
 const LVL_NOTES = ["", 
 "Think carefully where to shoot.", 
 "", 
-"", 
+"Spare those rockets where possible!", 
 "", 
 ""]
 
@@ -501,7 +501,7 @@ func play_introduction():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	
-	write("Openning project ", NORMAL_TEXT)
+	write("Opening project ", NORMAL_TEXT)
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -643,7 +643,7 @@ func play_test_selection():
 	await done_writing
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
-	write_line("incresing difficulty", NORMAL_TEXT, "white")
+	write_line("increasing difficulty", NORMAL_TEXT, "white")
 	await done_writing
 	await get_tree().create_timer(DEFAULT_LINE_DELAY).timeout
 	

@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/Breakable/BreakableFloor.gd" id="4_gnhh0"]
 [ext_resource type="PackedScene" uid="uid://ccppai6n5q2pw" path="res://Scenes/WorldBuilding/Arch.tscn" id="5_rfima"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="7_mu3dt"]
-[ext_resource type="Material" uid="uid://diqp2wfcwmmf8" path="res://assets/materials/BlackMaterial.tres" id="7_xilcm"]
+[ext_resource type="Material" path="res://assets/materials/BlackMaterial.tres" id="7_xilcm"]
 [ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="8_3qusp"]
 [ext_resource type="PackedScene" uid="uid://dobgw7s1o403h" path="res://Scenes/Breakable/BreakableFloor.tscn" id="8_xhhdq"]
 [ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="9_saxt3"]

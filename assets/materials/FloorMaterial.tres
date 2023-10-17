@@ -1,6 +1,7 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://8rtxw4nemutk"]
 
-[ext_resource type="Texture2D" uid="uid://chua1mbxv803f" path="res://addons/corridors/CorridorModel_Floor.png" id="1_ov6d2"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nnt2f"]
+load_path = "res://.godot/imported/CorridorModel_Floor.png-86a132a26339862825687b0551d180a1.s3tc.ctex"
 
 [resource]
-albedo_texture = ExtResource("1_ov6d2")
+albedo_texture = SubResource("CompressedTexture2D_nnt2f")

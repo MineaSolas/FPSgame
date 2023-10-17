@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 @export var max_health = 3
 @export var has_health = false
-var health = 3 : set = set_health
+var health = 2 : set = set_health
 
 @export_group("Bullets")
 @export var _bullet_scene : PackedScene
@@ -36,6 +36,7 @@ var elevator_speed = 0.0
 var elevator_decceleration = 2.0
 
 var can_shoot = true
+var can_be_hit = true
 var dead = false
 
 @onready var timer = $Timer
@@ -220,11 +221,12 @@ func shoot():
 	can_shoot = true
 
 func hit():
-	health -= 1
-	
-func _on_heal_zone_body_entered(body):
-	if body.name == "Player":
-		health = 3
+	if can_be_hit:
+		health -= 1
+		can_be_hit = false
+		# Invincibility frames here
+		await get_tree().create_timer(1).timeout
+		can_be_hit = true
 	
 func part_broken(ends_game):
 	if ends_game:
@@ -237,8 +239,6 @@ func death():
 	
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "death":
-		#TODO: Teleport to start of level (Marker3D at start?) => doesnt reset enemies and destructible blocks and targets etc
-		#TODO: Maybe add save point functionality? eg via autoload or orphan node when reloading that stores which savepoint player reached and puts them there at start
 		get_tree().reload_current_scene()
 	
 func _set_elevator_speed(value):

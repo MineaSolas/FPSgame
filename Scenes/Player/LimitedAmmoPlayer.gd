@@ -4,7 +4,8 @@ signal no_bullets
 signal player_died
 
 var bullets
-var max_bullets = 20
+# 30 should be right i think
+var max_bullets = 70
 var reset_time = 0
 
 func _ready():
@@ -33,8 +34,3 @@ func shoot():
 func death():
 	emit_signal("player_died")
 	super.death()
-
-func _on_bullet_refill_body_entered(body):
-	if body.name == "Player":
-		bullets = max_bullets
-		$"../UI/Ammo".on_refill()
