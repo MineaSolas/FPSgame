@@ -17,4 +17,9 @@ func on_refill():
 	update_bullet_counts()
 
 func update_bullet_counts():
-	text = "bullets: %s/%s" % [bullets, max_bullets]
+	if bullets <= 5:
+		$AnimationPlayer.play("low_bullets")
+	if bullets == 0:
+		$AnimationPlayer.stop()
+		label_settings.font_color = "ff0000"
+	text = "Ammo: %s/%s" % [bullets, max_bullets]
