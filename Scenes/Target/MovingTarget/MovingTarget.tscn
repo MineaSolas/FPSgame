@@ -11,7 +11,7 @@ points = PackedVector3Array(0.0999882, 0, 1, -0.1, 0, 1, 0.0999882, -0.195184, 0
 height = 0.1
 radius = 0.95
 
-[node name="MovingTarget" type="AnimatableBody3D"]
+[node name="MovingTarget" type="AnimatableBody3D" groups=["Targets"]]
 script = ExtResource("1_51n0a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

@@ -71,10 +71,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_l6n1d")
 
 [node name="arena" type="CSGBox3D" parent="Buildings/Building1/EnemyTracking/NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09495e-13, 0, -76.26)
+transform = Transform3D(1, 0, 2.84217e-14, 0, 1, 0, 0, 0, 1, -1.22529e-07, 0, -75.6605)
 material_override = ExtResource("3_ffhmy")
 use_collision = true
-size = Vector3(50, 0.5, 50)
+size = Vector3(34.8867, 0.5, 25.3194)
 
 [node name="Path3D" type="Path3D" parent="Buildings/Building1/EnemyTracking/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -2.84217e-14, 0, 1, -1.36424e-12, 0.644406, -77.231)
@@ -165,6 +165,10 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.23599, 5.09727, -23.6
 
 [node name="Enemy2" parent="Buildings/Corridor2" instance=ExtResource("2_v35jq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.23599, 5.09727, -19.8312)
+alert_detector_radius = 35.0
+attack_range = 14.0
+hp = 1.0
+speed = 6.0
 
 [node name="CorridorExit" type="Node3D" parent="Buildings/Corridor2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.1439, 0, -18.814)
@@ -216,6 +220,9 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.32994, 2.16367, -30.
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.46353, 5.63387, -28.5383)
 offset = Vector3(0, 0, 2)
 
+[node name="Target" parent="Buildings/Building2" instance=ExtResource("13_21dxx")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 3.67023, 3.28078, -27.5103)
+
 [node name="Corridor3" type="Node3D" parent="Buildings"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -2.95, -57)
 
@@ -251,6 +258,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.473, 4.542, -13.727)
 
 [node name="Enemy" parent="Buildings/Corridor3" instance=ExtResource("2_v35jq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.57987, 5.18675, -17.5849)
+alert_detector_radius = 34.0
+attack_range = 20.0
+hp = 1.0
 
 [node name="Corridor4" type="Node3D" parent="Buildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.018, -2.95, -25.507)
@@ -359,6 +369,9 @@ transform = Transform3D(-6.55671e-08, 0, 1, 0, 1.5, 0, -1.5, 0, -4.37114e-08, 5.
 
 [node name="Enemy2" parent="Buildings/Finish" instance=ExtResource("2_v35jq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.68399, 2.18935, -43.713)
+
+[node name="Target" parent="Buildings/Finish" instance=ExtResource("13_21dxx")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 4.88559, 3.14208, -48.966)
 
 [node name="Floor" parent="." instance=ExtResource("1_judt8")]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 180, 0, 1.198, -81.812)
