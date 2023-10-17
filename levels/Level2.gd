@@ -5,12 +5,19 @@ extends Node3D
 
 func _ready():
 	player.progress.selected_lvl = 2
-	player.finish_level_on_all_targets_hit(level_passed)
+	
+	var targets = get_tree().get_nodes_in_group("Targets")
+	total_targets = targets.size()
+	for target in targets:
+		target.connect("hit_signal", hit_target)
+		
+	target_counter.text = "Targets: 00/" + str(total_targets)
+	target_counter.show()
 	
 	fade.show_self()
 	fade.fade_in()
 	player.start_timer()
-
+	
 func level_passed():
 	player.stop_timer()
 	await get_tree().create_timer(2).timeout
@@ -18,6 +25,16 @@ func level_passed():
 	
 func _on_fade_out_finished():
 	get_tree().change_scene_to_file("res://levels/screen.tscn")
+	
+var total_targets = 40
+var hit_targets = 0
+@onready var target_counter = player.targetCounter
+
+func hit_target():
+	hit_targets += 1
+	target_counter.text = "Targets:" + ("%02d" % hit_targets) + "/" + str(total_targets)
+	if hit_targets == total_targets:
+		level_passed()
 
 @onready var shootingRangeInnerDoor = $ShootingRange/Hallway5/Corridor/Door2
 @onready var shootingRangeOuterDoor = $ShootingRange/Hallway5/Corridor/Door

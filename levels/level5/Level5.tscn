@@ -1,6 +1,5 @@
-[gd_scene load_steps=20 format=3 uid="uid://bndbehloojmre"]
+[gd_scene load_steps=18 format=3 uid="uid://bndbehloojmre"]
 
-[ext_resource type="Script" path="res://levels/level5/Level5.gd" id="1_47w8f"]
 [ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="1_judt8"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="2_v35jq"]
 [ext_resource type="PackedScene" uid="uid://cpsmsr52q8o5d" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="3_3638c"]
@@ -11,12 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="7_ddluw"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_a4hs5"]
 [ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="9_o0fp5"]
-[ext_resource type="PackedScene" uid="uid://ibesibsmbcaf" path="res://Scenes/WorldBuilding/Corridor90.tscn" id="11_467cq"]
+[ext_resource type="PackedScene" path="res://Scenes/WorldBuilding/Corridor90.tscn" id="11_467cq"]
 [ext_resource type="PackedScene" uid="uid://ccppai6n5q2pw" path="res://Scenes/WorldBuilding/Arch.tscn" id="11_tcl41"]
 [ext_resource type="PackedScene" uid="uid://hv7st8vce7xw" path="res://Scenes/Target/MovingTarget/MovingTarget.tscn" id="12_4jkdl"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="13_21dxx"]
 [ext_resource type="PackedScene" uid="uid://cs4jve2bhvhgk" path="res://Scenes/Door/Door.tscn" id="14_unfu2"]
-[ext_resource type="PackedScene" uid="uid://ckacxkfej64m6" path="res://Scenes/Fade/Fade.tscn" id="16_rrdos"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_l6n1d"]
 vertices = PackedVector3Array(0, 0.705, -73.76, 0, 0.705, -75.51, -1.5, 0.705, -76.51, -9, 0.705, -73.76, -24, 0.705, -87.76, -20.25, 0.705, -87.76, -19.25, 0.705, -89.26, -24, 0.705, -94.01, -12, 0.705, -100.26, -17, 0.705, -88.51, -17, 0.705, -87.26, -0.75, 0.705, -78.76, 0, 0.705, -78.76, 0, 0.705, -100.26, -24, 0.705, -94.01, -19.25, 0.705, -89.26, -17.75, 0.705, -89.26, -12, 0.705, -100.26, -24, 0.705, -100.26, -12, 0.705, -100.26, -17.75, 0.705, -89.26, -17, 0.705, -88.51, -9, 0.705, -73.76, -1.5, 0.705, -76.51, -1.5, 0.705, -78.01, -9, 0.705, -73.76, -1.5, 0.705, -78.01, -0.75, 0.705, -78.76, -17, 0.705, -87.26, 1.5, 0.705, -76.51, 0, 0.705, -75.51, 0, 0.705, -73.76, 9.25, 0.705, -73.76, 9.25, 0.705, -73.76, 24, 0.705, -78.51, 24, 0.705, -85.76, 12, 0.705, -100.26, 0, 0.705, -100.26, 0.75, 0.705, -78.76, 1.5, 0.705, -78.01, 1.5, 0.705, -76.51, 9.25, 0.705, -73.76, 0.75, 0.705, -78.76, 1.5, 0.705, -78.01, 9.25, 0.705, -73.76, 24, 0.705, -93.01, 24, 0.705, -100.26, 12, 0.705, -100.26, 10, 0.705, -73.01, 10, 0.705, -71.01, 24, 0.705, -71.01, 9.25, 0.705, -73.76, 10, 0.705, -73.01, 24, 0.705, -71.01, 24, 0.705, -78.51, 0, 0.705, -100.26, 0, 0.705, -78.76, 0.75, 0.705, -78.76, 24, 0.705, -85.76, 24, 0.705, -93.01, 12, 0.705, -100.26, -19, 0.705, -86.01, -20.25, 0.705, -87.76, -24, 0.705, -87.76, -24, 0.705, -79.51, -9, 0.705, -73.76, -17, 0.705, -87.26, -18, 0.705, -86.01, -18, 0.705, -86.01, -19, 0.705, -86.01, -24, 0.705, -79.51, -24, 0.705, -71.01, -10, 0.705, -73.01, -9, 0.705, -73.76, -24, 0.705, -71.01, -10, 0.705, -71.01, -10, 0.705, -73.01, -8, 8.205, -71.76, -8, 8.205, -66.26, 0, 8.205, -66.26, 0, 8.205, -71.76, 8, 8.205, -71.76, 0, 8.205, -71.76, 0, 8.205, -66.26, 8, 8.205, -66.26, -7.75, 0.705, -71.51, -7.75, 0.705, -66.51, 0, 0.705, -66.51, 0, 0.705, -71.51, 7.75, 0.705, -71.51, 0, 0.705, -71.51, 0, 0.705, -66.51, 7.75, 0.705, -66.51, -24, 0.705, -67.01, -10, 0.705, -67.01, -10, 0.705, -71.01, -24, 0.705, -71.01, 10, 0.705, -67.01, 24, 0.705, -67.01, 24, 0.705, -71.01, 10, 0.705, -71.01, -24, 0.705, -59.76, -24, 0.705, -52.26, -15.75, 0.705, -52.26, -7.25, 0.705, -52.26, -7.25, 0.705, -64.26, -9.25, 0.705, -64.26, -7.25, 0.705, -52.26, -9.25, 0.705, -64.26, -10, 0.705, -65.01, -15.75, 0.705, -52.26, -10, 0.705, -65.01, -10, 0.705, -67.01, -24, 0.705, -67.01, -24, 0.705, -59.76, -15.75, 0.705, -52.26, 15.5, 0.705, -52.26, 24, 0.705, -52.26, 24, 0.705, -59.76, 9.25, 0.705, -64.26, 7.25, 0.705, -64.26, 7.25, 0.705, -52.26, 10, 0.705, -65.01, 9.25, 0.705, -64.26, 7.25, 0.705, -52.26, 15.5, 0.705, -52.26, 24, 0.705, -67.01, 10, 0.705, -67.01, 10, 0.705, -65.01, 15.5, 0.705, -52.26, 24, 0.705, -59.76, 0, 0.705, -52.26, 7.25, 0.705, -52.26, 7.25, 0.705, -64.26, 0, 0.705, -64.26, 0, 0.705, -64.26, -7.25, 0.705, -64.26, -7.25, 0.705, -52.26, 0, 0.705, -52.26)
@@ -31,7 +29,6 @@ _data = {
 point_count = 5
 
 [node name="Level5" type="Node3D"]
-script = ExtResource("1_47w8f")
 
 [node name="Player" parent="." instance=ExtResource("3_yssap")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
@@ -71,10 +68,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_l6n1d")
 
 [node name="arena" type="CSGBox3D" parent="Buildings/Building1/EnemyTracking/NavigationRegion3D"]
-transform = Transform3D(1, 0, 2.84217e-14, 0, 1, 0, 0, 0, 1, -1.22529e-07, 0, -75.6605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09495e-13, 0, -76.26)
 material_override = ExtResource("3_ffhmy")
 use_collision = true
-size = Vector3(34.8867, 0.5, 25.3194)
+size = Vector3(50, 0.5, 50)
 
 [node name="Path3D" type="Path3D" parent="Buildings/Building1/EnemyTracking/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -2.84217e-14, 0, 1, -1.36424e-12, 0.644406, -77.231)
@@ -165,10 +162,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.23599, 5.09727, -23.6
 
 [node name="Enemy2" parent="Buildings/Corridor2" instance=ExtResource("2_v35jq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.23599, 5.09727, -19.8312)
-alert_detector_radius = 35.0
-attack_range = 14.0
-hp = 1.0
-speed = 6.0
 
 [node name="CorridorExit" type="Node3D" parent="Buildings/Corridor2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.1439, 0, -18.814)
@@ -220,9 +213,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.32994, 2.16367, -30.
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.46353, 5.63387, -28.5383)
 offset = Vector3(0, 0, 2)
 
-[node name="Target" parent="Buildings/Building2" instance=ExtResource("13_21dxx")]
-transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 3.67023, 3.28078, -27.5103)
-
 [node name="Corridor3" type="Node3D" parent="Buildings"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -2.95, -57)
 
@@ -258,9 +248,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.473, 4.542, -13.727)
 
 [node name="Enemy" parent="Buildings/Corridor3" instance=ExtResource("2_v35jq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 8.57987, 5.18675, -17.5849)
-alert_detector_radius = 34.0
-attack_range = 20.0
-hp = 1.0
 
 [node name="Corridor4" type="Node3D" parent="Buildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.018, -2.95, -25.507)
@@ -370,9 +357,6 @@ transform = Transform3D(-6.55671e-08, 0, 1, 0, 1.5, 0, -1.5, 0, -4.37114e-08, 5.
 [node name="Enemy2" parent="Buildings/Finish" instance=ExtResource("2_v35jq")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.68399, 2.18935, -43.713)
 
-[node name="Target" parent="Buildings/Finish" instance=ExtResource("13_21dxx")]
-transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 4.88559, 3.14208, -48.966)
-
 [node name="Floor" parent="." instance=ExtResource("1_judt8")]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 180, 0, 1.198, -81.812)
 
@@ -384,7 +368,5 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Fade" parent="." instance=ExtResource("16_rrdos")]
 
 [editable path="Buildings/Corridor5/Door2"]

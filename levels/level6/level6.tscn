@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://t3ylv1uotk22"]
+[gd_scene load_steps=45 format=3 uid="uid://t3ylv1uotk22"]
 
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="1_7n2o8"]
+[ext_resource type="Script" path="res://levels/level6/level6.gd" id="1_x26va"]
 [ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="4_ec7h0"]
 [ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="5_flokx"]
 [ext_resource type="PackedScene" uid="uid://chpkklg8cwdxq" path="res://Scenes/WorldBuilding/Door.tscn" id="6_6vqak"]
@@ -22,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://psfp0nifmbar" path="res://levels/level6/CombatRoom.tscn" id="20_asgmi"]
 [ext_resource type="PackedScene" uid="uid://5kdxohcdtq1y" path="res://Scenes/Turret/turret.tscn" id="21_0gdxy"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="22_me1lb"]
+[ext_resource type="PackedScene" uid="uid://ckacxkfej64m6" path="res://Scenes/Fade/Fade.tscn" id="24_kh84y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vfhbg"]
 
@@ -63,43 +65,44 @@ emission_enabled = true
 emission = Color(0, 0.780392, 0.85098, 1)
 emission_energy_multiplier = 1.68
 
-[sub_resource type="BoxMesh" id="BoxMesh_grjc2"]
+[sub_resource type="BoxMesh" id="BoxMesh_evbb2"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_hupix"]
+[sub_resource type="BoxMesh" id="BoxMesh_5k80a"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_76hsh"]
+[sub_resource type="BoxMesh" id="BoxMesh_yb5di"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_nfirn"]
+[sub_resource type="BoxMesh" id="BoxMesh_iyhcl"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_fh1qi"]
+[sub_resource type="BoxMesh" id="BoxMesh_jrjbu"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_dhw55"]
+[sub_resource type="BoxMesh" id="BoxMesh_rdpum"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_7owf7"]
+[sub_resource type="BoxMesh" id="BoxMesh_jd61o"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_wj4gg"]
+[sub_resource type="BoxMesh" id="BoxMesh_h30gh"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_kmtso"]
+[sub_resource type="BoxMesh" id="BoxMesh_2vrpr"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_rpkxe"]
+[sub_resource type="BoxMesh" id="BoxMesh_0oujx"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_pqb76"]
+[sub_resource type="BoxMesh" id="BoxMesh_dnwd5"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_al3k5"]
+[sub_resource type="BoxMesh" id="BoxMesh_bq6xe"]
 size = Vector3(0.1, 0.1, 1.0005)
 
 [node name="level6" type="Node3D"]
+script = ExtResource("1_x26va")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wftqi")
@@ -578,63 +581,62 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 35, -8, 35)
 
 [node name="Box" parent="BossRoom/TargetRoom/Track" index="0"]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, 0.740589, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.2, -0.882633, 0, 0)
 movement_speed = -3.0
 
 [node name="edge" parent="BossRoom/TargetRoom/Track/Box/edges" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.4501, 0.47505, 0)
-mesh = SubResource("BoxMesh_grjc2")
+mesh = SubResource("BoxMesh_evbb2")
 
 [node name="edge3" parent="BossRoom/TargetRoom/Track/Box/edges" index="1"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, 0.2505)
-mesh = SubResource("BoxMesh_hupix")
+mesh = SubResource("BoxMesh_5k80a")
 
 [node name="edge4" parent="BossRoom/TargetRoom/Track/Box/edges" index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.4501, 0.47505, 0)
-mesh = SubResource("BoxMesh_76hsh")
+mesh = SubResource("BoxMesh_yb5di")
 
 [node name="edge5" parent="BossRoom/TargetRoom/Track/Box/edges" index="3"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, -0.2505)
-mesh = SubResource("BoxMesh_nfirn")
+mesh = SubResource("BoxMesh_iyhcl")
 
 [node name="edge6" parent="BossRoom/TargetRoom/Track/Box/edges" index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.4501, -0.47505, 0)
-mesh = SubResource("BoxMesh_fh1qi")
+mesh = SubResource("BoxMesh_jrjbu")
 
 [node name="edge7" parent="BossRoom/TargetRoom/Track/Box/edges" index="5"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, 0.2505)
-mesh = SubResource("BoxMesh_dhw55")
+mesh = SubResource("BoxMesh_rdpum")
 
 [node name="edge8" parent="BossRoom/TargetRoom/Track/Box/edges" index="6"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.4501, -0.47505, 0)
-mesh = SubResource("BoxMesh_7owf7")
+mesh = SubResource("BoxMesh_jd61o")
 
 [node name="edge9" parent="BossRoom/TargetRoom/Track/Box/edges" index="7"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, -0.2505)
-mesh = SubResource("BoxMesh_wj4gg")
+mesh = SubResource("BoxMesh_h30gh")
 
 [node name="edge2" parent="BossRoom/TargetRoom/Track/Box/edges" index="8"]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.4501, 0, 0.2505)
-mesh = SubResource("BoxMesh_kmtso")
+mesh = SubResource("BoxMesh_2vrpr")
 
 [node name="edge10" parent="BossRoom/TargetRoom/Track/Box/edges" index="9"]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.4501, 0, -0.2505)
-mesh = SubResource("BoxMesh_rpkxe")
+mesh = SubResource("BoxMesh_0oujx")
 
 [node name="edge12" parent="BossRoom/TargetRoom/Track/Box/edges" index="10"]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.4501, 0, -0.2505)
-mesh = SubResource("BoxMesh_pqb76")
+mesh = SubResource("BoxMesh_dnwd5")
 
 [node name="edge11" parent="BossRoom/TargetRoom/Track/Box/edges" index="11"]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.4501, 0, 0.2505)
-mesh = SubResource("BoxMesh_al3k5")
+mesh = SubResource("BoxMesh_bq6xe")
 
 [node name="Box3" parent="BossRoom/TargetRoom/TargetsNObstacles" index="7"]
-transform = Transform3D(-0.193021, 0, 1.48753, 0, 1.5, 0, -1.48753, 0, -0.193021, 2.70451, 1.22157, -23.128)
+transform = Transform3D(-0.768175, 0, -1.28837, 0, 1.5, 0, 1.28837, 0, -0.768175, 2.70451, 1.22157, -23.128)
 
 [node name="Box" parent="BossRoom/TargetRoom/TargetsNObstacles" index="19"]
-transform = Transform3D(1, 0, 0, 0, 2.99392, -0.0127228, 0, 0.190842, 0.199595, -0.881595, 2, -23.011)
-movement_speed = 2.0
+transform = Transform3D(1, 0, 0, 0, 2.99392, -0.0127228, 0, 0.190842, 0.199595, -0.797706, 2, -23.011)
 
 [node name="Platforming2" type="Node3D" parent="BossRoom"]
 
@@ -784,14 +786,6 @@ player = NodePath("../../../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -8.5, -13)
 player = NodePath("../../../../Player")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-size_flags_vertical = 8
-metadata/_edit_use_anchors_ = true
-
 [node name="Target" parent="." instance=ExtResource("22_me1lb")]
 transform = Transform3D(-4.37114e-08, -5, 0, 1, -2.18557e-07, 0, 0, 0, 5, 0.100449, -8.52631, 89.6925)
 
@@ -813,6 +807,8 @@ reset_position = Vector3(-18, -6, 109)
 [node name="DeathZoneNW" parent="DeathZones" instance=ExtResource("16_6ntng")]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 30, 0, 30)
 reset_position = Vector3(18, -6, 109)
+
+[node name="Fade" parent="." instance=ExtResource("24_kh84y")]
 
 [connection signal="switched_on" from="StartingArea/BigDoorWall/Switch" to="StartingArea/BigDoorWall/Door" method="_on_switch_switched_on"]
 [connection signal="switched_on" from="StartingArea/Door/Switch" to="StartingArea/Door" method="_on_switch_switched_on"]
@@ -848,6 +844,8 @@ reset_position = Vector3(18, -6, 109)
 [connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/Switch" to="BossRoom/CombatRoom" method="room_complete"]
 [connection signal="switched_on" from="BossRoom/MiddleHub/EnergyBalls/BallNPillarsSE/Switch" to="BossRoom/EndStage" method="disabledBall"]
 [connection signal="part_broken" from="BossRoom/TargetRoom/Track/Box/DestroyArea" to="Player" method="part_broken"]
+[connection signal="hit_signal" from="Target" to="." method="level_passed"]
+[connection signal="fade_out_finished" from="Fade" to="." method="_on_fade_out_finished"]
 
 [editable path="StartingArea/CrossRoad"]
 [editable path="StartingArea/CrossRoad/Arch2"]
