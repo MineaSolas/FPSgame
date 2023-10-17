@@ -11,7 +11,7 @@ signal hit_signal
 		target_mesh.mesh = mesh_target_hit
 		hit_signal.emit()
 
-func hit():
+func parent_hit():
 	if not has_been_hit:
 		has_been_hit = true
 
