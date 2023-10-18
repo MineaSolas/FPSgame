@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://duy31cebuck77"]
+[gd_scene load_steps=15 format=3 uid="uid://duy31cebuck77"]
 
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="1_t6abt"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="2_agb5j"]
@@ -12,7 +12,20 @@
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="9_mhbqd"]
 [ext_resource type="PackedScene" uid="uid://bvskyf2hxcnot" path="res://Scenes/WorldBuilding/Ceiling.tscn" id="10_u04fu"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jhgbq"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_jhgbq")
+
+[sub_resource type="Environment" id="Environment_rs2rn"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+sky = SubResource("Sky_ivwug")
+
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rs2rn")
 
 [node name="Floor" parent="." instance=ExtResource("1_t6abt")]
 transform = Transform3D(26.6294, 0, 0, 0, 0.998374, 0, 0, 0, 4.05922, 0, 0, -2.20687)
