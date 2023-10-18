@@ -1,0 +1,5 @@
+﻿license: SIL Open Font License (OFL)
+link: https://www.fontspace.com/orbitron-font-f19177
+
+license: Freeware
+link: https://www.fontspace.com/elgethy-font-f4091
