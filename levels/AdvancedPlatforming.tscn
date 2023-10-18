@@ -26,40 +26,40 @@ background_mode = 2
 background_color = Color(0.2139, 0.570975, 0.69, 1)
 sky = SubResource("Sky_ivwug")
 
-[sub_resource type="BoxMesh" id="BoxMesh_fepyw"]
+[sub_resource type="BoxMesh" id="BoxMesh_fvxwr"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_p3kck"]
+[sub_resource type="BoxMesh" id="BoxMesh_bkcaq"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_8pdse"]
+[sub_resource type="BoxMesh" id="BoxMesh_r04my"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_foqws"]
+[sub_resource type="BoxMesh" id="BoxMesh_mc5h7"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_iaxee"]
+[sub_resource type="BoxMesh" id="BoxMesh_qbxbt"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_7m73n"]
+[sub_resource type="BoxMesh" id="BoxMesh_k3d45"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_75na1"]
+[sub_resource type="BoxMesh" id="BoxMesh_6f02y"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_65naw"]
+[sub_resource type="BoxMesh" id="BoxMesh_sqmm0"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_hsahf"]
+[sub_resource type="BoxMesh" id="BoxMesh_qsms7"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_x61l5"]
+[sub_resource type="BoxMesh" id="BoxMesh_y5y8h"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ewm50"]
+[sub_resource type="BoxMesh" id="BoxMesh_pjhrr"]
 size = Vector3(0.1, 0.1, 1.00001)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ew2vi"]
+[sub_resource type="BoxMesh" id="BoxMesh_u7bih"]
 size = Vector3(0.1, 0.1, 1.00001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ui6fm"]
@@ -94,40 +94,40 @@ emission_energy_multiplier = 3.0
 albedo_color = Color(0.895571, 0, 0.124545, 1)
 albedo_texture = ExtResource("8_eejwa")
 
-[sub_resource type="BoxMesh" id="BoxMesh_d3xga"]
+[sub_resource type="BoxMesh" id="BoxMesh_26t8s"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_0sj6u"]
+[sub_resource type="BoxMesh" id="BoxMesh_t6v42"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_qtp6x"]
+[sub_resource type="BoxMesh" id="BoxMesh_kmdhl"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_tl1vs"]
+[sub_resource type="BoxMesh" id="BoxMesh_wvqgx"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_yckjn"]
+[sub_resource type="BoxMesh" id="BoxMesh_c5dgj"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4w85a"]
+[sub_resource type="BoxMesh" id="BoxMesh_yatsq"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_vatkk"]
+[sub_resource type="BoxMesh" id="BoxMesh_us1ky"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_qel0h"]
+[sub_resource type="BoxMesh" id="BoxMesh_mouff"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ljh5j"]
+[sub_resource type="BoxMesh" id="BoxMesh_j1hth"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_yn6ee"]
+[sub_resource type="BoxMesh" id="BoxMesh_08l8w"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_hakfr"]
+[sub_resource type="BoxMesh" id="BoxMesh_j2lja"]
 size = Vector3(0.1, 0.1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_grlms"]
+[sub_resource type="BoxMesh" id="BoxMesh_cccie"]
 size = Vector3(0.1, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fu7f7"]
@@ -194,51 +194,51 @@ transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 8, 0, 7.01555, 0)
 
 [node name="edge" parent="Level1/Box2/edges" index="0"]
 transform = Transform3D(0.0357143, 0, 0, 0, 1, 0, 0, 0, 1, 0.498218, 0.4501, 0)
-mesh = SubResource("BoxMesh_fepyw")
+mesh = SubResource("BoxMesh_fvxwr")
 
 [node name="edge3" parent="Level1/Box2/edges" index="1"]
 transform = Transform3D(-5.46392e-09, 0, 1, 0, 1, 0, -0.125, 0, -4.37114e-08, 0, 0.4501, 0.493762)
-mesh = SubResource("BoxMesh_p3kck")
+mesh = SubResource("BoxMesh_bkcaq")
 
 [node name="edge4" parent="Level1/Box2/edges" index="2"]
 transform = Transform3D(0.0357143, 0, 0, 0, 1, 0, 0, 0, 1, -0.498218, 0.4501, 0)
-mesh = SubResource("BoxMesh_8pdse")
+mesh = SubResource("BoxMesh_r04my")
 
 [node name="edge5" parent="Level1/Box2/edges" index="3"]
 transform = Transform3D(-5.46392e-09, 0, 1, 0, 1, 0, -0.125, 0, -4.37114e-08, 0, 0.4501, -0.493762)
-mesh = SubResource("BoxMesh_foqws")
+mesh = SubResource("BoxMesh_mc5h7")
 
 [node name="edge6" parent="Level1/Box2/edges" index="4"]
 transform = Transform3D(0.0357143, 0, 0, 0, 1, 0, 0, 0, 1, 0.498218, -0.4501, 0)
-mesh = SubResource("BoxMesh_iaxee")
+mesh = SubResource("BoxMesh_qbxbt")
 
 [node name="edge7" parent="Level1/Box2/edges" index="5"]
 transform = Transform3D(-5.46392e-09, 0, 1, 0, 1, 0, -0.125, 0, -4.37114e-08, 0, -0.4501, 0.493762)
-mesh = SubResource("BoxMesh_7m73n")
+mesh = SubResource("BoxMesh_k3d45")
 
 [node name="edge8" parent="Level1/Box2/edges" index="6"]
 transform = Transform3D(0.0357143, 0, 0, 0, 1, 0, 0, 0, 1, -0.498218, -0.4501, 0)
-mesh = SubResource("BoxMesh_75na1")
+mesh = SubResource("BoxMesh_6f02y")
 
 [node name="edge9" parent="Level1/Box2/edges" index="7"]
 transform = Transform3D(-5.46392e-09, 0, 1, 0, 1, 0, -0.125, 0, -4.37114e-08, 0, -0.4501, -0.493762)
-mesh = SubResource("BoxMesh_65naw")
+mesh = SubResource("BoxMesh_sqmm0")
 
 [node name="edge2" parent="Level1/Box2/edges" index="8"]
 transform = Transform3D(0.0357143, 0, 0, 0, -5.46392e-09, -1, 0, 0.125, -4.37114e-08, 0.498218, 0, 0.493762)
-mesh = SubResource("BoxMesh_hsahf")
+mesh = SubResource("BoxMesh_qsms7")
 
 [node name="edge10" parent="Level1/Box2/edges" index="9"]
 transform = Transform3D(0.0357143, 0, 0, 0, -5.46392e-09, -1, 0, 0.125, -4.37114e-08, 0.498218, 0, -0.493762)
-mesh = SubResource("BoxMesh_x61l5")
+mesh = SubResource("BoxMesh_y5y8h")
 
 [node name="edge12" parent="Level1/Box2/edges" index="10"]
 transform = Transform3D(0.0357143, 0, 0, 0, -5.46392e-09, -1, 0, 0.125, -4.37114e-08, -0.498218, 0, -0.493762)
-mesh = SubResource("BoxMesh_ewm50")
+mesh = SubResource("BoxMesh_pjhrr")
 
 [node name="edge11" parent="Level1/Box2/edges" index="11"]
 transform = Transform3D(0.0357143, 0, 0, 0, -5.46392e-09, -1, 0, 0.125, -4.37114e-08, -0.498218, 0, 0.493762)
-mesh = SubResource("BoxMesh_ew2vi")
+mesh = SubResource("BoxMesh_u7bih")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Level1/Box2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91144, 0)
@@ -610,84 +610,84 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vgk8h")
 
 [node name="edge" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(0.01, 0, 0, 0, 0.279955, 0, 0, 0, 1, 0.499501, 0.48603, 0)
-mesh = SubResource("BoxMesh_d3xga")
+mesh = SubResource("BoxMesh_26t8s")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge3" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(-1.82131e-10, 0, 1, 0, 0.279955, 0, -0.00416667, 0, -4.37114e-08, 0, 0.48603, 0.499792)
-mesh = SubResource("BoxMesh_0sj6u")
+mesh = SubResource("BoxMesh_t6v42")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge4" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(0.01, 0, 0, 0, 0.279955, 0, 0, 0, 1, -0.499501, 0.48603, 0)
-mesh = SubResource("BoxMesh_qtp6x")
+mesh = SubResource("BoxMesh_kmdhl")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge5" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(-1.82131e-10, 0, 1, 0, 0.279955, 0, -0.00416667, 0, -4.37114e-08, 0, 0.48603, -0.499792)
-mesh = SubResource("BoxMesh_tl1vs")
+mesh = SubResource("BoxMesh_wvqgx")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge6" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(0.01, 0, 0, 0, 0.279955, 0, 0, 0, 1, 0.499501, -0.48603, 0)
-mesh = SubResource("BoxMesh_yckjn")
+mesh = SubResource("BoxMesh_c5dgj")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge7" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(-1.82131e-10, 0, 1, 0, 0.279955, 0, -0.00416667, 0, -4.37114e-08, 0, -0.48603, 0.499792)
-mesh = SubResource("BoxMesh_4w85a")
+mesh = SubResource("BoxMesh_yatsq")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge8" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(0.01, 0, 0, 0, 0.279955, 0, 0, 0, 1, -0.499501, -0.48603, 0)
-mesh = SubResource("BoxMesh_vatkk")
+mesh = SubResource("BoxMesh_us1ky")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge9" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(-1.82131e-10, 0, 1, 0, 0.279955, 0, -0.00416667, 0, -4.37114e-08, 0, -0.48603, -0.499792)
-mesh = SubResource("BoxMesh_qel0h")
+mesh = SubResource("BoxMesh_mouff")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge2" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(0.01, 0, 0, 0, -1.82131e-10, -1, 0, 0.00416667, -4.37114e-08, 0.499501, 0, 0.499792)
-mesh = SubResource("BoxMesh_ljh5j")
+mesh = SubResource("BoxMesh_j1hth")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge10" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(0.01, 0, 0, 0, -1.82131e-10, -1, 0, 0.00416667, -4.37114e-08, 0.499501, 0, -0.499792)
-mesh = SubResource("BoxMesh_yn6ee")
+mesh = SubResource("BoxMesh_08l8w")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge12" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(0.01, 0, 0, 0, -1.82131e-10, -1, 0, 0.00416667, -4.37114e-08, -0.499501, 0, -0.499792)
-mesh = SubResource("BoxMesh_hakfr")
+mesh = SubResource("BoxMesh_j2lja")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")
 
 [node name="edge11" type="MeshInstance3D" parent="Box3/edges"]
 transform = Transform3D(0.01, 0, 0, 0, -1.82131e-10, -1, 0, 0.00416667, -4.37114e-08, -0.499501, 0, 0.499792)
-mesh = SubResource("BoxMesh_grlms")
+mesh = SubResource("BoxMesh_cccie")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("9_qgxmu")
 script = ExtResource("10_mnodb")

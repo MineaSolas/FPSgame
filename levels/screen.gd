@@ -4,17 +4,17 @@ signal done_writing
 signal player_answer
 signal level_selected(level)
 
-const LVL_NAMES = ["Introduction", "Hitting the targets", "", "Limited use of ammo", "Advanced Platforming", "The final challenge"]
-const LVL_PATHS = ["res://levels/level1complete.tscn", "res://levels/level2/Level2.tscn", "", "res://levels/Level4LimitedAmmo.tscn", "res://levels/AdvancedPlatforming.tscn", "res://levels/level6/level6.tscn"]
+const LVL_NAMES = ["Introduction", "Hitting the targets", "Enemies and targets", "Limited use of ammo", "Advanced Platforming", "The final challenge"]
+const LVL_PATHS = ["res://levels/level1complete.tscn", "res://levels/level2/Level2.tscn", "res://levels/level5/Level5.tscn", "res://levels/Level4LimitedAmmo.tscn", "res://levels/AdvancedPlatforming.tscn", "res://levels/level6/level6.tscn"]
 const LVL_OBJECTIVES = ["Make it through the three sections as fast as possible.", 
 "Find and hit all targets in the testing environment.", 
-"", 
+"Find and hit all targets without being killed by enemies.", 
 "Reach the goal with limited ammunition.", 
 "Make your way to the end of the parkour.", 
 "Open up a way to the center target."]
 const LVL_NOTES = ["Make sure to hit all the targets on the way.", 
 "Think carefully where to shoot.", 
-"", 
+"Be careful, enemies can hide anywhere!", 
 "Spare those rockets where possible!", 
 "Beware of the hints and use the rear-view camera when jumping backwards!", 
 "Use all your acquired skills to beat the four challenges."]
