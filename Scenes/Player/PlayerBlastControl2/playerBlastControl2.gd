@@ -182,13 +182,13 @@ func set_health(value):
 			newHealth.scale = Vector2(0.4, 0.4)
 			
 			if (i+1) == max_health:
-				newHealth.texture = load("res://art/health_bar_end.png")
+				newHealth.texture = load("res://art/health_bar_end_outline.png")
 				newHealth.position.x = 50 + 52*(i-1)
 			elif (i+1) > 1:
-				newHealth.texture = load("res://art/health_bar.png")
+				newHealth.texture = load("res://art/health_bar_outline.png")
 				newHealth.position.x = 50 + 52*(i-1)
 			elif (i+1) == 1:
-				newHealth.texture = load("res://art/health_bar_start.png")
+				newHealth.texture = load("res://art/health_bar_start_outline.png")
 				newHealth.position.x = 10
 			
 			healthBar.add_child(newHealth)
@@ -199,9 +199,9 @@ func set_health(value):
 		death()
 	
 	if health == 1 and max_health > 1:
-		healths[0].texture = load("res://art/health_bar_start_critical.png")
+		healths[0].texture = load("res://art/health_bar_start_critical_outline.png")
 	elif health == 1:
-		healths[0].texture = load("res://art/health_bar_start.png")
+		healths[0].texture = load("res://art/health_bar_start_outline.png")
 
 func _input(event):
 	if event is InputEventMouseMotion and !dead:
