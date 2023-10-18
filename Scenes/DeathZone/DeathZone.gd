@@ -17,16 +17,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if label.visible == true and Input.is_action_just_pressed("SkipStage") and player.position.z <= resetPosition.z + 1 and player.position.z > nextDeathZone.resetPosition.z:
-		nextDeathZone.reset_position(player)
-		label.visible = false
-		nrFails = 0
-		
-	if player != null and !justLeft:
-		if player.position.z > resetPosition.z + 1 or player.position.z <= nextDeathZone.resetPosition.z:
-			nrFails = 0
+	if nextDeathZone != null:
+		if label.visible == true and Input.is_action_just_pressed("SkipStage") and player.position.z <= resetPosition.z + 1 and player.position.z > nextDeathZone.resetPosition.z:
+			nextDeathZone.reset_position(player)
 			label.visible = false
-			justLeft = true
+			nrFails = 0
+			
+		if player != null and !justLeft:
+			if player.position.z > resetPosition.z + 1 or player.position.z <= nextDeathZone.resetPosition.z:
+				nrFails = 0
+				label.visible = false
+				justLeft = true
 
 
 func _on_area_3d_body_entered(body):
@@ -34,7 +35,7 @@ func _on_area_3d_body_entered(body):
 		player = body
 		reset_position(player)
 		nrFails += 1
-		if nrFails >= 6:
+		if nrFails >= 6 and nextDeathZone != null:
 			label.visible = true
 	
 
