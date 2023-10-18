@@ -171,6 +171,7 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, 0, 0)
 target_position = Vector3(60, 0, 0)
 
 [node name="Control" type="Control" parent="Head/Camera3d"]
+top_level = true
 z_index = 1
 layout_mode = 3
 anchors_preset = 15

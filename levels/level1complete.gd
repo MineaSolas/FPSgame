@@ -11,7 +11,7 @@ func _ready():
 func level_passed():
 	player.stop_timer()
 	fade.fade_out()
-	c
+	
 func _on_fade_out_finished():
 	get_tree().change_scene_to_file("res://levels/screen.tscn")
 

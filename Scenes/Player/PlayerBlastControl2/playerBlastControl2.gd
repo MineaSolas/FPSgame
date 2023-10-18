@@ -147,7 +147,7 @@ var on_level_passed: Callable
 func finish_level_on_all_targets_hit(level_passed: Callable):
 	on_level_passed = level_passed
 	var targets = get_tree().get_nodes_in_group("Targets")
-	total_targets = 1#targets.size()
+	total_targets = targets.size()
 	for target in targets:
 		target.connect("hit_signal", hit_target)
 	set_target_counter_text()
