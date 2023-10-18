@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://boaew7c7m12jx" path="res://Scenes/WorldBuilding/WallThin.tscn" id="7_ddluw"]
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="8_a4hs5"]
 [ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="9_o0fp5"]
-[ext_resource type="PackedScene" uid="uid://ibesibsmbcaf" path="res://Scenes/WorldBuilding/Corridor90.tscn" id="11_467cq"]
+[ext_resource type="PackedScene" path="res://Scenes/WorldBuilding/Corridor90.tscn" id="11_467cq"]
 [ext_resource type="PackedScene" uid="uid://ccppai6n5q2pw" path="res://Scenes/WorldBuilding/Arch.tscn" id="11_tcl41"]
 [ext_resource type="PackedScene" uid="uid://hv7st8vce7xw" path="res://Scenes/Target/MovingTarget/MovingTarget.tscn" id="12_4jkdl"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="13_21dxx"]
@@ -380,5 +380,7 @@ transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 180, 0, 1.198, -81.812)
 transform = Transform3D(0.707107, 0.5, 0.5, 0, -0.707107, 0.707107, 0.707107, -0.5, -0.5, 50, 50, -50)
 
 [node name="Fade" parent="." instance=ExtResource("17_l4wr3")]
+
+[connection signal="fade_out_finished" from="Fade" to="." method="_on_fade_fade_out_finished"]
 
 [editable path="Buildings/Corridor5/Door2"]
