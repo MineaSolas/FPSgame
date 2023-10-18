@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://drkyim3ov7pxa"]
 
-[ext_resource type="Script" path="res://levels/Elevator.gd" id="1_p87ag"]
+[ext_resource type="Script" path="res://levels/level2/Elevator.gd" id="1_p87ag"]
 [ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="2_f607q"]
 [ext_resource type="PackedScene" uid="uid://dqqygnugcatol" path="res://Scenes/PressurePlate/PressurePlate.tscn" id="3_hqa2x"]
 

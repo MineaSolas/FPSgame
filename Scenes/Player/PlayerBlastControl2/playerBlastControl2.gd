@@ -4,6 +4,9 @@ extends CharacterBody3D
 @onready var Cam = $Head/Camera3d as Camera3D
 @onready var healthBar = $Head/Camera3d/Control/HealthBar
 @onready var targetCounter = $Head/Camera3d/Control/Targets/Label
+@onready var destructionEffect = $Head/Camera3d/Control/Effect/DestructionEffect
+@onready var shootingSoundPlayer = $ShootingSoundPlayer
+@onready var targetHitSoundPlayer = $TargetHitSoundPlayer
 
 @export var max_health = 3
 @export var has_health = false
@@ -152,6 +155,7 @@ func finish_level_on_all_targets_hit(level_passed: Callable):
 
 func hit_target():
 	hit_targets += 1
+	targetHitSoundPlayer.play()
 	set_target_counter_text()
 	if hit_targets == total_targets:
 		on_level_passed.call()
@@ -214,6 +218,7 @@ func blast(blast_pos):
 
 func shoot():
 	can_shoot = false
+	shootingSoundPlayer.play()
 	
 	# Spawn Rocket
 	var rocket_inst = _bullet_scene.instantiate()
@@ -253,6 +258,7 @@ func hit():
 		can_be_hit = true
 	
 func part_broken(ends_game):
+	destructionEffect.show()
 	if ends_game:
 		death()
 	
