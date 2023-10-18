@@ -6,6 +6,7 @@ signal switched_off
 @onready var target = $target
 @onready var colored_part = $target/colored_part
 @onready var material : StandardMaterial3D = colored_part.get_surface_override_material(0).duplicate()
+@onready var audio_player = $AudioStreamPlayer
 
 @export var turned_on = false :
 	set(value):
@@ -46,6 +47,7 @@ func send_signal():
 
 func parent_hit():
 	if not turned_on:
+		audio_player.play()
 		turned_on = true
 		send_signal()
 

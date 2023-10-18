@@ -3,6 +3,9 @@ extends Label
 var bullets = 10
 var max_bullets = 10
 
+func _ready():
+	label_settings.font_color = "ffffff"
+
 func set_bullet_counts(new_bullet_count):
 	bullets = new_bullet_count
 	max_bullets = new_bullet_count

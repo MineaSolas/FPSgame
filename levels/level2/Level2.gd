@@ -4,12 +4,16 @@ extends Node3D
 @onready var player = $Player
 
 func _ready():
+	player.progress.selected_lvl = 2
+	player.finish_level_on_all_targets_hit(level_passed)
+	
 	fade.show_self()
 	fade.fade_in()
 	player.start_timer()
-	
+
 func level_passed():
 	player.stop_timer()
+	await get_tree().create_timer(1).timeout
 	fade.fade_out()
 	
 func _on_fade_out_finished():

@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://s52e4i1g7uky"]
+[gd_scene load_steps=6 format=3 uid="uid://s52e4i1g7uky"]
 
 [ext_resource type="Script" path="res://Scenes/Rocket/Rocket.gd" id="1_8eebb"]
+[ext_resource type="PackedScene" uid="uid://c55xg4fh2d11h" path="res://assets/meshes/rocket.obj" id="2_gx6an"]
+[ext_resource type="PackedScene" uid="uid://6gspvr1gaj6" path="res://Scenes/Rocket/Explosion.tscn" id="3_kkaki"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xmf7i"]
 
@@ -13,10 +15,19 @@ collision_mask = 2
 script = ExtResource("1_8eebb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_xmf7i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_rei5t")
 
+[node name="rocket" parent="." instance=ExtResource("2_gx6an")]
+transform = Transform3D(1.4, 0, 0, 0, 0.6, 0, 0, 0, 1.4, 0, -0.937738, 0)
+
+[node name="Explosion" parent="." instance=ExtResource("3_kkaki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.324931, 0)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="rocket"]

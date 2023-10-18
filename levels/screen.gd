@@ -4,20 +4,20 @@ signal done_writing
 signal player_answer
 signal level_selected(level)
 
-const LVL_NAMES = ["", "Hitting the targets", "", "Limited use of ammo", "Advanced Platforming", ""]
-const LVL_PATHS = ["", "res://levels/Level2.tscn", "", "res://levels/Level4LimitedAmmo.tscn", "res://levels/AdvancedPlatforming.tscn", ""]
-const LVL_OBJECTIVES = ["", 
+const LVL_NAMES = ["Introduction", "Hitting the targets", "", "Limited use of ammo", "Advanced Platforming", "The final challenge"]
+const LVL_PATHS = ["res://levels/level1complete.tscn", "res://levels/level2/Level2.tscn", "", "res://levels/Level4LimitedAmmo.tscn", "res://levels/AdvancedPlatforming.tscn", "res://levels/level6/level6.tscn"]
+const LVL_OBJECTIVES = ["Make it through the three sections as fast as possible.", 
 "Find and hit all targets in the testing environment.", 
 "", 
 "Reach the goal with limited ammunition.", 
 "Make your way to the end of the parkour.", 
-""]
+"Open up a way to the center target."]
 const LVL_NOTES = ["Make sure to hit all the targets on the way.", 
 "Think carefully where to shoot.", 
 "", 
 "Spare those rockets where possible!", 
 "Beware of the hints and use the rear-view camera when jumping backwards!", 
-""]
+"Use all your acquired skills to beat the four challenges."]
 
 @onready var label = $CanvasLayer/ScreenText
 @onready var fade = $Fade
@@ -680,7 +680,11 @@ func play_test_selection():
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
 	if (progress.passed[0]):
-		write("  |  passed", NORMAL_TEXT, "green")
+		write("  |  passed in ", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write(format_time(progress.time_records[0]), NORMAL_TEXT, "white")
 		await done_writing
 		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -693,7 +697,11 @@ func play_test_selection():
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
 	if (progress.passed[1]):
-		write("  |  passed", NORMAL_TEXT, "green")
+		write("  |  passed in ", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write(format_time(progress.time_records[1]), NORMAL_TEXT, "white")
 		await done_writing
 		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -706,7 +714,11 @@ func play_test_selection():
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
 	if (progress.passed[2]):
-		write("  |  passed", NORMAL_TEXT, "green")
+		write("  |  passed in ", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write(format_time(progress.time_records[2]), NORMAL_TEXT, "white")
 		await done_writing
 		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -719,7 +731,11 @@ func play_test_selection():
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
 	if (progress.passed[3]):
-		write("  |  passed", NORMAL_TEXT, "green")
+		write("  |  passed in ", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write(format_time(progress.time_records[3]), NORMAL_TEXT, "white")
 		await done_writing
 		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -732,7 +748,11 @@ func play_test_selection():
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
 	if (progress.passed[4]):
-		write("  |  passed", NORMAL_TEXT, "green")
+		write("  |  passed in ", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write(format_time(progress.time_records[4]), NORMAL_TEXT, "white")
 		await done_writing
 		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
@@ -745,7 +765,11 @@ func play_test_selection():
 	await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	
 	if (progress.passed[5]):
-		write("  |  passed", NORMAL_TEXT, "green")
+		write("  |  passed in ", NORMAL_TEXT, "green")
+		await done_writing
+		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
+		
+		write(format_time(progress.time_records[5]), NORMAL_TEXT, "white")
 		await done_writing
 		await get_tree().create_timer(DEFAULT_WRITING_DELAY).timeout
 	

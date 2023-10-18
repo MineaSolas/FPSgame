@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqqygnugcatol"]
+[gd_scene load_steps=10 format=3 uid="uid://dqqygnugcatol"]
 
 [ext_resource type="Script" path="res://Scenes/PressurePlate/PressurePlate.gd" id="1_3m3nb"]
+[ext_resource type="AudioStream" uid="uid://ja0i7guepj6u" path="res://assets/sounds/press2.wav" id="2_ivkml"]
+[ext_resource type="AudioStream" uid="uid://cesus2lcsoukb" path="res://assets/sounds/press3.wav" id="3_xet6s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bke6u"]
 albedo_color = Color(0.662745, 0.662745, 0.662745, 1)
@@ -65,6 +67,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ad5wv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="plate/switch_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = SubResource("BoxShape3D_nrxpc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ivkml")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xet6s")
 
 [connection signal="body_entered" from="plate/switch_area" to="." method="_on_switch_area_body_entered"]
 [connection signal="body_exited" from="plate/switch_area" to="." method="_on_switch_area_body_exited"]

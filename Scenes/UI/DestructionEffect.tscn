@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgxqt7hma5drf"]
+
+[ext_resource type="Texture2D" uid="uid://b5l3hcky500bk" path="res://addons/kenney_particle_pack/spark_05.png" id="1_bsv80"]
+[ext_resource type="Texture2D" uid="uid://cdgeafhk8h38s" path="res://addons/kenney_particle_pack/spark_02.png" id="2_x65fl"]
+[ext_resource type="Texture2D" uid="uid://diiifcddlh2yx" path="res://addons/kenney_particle_pack/spark_03.png" id="3_afvoj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xqhr1"]
+emission_shape = 3
+emission_box_extents = Vector3(700, 400, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 180.0
+scale_min = 3.0
+scale_max = 4.0
+color = Color(1, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v43mi"]
+emission_shape = 3
+emission_box_extents = Vector3(1000, 500, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 180.0
+scale_min = 0.6
+color = Color(0.745098, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_avppu"]
+emission_shape = 3
+emission_box_extents = Vector3(1000, 500, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 180.0
+scale_min = 0.6
+color = Color(0.309804, 0, 0, 1)
+
+[sub_resource type="Environment" id="Environment_xernt"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+glow_hdr_threshold = 1.5
+
+[node name="DestructionEffect" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(1.7, 1.6, 1.6, 1)
+process_material = SubResource("ParticleProcessMaterial_xqhr1")
+texture = ExtResource("1_bsv80")
+lifetime = 0.15
+explosiveness = 0.4
+randomness = 0.4
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+modulate = Color(1.8, 1.6, 1.6, 1)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_v43mi")
+texture = ExtResource("2_x65fl")
+lifetime = 0.1
+randomness = 0.4
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+modulate = Color(1.8, 1.6, 1.6, 1)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_avppu")
+texture = ExtResource("3_afvoj")
+lifetime = 0.1
+randomness = 0.4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xernt")

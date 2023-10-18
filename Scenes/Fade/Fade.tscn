@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckacxkfej64m6"]
+[gd_scene load_steps=6 format=3 uid="uid://ckacxkfej64m6"]
 
 [ext_resource type="Script" path="res://Scenes/Fade/FadeIn.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://drtifsl7hb7aa" path="res://assets/sounds/success-sound-effect.mp3" id="2_uqqei"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "FadeIn"
@@ -58,5 +59,8 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_p1abg")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uqqei")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

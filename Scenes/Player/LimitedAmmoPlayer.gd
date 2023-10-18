@@ -1,8 +1,8 @@
 extends "res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.gd"
 
 var bullets
-# 30 should be right i think
-var max_bullets = 7
+# either 28 or 30 should be right i think
+var max_bullets = 30
 var reset_time = 0
 
 @onready var ammo_ui = $"Head/Camera3d/Control/LimitedAmmo/Ammo"

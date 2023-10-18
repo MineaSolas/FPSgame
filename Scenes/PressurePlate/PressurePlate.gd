@@ -6,6 +6,8 @@ signal switched_off
 @onready var plate = $plate
 @onready var colored_part = $plate/MeshInstance3D
 @onready var material : StandardMaterial3D = colored_part.get_surface_override_material(0).duplicate()
+@onready var audio_player = $AudioStreamPlayer
+@onready var audio_player2 = $AudioStreamPlayer2
 
 @export var one_use = false
 var turned_on = false :
@@ -47,11 +49,13 @@ func send_signal():
 
 func _on_switch_area_body_entered(body):
 	if body.is_in_group("Player") and not turned_on:
+		audio_player.play()
 		turned_on = true
 		send_signal()
 
 func _on_switch_area_body_exited(body):
 	if body.is_in_group("Player") and not one_use and turned_on:
+		audio_player2.play()
 		turned_on = false
 		send_signal()
 		

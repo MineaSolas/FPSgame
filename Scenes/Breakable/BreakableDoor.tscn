@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cugngjagm5tvy" path="res://addons/corridors/Doors/door_left_teal.tscn" id="1_m8fc4"]
 [ext_resource type="PackedScene" uid="uid://bhk52ymicy1yi" path="res://addons/corridors/Doors/door_right_teal.tscn" id="2_k1c1m"]
 [ext_resource type="Texture2D" uid="uid://bfisu6ohih1d0" path="res://addons/corridors/CorridorModel_Earth Ship Colors.png" id="2_v5n56"]
-[ext_resource type="Material" uid="uid://cdhpifvewr2ux" path="res://Scenes/Breakable/breakable.tres" id="3_s3wbd"]
+[ext_resource type="Material" uid="uid://c160fmwi4ub0" path="res://Scenes/Breakable/breakable.tres" id="3_s3wbd"]
 [ext_resource type="PackedScene" uid="uid://bra1ivnn006kp" path="res://Scenes/Breakable/DestroyArea.tscn" id="5_hwr66"]
 [ext_resource type="PackedScene" uid="uid://dbxx16yyfhuco" path="res://assets/BrokenDoor.obj" id="6_nsaoh"]
 
@@ -39,6 +39,8 @@ fragmented = ExtResource("6_nsaoh")
 fade_delay = 0.5
 shrink_delay = 0.5
 animation_length = 0.5
+shard_collision_layer = 0
+shard_collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DestroyArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)

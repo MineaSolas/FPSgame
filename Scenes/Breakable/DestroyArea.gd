@@ -44,5 +44,19 @@ func set_fragmented(to: PackedScene) -> void:
 func hit():
 	if get_parent().has_method("stop"):
 		get_parent().stop()
+		
+	var rubble_player = AudioStreamPlayer3D.new()
+	rubble_player.stream = preload("res://assets/sounds/524312__bertsz__rock-destroy.wav")
+	get_parent().get_parent().add_child(rubble_player)
+	
+	var electricity_player = AudioStreamPlayer3D.new()
+	electricity_player.stream = preload("res://assets/sounds/earcing.wav")
+	get_parent().get_parent().add_child(electricity_player)
+	
+	rubble_player.play()
+	if ends_game:
+		electricity_player.play()
+		await get_tree().create_timer(0.1).timeout
+	
 	destruction.destroy(explosion_power)
 	part_broken.emit(ends_game)
