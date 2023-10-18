@@ -84,40 +84,40 @@ size = Vector3(0.2, 1.84, 0.5)
 next_pass = ExtResource("12_hwlun")
 albedo_texture = ExtResource("22_ygk3y")
 
-[sub_resource type="BoxMesh" id="BoxMesh_lef16"]
+[sub_resource type="BoxMesh" id="BoxMesh_jud12"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_h55d4"]
+[sub_resource type="BoxMesh" id="BoxMesh_ufr54"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4hxsw"]
+[sub_resource type="BoxMesh" id="BoxMesh_iapj8"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_n2s5b"]
+[sub_resource type="BoxMesh" id="BoxMesh_cx6gi"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ufk7e"]
+[sub_resource type="BoxMesh" id="BoxMesh_i5vgg"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_gdjhb"]
+[sub_resource type="BoxMesh" id="BoxMesh_s2kov"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_d36df"]
+[sub_resource type="BoxMesh" id="BoxMesh_6cw17"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_nnxa3"]
+[sub_resource type="BoxMesh" id="BoxMesh_70npb"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_400si"]
+[sub_resource type="BoxMesh" id="BoxMesh_1wi4v"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_c3jtf"]
+[sub_resource type="BoxMesh" id="BoxMesh_hi2fn"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_0sclj"]
+[sub_resource type="BoxMesh" id="BoxMesh_t3yfr"]
 size = Vector3(0.1, 0.1, 1.0005)
 
-[sub_resource type="BoxMesh" id="BoxMesh_8y1sf"]
+[sub_resource type="BoxMesh" id="BoxMesh_58jmn"]
 size = Vector3(0.1, 0.1, 1.0005)
 
 [node name="Level2" type="Node3D"]
@@ -931,6 +931,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.378, 17.5)
 
 [node name="Door" parent="ShootingRange/Hallway/Corridor" instance=ExtResource("3_l1ivi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8)
+animation_speed = 1.8
 
 [node name="DoorWall" type="StaticBody3D" parent="ShootingRange/Hallway/Corridor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.3)
@@ -1422,7 +1423,7 @@ rotation_speed = null
 initial_X = 7.0
 
 [node name="RotatingBox" parent="ShootingRange/LongRoom/TargetRoom/Main" instance=ExtResource("19_mxtw8")]
-transform = Transform3D(0.990773, 0, -1.73734, 0, 2, 0, 1.73734, 0, 0.990773, -1.12677, 1.47617, 10.7081)
+transform = Transform3D(1.97798, 0, 0.295972, 0, 2, 0, -0.295972, 0, 1.97798, -1.12677, 1.47617, 10.7081)
 rotation_speed = Vector3(0, 60, 0)
 initial_X = -1.51166
 
@@ -1454,9 +1455,9 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
 [node name="Box7" parent="ShootingRange/LongRoom/TargetRoom/Main/Track" instance=ExtResource("19_mxtw8")]
-transform = Transform3D(2.49391, 0, 0.0348782, 0, 1.5, 0, -0.174391, 0, 0.498782, 7.29079, 4.376, 14.405)
+transform = Transform3D(2.49391, 0, 0.0348782, 0, 1.5, 0, -0.174391, 0, 0.498782, 3.55516, 4.376, 14.405)
 rotation_speed = null
-movement_speed = -2
+movement_speed = 2
 max_X = 10
 
 [node name="Target4" parent="ShootingRange/LongRoom/TargetRoom/Main/Track/Box7" instance=ExtResource("18_2f0fe")]
@@ -1465,52 +1466,52 @@ transform = Transform3D(0.0139513, 0, 0.199513, 0, 0.333333, 0, -0.997564, 0, 0.
 [node name="Track2" parent="ShootingRange/LongRoom/TargetRoom/Main" instance=ExtResource("30_cv4mp")]
 
 [node name="Box" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2" index="0"]
-transform = Transform3D(2.5, 0, 0, 0, 2, 0, 0, 0, 0.2, 11.6388, 4.5, 14.2)
+transform = Transform3D(2.5, 0, 0, 0, 2, 0, 0, 0, 0.2, 10.3676, 4.5, 14.2)
 movement_speed = -4.0
 
 [node name="edge" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="0"]
-mesh = SubResource("BoxMesh_lef16")
+mesh = SubResource("BoxMesh_jud12")
 
 [node name="edge3" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="1"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, 0.2505)
-mesh = SubResource("BoxMesh_h55d4")
+mesh = SubResource("BoxMesh_ufr54")
 
 [node name="edge4" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="2"]
-mesh = SubResource("BoxMesh_4hxsw")
+mesh = SubResource("BoxMesh_iapj8")
 
 [node name="edge5" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="3"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, 0.47505, -0.2505)
-mesh = SubResource("BoxMesh_n2s5b")
+mesh = SubResource("BoxMesh_cx6gi")
 
 [node name="edge6" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="4"]
-mesh = SubResource("BoxMesh_ufk7e")
+mesh = SubResource("BoxMesh_i5vgg")
 
 [node name="edge7" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="5"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, 0.2505)
-mesh = SubResource("BoxMesh_gdjhb")
+mesh = SubResource("BoxMesh_s2kov")
 
 [node name="edge8" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="6"]
-mesh = SubResource("BoxMesh_d36df")
+mesh = SubResource("BoxMesh_6cw17")
 
 [node name="edge9" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="7"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 0.5, 0, -5, 0, -4.37114e-08, 0, -0.47505, -0.2505)
-mesh = SubResource("BoxMesh_nnxa3")
+mesh = SubResource("BoxMesh_70npb")
 
 [node name="edge2" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="8"]
 transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.48004, 0, 0.2505)
-mesh = SubResource("BoxMesh_400si")
+mesh = SubResource("BoxMesh_1wi4v")
 
 [node name="edge10" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="9"]
 transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0.48004, 0, -0.2505)
-mesh = SubResource("BoxMesh_c3jtf")
+mesh = SubResource("BoxMesh_hi2fn")
 
 [node name="edge12" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="10"]
 transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.48004, 0, -0.2505)
-mesh = SubResource("BoxMesh_0sclj")
+mesh = SubResource("BoxMesh_t3yfr")
 
 [node name="edge11" parent="ShootingRange/LongRoom/TargetRoom/Main/Track2/Box/edges" index="11"]
 transform = Transform3D(0.4, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, -0.48004, 0, 0.2505)
-mesh = SubResource("BoxMesh_8y1sf")
+mesh = SubResource("BoxMesh_58jmn")
 
 [node name="Breakables" type="Node3D" parent="ShootingRange/LongRoom/TargetRoom/Main"]
 
@@ -1806,6 +1807,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.378, 17.5)
 
 [node name="Door" parent="DummyHall/Corridor" instance=ExtResource("3_l1ivi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8)
+animation_speed = 1.8
 
 [node name="DoorWall" type="StaticBody3D" parent="DummyHall/Corridor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.3)

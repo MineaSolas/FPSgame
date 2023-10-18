@@ -2,12 +2,17 @@ extends CanvasLayer
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var colorRect = $ColorRect
+@onready var audioPlayer = $AudioStreamPlayer
 
 signal fade_out_finished
 signal fade_in_finished
 
 func fade_out():
 	show()
+	var scene = get_tree().get_current_scene().get_name()
+	if scene != "Screen":
+		audioPlayer.play()
+		await get_tree().create_timer(1).timeout
 	animationPlayer.play("FadeOut")
 	
 func fade_in():

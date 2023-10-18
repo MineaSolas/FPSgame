@@ -13,7 +13,7 @@ func _ready():
 
 func level_passed():
 	player.stop_timer()
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	fade.fade_out()
 	
 func _on_fade_out_finished():
