@@ -4,7 +4,7 @@ extends Node3D
 @onready var player = $Player
 
 func _ready():
-	player.progress.selected_lvl = 5
+	player.progress.selected_lvl = 3
 	player.finish_level_on_all_targets_hit(level_passed)
 
 	fade.show_self()
