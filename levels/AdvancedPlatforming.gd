@@ -7,6 +7,7 @@ func _ready():
 	fade.show_self()
 	fade.fade_in()
 	$Player/Head/Camera3d/Control/RearCam.visible = true
+	$Player.start_timer()
 
 func level_passed():
 	await get_tree().create_timer(1).timeout
