@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://cd5ptfwso4ckj"]
 
 [ext_resource type="PackedScene" uid="uid://dqkf1y32m634r" path="res://Scenes/WorldBuilding/Floor.tscn" id="1_t6abt"]
-[ext_resource type="Script" path="res://level1complete.gd" id="1_v26tf"]
+[ext_resource type="Script" path="res://levels/level1complete.gd" id="1_v26tf"]
 [ext_resource type="PackedScene" uid="uid://bru6ysxn1me4l" path="res://Scenes/Player/PlayerBlastControl2/playerBlastControl2.tscn" id="2_agb5j"]
 [ext_resource type="PackedScene" uid="uid://bfmwf2lx7ps72" path="res://Scenes/WorldBuilding/Column.tscn" id="2_y1slh"]
 [ext_resource type="PackedScene" uid="uid://dqqygnugcatol" path="res://Scenes/PressurePlate/PressurePlate.tscn" id="3_7muhk"]
@@ -12,11 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://co4fu3b1g0efi" path="res://Scenes/WorldBuilding/Corridor.tscn" id="7_54uc3"]
 [ext_resource type="PackedScene" uid="uid://beytfaju82csg" path="res://Scenes/WorldBuilding/Buildings/BasicRoom.tscn" id="9_mhbqd"]
 [ext_resource type="PackedScene" uid="uid://bvskyf2hxcnot" path="res://Scenes/WorldBuilding/Ceiling.tscn" id="10_u04fu"]
-[ext_resource type="PackedScene" uid="uid://b468c7h7t7g3v" path="res://Scenes/WorldBuilding/tutorialpanel.tscn" id="12_w50bg"]
-[ext_resource type="PackedScene" uid="uid://dp8tva7b8t806" path="res://Scenes/WorldBuilding/tutorialpanel2.tscn" id="13_fnq0u"]
-[ext_resource type="PackedScene" uid="uid://hhq8h6xk5148" path="res://Scenes/WorldBuilding/tutorialpanel3.tscn" id="14_kgw3k"]
-[ext_resource type="PackedScene" uid="uid://dd3atm2jhvv22" path="res://Scenes/WorldBuilding/tutorialpanel4.tscn" id="15_35r4t"]
+[ext_resource type="PackedScene" uid="uid://b468c7h7t7g3v" path="res://assets/tutorialpanel.tscn" id="12_w50bg"]
+[ext_resource type="PackedScene" uid="uid://dp8tva7b8t806" path="res://assets/tutorialpanel2.tscn" id="13_fnq0u"]
+[ext_resource type="PackedScene" uid="uid://hhq8h6xk5148" path="res://assets/tutorialpanel3.tscn" id="14_kgw3k"]
+[ext_resource type="PackedScene" uid="uid://dd3atm2jhvv22" path="res://assets/tutorialpanel4.tscn" id="15_35r4t"]
 [ext_resource type="PackedScene" uid="uid://ckacxkfej64m6" path="res://Scenes/Fade/Fade.tscn" id="16_dljt2"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqwlo"]
 albedo_color = Color(0.4, 0.658824, 1, 1)

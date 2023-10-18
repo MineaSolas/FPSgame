@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://bndbehloojmre"]
+[gd_scene load_steps=23 format=3 uid="uid://bndbehloojmre"]
 
 [ext_resource type="PackedScene" uid="uid://cf4x8lslcpbia" path="res://Scenes/WorldBuilding/Box.tscn" id="1_judt8"]
+[ext_resource type="Script" path="res://levels/level5/Level5.gd" id="1_v0u3h"]
 [ext_resource type="PackedScene" uid="uid://b8yrfir2621jt" path="res://Scenes/Enemy/enemy.tscn" id="2_v35jq"]
 [ext_resource type="PackedScene" uid="uid://cpsmsr52q8o5d" path="res://Scenes/WorldBuilding/GlassWall.tscn" id="3_3638c"]
 [ext_resource type="Material" uid="uid://cv3opj8v4jic8" path="res://addons/corridors/floors.tres" id="3_ffhmy"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://hv7st8vce7xw" path="res://Scenes/Target/MovingTarget/MovingTarget.tscn" id="12_4jkdl"]
 [ext_resource type="PackedScene" uid="uid://52attaykg0eq" path="res://Scenes/Target/Target.tscn" id="13_21dxx"]
 [ext_resource type="PackedScene" uid="uid://cs4jve2bhvhgk" path="res://Scenes/Door/Door.tscn" id="14_unfu2"]
+[ext_resource type="PackedScene" uid="uid://ckacxkfej64m6" path="res://Scenes/Fade/Fade.tscn" id="17_l4wr3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vedpm"]
 
@@ -39,6 +41,7 @@ _data = {
 point_count = 5
 
 [node name="Level5" type="Node3D"]
+script = ExtResource("1_v0u3h")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fls07")
@@ -375,5 +378,7 @@ transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 180, 0, 1.198, -81.812)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, 0.5, 0, -0.707107, 0.707107, 0.707107, -0.5, -0.5, 50, 50, -50)
+
+[node name="Fade" parent="." instance=ExtResource("17_l4wr3")]
 
 [editable path="Buildings/Corridor5/Door2"]
