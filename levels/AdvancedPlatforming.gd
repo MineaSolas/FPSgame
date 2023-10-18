@@ -10,6 +10,7 @@ func _ready():
 	$Player.start_timer()
 
 func level_passed():
+	$Player.stop_timer()
 	await get_tree().create_timer(1).timeout
 	fade.fade_out()
 
